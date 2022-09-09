@@ -1,0 +1,144 @@
+
+/* External links */
+
+a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href*='altinn.studio']):not([href*='altinn.github.io'])::after {
+    display: inline-block;
+    width: 1.3em;
+    background-image: url("https://altinn.no/images/arrowrightup.svg");
+    background-repeat: no-repeat;
+    background-size: 119% auto;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-left: -3px;
+    content: '(external link)';
+    white-space: nowrap;
+    overflow: hidden;
+    text-indent: 1.3em;
+}
+
+
+/* Fix for tags pushing header to the right */
+#tags {
+    float: none;
+    margin-top: -1.5rem;
+}
+
+/* Scrollable tables */
+#body-inner table {
+    display: block;
+    width: 98%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 0;
+    margin-bottom: 2em;
+}
+
+#body-inner table th {
+    border: 1px solid #eaeaea;
+}
+
+/* Avoid large margin for images in tables */
+#body td a > img {
+    margin: 0 auto !important;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * /
+ * Overriding css from altinn digitalisering.
+ * * * * * * * * * * * * * * * * * * * * * /
+
+/* Footer */
+.an-footer {
+    margin-top: 100px;
+}
+
+
+/* Login link in topbar */
+.a-header-options {
+    margin-top: -2px;
+}
+
+.a-header-options .nav-link.a-personSwitcher {
+    padding: 8px 12px 8px 12px;
+}
+
+.an-login {
+    display: none;
+}
+
+@media all and (min-width: 768px) {
+    .an-login {
+        display: block;
+    }
+}
+
+.a-personSwitcher:hover,
+.a-personSwitcher .a-personSwitcher-icon {
+    color: #fff;
+}
+
+.a-personSwitcher .a-personSwitcher-name span {
+    font-weight: 700;
+}
+
+@media all and (min-width: 768px) {
+    .a-globalNav-main li {
+        margin-left: 24px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .a-globalNav-main li {
+        margin-left: 38px;
+    }
+}
+
+/* Logo and info about docs for Altinn 2 */
+
+.a-globalNav .a-globalNav-logo {
+    margin-top: -6px;
+}
+
+@media all and (min-width: 768px) {
+    .a-globalNav .a-globalNav-logo {
+        margin-top: 0;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .a-header .a-logo {
+        max-width: 256px;
+    }
+}
+
+.adocs-logoInfo {
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    margin-left: 36px;
+    margin-top: 28px;
+    position: absolute;
+}
+
+@media all and (min-width: 578px) {
+    .adocs-logoInfo {
+        margin-left: 48px;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .adocs-logoInfo {
+        position: relative;
+        display: inline-block;
+        margin-top: 0;
+        margin-left: 0;
+        font-size: 20px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .adocs-logoInfo {
+        font-size: 24px;
+    }
+}
