@@ -1,4 +1,3 @@
-
 /* External links */
 
 a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href*='altinn.studio']):not([href*='altinn.github.io'])::after {
@@ -38,7 +37,7 @@ a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href
 }
 
 /* Avoid large margin for images in tables */
-#body td a > img {
+#body td a>img {
     margin: 0 auto !important;
 }
 
@@ -47,9 +46,97 @@ a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href
  * Overriding css from altinn digitalisering.
  * * * * * * * * * * * * * * * * * * * * * /
 
-/* Footer */
-.an-footer {
-    margin-top: 100px;
+ /* Footer */
+
+ .footer {
+	background-color: #1e2b3c;
+	padding: 75px 0;
+	margin-top: 50px;
+	position: relative;
+}
+
+footer .container {
+	max-width: 1240px;
+}
+
+.footer-brand__logo, .footer .footer-brand__logo {
+	height: 38px;
+	margin-bottom: 13px;
+	margin-left: -8px;
+}
+
+.footer-brand__text, .footer .footer-brand__text {
+	color: #d7d7d7;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 2em;
+}
+
+.footer__heading {
+	color: white;
+	margin-bottom: 16px;
+	margin-top: 8px;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 0.4px;
+}
+
+.footer-links__list, .footer .footer-links__list {
+	padding-left: 0;
+	margin-bottom: 0;
+    list-style-type: none;
+}
+
+.footer-links__item a::before, .footer .footer-links__item a::before {
+	content: "";
+	font-family: "Font Awesome 5 Brands", sans-serif;
+	margin-right: 8px;
+	font-size: 17px;
+}
+
+.footer-links__item a, .footer .footer-links__item a {
+	color: #d7d7d7;
+	margin-bottom: 12px;
+	font-weight: 400;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+    text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+    border-bottom: none;
+}
+
+.footer-links__item a:hover, .footer .footer-links__item a:hover, .footer-contact__item a:hover, .footer .footer-contact__item a:hover, .footer-contact__icon:hover, .footer .footer-contact__icon:hover {
+	color: white;
+    border-bottom: none;
+}
+
+.footer-contact__item span:first-child, .footer .footer-contact__item span:first-child {
+	color: white;
+}
+
+.footer-contact__item, .footer .footer-contact__item {
+	color: #d7d7d7;
+	font-weight: 400;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+.footer-contact__item a, .footer .footer-contact__item a {
+	color: #d7d7d7;
+	text-decoration: underline;
+    border-bottom: none;
+}
+
+.footer-contact__icon, .footer .footer-contact__icon {
+	color: #d7d7d7;
+	margin-top: 0;
+	margin-right: 16px;
+	display: inline-block;
+	font-size: 20px;
+    border-bottom: none;
+    font-family: "Font Awesome 5 Brands";
 }
 
 
@@ -112,6 +199,29 @@ a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href
     }
 }
 
+.a-logo-group {
+    display: flex;
+    align-items: center;
+}
+
+.a-logo-text {
+    margin-bottom: 0;
+    font-size: 2.7rem;
+    font-family: 'Inter';
+    color: white;
+}
+
+.d-logo {
+    height: 28px;
+    max-width: 100%;
+    scale: 2.7;
+    margin: 10px 15px 20px 20px;
+}
+
+.a-header {
+    padding: 15px;
+}
+
 .adocs-logoInfo {
     color: #fff;
     display: block;
@@ -141,4 +251,17 @@ a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href
     .adocs-logoInfo {
         font-size: 24px;
     }
+}
+
+.a-fontBold {
+    font-family: 'Inter-bold';
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+    font-family: 'Inter';
 }

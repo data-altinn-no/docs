@@ -52,7 +52,7 @@ https://api.bestetilsynsmyndighet.no/trend/911951657/?requestor=998997801&fromDa
 ### Maskinporten
 Alle bakenforliggende api-er skal kreve scopet brreg:tilda for tilgang i tillegg til standard validering.
 ### Feilkoder
- For mer informasjon om feilkodene i data.altinn.no, se [her.](/docs/utviklingsguider/data.altinn.no/bruke-rest-api/#feil--og-statuskoder)
+ For mer informasjon om feilkodene i data.altinn.no, se [her.](/bruke-rest-api/#feil--og-statuskoder)
 
 ### Nedetid
 Varsling om lengre nedetid gjøres til forvaltningsansvarlig.

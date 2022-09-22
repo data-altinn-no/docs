@@ -17,7 +17,7 @@ Dette vil bli tildelt alle konsumenter, som selv må inn og provisjonere kliente
 
  [Se her for mer informasjon om maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html)
 
- For mer informasjon om api-ene i data.altinn.no, se [her.](/docs/utviklingsguider/data.altinn.no/bruke-rest-api)
+ For mer informasjon om api-ene i data.altinn.no, se [her.](/bruke-rest-api)
 
 Alle kall til data.altinn.no må ha følgende headere:
 

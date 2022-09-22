@@ -14,7 +14,7 @@ aliases:
 
 data.altinn.no (DAN) gjør det enklere å komme i gang med datadeling både for datakilder og konsumenter. Gjennom et enkelt, generisk API kan ulike _datasett_ utveksles på en måte som sikrer konfedensialitet, integretitet og tilgjengelighet - selv for datakilder som mangler kapabilitetene som kreves for å kunne dele data med mange konsumenter.
 
-Gjennom å sikre tilganger til ulike konsumentgrupper gjennom rike autorisasjonsregler, f.eks. ved bruk av [Altinns samtykkeløsning](/docs/guides/samtykke/), vil informasjonen kunne hentes direkte fra datakilden sikkert og effektivt. 
+Gjennom å sikre tilganger til ulike konsumentgrupper gjennom rike autorisasjonsregler, f.eks. ved bruk av [Altinns samtykkeløsning](https://altinn.github.io/docs/utviklingsguider/samtykke/), vil informasjonen kunne hentes direkte fra datakilden sikkert og effektivt. 
 
 Løsningen er generisk og vil kunne brukes på ulike forretningsområder, med nye tilknyttede registre og nye brukergrupper.
 
@@ -40,5 +40,5 @@ Datasettene som krever samtykke vil igangsette en samtykkeprosess i Altinn. I de
 
 For å kunne se varsler om samtykkeforespørsler som sendes kreves det at representaten innehar Altinn-rollene "Begrenset signeringsrett" (innehas av bl.a. innehavere, daglig ledere og styreledere), eller er blitt delegert tilgang til tjenesten "Varsel om fullmaktsforespørsel" (tjenestekode 5615/1). Samme rollen gir tilgang til å besvare selve samtykkeforespørselen, men tjenestekodene som benyttes varierer.
 
-* [Mer informasjon om samtykkeprosessen](/docs/utviklingsguider/data.altinn.no/samtykkeprosessen)
-* [Rollekrav i Altinn for samtykketjenestene](/docs/utviklingsguider/data.altinn.no/rollekrav-i-altinn)
+* [Mer informasjon om samtykkeprosessen](/samtykkeprosessen)
+* [Rollekrav i Altinn for samtykketjenestene](/rollekrav-i-altinn)

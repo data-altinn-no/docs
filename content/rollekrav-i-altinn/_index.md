@@ -7,7 +7,7 @@ weight: 55
 
 ### Altinn
 Alle samtykkeforespørsler fra tjenester på data.altinn.no sendes til Altinn i form av en melding med lenke til det faktiske samtykket. Man trenger derfor flere rettigheter i Altinn - både til melding og samtykke.
-Se [samtykkeprosessen](/docs/utviklingsguider/data.altinn.no/samtykkeprosessen/) for mer informasjon med skjermbilder. 
+Se [samtykkeprosessen](/samtykkeprosessen/) for mer informasjon med skjermbilder. 
 
 For at det ikke skal bli unødvendig komplekst er både meldingstjenesten og samtykketjenestene satt opp med krav om rollen [*begrenset signeringsrettighet*](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/begrenset-signeringsrettighet/), men man kan også velge å delegere rettigheter til enkelttjenester.
 

@@ -28,6 +28,31 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Inter';
+    font-display: auto;
+    src: url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-bold';
+    font-display: auto;
+    src: url('../fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-display: auto;
+    src: url('../fonts/fontawesome-webfont.woff') format('woff'),
+        url('../fonts/fontawesome-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * /
  * Customized CSS from docdock-theme
@@ -421,7 +446,6 @@ select[multiple=multiple]:focus {
 
 #sidebar hr {
     border-bottom: 1px solid #2a232f;
-    <
 }
 
 #sidebar a.padding {
@@ -531,7 +555,6 @@ select[multiple=multiple]:focus {
 #sidebar ul.topics>li>a {
     /*line-height: 2rem;
     font-size: 1.1rem*/
-    ;
 }
 
 #sidebar ul.topics>li>a b {
