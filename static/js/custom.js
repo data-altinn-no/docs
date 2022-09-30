@@ -23,3 +23,9 @@ $("#searchdocumentation-submit").click( function() {
     var url = "https://www.altinndigital.no/sok/?query=" + $("#searchdocumentation").val() + "&filters=documentation_20&pageNumber=0";
     window.open(url, "_self");
 });
+
+$(".nav-link").on('click', function(e) {
+    var active = $(".nav-link-active");
+    active.toggleClass('nav-link-active');
+    e.target.classList.toggle('nav-link-active');
+});
