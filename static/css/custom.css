@@ -48,93 +48,107 @@ a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href
 
  /* Footer */
 
- .footer {
-	background-color: #1e2b3c;
-	padding: 75px 0;
-	margin-top: 50px;
-	position: relative;
+.footer {
+    background-color: #1e2b3c;
+    padding: 75px 0;
+    margin-top: 50px;
+    position: relative;
 }
 
 footer .container {
-	max-width: 1240px;
+    max-width: 1240px;
 }
 
-.footer-brand__logo, .footer .footer-brand__logo {
-	height: 38px;
-	margin-bottom: 13px;
-	margin-left: -8px;
+.footer-brand__logo,
+.footer .footer-brand__logo {
+    height: 38px;
+    margin-bottom: 13px;
+    margin-left: -8px;
 }
 
-.footer-brand__text, .footer .footer-brand__text {
-	color: #d7d7d7;
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 2em;
+.footer-brand__text,
+.footer .footer-brand__text {
+    color: #d7d7d7;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 2em;
 }
 
 .footer__heading {
-	color: white;
-	margin-bottom: 16px;
-	margin-top: 8px;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 0.4px;
+    color: white;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.4px;
 }
 
-.footer-links__list, .footer .footer-links__list {
-	padding-left: 0;
-	margin-bottom: 0;
+.footer-links__list,
+.footer .footer-links__list {
+    padding-left: 0;
+    margin-bottom: 0;
     list-style-type: none;
 }
 
-.footer-links__item a::before, .footer .footer-links__item a::before {
-	content: "";
-	font-family: "Font Awesome 5 Brands", sans-serif;
-	margin-right: 8px;
-	font-size: 17px;
+.footer-links__item a::before,
+.footer .footer-links__item a::before {
+    content: "";
+    font-family: "Font Awesome 5 Brands", sans-serif;
+    margin-right: 8px;
+    font-size: 17px;
 }
 
-.footer-links__item a, .footer .footer-links__item a {
-	color: #d7d7d7;
-	margin-bottom: 12px;
-	font-weight: 400;
-	font-size: 15px;
-	display: flex;
-	align-items: center;
+.footer-links__item a,
+.footer .footer-links__item a {
+    color: #d7d7d7;
+    margin-bottom: 12px;
+    font-weight: 400;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-	background-color: transparent;
-	-webkit-text-decoration-skip: objects;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
     border-bottom: none;
 }
 
-.footer-links__item a:hover, .footer .footer-links__item a:hover, .footer-contact__item a:hover, .footer .footer-contact__item a:hover, .footer-contact__icon:hover, .footer .footer-contact__icon:hover {
-	color: white;
+.footer-links__item a:hover,
+.footer .footer-links__item a:hover,
+.footer-contact__item a:hover,
+.footer .footer-contact__item a:hover,
+.footer-contact__icon:hover,
+.footer .footer-contact__icon:hover {
+    color: white;
     border-bottom: none;
 }
 
-.footer-contact__item span:first-child, .footer .footer-contact__item span:first-child {
-	color: white;
+.footer-contact__item span:first-child,
+.footer .footer-contact__item span:first-child {
+    color: white;
 }
 
-.footer-contact__item, .footer .footer-contact__item {
-	color: #d7d7d7;
-	font-weight: 400;
-	font-size: 15px;
-	margin-bottom: 15px;
+.footer-contact__item,
+.footer .footer-contact__item {
+    color: #d7d7d7;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
-.footer-contact__item a, .footer .footer-contact__item a {
-	color: #d7d7d7;
-	text-decoration: underline;
+.footer-contact__item a,
+.footer .footer-contact__item a {
+    color: #d7d7d7;
+    text-decoration: underline;
     border-bottom: none;
 }
 
-.footer-contact__icon, .footer .footer-contact__icon {
-	color: #d7d7d7;
-	margin-top: 0;
-	margin-right: 16px;
-	display: inline-block;
-	font-size: 20px;
+.footer-contact__icon,
+.footer .footer-contact__icon {
+    color: #d7d7d7;
+    margin-top: 0;
+    margin-right: 16px;
+    display: inline-block;
+    font-size: 20px;
     border-bottom: none;
     font-family: "Font Awesome 5 Brands";
 }
@@ -212,14 +226,105 @@ footer .container {
 }
 
 .d-logo {
-    height: 28px;
     max-width: 100%;
-    scale: 2.7;
-    margin: 10px 15px 20px 20px;
+    margin: 10px 20px 20px 20px;
+    object-fit: cover;
 }
 
-.a-header {
-    padding: 15px;
+.search-btn {
+    min-width: 20px !important;
+}
+
+.search-input {
+    padding-right: 5px !important;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: center;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    grid-row-end: 2;
+    grid-row-start: 1;
+    grid-column-end: 3;
+    grid-column-start: 1;
+}
+
+.main-nav a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.logo-link {
+    display: inline-block;
+    flex-basis: auto;
+    max-width: 100%;
+}
+
+.main-header {
+    background-color: rgba(2, 47, 81, 1);
+}
+
+.nav-menu {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.nav-ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-ul-item {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link-active {
+    font-weight: bold;
+    background-color: rgba(27, 68, 98, 1);
+}
+
+.nav-link {
+    color: #fff;
+    margin-left: 1px;
+    padding-top: 8px;
+    margin-right: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 8px;
+}
+
+.nav-link:hover:not(.nav-link-active) {
+    color: #fff;
+    background-color: rgba(27, 68, 98, 1);
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+.nav-link-active:hover {
+    color: #fff;
+    background-color: rgba(2, 47, 81, 1);
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
 }
 
 .adocs-logoInfo {
@@ -264,4 +369,14 @@ h4,
 p,
 a {
     font-family: 'Inter';
+}
+
+.nav-items {
+    margin: 10px 15px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float: right;
 }
