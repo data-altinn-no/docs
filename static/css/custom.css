@@ -295,6 +295,7 @@ footer .container {
 }
 
 .nav-link-active {
+    columns: #fff;
     font-weight: bold;
     background-color: rgba(27, 68, 98, 1);
 }
@@ -307,6 +308,10 @@ footer .container {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 8px;
+}
+
+.nav-link:active, .nav-link:focus {
+    color: #fff !important;
 }
 
 .nav-link:hover:not(.nav-link-active) {
