@@ -1,12 +1,12 @@
 // Search inside altinndigital
 $("#topbar-search-submit").on('click', function() {
-    var url = "https://duckduckgo.com/?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#topbar-search-by").val();
+    var url = "https://google.com/search?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#topbar-search-by").val();
     window.open(url, "_self");
 });
 
 
 $("#mobilesearch-submit").on('click', function() {
-    var url = "https://duckduckgo.com/?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#mobilesearch-by").val();
+    var url = "https://google.com/search?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#mobilesearch-by").val();
     window.open(url, "_self");
 });
 
@@ -20,7 +20,7 @@ input.addEventListener("keyup", function(event) {
 });
 
 $("#searchdocumentation-submit").on('click', function() {
-    var url = "https://duckduckgo.com/?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#searchdocumentation").val();
+    var url = "https://google.com/search?q=site%3Ahttps%3A%2F%2Fdocs.data.altinn.no+" + $("#searchdocumentation").val();
     window.open(url, "_self");
 });
 
