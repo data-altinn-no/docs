@@ -94,6 +94,15 @@ De fleste datasett kan hentes direkte med ett kall til data.altinn.no-API-et. Da
 * [Vis liste over alle beviskoder (JSON)](https://api.data.altinn.no/v1/public/metadata/evidencecodes)
 * [Vis oversikt over metadata-tjenester](https://data.altinn.no/api-details#api=publicmetadata-prod)
 
+## Konvolutt og filtrering/transformering
+
+Datasett som hentes gjennom data.altinn.no blir plassert inn i en standard konvolutt. Konvolutten kan fjernes ved å oppgi query-parameteret `envelope=false` i alle spørringer som returnerer datasett.
+
+Ved bruk av `envelope=false`, kan man også oppgi et [JMESPath](https://jmespath.org/)-uttrykk, som lar en ytterligere filtrere og transformere dataene som returneres fra DAN. Dette gjøres med å oppgi query-parameteret `query=<jmespath>` hvor `<jmespath>` er et gyldig uttrykk.
+
+JMESPath-filtrering kan også brukes andre oppslagsendepunkter som ikke returnerer datasett, f.eks. liste over pågående forspørsler (accreditations). Se teknisk beskrivelse av API for mer informasjon om hvilke endepunkter som støtter bruk av `query`.
+
+
 ## Teknisk beskrivelse av API
 
 På portalen finner du oppdatert teknisk dokumentasjon om actions, modeller og feilsituasjoner. Du kan også hente ned [Swagger/OpenAPI definisjoner](https://swagger.io/specification/).
