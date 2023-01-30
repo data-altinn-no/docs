@@ -379,7 +379,7 @@ var EvidenceCodesDisplay = {
     },
 
     exampleRequestDirect: function(evidenceCode) {
-        var op = "directhavest/" + evidenceCode.evidenceCodeName + "/?subject=988666555";
+        var op = "directharvest/" + evidenceCode.evidenceCodeName + "/?subject=988666555";
         if (typeof evidenceCode.parameters !== "undefined" && evidenceCode.parameters.length) {
             for (var i = 0; i<evidenceCode.parameters.length; i++) {
                 op += "&" + evidenceCode.parameters[i]["evidenceParamName"] + "=" + encodeURIComponent(this.getRandomValue(evidenceCode.parameters[i]["paramType"]));
