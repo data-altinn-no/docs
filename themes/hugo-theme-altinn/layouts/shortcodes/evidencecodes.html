@@ -68,6 +68,8 @@
 <div class="generated"><a href="javascript:" class="example-json-regenerate-button">Generer nytt eksempel</a>
 				<pre><code><%EvidenceCodesDisplay.exampleJsonResponseGenerated(code.values[0])%></code></pre>
 </div></div>
+			<%}else if(EvidenceCodesDisplay.isBinaryResponse(code.values)){%>
+				<div class="notices info">Dette datasettet består av ustrukturerte binære data.</div>
 			<%}else{%>	
 				<h3>Verdier i retur</h3>
 				<p>Dette er feltene som ligger i svaret. 

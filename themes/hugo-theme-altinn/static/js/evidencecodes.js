@@ -545,6 +545,12 @@ var EvidenceCodesDisplay = {
         return true;
     },
 
+    isBinaryResponse: function(values) {
+        if (values.length != 1) return false;
+        if (values[0]['valueType'] != "binary") return false;
+        return true;
+    },
+
     isJsonSchemaField: function(value) {
         return value['valueType'] == "jsonSchema";
     },
