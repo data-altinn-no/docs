@@ -6,7 +6,7 @@ weight: 80
 
 
 
-Digdir er distributør av Advokatregisteret på vegne av Tilsynsrådet, hvor Data.altinn.no benyttes som teknisk løsning.  
+Digdir er distributør av Advokatregisteret på vegne av Tilsynsrådet for advokatvirksomhet, hvor Data.altinn.no benyttes som teknisk løsning.  
 
  
 
