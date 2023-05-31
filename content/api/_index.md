@@ -80,7 +80,7 @@ For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inklu
 
 ## Registrere konto og skaffe API-nøkkel
 
-Alle brukere av må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i testmiljøet https://test.data.altinn,no hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgi vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
+Alle brukere av må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i testmiljøet https://test.data.altinn,no hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
 
 * [Gå til utviklerportalen](https://data.altinn.no/)
 
@@ -88,7 +88,7 @@ Alle brukere av må registrere en profil i [utviklerportalen](https://data.altin
 
 Datasett kan hentes på to forskjellige måter; direkte eller gjennom en autorisasjonsforespørsel.
 
-De fleste datasett kan hentes direkte med ett kall til data.altinn.no-API-et. Datasett som krever at det innhentes samtykke, eller er på annen måte konfigurerert som asynkront (fordi uthentingen av dataene fra kilden er en asynkron prosess) kreves at man først sender en _autorisasjonsforespørsel_ til REST-APIet, som inneholder informasjon om hvilken virksomhet man spør om og hvilke datasett en ønsker å hente. Hvis forespørselen blir autorisert, vil man som svar få en _akkrediterings-ID_ som representerer forespørselen. For datasett som er åpne eller hjemmelsbaserte, vil man umiddelbart kunne høste de datasettene med kall hvor denne akkrediterings-IDen oppgis. For datasett som krever samtykkesvar, vil man kunne sjekke status på dette (om svar er avgitt eller ikke), og så fort dette foreligger vil du kunne høste datasettet på samme måte (så lenge samtykket er gyldig og ikke trukket tilbake).
+De fleste datasett kan hentes direkte med ett kall til data.altinn.no-API-et. Datasett som krever at det innhentes samtykke, eller er på annen måte konfigurerert som asynkront (fordi uthentingen av dataene fra kilden er en asynkron prosess) kreves at man først sender en _autorisasjonsforespørsel_ til REST-API-et, som inneholder informasjon om hvilken virksomhet man spør om og hvilke datasett en ønsker å hente. Hvis forespørselen blir autorisert, vil man som svar få en _akkrediterings-ID_ som representerer forespørselen. For datasett som er åpne eller hjemmelsbaserte, vil man umiddelbart kunne høste de datasettene med kall hvor denne akkrediterings-IDen oppgis. For datasett som krever samtykkesvar, vil man kunne sjekke status på dette (om svar er avgitt eller ikke), og så fort dette foreligger vil du kunne høste datasettet på samme måte (så lenge samtykket er gyldig og ikke trukket tilbake).
 
 * [Vis liste over alle datasett](/beviskoder/)
 * [Vis liste over alle beviskoder (JSON)](https://api.data.altinn.no/v1/public/metadata/evidencecodes)
@@ -98,7 +98,7 @@ De fleste datasett kan hentes direkte med ett kall til data.altinn.no-API-et. Da
 
 Datasett som hentes gjennom data.altinn.no blir plassert inn i en standard konvolutt. Konvolutten kan fjernes ved å oppgi query-parameteret `envelope=false` i alle spørringer som returnerer datasett.
 
-Ved bruk av `envelope=false`, kan man også oppgi et [JMESPath](https://jmespath.org/)-uttrykk, som lar en ytterligere filtrere og transformere dataene som returneres fra DAN. Dette gjøres med å oppgi query-parameteret `query=<jmespath>` hvor `<jmespath>` er et gyldig uttrykk.
+Ved bruk av `envelope=false`, kan man også oppgi et [JMESPath](https://jmespath.org/)-uttrykk, som lar en ytterligere filtrere og transformere dataene som returneres fra data.altinn.no. Dette gjøres med å oppgi query-parameteret `query=<jmespath>` hvor `<jmespath>` er et gyldig uttrykk.
 
 JMESPath-filtrering kan også brukes andre oppslagsendepunkter som ikke returnerer datasett, f.eks. liste over pågående forspørsler (accreditations). Se teknisk beskrivelse av API for mer informasjon om hvilke endepunkter som støtter bruk av `query`.
 
@@ -107,7 +107,7 @@ JMESPath-filtrering kan også brukes andre oppslagsendepunkter som ikke returner
 
 På portalen finner du oppdatert teknisk dokumentasjon om actions, modeller og feilsituasjoner. Du kan også hente ned [Swagger/OpenAPI definisjoner](https://swagger.io/specification/).
 
-Det er to miljøer som er tilgjengelig utenfra- prod og staging. Begge miljøene har et metadata-API, som ikke krever autentisering eller autorisasjon for bruk.
+Det er to miljøer som er tilgjengelig utenfra  - prod og staging. Begge miljøene har et metadata-API, som ikke krever autentisering eller autorisasjon for bruk.
 
 * [Oversikt over eBevis API-er](https://data.altinn.no/apis)
 

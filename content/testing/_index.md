@@ -32,7 +32,7 @@ data.altinn.no støtter bruk av [Tenor](https://www.digdir.no/felleslosninger/te
 
 ## Tilgjengelige test-koder
 
-Listen av tilgjengelige beviskoder i staging-miljøet er tilgjengelig i det åpne metadata-API-et. Dette API-et benyttes også av den [autogenererte dokumentasjonen](/beviskoder/), husk og sett kryss i boksen "Vis testmiljø".
+Listen av tilgjengelige beviskoder i staging-miljøet er tilgjengelig i det åpne metadata-API-et. Dette API-et benyttes også av den [autogenererte dokumentasjonen](/beviskoder/). Husk og sett kryss i boksen "Vis testmiljø".
 
 * [Vis liste over alle datasett](/beviskoder/)
 * [Vis liste over beviskoder i staging (JSON)](https://test-api.data.altinn.no/v1/public/metadata/evidencecodes)

@@ -1,6 +1,6 @@
 ---
 title: Dataprodusent-api
-description: Standardisering av bakenforliggende apier
+description: Standardisering av bakenforliggende API-er
 weight: 100
 ---
 
@@ -11,7 +11,7 @@ Under arbeid!
 
 
 ### Generelt
-Siden det er potensielt ganske mange bakenforliggende datakilder må alle produsent-api-ene følge oppsett og struktur som angitt i prosjektdokumentasjonen.
+Siden det potensielt er ganske mange bakenforliggende datakilder må alle produsent-api-ene følge oppsett og struktur som angitt i prosjektdokumentasjonen.
 
 ### API
 
@@ -50,7 +50,8 @@ https://api.bestetilsynsmyndighet.no/trend/911951657/?requestor=998997801&fromDa
 ```
 
 ### Maskinporten
-Alle bakenforliggende api-er skal kreve scopet brreg:tilda for tilgang i tillegg til standard validering.
+Alle bakenforliggende API-er skal kreve scopet brreg:tilda for tilgang i tillegg til standard validering.
+
 ### Feilkoder
  For mer informasjon om feilkodene i data.altinn.no, se [her.](/bruke-rest-api/#feil--og-statuskoder)
 

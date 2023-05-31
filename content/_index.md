@@ -12,7 +12,7 @@ aliases:
 
 ## Innledning
 
-data.altinn.no (DAN) gjør det enklere å komme i gang med datadeling både for datakilder og konsumenter. Gjennom et enkelt, generisk API kan ulike _datasett_ utveksles på en måte som sikrer konfedensialitet, integretitet og tilgjengelighet - selv for datakilder som mangler kapabilitetene som kreves for å kunne dele data med mange konsumenter.
+data.altinn.no (DAN) gjør det enklere å komme i gang med datadeling både for datakilder og konsumenter. Gjennom et enkelt, generisk API kan ulike _datasett_ utveksles på en måte som sikrer konfidensialitet, integritet og tilgjengelighet - selv for datakilder som mangler kapabilitetene som kreves for å kunne dele data med mange konsumenter.
 
 Gjennom å sikre tilganger til ulike konsumentgrupper gjennom rike autorisasjonsregler, f.eks. ved bruk av [Altinns samtykkeløsning](https://altinn.github.io/docs/utviklingsguider/samtykke/), vil informasjonen kunne hentes direkte fra datakilden sikkert og effektivt. 
 
@@ -22,7 +22,9 @@ Løsningen er generisk og vil kunne brukes på ulike forretningsområder, med ny
 
 ## Tjenester på data.altinn.no
 
-All uthenting av datasett tilgjengeliggjort på data.altinn.no gjøres i kontekst av en _tjeneste_. Tjenestene forteller noe om hvilken sammenheng datauthentingen gjøres i, og regulerer bl.a. autorisasjon. Et eksempel på en slik tjeneste på data.altinn.no er eBevis, som forenkler kvalifisering av leverandører i forbindelse med offentlige anskaffelser. Ulike tjenester kan benytte de samme datasettene, men være underlagt andre regler for uthentingen av dataene. F.eks. vil det i noen _tjenestekontekster_ være nødvendig å innhente et samtykke, mens det i andre foreligger hjemmel til å kunne hente dataene direkte.
+All uthenting av datasett tilgjengeliggjort på data.altinn.no gjøres i kontekst av en _tjeneste_. Tjenestene forteller noe om hvilken sammenheng datauthentingen gjøres i, og regulerer bl.a. autorisasjon. Et eksempel på en slik tjeneste på data.altinn.no er eBevis, som forenkler kvalifisering av leverandører i forbindelse med offentlige anskaffelser. 
+
+Ulike tjenester kan benytte de samme datasettene, men være underlagt andre regler for uthentingen av dataene. F.eks. vil det i noen _tjenestekontekster_ være nødvendig å innhente et samtykke, mens det i andre foreligger hjemmel til å kunne hente dataene direkte.
 
 ## Datakilder og datasett
 
@@ -30,7 +32,9 @@ Løsningen baseres på at en aktør kan sende forespørsler på én eller flere 
 
 ## Sikring av data og tilgangskontroll
 
-Løsningen er tilrettelagt for formidling også av ikke-åpne data og personopplysninger. Behandlingsgrunnlaget som kreves for å hente disse dataene oppstår gjennom at konsumenten har en hjemmel til å hente informasjonen, eller at det innhentes samtykke fra en bemyndiget representant for parten det innhentes opplysninger om. DAN tilbyr ulike mekanismer som gjør det mulig for konsumenten å dokumentere at behandlingsgrunnlag foreligger, f.eks. gjennom Altinns samtykkeløsning, gjennom et spesikt token fra Maskinporten, gjennom et strukturert verifiserbart vedlegg i forespørselen, gjennom å verfisere identiteten til den som utfører forespørselen - eller en kombinasjon av disse.
+Løsningen er tilrettelagt for formidling av også ikke-åpne data og personopplysninger. Behandlingsgrunnlaget som kreves for å hente disse dataene oppstår gjennom at konsumenten har en hjemmel til å hente informasjonen, eller at det innhentes samtykke fra en bemyndiget representant for parten det innhentes opplysninger om. 
+
+data.altinn.no tilbyr ulike mekanismer som gjør det mulig for konsumenten å dokumentere at behandlingsgrunnlag foreligger, f.eks. gjennom Altinns samtykkeløsning, gjennom et spesifikt token fra Maskinporten, gjennom et strukturert verifiserbart vedlegg i forespørselen, gjennom å verfisere identiteten til den som utfører forespørselen - eller en kombinasjon av disse.
 
 I de tilfellene hvor datakilder avgir personopplysninger eller andre data som er underlagt taushetsplikt eller andre restriksjoner, kreves det at Digitaliseringsdirektoratet inngår databehandleravtaler med de partene som har behandlingsansvar. 
 

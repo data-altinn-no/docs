@@ -1,6 +1,6 @@
 ---
 title: Samtykkeprosessen
-description: Når oppdragsgiver initierer en samtykkeforespørsel vil det bli sendt en sms og/eller epost med varsling om at brukeren har mottatt en ny forespørsel i Altinn.
+description: Når oppdragsgiver initierer en samtykkeforespørsel vil det bli sendt en sms og/eller e-post med varsling om at brukeren har mottatt en ny forespørsel i Altinn.
 weight: 55
 ---
 
@@ -11,6 +11,7 @@ Brukeren logger seg inn i Altinn og finner en samtykkelenke i meldingsboksen til
 
 ![MerInfoMelding](/images/guides/ebevis/ebevis_consent2.png "Åpnet melding")
 
+
 Ved å trykke på knappen "Behandle forespørsel om fullmakt" fremkommer det informasjon om hvilke beviskoder det bes om, hvem som spør og hvor lenge samtykket skal vare.
 Her har brukeren valget om å samtykke eller eventuelt avslå.
 
@@ -20,12 +21,14 @@ Dersom samtykke blir gitt, får brukeren opp en kvitteringsside med informasjon 
 
 ![BekreftetSamtykke](/images/guides/ebevis/ebevis_consent4.png "Bekreftet samtykke")
 
+
 Når et samtykke er gitt vil brukeren finne informasjon under sin Profil, under overskriften Samtykke.
 Der vil alle aktive samtykker fremkomme i en samlet oversikt, samt en lenke til samtykkeloggen.
 
 ![ProfilSamtykkevisning](/images/guides/ebevis/ebevis_consent5.png "Samtykkevisning i Profil")
 
 ![VisningAlleSamtykker](/images/guides/ebevis/ebevis_consent6.png "Alle samtykker")
+
 
 Brukeren kan trykke seg inn på en av lenkene dersom det er ønsket å se hva det er samtykket til, og har samtidig mulighet til å trekke samtykke dersom det er ønskelig.
 
@@ -36,7 +39,6 @@ Her fremkommer det informasjon om et samtykke er gitt, utløpt, benyttet og truk
 
 ![Samtykkelogg](/images/guides/ebevis/ebevis_consent8.png "Samtykkelogg")
 
-I vårt eksempel, med offentlige anskaffelser, vil oppdragsgiver få informasjon direkte inn i konkurranseverktøyet hvor de kan ta stilling til dataene som er mottatt.
-Her med informasjon om skatteopplysninger.
+Konsumenten kan dermed få informasjonen direkte inn i sitt saksbehandlingssystem/verktøy, hvor de kan ta stilling til dataene som er mottatt.
 
-![InfoKonkurranseverktøy](/images/guides/ebevis/ebevis_consent9.png "Informasjon i samtykkeverktøy")
+
