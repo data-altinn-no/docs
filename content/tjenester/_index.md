@@ -4,6 +4,6 @@ description: Beskrivelse av de forskjellige datadelingstjenestene på data.altin
 weight: 100
 ---
 
-{{% children description="true" %}}
+{{% children description="true" /%}}
 
 
