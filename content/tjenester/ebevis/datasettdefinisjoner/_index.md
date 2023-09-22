@@ -5,7 +5,7 @@ weight: 100
 ---
 
 ## Grunndata – Enhets-/Foretaksregisteret	
-
+{{<table "table data-table">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
 | Organisasjonsnummer | |Nisifret informasjonsløst nummer som brukes for å identifisere juridiske personer (enheter) i Norge, og tildeles ved registrering i Enhetsregisteret. Organisasjonsnummeret består av ni siffer og starter på tallet 8 eller 9 |	ID-nummer som bekrefter at virksomheten er lovlig godkjent og registrert i Norge | 
@@ -42,8 +42,10 @@ Signatur – En eller flere personer som har fullmakt til å opptre på vegne av
 Prokura  - En eller flere personer får begrenset fullmakt til å opptre på vegne av, og underskrive for virksomheten i forbindelse med den daglige driften |
 | Årsregnskap (Siste 5 år) |	PDF |	Fullstendig årsregnskap inkl.: Årsberetning, Resultat, Balanse, Noter, Revisjonsberetning |	Virksomheter med regnskapsplikt skal rapportere årsregnskap til Regnskapsregisteret |
 | Roller registrert i Enhetsregisteret ||	Viser hvilke personer som har ansvarsroller i virksomheten. Eks. daglig leder, styreleder og styremedlemmer ansvarlig deltakere, regnskapsfører og revisor	||
+{{</table>}}
 
 ## Roller registrert i Enhets-/Foretaksregisteret
+{{<table "table data-table">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
 | INNH - Innehaver	||	Ansvarlig eier av enkeltpersonforetak Owner |	Fysisk person som er eier av et enkeltpersonforetak |
@@ -59,9 +61,11 @@ Prokura  - En eller flere personer får begrenset fullmakt til å opptre på veg
 | DTPR – Deltaker med proratarisk ansvar (delt ansvar)	||	Partners with joint/pro rata liability	| Fysisk- eller juridisk person som har personlig ansvar for deler av selskapets forpliktelser|
 | REVI – Revisor ||		Auditor |	Viser virksomhetens registrerte revisor| Person som utfører revisjon og slik kontrollerer at de økonomiske forholdene i en virksomhet er i henhold til gjeldende lover og regler|
 | REGN – Regnskapsfører	||	Accountant|	Viser virksomhetens registrerte regnskapsfører Fysisk- eller juridisk person med hovedoppgave å føre regnskapet for en eller flere virksomheter|
+{{</table>}}
 
 # Skatteetaten
 ## Restanser
+{{<table "table table-striped table-bordered">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
 | Restskatt |	ForfaltOgUbetalt: beløp 	| Angir virksomhetens ubetalte restskatt |	Skyldig restskatt ikke betalt innen tidsfrist|
@@ -70,10 +74,11 @@ Prokura  - En eller flere personer får begrenset fullmakt til å opptre på veg
 | Forskuddskatt	| ForfaltOgUbetalt: beløp |	Angir virksomhetens ubetalte forskuddsskatt. Skatt som selskaper må betale (ENK + aksjeselskap). Skatten virksomheten selv skal betale. |	Forskuddsskatt ikke betalt innen tidsfrist|
 | Merverdiavgift|	ForfaltOgUbetalt: beløp |	Angir virksomhetens ubetalte Merverdiavgift	| Skyldig merverdiavgift ikke betalt innen tidsfrist|
 | Gebyr og ansvarskrav|	ForfaltOgUbetalt: beløp |	Angir virksomhetens ubetalte Gebyr og ansvarskrav	| Skyldig gebyr/ansvarskrav ikke betalt innen tidsfrist|
+{{</table>}}
 
 ## Arbeidsgiveravgift
 
-{{<table "table table-striped table-bordered">}}
+{{<table "table">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
 | Termin 1 A-melding| 	mm-mm-åååå	| Angir første termin av de tre siste innrapporteringer (A-melding)	| Viser at virksomheten har sendt inn A-melding. Skal sendes inn hver mnd hvis de har aktive arbeidsforhold.|
