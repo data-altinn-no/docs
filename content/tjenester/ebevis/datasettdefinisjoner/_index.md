@@ -34,12 +34,7 @@ Oppdateres ca den 10. månedlig. Virksomhetene har frist til å sende inn A-meld
 | Under oppløsning | J/N |	Virksomheten er i en avviklingsprosess	||
 | Under konkursbehandling	| J/N |	Åpnet konkurs	||
 | Under tvangsoppløsning | 	J/N |	Retten tvangsoppløser selskaper grunnet mangler i henhold til aksjeloven.	||
-| Firmaattest	| PDF |	En bekreftelse på at foretaket:
-•	er registrert i Foretaksregisteret
-•	hvem som er ansvarlige for selskapet
-•	legitimasjon overfor långivere, kunder og leverandører | Attest som bekrefter virksomhetens gyldighet samt hvem som innehar:
-Signatur – En eller flere personer som har fullmakt til å opptre på vegne av, og signere for virksomheten
-Prokura  - En eller flere personer får begrenset fullmakt til å opptre på vegne av, og underskrive for virksomheten i forbindelse med den daglige driften |
+| Firmaattest	| PDF |	En bekreftelse på at foretaket:<br>• er registrert i Foretaksregisteret<br>• hvem som er ansvarlige for selskapet<br>• legitimasjon overfor långivere, kunder og leverandører | Attest som bekrefter virksomhetens gyldighet samt hvem som innehar:<br>Signatur – En eller flere personer som har fullmakt til å opptre på vegne av, og signere for virksomheten<br>Prokura  - En eller flere personer får begrenset fullmakt til å opptre på vegne av, og underskrive for virksomheten i forbindelse med den daglige driften |
 | Årsregnskap (Siste 5 år) |	PDF |	Fullstendig årsregnskap inkl.: Årsberetning, Resultat, Balanse, Noter, Revisjonsberetning |	Virksomheter med regnskapsplikt skal rapportere årsregnskap til Regnskapsregisteret |
 | Roller registrert i Enhetsregisteret ||	Viser hvilke personer som har ansvarsroller i virksomheten. Eks. daglig leder, styreleder og styremedlemmer ansvarlig deltakere, regnskapsfører og revisor	||
 {{</table>}}
@@ -93,7 +88,7 @@ Prokura  - En eller flere personer får begrenset fullmakt til å opptre på veg
 {{<table "table table-striped table-bordered">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
-| I MVA-registeret |	J/N |	Angir om virksomheten er registrert i MVA-registeret |	Må være registrert for å kunne drive aktiv næring. NEI (N) kan være OK (dersom virksomheten i løpet av det siste 365 dagene ikke har solgt varer eller tjenester for mer enn 50.000 kroner, og disse varene eller jenestene er mva-pliktige). https://www.altinn.no/skjemaoversikt/skatteetaten/registrere-virksomheter-i-mva-registeret/ |
+| I MVA-registeret |	J/N |	Angir om virksomheten er registrert i MVA-registeret |	Må være registrert for å kunne drive aktiv næring. NEI (N) kan være OK (dersom virksomheten i løpet av det siste 365 dagene ikke har solgt varer eller tjenester for mer enn 50.000 kroner, og disse varene eller jenestene er mva-pliktige). [Skjema for registrering av MVA i Altinn](https://www.altinn.no/skjemaoversikt/skatteetaten/registrere-virksomheter-i-mva-registeret/) |
 | Termintype | 	ikkeValgt, ukentlig, aarlig, toMaanedlig, halvMaanedligmaanedlig, maanedlig | 	Angir en terminbeskrivelse.	||
 | Første termin MVA |	mm-mm-åååå |	Angir virksomhetens første MVA-rapportering i drift | Gir informasjon om hvor lenge virksomheten har vært registrert i MVA-registeret. (Viser hvor mye informasjon man kan forvente å få via "Opplysninger om skatt og avgifter" (OSA) Skjema RF-1507).|
 | Siste termin MVA	 | mm-mm-åååå |	Angir virksomhetens siste MVA-rapportering før sletting i MVA-registeret |	Betyr at virksomheten er slettet i MVA-registeret, og de er ikke lenger aktive i MVA-registeret. Kan derfor ikke drive aktiv næring |
@@ -156,7 +151,7 @@ Bør kontrolleres og innhente nye opplysninger SKE har fastsatt helt eller delvi
 | Status endret | åååå-mm-dd	 | Vedtaksdato for gjeldende status	| Angir dato for gjeldende status |
 {{</table>}}
 
-Informasjon https://www.arbeidstilsynet.no/registre/renholdsregisteret/ 
+Informasjon: https://www.arbeidstilsynet.no/registre/renholdsregisteret/ 
 
 ## Bemanningsforetakregisteret
 {{<table "table table-striped table-bordered">}}
@@ -166,7 +161,7 @@ Informasjon https://www.arbeidstilsynet.no/registre/renholdsregisteret/
 | Godkjennings-status	| Oppfylt registrering Ikke registrert | Angir hvilken status virksomheten har i Bemanningsforetaksregisteret |	Viser hvilken godkjenning virksomheten har, og om det foreligger godkjenning til å leie ut arbeidskraft | 
 {{</table>}}
 
-Informasjon	https://www.arbeidstilsynet.no/registre/registrerte-bemanningsforetak/
+Informasjon:	https://www.arbeidstilsynet.no/registre/registrerte-bemanningsforetak/
 
 ## Bilpleieregisteret
 {{<table "table table-striped table-bordered">}}
@@ -175,7 +170,7 @@ Informasjon	https://www.arbeidstilsynet.no/registre/registrerte-bemanningsforeta
 | Organisasjons-nummer |	Ni siffer	 |Nisifret informasjonsløst nummer som brukes for å identifisere juridiske personer (enheter) i Norge, og tildeles ved registrering i Enhetsregisteret. Organisasjonsnummeret består av ni siffer og starter på tallet 8 eller 9|	ID-nummer som bekrefter at virksomheten er lovlig godkjent og registrert i Norge |
 | Godkjenningsstatus Arbeidstilsynet	 |Godkjent – True/False |	Angir hvilken status virksomheten har for å kunne tilby tjenester innenfor manuell bilpleie, hjulskift og hjullagring |	Angir om virksomheten er godkjent for å levere tjenester innen bilpleie, hjulskift og hjullagring hos Arbeidstilsynet| 
 | Registerstatus Arbeidstilsynet |	Registerstatus hos Arbeidstilsynet:  SØKNAD_UNDER_BEHANDLING HMS_KORTBESTILLING_UNDER_BEHANDLING GODKJENT_UTEN_ANSATTE GODKJENT_MED_ANSATTE Godkjenningsstatus = "Godkjent" IKKE_GODKJENT Godkjenningsstatus = "Ikke godkjent" UKJENT Godkjenningsstatus = "Ukjent"	| Angir hvilken status virksomheten har i Bilpleieregisteret. Dersom status er "Ikke godkjent" eller "Ukjent", kan virksomheten allikevel være godkjent dersom den har godkjenning som godkjent verksted hos Statens Vegvesen ||
-| Godkjenningsstatus Statens Vegvesen	| BILVERKSTEDALLE BILVERKSTED01 BILVERKSTED01B BILVERKSTED02 BILVERKSTED03 MOTORSYKKELOGMOPED BILSKADE SKADEVERKSTED01 SKADEVERKSTED02	BILELEKTRODRIVSTOFF-ANLEGG	BILBREMSE	BILDIESEL HJULUTRUSTNING PABYGGER TRAKTOR KONTROLLORGAN01 KONTROLLORGAN01B KONTROLLORGAN02	KONTROLLORGAN03	KONTROLLORGAN04	KONTROLLORGAN05	FARTSSKRIVER	LYSUTSTYR	HJUL	HENGERESPALOPS-BREMSEANLEGG	EKSOSANLEGG	GASSDRIFTANLEGG	BILGLASS ALKOLASVERKSTED |	 Angir hvilke godkjenning(er) virksomheten har hos Statens Vegvesen. Alle typer godkjenning hos Statens vegvesen kvalifiserer også til godkjenning hos Arbeidstilsynet for bilpleie, hjulskift og hjullagring. Informasjon om godkjente verksted hos Statens Vegvesen: https://www.vegvesen.no/kjoretoy/eie-og-vedlikeholde/finn-godkjent-verksted/godkjenning-av-verksteder/
+| Godkjenningsstatus Statens Vegvesen	| BILVERKSTEDALLE BILVERKSTED01 BILVERKSTED01B BILVERKSTED02 BILVERKSTED03 MOTORSYKKELOGMOPED BILSKADE SKADEVERKSTED01 SKADEVERKSTED02	BILELEKTRODRIVSTOFF-ANLEGG	BILBREMSE	BILDIESEL HJULUTRUSTNING PABYGGER TRAKTOR KONTROLLORGAN01 KONTROLLORGAN01B KONTROLLORGAN02	KONTROLLORGAN03	KONTROLLORGAN04	KONTROLLORGAN05	FARTSSKRIVER	LYSUTSTYR	HJUL	HENGERESPALOPS-BREMSEANLEGG	EKSOSANLEGG	GASSDRIFTANLEGG	BILGLASS ALKOLASVERKSTED |	 Angir hvilke godkjenning(er) virksomheten har hos Statens Vegvesen. Alle typer godkjenning hos Statens vegvesen kvalifiserer også til godkjenning hos Arbeidstilsynet for bilpleie, hjulskift og hjullagring. [Se informasjon om godkjente verksted hos Statens Vegvesen](https://www.vegvesen.no/kjoretoy/eie-og-vedlikeholde/finn-godkjent-verksted/godkjenning-av-verksteder/) 
 | Godkjenningsnumre Statens Vegvesen |	Heltall	| Virksomhetens godkjennings-ID hos Statens Vegvesen ||	
 | Godkjent eBevis |	True/false	 | Indikerer om virksomheten er godkjent for bilpleie i kraft av å være godkjent hos Arbeidstilsynet eller hos Statens vegvesen | Viser om virksomheten er godkjent til å levere tjenester innen bilpleie, hjulskift og hjullagring  |
 {{</table>}}
@@ -187,7 +182,7 @@ Informasjon om Bilpleieregisteret: https://www.arbeidstilsynet.no/tema/sok-godkj
 | Begrep | Verdier | Forklaring | Merknad | 
 | :-------|:---------|:------------|:---------|
 | Organisasjons-nummer	| Ni siffer | Nisifret informasjonsløst nummer som brukes for å identifisere juridiske personer (enheter) i Norge, og tildeles ved registrering i Enhetsregisteret. |	ID-nummer som bekrefter at virksomheten er lovlig godkjent og registrert i Norge |
-| Godkjennings-status Statens Vegvesen | BILVERKSTEDALLE BILVERKSTED01 BILVERKSTED01B BILVERKSTED02 BILVERKSTED03 MOTORSYKKELOGMOPED BILSKADE SKADEVERKSTED01 SKADEVERKSTED02 BILELEKTRODRIVSTOFF-ANLEGG BILBREMSE BILDIESEL HJULUTRUSTNING PABYGGER TRAKTOR KONTROLLORGAN01 KONTROLLORGAN01B KONTROLLORGAN02 KONTROLLORGAN03 KONTROLLORGAN04 KONTROLLORGAN05 FARTSSKRIVER LYSUTSTYR HJUL HENGERESPALOPS-BREMSEANLEGG EKSOSANLEGG GASSDRIFTANLEGG BILGLASS ALKOLASVERKSTED | Angir hvilke godkjenning(er) virksomheten har hos Statens Vegvesen. Alle typer godkjenning hos Statens vegvesen kvalifiserer også til godkjenning hos Arbeidstilsynet for bilpleie, hjulskift og hjullagring. Informasjon om godkjente verksted hos Statens Vegvesen: https://www.vegvesen.no/kjoretoy/eie-og-vedlikeholde/finn-godkjent-verksted/godkjenning-av-verksteder/ | Viser hvilken type godkjenning virksomhetens verksted har |
+| Godkjennings-status Statens Vegvesen | BILVERKSTEDALLE BILVERKSTED01 BILVERKSTED01B BILVERKSTED02 BILVERKSTED03 MOTORSYKKELOGMOPED BILSKADE SKADEVERKSTED01 SKADEVERKSTED02 BILELEKTRODRIVSTOFF-ANLEGG BILBREMSE BILDIESEL HJULUTRUSTNING PABYGGER TRAKTOR KONTROLLORGAN01 KONTROLLORGAN01B KONTROLLORGAN02 KONTROLLORGAN03 KONTROLLORGAN04 KONTROLLORGAN05 FARTSSKRIVER LYSUTSTYR HJUL HENGERESPALOPS-BREMSEANLEGG EKSOSANLEGG GASSDRIFTANLEGG BILGLASS ALKOLASVERKSTED | Angir hvilke godkjenning(er) virksomheten har hos Statens Vegvesen. Alle typer godkjenning hos Statens vegvesen kvalifiserer også til godkjenning hos Arbeidstilsynet for bilpleie, hjulskift og hjullagring. [Se informasjon om godkjente verksted hos Statens Vegvesen](https://www.vegvesen.no/kjoretoy/eie-og-vedlikeholde/finn-godkjent-verksted/godkjenning-av-verksteder/)  | Viser hvilken type godkjenning virksomhetens verksted har |
 | Godkjennings-numre Statens Vegvesen | Heltall	| Virksomhetens godkjennings-ID hos Statens Vegvesen| |
 | Godkjent eBevis	| True/false |	Indikerer om virksomheten er godkjent verksted hos Statens vegvesen	| Viser om virksomheten er godkjent verksted |
 

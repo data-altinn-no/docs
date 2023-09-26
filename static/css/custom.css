@@ -381,6 +381,10 @@ footer .container {
     }
 }
 
+@media (min-width: 1600px) {
+    .container {
+      max-width: 1556px; } }
+      
 .a-fontBold {
     font-family: 'Inter-bold';
 }
