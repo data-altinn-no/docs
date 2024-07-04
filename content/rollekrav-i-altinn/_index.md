@@ -17,12 +17,12 @@ I tilfeller der samtykke eller fullmakt ikke gis innen rimelig tid, vil også de
 
 ### Meldinger
 
-*Forespørsler data-altinn-no* 5615/1
+*Varsel om fullmaktsforespørsel* - Digitaliseringsdirektoratet 5615/1
 
 ### Samtykke/fullmakt
 
-eBevis: *Restanser hos Skatteetaten* 5616/1
+eBevis: *Restanser hos Skatteetaten* - Digitaliseringsdirektoratet 5616/1
 
-Søknad om drosjeløyve: *Restanser fra Skatteetaten i søknad om drosjeløyve* 5616/6
+Søknad om drosjeløyve: *Restanser fra Skatteetaten i søknad om drosjeløyve* - Digitaliseringsdirektoratet 5616/6
 
 **Merk: For å kunne gi samtykke på disse tjenestene må man også ha rollen [*Tilgangsstyring*](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/tilgangsstyring/).**
