@@ -7,8 +7,7 @@ weight: 80
 
 
 Digdir er distributør av Advokatregisteret på vegne av Tilsynsrådet for advokatvirksomhet, hvor Data.altinn.no benyttes som teknisk løsning.  
-
- 
+Tilgang til advokatregisteret må godkjennes av Tilsynsrådet for advokatvirksomhet (post@tilsynet.no) før vi kan tildele scope i maskinporten. 
 
 Per i dag er det tre forskjellige oppslag tilgjengelig.  
 
