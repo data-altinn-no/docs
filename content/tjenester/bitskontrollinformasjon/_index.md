@@ -18,7 +18,6 @@ For mer informasjon, se [her](https://www.bits.no/project/kontrollinformasjon/)
 BITS kontrollinformasjon-tjenesten er tilgjengelig for Altinns tjenesteeiere som også er deltakere i DSOP Kontrollinformasjon. 
 
 ## Hvordan ta tjenesten i bruk
-
 Hente test-endepunkter: 
 
 Lage bruker på test.data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon». Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene.
@@ -90,6 +89,19 @@ Dette vil gi en respons som ser ut som følger (generert, ikke reell):
     "total": 2
 }
 ```
+
+## Varsling om nedetid og planlagte endringer
+Data.altinn.no vil sende ut varsel til konsumenter ved planlagt nedetid, endringer som påvirker tjenesten osv.
+
+Konsumenter vil varsles via [BITS varslingsrutine](https://dokumentasjon.dsop.no/dsop_kontroll_notifications.html) og motta informasjon om følgende:
+
+- Identifikator på varselet (issue på github)
+- Data.altinn.no/bits kontrollinformasjon 
+- Om varselet gjelder endring/nedetid/annet
+- Hvilket miljø det gjelder
+- Beskrivelse 
+- Start- og slutt-tidspunkt
+- Status
 
 ## Datasett som inngår i tjenesten
 {{% evidencecodes "Bits kontrollinformasjon" %}}
