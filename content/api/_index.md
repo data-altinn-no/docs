@@ -80,9 +80,18 @@ For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inklu
 
 ## Registrere konto og skaffe API-nøkkel
 
-Alle brukere av må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i testmiljøet https://test.data.altinn,no hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
+Alle brukere av må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i testmiljøet https://test.data.altinn.no hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
 
 * [Gå til utviklerportalen](https://data.altinn.no/)
+* [Naviger til produkter](https://data.altinn.no/products) og velg produktet du ønsker å benytte
+* Fyll inn navnet du ønsker på ditt abonnement og trykk "Subscribe"
+* Når abonnementet ditt er klart, [naviger til profilen din](https://data.altinn.no/profile)
+* Trykk på "Show" for å vise abonnement-nøkkelen din
+
+![NyttAbonnement](/images/guides/api/Api-subscribe.jpg "Skap abonnement på et produkt")
+
+![GetSubscriptionKey](/images/guides/api/Api-getsubscriptionkey.jpg "Hent abonnement-nøkkelen din")
+
 
 ## Hvordan innhente opplysninger
 
