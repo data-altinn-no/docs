@@ -34,25 +34,23 @@ Ocp-apim-subscription-key: {subscription-key}
 
 Dette vil gi en respons som ser ut som følger (generert, ikke reell):
 ```JSON
-{
+[
+    {
+        "orgNo": "123456789",
+        "name": "NAVN PÅ BANK",
+        "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942,
+        "version": "v2",
+        "env" : "test"
+    },
+    {
 
-    "endpoints": [
-        {
-            "orgNo": "123456789",
-            "name": "NAVN PÅ BANK",
-            "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942,
-            "version": "v2",
-        },
-        {
-
-            "orgNo": "987654321",
-            "name": "NAVN PÅ ANNEN BANK",
-            "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530,
-            "version": "v1",
-        }    
-    ],
-    "total": 2
-}
+        "orgNo": "987654321",
+        "name": "NAVN PÅ ANNEN BANK",
+        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530,
+        "version": "v1",
+        "env" : "test"
+    }    
+]
 ```
  
 
@@ -71,23 +69,23 @@ Ocp-apim-subscription-key: {subscription-key}
 
 Dette vil gi en respons som ser ut som følger (generert, ikke reell):
 ```JSON
-{
-    "endpoints": [
-        {
-            "orgNo": "123456789",
-            "name": "NAVN PÅ BANK",
-            "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/123456789,
-            "version": "v2",
-        },
-        {
-            "orgNo": "987654321",
-            "name": "NAVN PÅ ANNEN BANK",
-            "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/987654321,
-            "version": "v1",
-        }    
-    ],
-    "total": 2
-}
+[
+    {
+        "orgNo": "123456789",
+        "name": "NAVN PÅ BANK",
+        "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942,
+        "version": "v2",
+        "env" : "prod"
+    },
+    {
+
+        "orgNo": "987654321",
+        "name": "NAVN PÅ ANNEN BANK",
+        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530,
+        "version": "v1",
+        "env" : "prod"
+    }    
+]
 ```
 
 ## Varsling om nedetid og planlagte endringer
