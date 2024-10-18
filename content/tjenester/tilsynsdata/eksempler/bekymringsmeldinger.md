@@ -95,6 +95,24 @@ Under arbeid!
 ```
 
 ### OAS
-{{% notice note %}}
-Under arbeid!
-{{% /notice %}}
+```yaml
+type: object
+properties:
+  identifikator:
+    type: string
+  meldingFraMyndighet:
+    type: string
+  meldingOmTildaenhet:
+    type: string
+  datoForMeldingTilAnnenMyndighet:
+    type: string
+  meldingsinnholdTilAnnenMyndighet:
+    type: object
+    properties:
+      meldingsType:
+        type: string
+      relatertDatasettOppslagsUrl:
+        type: string
+      fritekst:
+        type: string
+```
