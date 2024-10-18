@@ -46,13 +46,40 @@ Eksempel:
 
 ```
 GET
-https://api.bestetilsynsmyndighet.no/trend/911951657/?requestor=998997801&fromDate=2021-01-20T00:00:00.000Z&toDate=2021-01-20T00:00:00.000Z&npdid=3432&filter=kommunalt
+https://api.bestetilsynsmyndighet.no/trend/911951657?requestor=998997801&fromDate=2021-01-20T00:00:00.000Z&toDate=2021-01-20T00:00:00.000Z&npdid=3432&filter=kommunalt
 ```
 
 ### Melding til annen myndighet
-For å kunne motta meldinger fra annen myndighet må man kunne motta POST-requests på {baseurl}/mtam  
-Formatet vil følge [CloudEvent-formatet](https://github.com/cloudevents/spec)  
-Eksempel:  
+Mtam trenger å kunne hente meldinger basert på id i tilegg til å kunne filtrere på fromDate beskrivet over.
+```
+{baseurl}/mtam/{id}?requestor={requestor_orgnr}
+```    
+```
+GET
+https://api.bestetilsynsmyndighet.no/mtam/e0095746-56dd-4513-814e-57494ba42d38?requestor=998997801
+```
+
+Forventet format:  
+```json
+{
+    "identifikator": "e0095746-56dd-4513-814e-57494ba42d38",
+    "datoForMeldingTilAnnenMyndighet": "2024-10-17T12:20:02.0775177Z",
+    "mottaker": "111111111",
+    "meldingOmTildaenhet": "2222222222",
+    "meldingsinnholdTilAnnenMyndighet":
+        {
+            "meldingsType": "varsel-om-rapport", // varsel-om-koordinering, varsel-fritekst
+            "fritekst": "Hello World"
+        }
+}
+```
+
+For å kunne motta meldinger fra annen myndighet må man kunne motta POST-requests på:  
+```
+{baseurl}/mtam 
+```
+
+Formatet vil følge [CloudEvent-formatet:](https://github.com/cloudevents/spec)
 ```json
 {
     "specversion": "1.0",
