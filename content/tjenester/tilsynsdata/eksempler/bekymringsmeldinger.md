@@ -12,98 +12,82 @@ Under arbeid!
 ### Eksempel
 ```json
 {
-  "meldingTilAnnenMyndighet": [
-    {
-      "meldingFraMyndighet": "222222222",
-      "meldingOmTildaenhet": "123456789",
-      "datoForMeldingTilAnnenMyndighet": "2013-01-30T00:00:00",
-      "meldingsinnholdTilAnnenMyndighet": "elsewhere macabre grape",
-      "identifikator": "6bcf1193-809a-4bf4-8b2c-f1cdce94a79e"
-    },
-    {
-      "meldingFraMyndighet": "222222222",
-      "meldingOmTildaenhet": "123456789",
-      "datoForMeldingTilAnnenMyndighet": "2013-01-30T00:00:00",
-      "meldingsinnholdTilAnnenMyndighet": "elsewhere macabre grape",
-      "identifikator": "5c72d01a-c715-45d7-a745-ab85e43ec94f"
-    },
-    {
-      "meldingFraMyndighet": "222222222",
-      "meldingOmTildaenhet": "123456789",
-      "datoForMeldingTilAnnenMyndighet": "2013-01-30T00:00:00",
-      "meldingsinnholdTilAnnenMyndighet": "elsewhere macabre grape",
-      "identifikator": "09ad0e96-9ef6-4046-9546-2a93a7c2d93e"
-    },
-    {
-      "meldingFraMyndighet": "222222222",
-      "meldingOmTildaenhet": "123456789",
-      "datoForMeldingTilAnnenMyndighet": "2013-01-30T00:00:00",
-      "meldingsinnholdTilAnnenMyndighet": "elsewhere macabre grape",
-      "identifikator": "57917956-a49b-4edd-8fb5-8c210bcbf53d"
-    }
-  ]
+  "identifikator": "123",
+  "meldingFraMyndighet": "1111111111",
+  "meldingOmTildaenhet": "2222222222",
+  "datoForMeldingTilAnnenMyndighet": "2024-10-18T08:06:33.1494051Z",
+  "meldingsinnholdTilAnnenMyndighet": {
+      "meldingsType": "varsel-om-rapport",
+      "relatertDatasettOppslagsUrl": "https://api.data.altinn.no/v1/directharvest/TildaTilsynsrapportv1?subject=2222222222&tilsynskilder=1111111111&identifikator=123&envelope=False",
+      "fritekst": "Hello World"
+  }
 }
 ```
 
 ### Schema
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "AlertMessageList2",
-  "title": "Tilda/bekymringsmeldinger",
-  "definitions": {
-    "meldingTilAnnenMyndighet": {
-      "$id": "meldingTilAnnenMyndighet",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "AlertMessage",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identifikator": {
       "type": [
-        "object",
-        "null"
-      ],
-      "properties": {
-        "meldingFraMyndighet": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "null",
+        "string"
+      ]
+    },
+    "meldingFraMyndighet": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "meldingOmTildaenhet": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "datoForMeldingTilAnnenMyndighet": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "meldingsinnholdTilAnnenMyndighet": {
+      "oneOf": [
+        {
+          "type": "null"
         },
-        "meldingOmTildaenhet": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "datoForMeldingTilAnnenMyndighet": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "meldingsinnholdTilAnnenMyndighet": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "identifikator": {
-          "type": [
-            "string",
-            "null"
-          ]
+        {
+          "$ref": "#/definitions/AlertMessageContent"
         }
-      },
-      "required": [
-        "meldingFraMyndighet",
-        "meldingOmTildaenhet"
       ]
     }
   },
-  "type": "object",
-  "properties": {
-    "bekymringsmeldinger": {
-      "$id": "List`1",
-      "type": [
-        "array",
-        "null"
-      ],
-      "items": {
-        "$ref": "meldingTilAnnenMyndighet"
+  "definitions": {
+    "AlertMessageContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meldingsType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "relatertDatasettOppslagsUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fritekst": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       }
     }
   }
@@ -111,54 +95,24 @@ Under arbeid!
 ```
 
 ### OAS
-```json
-{
-  "additionalProperties": true,
-  "definitions": {
-    "meldingTilAnnenMyndighet": {
-      "additionalProperties": true,
-      "nullable": true,
-      "properties": {
-        "datoForMeldingTilAnnenMyndighet": {
-          "format": "date-time",
-          "nullable": false,
-          "type": "string"
-        },
-        "identifikator": {
-          "nullable": true,
-          "type": "string"
-        },
-        "meldingFraMyndighet": {
-          "nullable": true,
-          "type": "string"
-        },
-        "meldingOmTildaenhet": {
-          "nullable": true,
-          "type": "string"
-        },
-        "meldingsinnholdTilAnnenMyndighet": {
-          "nullable": true,
-          "type": "string"
-        }
-      },
-      "required": [
-        "meldingFraMyndighet",
-        "meldingOmTildaenhet"
-      ],
-      "type": "object"
-    }
-  },
-  "nullable": false,
-  "properties": {
-    "bekymringsmeldinger": {
-      "items": {
-        "$ref": "meldingTilAnnenMyndighet"
-      },
-      "nullable": true,
-      "type": "array"
-    }
-  },
-  "title": "Tilda/bekymringsmeldinger",
-  "type": "object"
-}
+```yaml
+type: object
+properties:
+  identifikator:
+    type: string
+  meldingFraMyndighet:
+    type: string
+  meldingOmTildaenhet:
+    type: string
+  datoForMeldingTilAnnenMyndighet:
+    type: string
+  meldingsinnholdTilAnnenMyndighet:
+    type: object
+    properties:
+      meldingsType:
+        type: string
+      relatertDatasettOppslagsUrl:
+        type: string
+      fritekst:
+        type: string
 ```
