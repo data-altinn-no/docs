@@ -13,7 +13,7 @@ DAN vil med jevne mellomrom gjøre spørringer mot tilsynsmyndigheter som har im
 I meldingsinnholdet til annen myndighet er det et felt `meldingsType`. Dette skal være én av tre meldingstyper:
 - "varsel-om-rapport"
 - "varsel-om-koordinering"
-- "varsel-om-fritekst"
+- "varsel-fritekst"
   
 ## GET endepunkt for å hente liste over meldinger
 ```
