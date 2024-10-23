@@ -8,6 +8,12 @@ DAN vil med jevne mellomrom gjøre spørringer mot tilsynsmyndigheter som har im
 - GET endepunkt for å hente liste over meldinger til andre myndigheter
 - GET endepunkt for å hente melding til annen myndighet på ID
 - POST endepunkt for å kunne levere varsel om melding
+
+## Meldingstyper
+I meldingsinnholdet til annen myndighet er det et felt `meldingsType`. Dette skal være én av tre meldingstyper:
+- "varsel-om-rapport"
+- "varsel-om-koordinering"
+- "varsel-om-fritekst"
   
 ## GET endepunkt for å hente liste over meldinger
 ```
