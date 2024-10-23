@@ -35,6 +35,9 @@ Response:
 ]
 ```
 
+For å kvittere ut varselet som mottatt returnerer man 200 OK med tom body. Alle responser med httpkode som ikke starter med 2 vil føre til retry.
+
+
 OAS:
 ```yaml
 application/json:
