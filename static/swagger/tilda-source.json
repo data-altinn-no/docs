@@ -1,0 +1,1843 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Tilda Data Provider API",
+      "description": "API specification for Tilda data source providers",
+      "contact": {
+        "email": "dan@altinn.no"
+      },
+      "license": {
+        "name": "MIT License",
+        "url": "https://github.com/data-altinn-no/plugin-tilda/blob/main/LICENSE"
+      },
+      "version": "1.0.0"
+    },
+    "tags": [
+      {
+        "name": "koordinering",
+        "description": "tilsynskoordinering"
+      },
+      {
+        "name": "tilsyn",
+        "description": "tilsynsrapport"
+      },
+      {
+        "name": "trend",
+        "description": "trendrapport"
+      },
+      {
+        "name": "mtam",
+        "description": "melding til annen myndighet"
+      },
+      {
+        "name": "npdid",
+        "description": "npdidrapport"
+      },
+      {
+        "name": "pdf",
+        "description": "pdfrapport"
+      }
+    ],
+    "paths": {
+      "/koordinering": {
+        "get": {
+          "tags": [
+            "koordinering"
+          ],
+          "summary": "get all audit coordination",
+          "description": "Gets all audit reports\n",
+          "operationId": "TildaTilsynskoordineringAlle",
+          "parameters": [
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "maaned",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "aar",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "filtrering på type tilsyn eller tilsynsobjekt (bare for “Alle”-datasettene)",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AuditCoordinationResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/koordinering/{organization_number}": {
+        "get": {
+          "tags": [
+            "koordinering"
+          ],
+          "summary": "get audit coordination for org",
+          "operationId": "TildaTilsynskoordinering",
+          "parameters": [
+            {
+              "name": "organization_number",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "filtrere med startdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "toDate",
+              "in": "query",
+              "description": "filtrere med sluttdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AuditCoordinationResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/tilsyn": {
+        "get": {
+          "tags": [
+            "tilsyn"
+          ],
+          "summary": "get all audit report",
+          "operationId": "TildaTilsynsrapportAlle",
+          "parameters": [
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "maaned",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "aar",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "filtrering på type tilsyn eller tilsynsobjekt (bare for “Alle”-datasettene)",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AuditReportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/tilsyn/{organization_number}": {
+        "get": {
+          "tags": [
+            "tilsyn"
+          ],
+          "summary": "get audit report for org",
+          "operationId": "TildaTilsynsrapport",
+          "parameters": [
+            {
+              "name": "organization_number",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "filtrere med startdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "toDate",
+              "in": "query",
+              "description": "filtrere med sluttdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AuditReportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/trend": {
+        "get": {
+          "tags": [
+            "trend"
+          ],
+          "summary": "get all trend report",
+          "operationId": "TildaTrendrapportAlle",
+          "parameters": [
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "maaned",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "aar",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "filtrering på type tilsyn eller tilsynsobjekt (bare for “Alle”-datasettene)",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TrendReportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/trend/{organization_number}": {
+        "get": {
+          "tags": [
+            "trend"
+          ],
+          "summary": "get trend report for org",
+          "operationId": "TildaTrendrapport",
+          "parameters": [
+            {
+              "name": "organization_number",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "filtrere med startdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "toDate",
+              "in": "query",
+              "description": "filtrere med sluttdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TrendReportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/mtam": {
+        "get": {
+          "tags": [
+            "mtam"
+          ],
+          "summary": "get alert messages",
+          "description": "Get alert messages (melding til annen myndighet - mtam)",
+          "operationId": "MtamList",
+          "parameters": [
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "filtrere med startdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/AlertSourceMessage"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "mtam"
+          ],
+          "summary": "post alert",
+          "operationId": "post-mtam",
+          "parameters": [
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "$ref": "#/components/requestBodies/mtam-cloudevent"
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/mtam/{id}": {
+        "get": {
+          "tags": [
+            "mtam"
+          ],
+          "summary": "get alert message",
+          "operationId": "Mtam",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "2XX": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AlertSourceMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/npdid/{organization_number}": {
+        "get": {
+          "tags": [
+            "npdid"
+          ],
+          "summary": "get NPDID audit report",
+          "operationId": "NPDIDAuditReport",
+          "parameters": [
+            {
+              "name": "organization_number",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "fromDate",
+              "in": "query",
+              "description": "filtrere med startdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "toDate",
+              "in": "query",
+              "description": "filtrere med sluttdato",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            {
+              "name": "npdid",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Example response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NpdidReportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/pdfreport": {
+        "get": {
+          "tags": [
+            "pdf"
+          ],
+          "summary": "Get PDF report",
+          "operationId": "get-pdfreport",
+          "parameters": [
+            {
+              "name": "requestor ",
+              "in": "query",
+              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "2XX": {
+              "description": "Success",
+              "content": {
+                "application/pdf": {
+                  "schema": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AlertCompact": {
+          "type": "object",
+          "properties": {
+            "meldingTilmyndighet": {
+              "type": "string"
+            },
+            "meldingsinnholdTilAnnenMyndighet": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "AlertFull": {
+          "type": "object",
+          "properties": {
+            "meldingTilMyndighet": {
+              "type": "string"
+            },
+            "lokalitetsreferanse": {
+              "type": "integer"
+            },
+            "meldingsinnholdTilAnnenMyndighet": {
+              "type": "string"
+            },
+            "datoForMeldingTilAnnenMyndighet": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "x-examples": {}
+        },
+        "AlertMessageType": {
+          "title": "AlertMessageType",
+          "type": "string",
+          "enum": [
+            "varsel-om-rapport",
+            "varsel-om-koordinering",
+            "varsel-fritekst"
+          ]
+        },
+        "AlertSourceMessage": {
+          "type": "object",
+          "properties": {
+            "identifikator": {
+              "type": "string"
+            },
+            "mottaker": {
+              "type": "string"
+            },
+            "meldingOmTildaenhet": {
+              "type": "string"
+            },
+            "datoForMeldingTilAnnenMyndighet": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "meldingsinnholdTilAnnenMyndighet": {
+              "$ref": "#/components/schemas/AlertSourceMessageContent"
+            }
+          },
+          "x-examples": {}
+        },
+        "AlertSourceMessageContent": {
+          "type": "object",
+          "properties": {
+            "meldingsType": {
+              "$ref": "#/components/schemas/AlertMessageType"
+            },
+            "fritekst": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "Annual": {
+          "type": "object",
+          "properties": {
+            "trenddataForKalenderAar": {
+              "type": "integer"
+            },
+            "antallMeldingerTilAnnenMyndighet": {
+              "type": "integer"
+            },
+            "antallMaanederMedData": {
+              "type": "integer"
+            },
+            "antallAnmerkninger": {
+              "type": "integer"
+            },
+            "antallTilsyn": {
+              "type": "integer"
+            },
+            "antallTilsynUtenReaksjoner": {
+              "type": "integer"
+            },
+            "antallTilsynMedReaksjoner": {
+              "type": "integer"
+            },
+            "antallKontroller": {
+              "type": "integer"
+            },
+            "antallKontrollerUtenReaksjoner": {
+              "type": "integer"
+            },
+            "antallKontrollerMedReaksjoner": {
+              "type": "integer"
+            },
+            "antallAnmeldteReaksjoner": {
+              "type": "integer"
+            }
+          },
+          "x-examples": {}
+        },
+        "AuditAddress": {
+          "type": "object",
+          "properties": {
+            "lokalitetsreferanse": {
+              "type": "integer"
+            },
+            "lokalitetsbeskrivelse": {
+              "type": "string"
+            },
+            "lokalitetsnoekkelord": {
+              "type": "string"
+            },
+            "lengdegrad": {
+              "type": "string"
+            },
+            "breddegrad": {
+              "type": "string"
+            },
+            "bygningsnummer": {
+              "type": "string"
+            },
+            "bruksenhetsnummer": {
+              "type": "string"
+            },
+            "adressenavn": {
+              "type": "string"
+            },
+            "adressenummer": {
+              "type": "string"
+            },
+            "postnummer": {
+              "type": "string"
+            },
+            "poststedsnavn": {
+              "type": "string"
+            },
+            "kommunenummer": {
+              "type": "string"
+            },
+            "bydel": {
+              "type": "string"
+            },
+            "fylkesnummer": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "AuditCoordination": {
+          "type": "object",
+          "properties": {
+            "tildaenhet": {
+              "type": "string"
+            },
+            "tilsynutfoertav": {
+              "type": "string"
+            },
+            "ansvarligtilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynsstatus": {
+              "$ref": "#/components/schemas/ControlState"
+            },
+            "uanmeldttilsyn": {
+              "$ref": "#/components/schemas/SurpriseControlAttributeType"
+            },
+            "storulykketilsyn": {
+              "$ref": "#/components/schemas/MajorAccidentAttributeType"
+            },
+            "internTilsynsid": {
+              "type": "string"
+            },
+            "kontrolladresser": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuditAddress"
+              }
+            },
+            "kontaktpunkt": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ControlContact"
+              }
+            },
+            "meldingTilAnnenMyndighet": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlertFull"
+              }
+            },
+            "aapnetilsyn": {
+              "type": "integer"
+            },
+            "planlagteKontroller": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PlannedControlActivity"
+              }
+            },
+            "tilsynskampanjer": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Campaign"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "tildaenhet": "string",
+              "tilsynutfoertav": "string",
+              "ansvarligtilsynsmyndighet": "string",
+              "tilsynsstatus": "aapen",
+              "uanmeldttilsyn": "ja",
+              "storulykketilsyn": "ja",
+              "internTilsynsid": "string",
+              "kontrolladresser": [
+                {
+                  "lokalitetsreferanse": 0,
+                  "lokalitetsbeskrivelse": "string",
+                  "lokalitetsnoekkelord": "string",
+                  "lengdegrad": "string",
+                  "breddegrad": "string",
+                  "bygningsnummer": "string",
+                  "bruksenhetsnummer": "string",
+                  "adressenavn": "string",
+                  "adressenummer": "string",
+                  "postnummer": "string",
+                  "poststedsnavn": "string",
+                  "kommunenummer": "string",
+                  "bydel": "string",
+                  "fylkesnummer": "string"
+                }
+              ],
+              "kontaktpunkt": [
+                {
+                  "kontaktperson": "string",
+                  "avdeling": "string",
+                  "telefonnummer": "string",
+                  "epost": "string",
+                  "adresse": "string"
+                }
+              ],
+              "meldingTilAnnenMyndighet": [
+                {
+                  "meldingTilMyndighet": "string",
+                  "lokalitetsreferanse": 0,
+                  "meldingsinnholdTilAnnenMyndighet": "string",
+                  "datoForMeldingTilAnnenMyndighet": "2024-10-28T13:15:23Z"
+                }
+              ],
+              "aapnetilsyn": 0,
+              "planlagteKontroller": [
+                {
+                  "planlagtkontrolldato": "2024-10-28T13:15:23Z",
+                  "planlagtkontrollVarighet": 0,
+                  "tilsynstema": "string",
+                  "tilsynsaktivitet": "string",
+                  "aktivitetsutfoerelse": "string",
+                  "samtidigeKontroller": [
+                    {
+                      "samtidigTilsynsmyndighet": "string",
+                      "tilsynstema": "string",
+                      "aktivitetsutfoerelse": "string"
+                    }
+                  ]
+                }
+              ],
+              "tilsynskampanjer": [
+                {
+                  "kampanjenavn": "string",
+                  "kampanjebeskrivelse": "string",
+                  "startdatoForKampanje": "2024-10-28T13:15:23Z",
+                  "sluttdatoForKampanje": "2024-10-28T13:15:23Z"
+                }
+              ]
+            }
+          }
+        },
+        "AuditReport": {
+          "type": "object",
+          "properties": {
+            "tildaenhet": {
+              "type": "string"
+            },
+            "tilsynutfoertav": {
+              "type": "string"
+            },
+            "ansvarligTilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynsegenskaper": {
+              "$ref": "#/components/schemas/ControlAttribute"
+            },
+            "kontrolladresser": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuditAddress"
+              }
+            },
+            "utfoerteTilsynsaktiviteter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ControlActivity"
+              }
+            },
+            "kontaktpunkt": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ControlContact"
+              }
+            },
+            "tilsynsnotater": {
+              "type": "string"
+            },
+            "anmerkninger": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Remark"
+              }
+            },
+            "bruddOgReaksjoner": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Reaction"
+              }
+            }
+          },
+          "x-examples": {}
+        },
+        "Campaign": {
+          "type": "object",
+          "properties": {
+            "kampanjenavn": {
+              "type": "string"
+            },
+            "kampanjebeskrivelse": {
+              "type": "string"
+            },
+            "startdatoForKampanje": {
+              "type": "string"
+            },
+            "sluttdatoForKampanje": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "CloudEvent": {
+          "title": "",
+          "type": "object",
+          "properties": {
+            "specversion": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "type": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string",
+              "format": "uri"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "resource": {
+              "type": "string"
+            }
+          },
+          "description": "",
+          "x-examples": {
+            "Example 1": {
+              "specversion": "1.0",
+              "id": "e0095746-56dd-4513-814e-57494ba42d38",
+              "time": "2024-10-17T12:20:02.0775177Z",
+              "type": "dan.tilda.meldingfraannenmyndighet.v1",
+              "source": "https://api.data.altinn.no/v1/directharvest/TildaMeldingTilAnnenMyndighetv1?subject=1111111111&identifikator=e0095746-56dd-4513-814e-57494ba42d38&envelope=False",
+              "subject": "1111111111",
+              "resource": "urn:altinn:resource:tilda-melding-til-annen-myndighet"
+            }
+          }
+        },
+        "ControlActivity": {
+          "type": "object",
+          "properties": {
+            "tilsynsaktivitetreferanse": {
+              "type": "string"
+            },
+            "lokalitetsreferanse": {
+              "type": "integer"
+            },
+            "internAktivitetsidentifikator": {
+              "type": "string"
+            },
+            "kontrollobjekt": {
+              "type": "string"
+            },
+            "startdatoForTilsynsaktivitet": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "varighetForTilsynsaktivitet": {
+              "type": "integer"
+            },
+            "tilsynsaktivitet": {
+              "type": "string"
+            },
+            "aktivitetsutfoerelse": {
+              "type": "string"
+            },
+            "observasjonFraTilsynsaktivitet": {
+              "type": "string"
+            },
+            "samtidigeKontroller": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CoordinatedControlAgency"
+              }
+            },
+            "meldingTilAnnenMyndighet": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlertCompact"
+              }
+            }
+          },
+          "x-examples": {}
+        },
+        "ControlAttribute": {
+          "type": "object",
+          "properties": {
+            "internTilsynsid": {
+              "type": "string"
+            },
+            "storulykketilsyn": {
+              "$ref": "#/components/schemas/MajorAccidentAttributeType"
+            },
+            "uanmeldttilsyn": {
+              "$ref": "#/components/schemas/SurpriseControlAttributeType"
+            },
+            "tilsynsutvelgelse": {
+              "type": "string"
+            },
+            "tilsynsstatus": {
+              "$ref": "#/components/schemas/ControlState"
+            },
+            "tilsynstema": {
+              "type": "string"
+            },
+            "tilsynsnoekkelord": {
+              "type": "string"
+            },
+            "nettrapport": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "ControlContact": {
+          "type": "object",
+          "properties": {
+            "kontaktperson": {
+              "type": "string"
+            },
+            "avdeling": {
+              "type": "string"
+            },
+            "telefonnummer": {
+              "type": "string"
+            },
+            "epost": {
+              "type": "string"
+            },
+            "adresse": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "ControlReactionDetails": {
+          "type": "object",
+          "properties": {
+            "utmaaltReaksjonsverdi": {
+              "type": "integer"
+            },
+            "utmaaltReaksjonstype": {
+              "type": "string"
+            },
+            "utmaaltReaksjonsklasse": {
+              "type": "integer"
+            },
+            "lavreaksjonsverdi": {
+              "type": "integer"
+            },
+            "hoeyreaksjonsverdi": {
+              "type": "integer"
+            },
+            "lavalvorsgradindeks": {
+              "type": "integer"
+            },
+            "hoeyalvorsgradindeks": {
+              "type": "integer"
+            }
+          },
+          "x-examples": {}
+        },
+        "ControlState": {
+          "type": "string",
+          "enum": [
+            "aapen",
+            "lukket",
+            "avbrutt",
+            "planlegging",
+            "ikkeAngitt"
+          ]
+        },
+        "CoordinatedControlAgency": {
+          "type": "object",
+          "properties": {
+            "samtidigTilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynstema": {
+              "type": "string"
+            },
+            "aktivitetsutfoerelse": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "MajorAccidentAttributeType": {
+          "type": "string",
+          "enum": [
+            "ja",
+            "nei",
+            "meldepliktig",
+            "rapporteringspliktig",
+            "ikkeAngitt"
+          ]
+        },
+        "NPDIDAuditReport": {
+          "type": "object",
+          "properties": {
+            "npdid": {
+              "type": "string"
+            },
+            "tildaenhet": {
+              "type": "string"
+            },
+            "tilsynutfoertav": {
+              "type": "string"
+            },
+            "ansvarligtilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynsegenskaper": {
+              "$ref": "#/components/schemas/ControlAttribute"
+            },
+            "kontrolladresser": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuditAddress"
+              }
+            },
+            "utfoerteTilsynsaktiviteter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ControlActivity"
+              }
+            },
+            "kontaktpunkt": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ControlContact"
+              }
+            },
+            "tilsynsnotater": {
+              "type": "string"
+            },
+            "anmerkninger": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Remark"
+              }
+            },
+            "bruddOgReaksjoner": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Reaction"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "npdid": "string",
+              "tildaenhet": "string",
+              "tilsynutfoertav": "",
+              "ansvarligtilsynsmyndighet": "",
+              "tilsynsegenskaper": {},
+              "kontrolladresser": [
+                {}
+              ],
+              "utfoerteTilsynsaktiviteter": [
+                {}
+              ],
+              "kontaktpunkt": [
+                {}
+              ],
+              "tilsynsnotater": "",
+              "anmerkninger": [
+                {}
+              ],
+              "bruddOgReaksjoner": [
+                {}
+              ]
+            }
+          }
+        },
+        "PlannedControlActivity": {
+          "type": "object",
+          "properties": {
+            "planlagtkontrolldato": {
+              "type": "string"
+            },
+            "planlagtkontrollVarighet": {
+              "type": "integer"
+            },
+            "tilsynstema": {
+              "type": "string"
+            },
+            "tilsynsaktivitet": {
+              "type": "string"
+            },
+            "aktivitetsutfoerelse": {
+              "type": "string"
+            },
+            "samtidigeKontroller": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CoordinatedControlAgency"
+              }
+            }
+          },
+          "x-examples": {}
+        },
+        "Reaction": {
+          "type": "object",
+          "properties": {
+            "bruddOgReaksjonsreferanse": {
+              "type": "integer"
+            },
+            "tilsynsaktivitetreferanse": {
+              "type": "integer"
+            },
+            "lokalitetsreferanse": {
+              "type": "integer"
+            },
+            "utredningAvBruddOgReaksjon": {
+              "type": "string"
+            },
+            "lovparagraf": {
+              "type": "string"
+            },
+            "reaksjonsdato": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "alvorsgrad": {
+              "$ref": "#/components/schemas/ControlReactionDetails"
+            },
+            "antallGangerVirkemiddelErTattIBruk": {
+              "type": "integer"
+            }
+          },
+          "x-examples": {}
+        },
+        "Remark": {
+          "type": "object",
+          "properties": {
+            "anmerkningsreferanse": {
+              "type": "integer"
+            },
+            "anmerkning": {
+              "type": "string"
+            }
+          },
+          "x-examples": {}
+        },
+        "StatusEnum": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "feil",
+            "ikkeFunnet",
+            "ukjent"
+          ]
+        },
+        "SurpriseControlAttributeType": {
+          "type": "string",
+          "enum": [
+            "ja",
+            "nei",
+            "ikkeAngitt"
+          ]
+        },
+        "TrendReport": {
+          "type": "object",
+          "properties": {
+            "tildaenhet": {
+              "type": "string"
+            },
+            "ansvarligtilsynsmyndighet": {
+              "type": "string"
+            },
+            "aarligeTildaenhetTotaler": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Annual"
+              }
+            }
+          },
+          "description": "",
+          "x-examples": {}
+        },
+        "AuditCoordinationResponse": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "$ref": "#/components/schemas/StatusEnum"
+            },
+            "statustekst": {
+              "type": "string"
+            },
+            "tilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynskoordineringer": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuditCoordination"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "status": "ok",
+              "statustekst": "string",
+              "tilsynsmyndighet": "string",
+              "tilsynskoordineringer": [
+                {}
+              ]
+            }
+          }
+        },
+        "AuditReportResponse": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "$ref": "#/components/schemas/StatusEnum"
+            },
+            "statustekst": {
+              "type": "string"
+            },
+            "tilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynsrapporter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuditReport"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "status": "ok",
+              "statustekst": "string",
+              "tilsynsmyndighet": "string",
+              "tilsynsrapporter": [
+                {}
+              ]
+            }
+          }
+        },
+        "TrendReportResponse": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "$ref": "#/components/schemas/StatusEnum"
+            },
+            "statustekst": {
+              "type": "string"
+            },
+            "tilsynsmyndighet": {
+              "type": "string"
+            },
+            "trendrapporter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/TrendReport"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "status": "ok",
+              "statustekst": "string",
+              "tilsynsmyndighet": "string",
+              "trendrapporter": [
+                {}
+              ]
+            }
+          }
+        },
+        "NpdidReportResponse": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "$ref": "#/components/schemas/StatusEnum"
+            },
+            "statustekst": {
+              "type": "string"
+            },
+            "tilsynsmyndighet": {
+              "type": "string"
+            },
+            "tilsynsrapporter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/NPDIDAuditReport"
+              }
+            }
+          },
+          "x-examples": {
+            "Example 1": {
+              "status": "ok",
+              "statustekst": "string",
+              "tilsynsmyndighet": "string",
+              "tilsynsrapporter": [
+                {}
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "audit-coordination": {
+          "description": "Example response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditCoordinationResponse"
+              }
+            }
+          }
+        },
+        "audit-report": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditReportResponse"
+              }
+            }
+          }
+        },
+        "trend-report": {
+          "description": "Example response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrendReportResponse"
+              }
+            }
+          }
+        },
+        "alert-message": {
+          "description": "Example response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertSourceMessage"
+              }
+            }
+          }
+        },
+        "alert-message-array": {
+          "description": "Example response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AlertSourceMessage"
+                }
+              }
+            }
+          }
+        },
+        "npdid-report": {
+          "description": "Example response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NpdidReportResponse"
+              }
+            }
+          }
+        }
+      },
+      "parameters": {
+        "fromDate": {
+          "name": "fromDate",
+          "in": "query",
+          "description": "filtrere med startdato",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "toDate": {
+          "name": "toDate",
+          "in": "query",
+          "description": "filtrere med sluttdato",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "requestor": {
+          "name": "requestor ",
+          "in": "query",
+          "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "name": "filter",
+          "in": "query",
+          "description": "filtrering på type tilsyn eller tilsynsobjekt (bare for “Alle”-datasettene)",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "npdid": {
+          "name": "npdid",
+          "in": "query",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "maaned": {
+          "name": "maaned",
+          "in": "query",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "aar": {
+          "name": "aar",
+          "in": "query",
+          "required": false,
+          "style": "form",
+          "explode": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "requestBodies": {
+        "mtam-cloudevent": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "specversion": "1.0",
+                    "id": "e0095746-56dd-4513-814e-57494ba42d38",
+                    "time": "2024-10-17T12:20:02.0775177Z",
+                    "type": "dan.tilda.meldingfraannenmyndighet.v1",
+                    "source": "https://api.data.altinn.no/v1/directharvest/TildaMeldingTilAnnenMyndighetv1?subject=1111111111&identifikator=e0095746-56dd-4513-814e-57494ba42d38&envelope=False",
+                    "subject": "1111111111",
+                    "resource": "urn:altinn:resource:tilda-melding-til-annen-myndighet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
