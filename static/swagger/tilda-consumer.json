@@ -1,0 +1,1175 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+      "description" : "Specification for using data.altinn.no-API for Tilda consumers",
+      "version" : "1.0.0",
+      "title" : "Tilda Consumer API",
+      "contact" : {
+        "email" : "dan@altinn.no"
+      },
+      "license" : {
+        "name" : "MIT License",
+        "url" : "https://github.com/data-altinn-no/plugin-tilda/blob/main/LICENSE"
+      }
+    },
+    "tags" : [ {
+      "name" : "koordinering",
+      "description" : "tilsynskoordinering"
+    }, {
+      "name" : "tilsyn",
+      "description" : "tilsynsrapport"
+    }, {
+      "name" : "trend",
+      "description" : "trendrapport"
+    }, {
+      "name" : "mtam",
+      "description" : "melding til annen myndighet"
+    }, {
+      "name" : "npdid",
+      "description" : "npdidrapport"
+    }, {
+      "name" : "pdf",
+      "description" : "pdfrapport"
+    }, {
+      "name" : "storulykke",
+      "description" : "storulykkevirksomhet"
+    }, {
+      "name" : "metadata",
+      "description" : "metadata"
+    } ],
+    "paths" : {
+      "/directharvest/TildaMetadatav1" : {
+        "get" : {
+          "summary" : "TildaMetadatav1",
+          "tags" : [ "metadata" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaMetadatav1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-11T11:08:28.5574083+00:00",
+                          "validTo" : "2025-02-09T11:08:28.5562855+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "TildaTrendrapportv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7933581Z",
+                          "value" : "974761211:Arbeidstilsynet,971203420:Fiskeridirektoratet,874761192:Justervesenet,999601391:Miljødirektoratet",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTrendrapportAllev1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7934343Z",
+                          "value" : "",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTilsynsrapportv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.794267Z",
+                          "value" : "974761211:Arbeidstilsynet,BRANN:BRANNTILSYN,DLE:ELTILSYN,971203420:Fiskeridirektoratet,874761192:Justervesenet,999601391:Miljødirektoratet,974762994:Statsforvalteren i Agder,974761645:Statsforvalteren i Innlandet,974764067:Statsforvalteren i Møre og Romsdal,974764687:Statsforvalteren i Nordland,974761319:Statsforvalteren i Oslo og Viken,974763230:Statsforvalteren i Rogaland,967311014:Statsforvalteren i Troms og Finnmark,974764350:Statsforvalteren i Trøndelag,974762501:Statsforvalteren i Vestfold og Telemark,974760665:Statsforvalteren i Vestland",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTilsynsrapportAllev1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7945081Z",
+                          "value" : "974761211:Arbeidstilsynet",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTilsynskoordineringv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7946955Z",
+                          "value" : "974761211:Arbeidstilsynet,971203420:Fiskeridirektoratet,986174613:Havindustritilsynet,874761192:Justervesenet,999601391:Miljødirektoratet,974762994:Statsforvalteren i Agder,974761645:Statsforvalteren i Innlandet,974764067:Statsforvalteren i Møre og Romsdal,974764687:Statsforvalteren i Nordland,974761319:Statsforvalteren i Oslo og Viken,974763230:Statsforvalteren i Rogaland,967311014:Statsforvalteren i Troms og Finnmark,974764350:Statsforvalteren i Trøndelag,974762501:Statsforvalteren i Vestfold og Telemark,974760665:Statsforvalteren i Vestland",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTilsynskoordineringAllev1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7947684Z",
+                          "value" : "974761211:Arbeidstilsynet,874761192:Justervesenet,974762994:Statsforvalteren i Agder,974761645:Statsforvalteren i Innlandet,974764067:Statsforvalteren i Møre og Romsdal,974764687:Statsforvalteren i Nordland,974761319:Statsforvalteren i Oslo og Viken,974763230:Statsforvalteren i Rogaland,967311014:Statsforvalteren i Troms og Finnmark,974764350:Statsforvalteren i Trøndelag,974762501:Statsforvalteren i Vestfold og Telemark,974760665:Statsforvalteren i Vestland",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaNPDIDv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7947926Z",
+                          "value" : "",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaTilsynsrapportpdfv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7948944Z",
+                          "value" : "991825827:Digitaliseringsdirektoratet",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "TildaMeldingTilAnnenMyndighetv1",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7949928Z",
+                          "value" : "",
+                          "valueType" : "string"
+                        }, {
+                          "evidenceValueName" : "AlleKilder",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T11:08:29.7953681Z",
+                          "value" : "974761211:Arbeidstilsynet,BRANN:BRANNTILSYN,991825827:Digitaliseringsdirektoratet,111111111:Direktoratet for sikkerhet og beredskap,DLE:ELTILSYN,971203420:Fiskeridirektoratet,986174613:Havindustritilsynet,974761394:Helsetilsynet,874761192:Justervesenet,1111111111:Local,985399077:Mattilsynet,999601391:Miljødirektoratet,960478150:Næringslivets sikkerhetsorganisasjon,974762994:Statsforvalteren i Agder,921627009:Statsforvalterens fellestjenester,974761645:Statsforvalteren i Innlandet,974764067:Statsforvalteren i Møre og Romsdal,974764687:Statsforvalteren i Nordland,974761319:Statsforvalteren i Oslo og Viken,974763230:Statsforvalteren i Rogaland,967311014:Statsforvalteren i Troms og Finnmark,974764350:Statsforvalteren i Trøndelag,974762501:Statsforvalteren i Vestfold og Telemark,974760665:Statsforvalteren i Vestland",
+                          "valueType" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvetst-TildaMetadatav1"
+        },
+        "parameters" : [ ]
+      },
+      "/directharvest/TildaTilsynsrapportv1" : {
+        "get" : {
+          "summary" : "TildaTilsynsrapportv1",
+          "tags" : [ "tilsyn" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTilsynsrapportv1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T13:35:35.6786784+00:00",
+                          "validTo" : "2025-02-06T13:35:35.677667+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "enhetsinformasjon",
+                          "source" : "Enhetsregisteret",
+                          "timestamp" : "2024-11-08T13:35:43.0270351Z",
+                          "value" : "{\"tildaenhet\":\"123123123\",\"tildaenhetNavn\":\"TEST\",\"naeringskode\":\"12.123\",\"organisasjonsform\":\"FORM\",\"driftsstatus\":\"ok\"}",
+                          "valueType" : "jsonSchema"
+                        }, {
+                          "evidenceValueName" : "tilsynsrapporter",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T13:35:43.0364654Z",
+                          "value" : "{\"status\":\"ok\",\"statustekst\":\"OK. ElapsedMs: 5408\",\"tilsynsmyndighet\":\"974761211\",\"tilsynsrapporter\":[{\"tildaenhet\": \"string\",\"tilsynutfoertav\": \"string\",\"ansvarligTilsynsmyndighet\": \"string\",\"tilsynsegenskaper\": {\"internTilsynsid\": \"string\",\"storulykketilsyn\": \"ja\",\"uanmeldttilsyn\": \"ja\",\"tilsynsutvelgelse\": \"string\",\"tilsynsstatus\": \"aapen\",\"tilsynstema\": \"string\",\"tilsynsnoekkelord\": \"string\",\"nettrapport\": \"string\"},\"kontrolladresser\": [{\"lokalitetsreferanse\": 0,\"lokalitetsbeskrivelse\": \"string\",\"lokalitetsnoekkelord\": \"string\",\"lengdegrad\": \"string\",\"breddegrad\": \"string\",\"bygningsnummer\": \"string\",\"bruksenhetsnummer\": \"string\",\"adressenavn\": \"string\",\"adressenummer\": \"string\",\"postnummer\": \"string\",\"poststedsnavn\": \"string\",\"kommunenummer\": \"string\",\"bydel\": \"string\",\"fylkesnummer\": \"string\"}],\"utfoerteTilsynsaktiviteter\": [{\"tilsynsaktivitetreferanse\": \"string\",\"lokalitetsreferanse\": 0,\"internAktivitetsidentifikator\": \"string\",\"kontrollobjekt\": \"string\",\"startdatoForTilsynsaktivitet\": \"2024-11-08T13:43:43.052Z\",\"varighetForTilsynsaktivitet\": 0,\"tilsynsaktivitet\": \"string\",\"aktivitetsutfoerelse\": \"string\",\"observasjonFraTilsynsaktivitet\": \"string\",\"samtidigeKontroller\": [{  \"samtidigTilsynsmyndighet\": \"string\",  \"tilsynstema\": \"string\",  \"aktivitetsutfoerelse\": \"string\"}],\"meldingTilAnnenMyndighet\": [{  \"meldingTilmyndighet\": \"string\",  \"meldingsinnholdTilAnnenMyndighet\": \"string\"}]}],\"kontaktpunkt\": [{\"kontaktperson\": \"string\",\"avdeling\": \"string\",\"telefonnummer\": \"string\",\"epost\": \"string\",\"adresse\": \"string\"}],\"tilsynsnotater\": \"string\",\"anmerkninger\": [{\"anmerkningsreferanse\": 0,\"anmerkning\": \"string\"}],\"bruddOgReaksjoner\": [{\"bruddOgReaksjonsreferanse\": 0,\"tilsynsaktivitetreferanse\": 0,\"lokalitetsreferanse\": 0,\"utredningAvBruddOgReaksjon\": \"string\",\"lovparagraf\": \"string\",\"reaksjonsdato\": \"2024-11-08T13:43:43.052Z\",\"alvorsgrad\": {\"utmaaltReaksjonsverdi\": 0,\"utmaaltReaksjonstype\": \"string\",\"utmaaltReaksjonsklasse\": 0,\"lavreaksjonsverdi\": 0,\"hoeyreaksjonsverdi\": 0,\"lavalvorsgradindeks\": 0,\"hoeyalvorsgradindeks\": 0},\"antallGangerVirkemiddelErTattIBruk\": 0}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTilsynsrapportv1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/startdato"
+          }, {
+            "$ref" : "#/components/parameters/sluttdato"
+          }, {
+            "$ref" : "#/components/parameters/tilsynskilder"
+          }, {
+            "$ref" : "#/components/parameters/inkluderUnderenheter"
+          } ]
+        }
+      },
+      "/directharvest/TildaTilsynsrapportAllev1" : {
+        "get" : {
+          "summary" : "TildaTilsynsrapportAllev1",
+          "tags" : [ "tilsyn" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTilsynsrapportAllev1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T14:22:15.0456721+00:00",
+                          "validTo" : "2025-02-06T14:22:15.0456511+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "tilsynsrapporter",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T14:22:19.2736292Z",
+                          "value" : "{\"status\":\"ok\",\"statustekst\":\"OK. ElapsedMs: 5408\",\"tilsynsmyndighet\":\"974761211\",\"tilsynsrapporter\":[{\"tildaenhet\": \"string\",\"tilsynutfoertav\": \"string\",\"ansvarligTilsynsmyndighet\": \"string\",\"tilsynsegenskaper\": {\"internTilsynsid\": \"string\",\"storulykketilsyn\": \"ja\",\"uanmeldttilsyn\": \"ja\",\"tilsynsutvelgelse\": \"string\",\"tilsynsstatus\": \"aapen\",\"tilsynstema\": \"string\",\"tilsynsnoekkelord\": \"string\",\"nettrapport\": \"string\"},\"kontrolladresser\": [{\"lokalitetsreferanse\": 0,\"lokalitetsbeskrivelse\": \"string\",\"lokalitetsnoekkelord\": \"string\",\"lengdegrad\": \"string\",\"breddegrad\": \"string\",\"bygningsnummer\": \"string\",\"bruksenhetsnummer\": \"string\",\"adressenavn\": \"string\",\"adressenummer\": \"string\",\"postnummer\": \"string\",\"poststedsnavn\": \"string\",\"kommunenummer\": \"string\",\"bydel\": \"string\",\"fylkesnummer\": \"string\"}],\"utfoerteTilsynsaktiviteter\": [{\"tilsynsaktivitetreferanse\": \"string\",\"lokalitetsreferanse\": 0,\"internAktivitetsidentifikator\": \"string\",\"kontrollobjekt\": \"string\",\"startdatoForTilsynsaktivitet\": \"2024-11-08T13:43:43.052Z\",\"varighetForTilsynsaktivitet\": 0,\"tilsynsaktivitet\": \"string\",\"aktivitetsutfoerelse\": \"string\",\"observasjonFraTilsynsaktivitet\": \"string\",\"samtidigeKontroller\": [{  \"samtidigTilsynsmyndighet\": \"string\",  \"tilsynstema\": \"string\",  \"aktivitetsutfoerelse\": \"string\"}],\"meldingTilAnnenMyndighet\": [{  \"meldingTilmyndighet\": \"string\",  \"meldingsinnholdTilAnnenMyndighet\": \"string\"}]}],\"kontaktpunkt\": [{\"kontaktperson\": \"string\",\"avdeling\": \"string\",\"telefonnummer\": \"string\",\"epost\": \"string\",\"adresse\": \"string\"}],\"tilsynsnotater\": \"string\",\"anmerkninger\": [{\"anmerkningsreferanse\": 0,\"anmerkning\": \"string\"}],\"bruddOgReaksjoner\": [{\"bruddOgReaksjonsreferanse\": 0,\"tilsynsaktivitetreferanse\": 0,\"lokalitetsreferanse\": 0,\"utredningAvBruddOgReaksjon\": \"string\",\"lovparagraf\": \"string\",\"reaksjonsdato\": \"2024-11-08T13:43:43.052Z\",\"alvorsgrad\": {\"utmaaltReaksjonsverdi\": 0,\"utmaaltReaksjonstype\": \"string\",\"utmaaltReaksjonsklasse\": 0,\"lavreaksjonsverdi\": 0,\"hoeyreaksjonsverdi\": 0,\"lavalvorsgradindeks\": 0,\"hoeyalvorsgradindeks\": 0},\"antallGangerVirkemiddelErTattIBruk\": 0}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTilsynsrapportallev1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/maaned"
+          }, {
+            "$ref" : "#/components/parameters/aar"
+          }, {
+            "$ref" : "#/components/parameters/filter"
+          }, {
+            "$ref" : "#/components/parameters/postnummer"
+          }, {
+            "$ref" : "#/components/parameters/kommunenummer"
+          }, {
+            "$ref" : "#/components/parameters/naeringskode"
+          } ]
+        },
+        "parameters" : [ ]
+      },
+      "/directharvest/TildaTilsynsrapportpdfv1" : {
+        "get" : {
+          "summary" : "TildaTilsynsrapportpdfv1",
+          "tags" : [ "pdf" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/pdf" : {
+                  "schema" : {
+                    "type" : "string",
+                    "format" : "binary"
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTilsynsrapportpdfv1",
+          "parameters" : [ {
+            "schema" : {
+              "type" : "string"
+            },
+            "in" : "query",
+            "name" : "internTilsynsId"
+          } ]
+        }
+      },
+      "/directharvest/TildaTrendrapportv1" : {
+        "get" : {
+          "summary" : "TildaTrendrapportv1",
+          "tags" : [ "trend" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTrendrapportv1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T13:35:35.6786784+00:00",
+                          "validTo" : "2025-02-06T13:35:35.677667+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "enhetsinformasjon",
+                          "source" : "Enhetsregisteret",
+                          "timestamp" : "2024-11-08T13:35:43.0270351Z",
+                          "value" : "{\"tildaenhet\":\"123123123\",\"tildaenhetNavn\":\"TEST\",\"naeringskode\":\"12.123\",\"organisasjonsform\":\"FORM\",\"driftsstatus\":\"ok\"}",
+                          "valueType" : "jsonSchema"
+                        }, {
+                          "evidenceValueName" : "tilsynstrendrapporter",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T13:35:43.0364654Z",
+                          "value" : "{\"status\": \"ok\",\"statustekst\": \"string\",\"tilsynsmyndighet\": \"string\",\"trendrapporter\": [{\"tildaenhet\": \"string\",\"ansvarligtilsynsmyndighet\": \"string\",\"aarligeTildaenhetTotaler\": [{\"trenddataForKalenderAar\": 0,\"antallMeldingerTilAnnenMyndighet\": 0,\"antallMaanederMedData\": 0,\"antallAnmerkninger\": 0,\"antallTilsyn\": 0,\"antallTilsynUtenReaksjoner\": 0,\"antallTilsynMedReaksjoner\": 0,\"antallKontroller\": 0,\"antallKontrollerUtenReaksjoner\": 0,\"antallKontrollerMedReaksjoner\": 0,\"antallAnmeldteReaksjoner\": 0}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTrendrapportv1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/startdato"
+          }, {
+            "$ref" : "#/components/parameters/sluttdato"
+          }, {
+            "$ref" : "#/components/parameters/tilsynskilder"
+          }, {
+            "$ref" : "#/components/parameters/inkluderUnderenheter"
+          } ]
+        }
+      },
+      "/directharvest/TildaTrendrapportAllev1" : {
+        "get" : {
+          "summary" : "TildaTrendrapportAllev1",
+          "tags" : [ "trend" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTrendrapportAllev1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T14:22:15.0456721+00:00",
+                          "validTo" : "2025-02-06T14:22:15.0456511+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "tilsynstrendrapporter",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T14:22:19.2736292Z",
+                          "value" : "{\"status\": \"ok\",\"statustekst\": \"string\",\"tilsynsmyndighet\": \"string\",\"trendrapporter\": [{\"tildaenhet\": \"string\",\"ansvarligtilsynsmyndighet\": \"string\",\"aarligeTildaenhetTotaler\": [{\"trenddataForKalenderAar\": 0,\"antallMeldingerTilAnnenMyndighet\": 0,\"antallMaanederMedData\": 0,\"antallAnmerkninger\": 0,\"antallTilsyn\": 0,\"antallTilsynUtenReaksjoner\": 0,\"antallTilsynMedReaksjoner\": 0,\"antallKontroller\": 0,\"antallKontrollerUtenReaksjoner\": 0,\"antallKontrollerMedReaksjoner\": 0,\"antallAnmeldteReaksjoner\": 0}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTrendrapportAllev1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/maaned"
+          }, {
+            "$ref" : "#/components/parameters/aar"
+          }, {
+            "$ref" : "#/components/parameters/filter"
+          }, {
+            "$ref" : "#/components/parameters/postnummer"
+          }, {
+            "$ref" : "#/components/parameters/kommunenummer"
+          }, {
+            "$ref" : "#/components/parameters/naeringskode"
+          } ]
+        }
+      },
+      "/directharvest/TildaTilsynskoordineringv1" : {
+        "get" : {
+          "summary" : "TildaTilsynskoordineringv1",
+          "tags" : [ "koordinering" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTilsynskoordineringv1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T13:35:35.6786784+00:00",
+                          "validTo" : "2025-02-06T13:35:35.677667+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "enhetsinformasjon",
+                          "source" : "Enhetsregisteret",
+                          "timestamp" : "2024-11-08T13:35:43.0270351Z",
+                          "value" : "{\"tildaenhet\":\"123123123\",\"tildaenhetNavn\":\"TEST\",\"naeringskode\":\"12.123\",\"organisasjonsform\":\"FORM\",\"driftsstatus\":\"ok\"}",
+                          "valueType" : "jsonSchema"
+                        }, {
+                          "evidenceValueName" : "tilsynskoordineringer",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T13:35:43.0364654Z",
+                          "value" : "{\"status\": \"ok\",\"statustekst\": \"string\",\"tilsynsmyndighet\": \"string\",\"tilsynskoordineringer\": [{\"tildaenhet\": \"string\",\"tilsynutfoertav\": \"string\",\"ansvarligtilsynsmyndighet\": \"string\",\"tilsynsstatus\": \"aapen\",\"uanmeldttilsyn\": \"ja\",\"storulykketilsyn\": \"ja\",\"internTilsynsid\": \"string\",\"kontrolladresser\": [{\"lokalitetsreferanse\": 0,\"lokalitetsbeskrivelse\": \"string\",\"lokalitetsnoekkelord\": \"string\",\"lengdegrad\": \"string\",\"breddegrad\": \"string\",\"bygningsnummer\": \"string\",\"bruksenhetsnummer\": \"string\",\"adressenavn\": \"string\",\"adressenummer\": \"string\",\"postnummer\": \"string\",\"poststedsnavn\": \"string\",\"kommunenummer\": \"string\",\"bydel\": \"string\",\"fylkesnummer\": \"string\"}],\"kontaktpunkt\": [{\"kontaktperson\": \"string\",\"avdeling\": \"string\",\"telefonnummer\": \"string\",\"epost\": \"string\",\"adresse\": \"string\"}],\"meldingTilAnnenMyndighet\": [{\"meldingTilMyndighet\": \"string\",\"lokalitetsreferanse\": 0,\"meldingsinnholdTilAnnenMyndighet\": \"string\",\"datoForMeldingTilAnnenMyndighet\": \"2024-11-11T08:11:40.468Z\"}],\"aapnetilsyn\": 0,\"planlagteKontroller\": [{\"planlagtkontrolldato\": \"string\",\"planlagtkontrollVarighet\": 0,\"tilsynstema\": \"string\",\"tilsynsaktivitet\": \"string\",\"aktivitetsutfoerelse\": \"string\",\"samtidigeKontroller\": [{\"samtidigTilsynsmyndighet\": \"string\",\"tilsynstema\": \"string\",\"aktivitetsutfoerelse\": \"string\"}]}],\"tilsynskampanjer\": [{\"kampanjenavn\": \"string\",\"kampanjebeskrivelse\": \"string\",\"startdatoForKampanje\": \"string\",\"sluttdatoForKampanje\": \"string\"}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTilsynskoordineringv1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/startdato"
+          }, {
+            "$ref" : "#/components/parameters/sluttdato"
+          }, {
+            "$ref" : "#/components/parameters/tilsynskilder"
+          }, {
+            "$ref" : "#/components/parameters/inkluderUnderenheter"
+          } ]
+        }
+      },
+      "/directharvest/TildaTilsynskoordineringAllev1" : {
+        "get" : {
+          "summary" : "TildaTilsynskoordineringAllev1",
+          "tags" : [ "koordinering" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaTilsynskoordineringAllev1",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-08T14:22:15.0456721+00:00",
+                          "validTo" : "2025-02-06T14:22:15.0456511+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "tilsynskoordineringer",
+                          "source" : "974761211",
+                          "timestamp" : "2024-11-08T14:22:19.2736292Z",
+                          "value" : "{\"status\": \"ok\",\"statustekst\": \"string\",\"tilsynsmyndighet\": \"string\",\"tilsynskoordineringer\": [{\"tildaenhet\": \"string\",\"tilsynutfoertav\": \"string\",\"ansvarligtilsynsmyndighet\": \"string\",\"tilsynsstatus\": \"aapen\",\"uanmeldttilsyn\": \"ja\",\"storulykketilsyn\": \"ja\",\"internTilsynsid\": \"string\",\"kontrolladresser\": [{\"lokalitetsreferanse\": 0,\"lokalitetsbeskrivelse\": \"string\",\"lokalitetsnoekkelord\": \"string\",\"lengdegrad\": \"string\",\"breddegrad\": \"string\",\"bygningsnummer\": \"string\",\"bruksenhetsnummer\": \"string\",\"adressenavn\": \"string\",\"adressenummer\": \"string\",\"postnummer\": \"string\",\"poststedsnavn\": \"string\",\"kommunenummer\": \"string\",\"bydel\": \"string\",\"fylkesnummer\": \"string\"}],\"kontaktpunkt\": [{\"kontaktperson\": \"string\",\"avdeling\": \"string\",\"telefonnummer\": \"string\",\"epost\": \"string\",\"adresse\": \"string\"}],\"meldingTilAnnenMyndighet\": [{\"meldingTilMyndighet\": \"string\",\"lokalitetsreferanse\": 0,\"meldingsinnholdTilAnnenMyndighet\": \"string\",\"datoForMeldingTilAnnenMyndighet\": \"2024-11-11T08:11:40.468Z\"}],\"aapnetilsyn\": 0,\"planlagteKontroller\": [{\"planlagtkontrolldato\": \"string\",\"planlagtkontrollVarighet\": 0,\"tilsynstema\": \"string\",\"tilsynsaktivitet\": \"string\",\"aktivitetsutfoerelse\": \"string\",\"samtidigeKontroller\": [{\"samtidigTilsynsmyndighet\": \"string\",\"tilsynstema\": \"string\",\"aktivitetsutfoerelse\": \"string\"}]}],\"tilsynskampanjer\": [{\"kampanjenavn\": \"string\",\"kampanjebeskrivelse\": \"string\",\"startdatoForKampanje\": \"string\",\"sluttdatoForKampanje\": \"string\"}]}]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaTilsynskoordineringAllev1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/maaned"
+          }, {
+            "$ref" : "#/components/parameters/aar"
+          }, {
+            "$ref" : "#/components/parameters/filter"
+          }, {
+            "$ref" : "#/components/parameters/postnummer"
+          }, {
+            "$ref" : "#/components/parameters/kommunenummer"
+          }, {
+            "$ref" : "#/components/parameters/naeringskode"
+          } ]
+        }
+      },
+      "/directharvest/TildaStorulykkevirksomhet" : {
+        "get" : {
+          "summary" : "TildaStorulykkevirksomhet",
+          "tags" : [ "storulykke" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaStorulykkevirksomhet",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-11T08:26:23.5424878+00:00",
+                          "validTo" : "2025-02-09T08:26:23.5424752+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "Storulykkevirksomhet",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T08:26:23.6578737Z",
+                          "value" : "{\"bedriftsnummer\":\"123123123\",\"paragraf6\":false,\"paragraf9\":false}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaStorulykkevirksomhet",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/subject"
+          } ]
+        }
+      },
+      "/directharvest/TildaStorulykkevirksomhetAlle" : {
+        "get" : {
+          "summary" : "TildaStorulykkevirksomhetAlle",
+          "tags" : [ "storulykke" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "TildaStorulykkevirksomhetAlle",
+                          "status" : {
+                            "code" : 1,
+                            "description" : "The information is available for harvest"
+                          },
+                          "validFrom" : "2024-11-11T08:33:04.8599937+00:00",
+                          "validTo" : "2025-02-09T08:33:04.8599819+00:00"
+                        },
+                        "evidenceValues" : [ {
+                          "evidenceValueName" : "StorulykkevirksomheterParagraf6",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T08:33:04.9974624Z",
+                          "value" : "{\"storulykkevirksomheter\":[\"871602182\",\"871740402\",\"871780722\",\"871893942\",\"872092242\",\"872383352\",\"873125632\",\"874001392\",\"874202312\",\"874312312\",\"877175502\",\"879506662\",\"891156022\",\"898852822\",\"912784886\",\"912784894\",\"912784908\",\"912788725\",\"913075714\",\"913244788\",\"914468957\",\"914907500\",\"914931363\",\"914934109\",\"915690513\",\"916239750\",\"916391021\",\"916421699\",\"920191711\",\"920868231\",\"921170572\",\"926350722\",\"929400747\",\"971679832\",\"971742771\",\"971746041\",\"971762586\",\"971772360\",\"971893400\",\"971945117\",\"971945885\",\"971966254\",\"972023523\",\"972027898\",\"972215694\",\"972222356\",\"972240575\",\"972310603\",\"973068032\",\"973082477\",\"973092960\",\"973102648\",\"973103083\",\"973104098\",\"973122215\",\"973131532\",\"973142895\",\"973150278\",\"973153641\",\"973166409\",\"973166867\",\"973168916\",\"973171984\",\"973190598\",\"973329146\",\"973481592\",\"973645617\",\"973810545\",\"974082691\",\"974096323\",\"974099381\",\"974118068\",\"974118858\",\"974146290\",\"974183927\",\"974289644\",\"974305267\",\"974309742\",\"974833972\",\"974836025\",\"975018385\",\"975037266\",\"975037711\",\"979115768\",\"979723040\",\"980540464\",\"980773507\",\"981076664\",\"983628850\",\"984123507\",\"984590008\",\"984673957\",\"984835906\",\"986584617\",\"987181958\",\"988542881\",\"989471627\",\"989778056\",\"990664080\",\"990779694\",\"990943478\",\"991235507\",\"991655484\",\"992557028\",\"993182176\",\"993866644\",\"995201127\",\"995252449\",\"995252457\",\"995252465\",\"995252481\",\"995252562\",\"995252694\",\"995652463\",\"996022382\",\"996731170\",\"997412958\",\"998012686\",\"998494079\",\"999238866\",\"971600896\",\"974329247\",\"813862832\",\"891156472\",\"994442147\"]}",
+                          "valueType" : "jsonSchema"
+                        }, {
+                          "evidenceValueName" : "StorulykkevirksomheterParagraf9",
+                          "source" : "Tilda",
+                          "timestamp" : "2024-11-11T08:33:04.997475Z",
+                          "value" : "{\"storulykkevirksomheter\":[\"813676362\",\"871685762\",\"873137932\",\"873171812\",\"874285072\",\"875859072\",\"879625122\",\"884191742\",\"890286852\",\"893247092\",\"898852822\",\"913462289\",\"913863860\",\"919112204\",\"921170572\",\"925065439\",\"971606592\",\"971681489\",\"971681497\",\"971744391\",\"971778695\",\"971821434\",\"972021997\",\"972095605\",\"972215694\",\"972275751\",\"972319775\",\"972593346\",\"973062611\",\"973080253\",\"973083481\",\"973095331\",\"973101412\",\"973101862\",\"973102699\",\"973102834\",\"973102869\",\"973103040\",\"973103067\",\"973108050\",\"973108069\",\"973152424\",\"973166395\",\"973184644\",\"973493639\",\"974074966\",\"974082691\",\"974090368\",\"974100169\",\"974114011\",\"974150565\",\"974282623\",\"974285150\",\"974286599\",\"974296586\",\"974305461\",\"974825090\",\"974836009\",\"975005755\",\"975012301\",\"975108155\",\"976169409\",\"976301870\",\"976711971\",\"976849965\",\"979386001\",\"980568652\",\"980616444\",\"981313259\",\"981524403\",\"982191564\",\"986584617\",\"987511036\",\"988542881\",\"988853585\",\"988860069\",\"990943478\",\"991655484\",\"993222399\",\"993222410\",\"996773434\",\"998012686\",\"974168391\",\"986769919\"]}",
+                          "valueType" : "jsonSchema"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaStorulykkevirksomhetAlle"
+        }
+      },
+      "/directharvest/TildaNPDIDv1" : {
+        "get" : {
+          "summary" : "TildaNPDIDv1",
+          "tags" : [ "npdid" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/Evidence"
+                  },
+                  "examples" : {
+                    "Example 1" : {
+                      "value" : {
+                        "evidenceStatus" : {
+                          "evidenceCodeName" : "string",
+                          "status" : {
+                            "code" : 0,
+                            "description" : "string",
+                            "retryAt" : "string"
+                          },
+                          "validFrom" : "2019-08-24T14:15:22Z",
+                          "validTo" : "2019-08-24T14:15:22Z"
+                        },
+                        "evidenceValues" : [ {
+                          "mimeType" : "string",
+                          "evidenceValueName" : "string",
+                          "description" : "string",
+                          "source" : "string",
+                          "timestamp" : "2019-08-24T14:15:22Z",
+                          "value" : "{\"status\":\"ok\",\"statustekst\":\"OK. ElapsedMs: 1000\",\"tilsynsmyndighet\":\"123123123\"}",
+                          "valueType" : "boolean",
+                          "jsonSchemaDefintion" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaNPDIDv1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/startdato"
+          }, {
+            "$ref" : "#/components/parameters/sluttdato"
+          }, {
+            "$ref" : "#/components/parameters/tilsynskilder"
+          }, {
+            "$ref" : "#/components/parameters/npdid"
+          }, {
+            "$ref" : "#/components/parameters/inkluderUnderenheter"
+          } ]
+        }
+      },
+      "/directharvest/TildaMeldingTilAnnenMyndighetv1" : {
+        "get" : {
+          "summary" : "TildaMeldingTilAnnenMyndighetv1",
+          "tags" : [ "mtam" ],
+          "responses" : {
+            "2XX" : {
+              "description" : "Success",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "object",
+                    "$ref" : "#/components/schemas/AlertEvidence"
+                  }
+                }
+              }
+            }
+          },
+          "operationId" : "get-directharvest-TildaMeldingTilAnnenMyndighetv1",
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/identifikator"
+          }, {
+            "$ref" : "#/components/parameters/tilsynskilder"
+          } ]
+        }
+      }
+    },
+    "components" : {
+      "schemas" : {
+        "AccountsInformation" : {
+          "title" : "AccountsInformation",
+          "type" : "object",
+          "properties" : {
+            "fraDato" : {
+              "type" : "string",
+              "format" : "date-time"
+            },
+            "tilDato" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "hn89w8trjr64u"
+              },
+              "format" : "date-time"
+            },
+            "aarligOmsetning" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "97h3oi8qcmv0k"
+              }
+            }
+          }
+        },
+        "AlertEvidence" : {
+          "title" : "AlertEvidence",
+          "type" : "object",
+          "properties" : {
+            "evidenceStatus" : {
+              "$ref" : "#/components/schemas/EvidenceStatus"
+            },
+            "" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "puvb3lh6aw2ah"
+              }
+            }
+          }
+        },
+        "AlertEvidenceValue" : {
+          "title" : "AlertEvidenceValue",
+          "type" : "object",
+          "properties" : {
+            "mimeType" : {
+              "type" : "string"
+            },
+            "evidenceValueName" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "sx2cdlifz6h5z"
+              }
+            },
+            "description" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "3ennuk56nqhfi"
+              }
+            },
+            "source" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "rpcn4k3bp5pm0"
+              }
+            },
+            "timestamp" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "la7xqkl9jkpfe"
+              },
+              "format" : "date-time"
+            },
+            "value" : {
+              "$ref" : "#/components/schemas/AlertMessage"
+            },
+            "valueType" : {
+              "$ref" : "#/components/schemas/EvidenceValueType"
+            },
+            "jsonSchemaDefintion" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "ywd27j2d8uunx"
+              }
+            }
+          }
+        },
+        "AlertMessage" : {
+          "title" : "AlertMessage",
+          "type" : "object",
+          "properties" : {
+            "identifikator" : {
+              "type" : "string"
+            },
+            "meldingFraMyndighet" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "qqinsco2r0n2h"
+              }
+            },
+            "meldingOmTildaenhet" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "nszzlx1w403i4"
+              }
+            },
+            "datoForMeldingTilAnnenMyndighet" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "d1sbhx25pu2xu"
+              },
+              "format" : "date-time"
+            },
+            "meldingsinnholdTilAnnenMyndighet" : {
+              "$ref" : "#/components/schemas/AlertMessageContent"
+            }
+          }
+        },
+        "AlertMessageContent" : {
+          "title" : "AlertMessageContent",
+          "type" : "object",
+          "properties" : {
+            "meldingsType" : {
+              "$ref" : "#/components/schemas/AlertMessageType"
+            },
+            "relatertDatasettOppslagsUrl" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "p0eqwvvff8cfl"
+              },
+              "format" : "uri"
+            },
+            "fritekst" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "9ey9yxeefjphl"
+              }
+            }
+          }
+        },
+        "AlertMessageType" : {
+          "title" : "AlertMessageType",
+          "enum" : [ "varsel-om-rapport", "varsel-om-koordinering", "varsel-fritekst" ]
+        },
+        "ERAddress" : {
+          "title" : "ERAddress",
+          "type" : "object",
+          "properties" : {
+            "lengdegrad" : {
+              "type" : "string"
+            },
+            "breddegrad" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "dd4aqd5omlp3u"
+              }
+            },
+            "bygningsnummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "xipguhpmovp35"
+              }
+            },
+            "bruksenhetsnummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "yl3bfpmkdh5y4"
+              }
+            },
+            "adressenavn" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "04aqlxqvd6flu"
+              }
+            },
+            "adressenummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "9yaiiq2qlszp7"
+              }
+            },
+            "postnummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "ocd4kob54wfwh"
+              }
+            },
+            "poststedsnavn" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "2g8wr23cv9wdr"
+              }
+            },
+            "kommunenummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "82k45po5zww2i"
+              }
+            },
+            "bydel" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "dw0qc9f2p796h"
+              }
+            },
+            "fylkesnummer" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "v6fv0x2lmvtde"
+              }
+            }
+          }
+        },
+        "Evidence" : {
+          "title" : "Evidence",
+          "type" : "object",
+          "properties" : {
+            "evidenceStatus" : {
+              "$ref" : "#/components/schemas/EvidenceStatus"
+            },
+            "evidenceValues" : {
+              "type" : "array",
+              "x-stoplight" : {
+                "id" : "6n72k4p9r4aqn"
+              },
+              "items" : {
+                "$ref" : "#/components/schemas/EvidenceValue"
+              }
+            }
+          }
+        },
+        "EvidenceStatus" : {
+          "title" : "EvidenceStatus",
+          "type" : "object",
+          "properties" : {
+            "evidenceCodeName" : {
+              "type" : "string"
+            },
+            "status" : {
+              "$ref" : "#/components/schemas/EvidenceStatusCode"
+            },
+            "validFrom" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "0zvqa6sy5es2m"
+              },
+              "format" : "date-time"
+            },
+            "validTo" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "obf7mod8oejuy"
+              },
+              "format" : "date-time"
+            }
+          }
+        },
+        "EvidenceStatusCode" : {
+          "title" : "EvidenceStatusCode",
+          "type" : "object",
+          "properties" : {
+            "code" : {
+              "type" : "integer"
+            },
+            "description" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "000cd4d0zkqrb"
+              }
+            },
+            "retryAt" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "1peus7p58kebd"
+              }
+            }
+          }
+        },
+        "EvidenceValue" : {
+          "title" : "EvidenceValue",
+          "type" : "object",
+          "properties" : {
+            "mimeType" : {
+              "type" : "string"
+            },
+            "evidenceValueName" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "sx2cdlifz6h5z"
+              }
+            },
+            "description" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "3ennuk56nqhfi"
+              }
+            },
+            "source" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "rpcn4k3bp5pm0"
+              }
+            },
+            "timestamp" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "la7xqkl9jkpfe"
+              },
+              "format" : "date-time"
+            },
+            "value" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "8s6c2b8edrgcp"
+              },
+              "default" : { },
+              "example" : "{\"status\":\"ok\",\"statustekst\":\"OK. ElapsedMs: 1000\",\"tilsynsmyndighet\":\"123123123\"}"
+            },
+            "valueType" : {
+              "$ref" : "#/components/schemas/EvidenceValueType"
+            },
+            "jsonSchemaDefintion" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "ywd27j2d8uunx"
+              }
+            }
+          },
+          "description" : ""
+        },
+        "EvidenceValueType" : {
+          "title" : "EvidenceValueType",
+          "enum" : [ "boolean", "number", "string", "dateTime", "attachment", "uri", "amount", "jsonSchema", "binary" ]
+        },
+        "StatusEnum" : {
+          "type" : "string",
+          "enum" : [ "ok", "feil", "ikkeFunnet", "ukjent" ]
+        },
+        "OperationStatus" : {
+          "title" : "OperationStatus",
+          "enum" : [ "ikkeAngitt", "konkurs", "underAvvikling", "underTvangsavviklingEllerTvangsopploesning", "ok", "slettet" ]
+        },
+        "TildaRegistryEntry" : {
+          "title" : "TildaRegistryEntry",
+          "type" : "object",
+          "properties" : {
+            "tildaenhet" : {
+              "type" : "string"
+            },
+            "tildaenhetNavn" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "y2e4wbwuqklo6"
+              }
+            },
+            "epostaddresser" : {
+              "type" : "array",
+              "x-stoplight" : {
+                "id" : "d46gmzc80mq3b"
+              },
+              "items" : { }
+            },
+            "tildaenhetHovedenhet" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "whgtrre12jn4p"
+              }
+            },
+            "besoeksadresse" : {
+              "$ref" : "#/components/schemas/ERAddress"
+            },
+            "naeringskode" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "wfu6kje89xh89"
+              }
+            },
+            "organisasjonsform" : {
+              "type" : "string",
+              "x-stoplight" : {
+                "id" : "yd0dlhu8xi6gt"
+              }
+            },
+            "regnskapsInformasjon" : {
+              "$ref" : "#/components/schemas/AccountsInformation"
+            },
+            "driftsstatus" : {
+              "$ref" : "#/components/schemas/OperationStatus"
+            }
+          }
+        }
+      },
+      "parameters" : {
+        "startdato" : {
+          "name" : "startdato",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        },
+        "sluttdato" : {
+          "name" : "sluttdato",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        },
+        "tilsynskilder" : {
+          "name" : "tilsynskilder",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "inkluderUnderenheter" : {
+          "name" : "inkluderUnderenheter",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "boolean"
+          }
+        },
+        "maaned" : {
+          "name" : "maaned",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "aar" : {
+          "name" : "aar",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "filter" : {
+          "name" : "filter",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "postnummer" : {
+          "name" : "postnummer",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "kommunenummer" : {
+          "name" : "kommunenummer",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "naeringskode" : {
+          "name" : "naeringskode",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "subject" : {
+          "name" : "subject",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "identifikator" : {
+          "name" : "identifikator",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "npdid" : {
+          "name" : "npdid",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
