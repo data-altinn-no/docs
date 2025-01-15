@@ -303,6 +303,29 @@ var EvidenceCodesDisplay = {
         return maskValues;
     },
 
+    friendlyLicense: function(license) {
+        if(license === null || license === undefined)
+        {
+            return "Ikke oppgitt";
+        }
+        if(this.isValidUrl(license))
+        {
+            return "<a href=" + license + ">" + license +"</li>";
+        }
+        return license;
+    },
+
+    // https://web.archive.org/web/20110806041156/http://forums.devshed.com/javascript-development-115/regexp-to-match-url-pattern-493764.html
+    isValidUrl: function(urlString) {
+        var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+        '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+        return !!urlPattern.test(urlString);
+    },
+
     friendyFirstLegalBasis: function(evidenceCode, cSharpMode = false) {
         let flbr = this.getFirstLegalBasisRequirement(evidenceCode);
         if (flbr == null || flbr.validLegalBasisTypes == null) return "sometype";
@@ -645,5 +668,4 @@ var EvidenceCodesDisplay = {
         code += 'return r.join("");';
         return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
     }
-    
 };

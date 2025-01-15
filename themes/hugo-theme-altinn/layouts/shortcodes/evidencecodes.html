@@ -19,6 +19,7 @@
 			<dt>Kan direktehøstes</dt><dd><%code.isAsynchronous?'Nei':'Ja'%></dd>
 			<dt>Maks tilgjengelighet</dt><dd><%code.maxValidDays ? code.maxValidDays + ' dager' : 'Ikke oppgitt'%></dd>
 			<dt>Har parametre</dt><dd><%typeof code.parameters !== 'undefined' ? 'Ja' : 'Nei'%></dd>
+			<dt>Lisens</dt><dd><%EvidenceCodesDisplay.friendlyLicense(code.license)%></dd>
 		</dl>
 		<div class="authorizationrequirementscontainer">
 			<h3>Tilgangskontroller</h3>
