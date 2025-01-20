@@ -13,7 +13,7 @@ Per i dag er det fem forskjellige oppslag tilgjengelig.
 
 * Verifikasjon 
 
-Tar inn et fødselsnummer og returnerer om personen er registrert i advokatregisteret eller ikke, samt tittel (advokat, advokatfullmektig eller rettshjelper)  
+Tar inn et fødselsnummer og returnerer om personen er registrert i advokatregisteret eller ikke, samt tittel (advokat, advokatfullmektig)  
 
 * Personoppslag 
 
