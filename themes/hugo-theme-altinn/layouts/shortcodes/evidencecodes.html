@@ -20,10 +20,12 @@
 			<dt>Maks tilgjengelighet</dt><dd><%code.maxValidDays ? code.maxValidDays + ' dager' : 'Ikke oppgitt'%></dd>
 			<dt>Har parametre</dt><dd><%typeof code.parameters !== 'undefined' ? 'Ja' : 'Nei'%></dd>
 			<dt>Lisens</dt><dd><%EvidenceCodesDisplay.friendlyLicense(code.license)%></dd>
+			<dt>Åpne data</dt><dd><%code.isPublic?'Ja':'Nei'%></dd>
 		</dl>
 		<div class="authorizationrequirementscontainer">
 			<h3>Tilgangskontroller</h3>
-			<div class="authorizationrequirement-legend">Følgende autorisasjonskrav er definert for dette datasett. Krav som ikke møtes vil føre til at hele forespørselen feiler.</div>
+			<div class="authorizationrequirement-legend">Følgende autorisasjonskrav er definert for dette datasett. Krav som ikke møtes vil føre til at hele forespørselen feiler. <br>
+				Datasett som er angitt som åpne data kan hentes på et eget endepunkt uten autentisert konsument.</div>
 			<div class="authorizationrequirementscontainer-inner">
 				<%EvidenceCodesDisplay.friendlyAuthorizationRequirements(code)%>
 			</div>
