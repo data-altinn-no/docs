@@ -3,19 +3,42 @@ title: Melding til annen myndighet
 description: Standardisering av melding til annen myndighet
 weight: 100
 ---
+
+- [Hensikt](#hensikt)
+  - [Hvordan fungerer det faktisk?](#hvordan-fungerer-det-faktisk)
+- [Implementering](#implementering)
+  - [Meldingstyper](#meldingstyper)
+  - [GET endepunkt for å hente liste over meldinger](#get-endepunkt-for-å-hente-liste-over-meldinger)
+  - [GET endepunkt for å hente melding på ID](#get-endepunkt-for-å-hente-melding-på-id)
+  - [POST endepunkt for å kunne levere varsel om melding](#post-endepunkt-for-å-kunne-levere-varsel-om-melding)
+- [Spørsmål og svar](#spørsmål-og-svar)
+  - [Trenger vi å implementere både sending og mottak?](#trenger-vi-å-implementere-både-sending-og-mottak)
+  - [Må vi sende meldingene våre til Tilda?](#må-vi-sende-meldingene-våre-til-tilda)
+  - [Må vi ha støtte for å levere meldinger etter gitt tidspunkt?](#må-vi-ha-støtte-for-å-levere-meldinger-etter-gitt-tidspunkt)
+
+## Hensikt
+Hensikten med 'Melding til annen myndighet'-systemet (MTAM) er å fasilitere automatisk kommunikasjon melding forskjellige tilsynskilder uten at de må sette opp egne integrasjoner mot hver eneste annen tilsynskilde. Dette gjøres med Tilda som bindeledd, slik at en tilsynskilde bare trenger å sette opp integrasjon for MTAM, og så håndterer Tilda resten av prosesseringen.
+
+![SimpleArchitecture](/images/guides/tilda/tilda-mtam-simple-arch.png "Arktitekturoversikt for MTAM")
+
+### Hvordan fungerer det faktisk?
+Hvert femte minutt tar Tilda å spør tilsynskilder som har implementert MTAM for nye meldinger. Se [implementering](#implementering) for hva som skal til for å ha implementert MTAM. Tilda sjekker sin egen liste over når den sist hentet meldinger, og så spør kun om meldinger som har dukket opp etter siste spørring. Hvis den finner meldinger, så tar den å leverer det til sine respektive mottakere.
+
+![SimpleArchitecture](/images/guides/tilda/tilda-mtam-flowchart.png "MTAM flytoversikt")
+
 ## Implementering
-DAN vil med jevne mellomrom gjøre spørringer mot tilsynsmyndigheter som har implementert 'melding til annen myndighet' (MTAM). Det trengs tre endepunkter for å kunne ferdig-implementere MTAM:
+DAN vil med jevne mellomrom gjøre spørringer mot tilsynsmyndigheter som har implementert MTAM. Det trengs tre endepunkter for å kunne ferdig-implementere MTAM:
 - GET endepunkt for å hente liste over meldinger til andre myndigheter
 - GET endepunkt for å hente melding til annen myndighet på ID
 - POST endepunkt for å kunne levere varsel om melding
 
-## Meldingstyper
+### Meldingstyper
 I meldingsinnholdet til annen myndighet er det et felt `meldingsType`. Dette skal være én av tre meldingstyper:
 - "varsel-om-rapport"
 - "varsel-om-koordinering"
 - "varsel-fritekst"
   
-## GET endepunkt for å hente liste over meldinger
+### GET endepunkt for å hente liste over meldinger
 ```
 {baseurl}/mtam?fromDate={fromDate}
 ```    
@@ -69,7 +92,7 @@ application/json:
               type: string
 ```
 
-## GET endepunkt for å hente melding på ID
+### GET endepunkt for å hente melding på ID
 ```
 {baseurl}/mtam/{id}?requestor={requestor_orgnr}
 ```    
@@ -115,7 +138,7 @@ application/json:
             type: string
 ```
 
-## POST endepunkt for å kunne levere varsel om melding
+### POST endepunkt for å kunne levere varsel om melding
 ```
 {baseurl}/mtam 
 ```
@@ -159,3 +182,14 @@ application/json:
       resource:
         type: string
 ```
+
+## Spørsmål og svar
+
+### Trenger vi å implementere både sending og mottak?
+Det må være gyldige endepunkter som Tilda kan kalle, men hvis man bare ønsker å implementere sending kan man f.eks. bare lage et mottaks-endepunkt som returnerer 200 OK.
+
+### Må vi sende meldingene våre til Tilda?
+Nei, Tilda vil kalle på endepunktene når den skal hente meldinger.
+
+### Må vi ha støtte for å levere meldinger etter gitt tidspunkt?
+Ja. I tilfelle noe går feil ved utsending så vil ikke Tilda oppdatere når den sist hentet meldinger og vil prøve på nytt igjen med samme tidspunkt som utgangspunkt. Det gjør også at man kan hente meldinger tilbake i tid ved behov.
