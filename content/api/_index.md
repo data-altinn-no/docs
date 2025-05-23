@@ -78,10 +78,16 @@ Det er ulike base-URL-er som skal benyttes avhengig av miljø eller om det benyt
 
 For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inkluderer versjonen av API-et som skal benyttes, se utviklerportalen.
 
-## Registrere konto og skaffe API-nøkkel
+## Lage ny bruker
 
-Alle brukere av må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i testmiljøet https://test.data.altinn.no hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
+Alle brukere av data.altinn.no må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i [testmiljøet](https://test.data.altinn.no) hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
 
+Hvis du vil opprette en ny bruker, gå til [registreringssiden](https://data.altinn.no/signup). Etter å ha fyllt inn kontodetaljer, følg instruksjonene i eposten du vil motta. Du vil bli navigert til innloggingssiden når du har verifisert eposten.
+
+Hvis du allerede har en eksisterende bruker, gå til [innloggingssiden](https://data.altinn.no/signin) 
+## Skaffe API-nøkkel
+
+* [Logg inn](https://data.altinn.no/signin)
 * [Gå til utviklerportalen](https://data.altinn.no/)
 * [Naviger til produkter](https://data.altinn.no/products) og velg produktet du ønsker å benytte
 * Fyll inn navnet du ønsker på ditt abonnement og trykk "Subscribe"
