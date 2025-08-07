@@ -17,7 +17,7 @@ weight: 100
   - [Må vi ha støtte for å levere meldinger etter gitt tidspunkt?](#må-vi-ha-støtte-for-å-levere-meldinger-etter-gitt-tidspunkt)
 
 ## Hensikt
-Hensikten med 'Melding til annen myndighet'-systemet (MTAM) er å fasilitere automatisk kommunikasjon melding forskjellige tilsynskilder uten at de må sette opp egne integrasjoner mot hver eneste annen tilsynskilde. Dette gjøres med Tilda som bindeledd, slik at en tilsynskilde bare trenger å sette opp integrasjon for MTAM, og så håndterer Tilda resten av prosesseringen.
+Hensikten med 'Melding til annen myndighet'-systemet (MTAM) er å fasilitere automatisk kommunikasjon mellom forskjellige tilsynskilder uten at de må sette opp egne integrasjoner mot hver eneste annen tilsynskilde. Dette gjøres med Tilda som bindeledd, slik at en tilsynskilde bare trenger å sette opp integrasjon for MTAM, og så håndterer Tilda resten av prosesseringen.
 
 ![SimpleArchitecture](/images/guides/tilda/tilda-mtam-simple-arch.png "Arktitekturoversikt for MTAM")
 
