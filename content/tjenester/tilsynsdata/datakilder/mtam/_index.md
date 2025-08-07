@@ -22,7 +22,7 @@ Hensikten med 'Melding til annen myndighet'-systemet (MTAM) er å fasilitere aut
 ![SimpleArchitecture](/images/guides/tilda/tilda-mtam-simple-arch.png "Arktitekturoversikt for MTAM")
 
 ### Hvordan fungerer det faktisk?
-Hvert femte minutt tar Tilda å spør tilsynskilder som har implementert MTAM for nye meldinger. Se [implementering](#implementering) for hva som skal til for å ha implementert MTAM. Tilda sjekker sin egen liste over når den sist hentet meldinger, og så spør kun om meldinger som har dukket opp etter siste spørring. Hvis den finner meldinger, så tar den å leverer det til sine respektive mottakere.
+Hvert femte minutt gjør Tilda en spørring mot alle tilsynskilder som har implementert MTAM for å hente nye meldinger. Se [implementering](#implementering) for hva som skal til for å ha implementert MTAM. Tilda sjekker sin egen liste over når den sist hentet meldinger, og så spør kun om meldinger som har dukket opp etter siste spørring. Hvis den finner meldinger, vil disse plukkes opp og leveres til mottaker.
 
 ![SimpleArchitecture](/images/guides/tilda/tilda-mtam-flowchart.png "MTAM flytoversikt")
 
