@@ -6,10 +6,6 @@ weight: 170
 
 Distribusjonsstøttetjeneste for å utlevere finansinstitusjoners api-endepunkter
 
-{{% notice warning  %}}
-Denne dokumentasjonen er under arbeid
-{{% /notice %}}
-
 ## Tjenestebeskrivelse
 BITS kontrollinformasjon er et ledd i Kontrollinformasjon - en kontrollprosess for å avsløre og forebygge økonomisk kriminalitet. 
 For mer informasjon, se [her](https://www.bits.no/project/kontrollinformasjon/)
