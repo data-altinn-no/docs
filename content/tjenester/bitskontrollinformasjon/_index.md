@@ -87,7 +87,7 @@ Dette vil gi en respons som ser ut som følger (generert, ikke reell):
 ## Varsling om nedetid og planlagte endringer
 Data.altinn.no vil sende ut varsel til konsumenter ved planlagt nedetid, endringer som påvirker tjenesten osv.
 
-Konsumenter vil varsles via [BITS varslingsrutine](https://dokumentasjon.dsop.no/dsop_kontroll_notifications.html) og motta informasjon om følgende:
+Konsumenter vil varsles via [BITS varslingsrutine](https://dokumentasjon.dsop.no/dsop_v2fellesstandard_operational_processes.html) og motta informasjon om følgende:
 
 - Identifikator på varselet (issue på github)
 - Data.altinn.no/bits kontrollinformasjon 
