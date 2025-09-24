@@ -704,10 +704,13 @@
             "evidenceStatus" : {
               "$ref" : "#/components/schemas/EvidenceStatus"
             },
-            "" : {
-              "type" : "string",
+            "evidenceValues" : {
+              "type" : "array",
               "x-stoplight" : {
                 "id" : "puvb3lh6aw2ah"
+              },
+              "items" : {
+                "$ref" : "#/components/schemas/EvidenceValue"
               }
             }
           }
