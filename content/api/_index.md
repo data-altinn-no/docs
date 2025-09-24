@@ -11,7 +11,7 @@ aliases:
 
 ## Innledning
 
-Integrasjon mot data.altinn.no krever ingen spesiell programvare eller infrastruktur, men de fleste API-ene krever autentisering enten gjennom bruk av virksomhetssertifkat eller token fra Maskinporten. Sistnevnte anbefales, og er også påkrevd for autorisasjon på enkelte datasett.
+Integrasjon mot data.altinn.no krever ingen spesiell programvare eller infrastruktur, men de fleste API-ene krever autentisering med et token fra Maskinporten. 
 
 Videre kreves en API-nøkkel ("subscription key") for den eller de tjenestene som skal benyttes. Disse kan man be om gjennom utviklerportalen på https://data.altinn.no.
 
@@ -26,7 +26,7 @@ For å ta bruk data.altinn.no må du:
 
 ## Protokoll og formater
 
-REST-APIet bygger på HTTP, og tilkoblinger sikres ved hjelp av TLS 1.2 kryptering. Dataene formateres i JSON, og pakkes inn i en konvolutt (kan utelates) som er lik på tvers av alle datasett. Noen datasett er enkle nøkkel/verdi-par, mens andre har rike strukturer som er beskrevet av et eget [JSON schema](https://json-schema.org/). 
+REST-APIet bygger på HTTP, og tilkoblinger sikres ved hjelp av TLS 1.2/1.3 kryptering. Dataene formateres i JSON, og pakkes inn i en konvolutt (kan utelates) som er lik på tvers av alle datasett. Noen datasett er enkle nøkkel/verdi-par, mens andre har rike strukturer som er beskrevet av et eget [JSON schema](https://json-schema.org/). 
 
 ## Versjonering
 
@@ -56,25 +56,20 @@ Feil- og statuskoder som beskrevet i metadata-API-et vil ikke kunne endres eller
 
 ## Autentisering og autorisasjon
 
-For å autentisere seg mot REST-API anbefales bruk av Maskinporten. Man kan også benytte et virksomhetssertifikat (to-veis TLS) utstedt av en offentlig godkjent aktør. 
-
-Buypass og Commfides tilbyr både produksjons- og test-sertifikater som kreves for bruk mot de respektive miljøene. Dette sertifikatet må benyttes gjennom standard klientsertifikat autentisering, noe de fleste HTTP-klienter støtter.
+For å autentisere seg mot api-et kreves bruk av maskinporten. Data.altinn.no-scopes er prefikset med altinn:dataaltinnno/ eller bare dan:.
 
 Autorisasjon foregår gjennom registrering av en konto og bruk av API-nøkler (subscription key) for den eller de tjenestene som skal benyttes. Dette gjøres i [utviklerportalen](https://data.altinn.no/).
 
 * [Ta i bruk Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97)
-* [Les om virksomhetssertifikat fra Buypass](https://www.buypass.no/produkter-og-tjenester/virksomhetssertifikat)
-* [Les om virksomhetssertifikat fra Commfides](https://www.commfides.com/commfides-virksomhetssertifikat/)
-* [Les om bruk av klientsertifkat i Postman](https://www.getpostman.com/docs/v6/postman/sending_api_requests/certificates)
 
 ## Miljøer og base-URL-er
 
 Det er ulike base-URL-er som skal benyttes avhengig av miljø eller om det benyttes virksomhetssertifikat (to-veis TLS) eller Maskinporten-token.
 
-| Miljø | Endepunkt for Maskinporten-token | Endepunkt for virksomhetssertifikat         | Utviklerportal              |
-| ----- | -------------------------------- | ------------------------------------------- | ---------------------------- |
-| Prod  | https://api.data.altinn.no       | https://apim-nadobe-prod.azure-api.net      | https://data.altinn.no       |
-| Test  | https://test.api.data.altinn.no  | https://apim-nadobe-staging.azure-api.net   | https://test.data.altinn.no  |
+| Miljø | Endepunkt for Maskinporten-token | Utviklerportal              |
+| ----- | -------------------------------- | --------------------------- |
+| Prod  | https://api.data.altinn.no       | https://data.altinn.no      |
+| Test  | https://test-api.data.altinn.no  | https://test.data.altinn.no |
 
 For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inkluderer versjonen av API-et som skal benyttes, se utviklerportalen.
 
@@ -124,7 +119,7 @@ På portalen finner du oppdatert teknisk dokumentasjon om actions, modeller og f
 
 Det er to miljøer som er tilgjengelig utenfra  - prod og staging. Begge miljøene har et metadata-API, som ikke krever autentisering eller autorisasjon for bruk.
 
-* [Oversikt over eBevis API-er](https://data.altinn.no/apis)
+* [Oversikt over API-er](https://data.altinn.no/apis)
 
 <!--
 TODO! Oppdatere postman-repo
