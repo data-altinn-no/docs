@@ -318,7 +318,7 @@ var EvidenceCodesDisplay = {
     // https://web.archive.org/web/20110806041156/http://forums.devshed.com/javascript-development-115/regexp-to-match-url-pattern-493764.html
     isValidUrl: function(urlString) {
         var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-        '((([a-z\\d]+(-[a-z\\d]+)*\\.)+[a-z]{2,}|'+ // validate domain name
+        '((([a-z\\d]+(-[a-z\\d]+)*\\.)+[a-z]{2,})|'+ // validate domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
         '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
