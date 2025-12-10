@@ -47,7 +47,7 @@ app.get('/', function( req, res ) {
 app.get( '/notes/:socketId', function( req, res ) {
 
 	fs.readFile( opts.baseDir + 'plugin/notes-server/notes.html', function( err, data ) {
-		res.send( Mustache.to_html( data.toString(), {
+		res.status(200).send( Mustache.to_html( data.toString(), {
 			socketId : req.params.socketId
 		}));
 	});
@@ -57,9 +57,9 @@ app.get( '/notes/:socketId', function( req, res ) {
 // Actually listen
 server.listen( opts.port || null );
 
-var brown = '\033[33m',
-	green = '\033[32m',
-	reset = '\033[0m';
+var brown = '\x1b[33m',
+	green = '\x1b[32m',
+	reset = '\x1b[0m';
 
 var slidesLocation = 'http://localhost' + ( opts.port ? ( ':' + opts.port ) : '' );
 
