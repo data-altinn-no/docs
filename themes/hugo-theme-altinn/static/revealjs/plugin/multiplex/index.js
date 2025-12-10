@@ -46,7 +46,7 @@ app.get("/token", function(req,res) {
 	var ts = new Date().getTime();
 	var rand = Math.floor(Math.random()*9999999);
 	var secret = ts.toString() + rand.toString();
-	res.send({secret: secret, socketId: createHash(secret)});
+	res.status(200).send({secret: secret, socketId: createHash(secret)});
 });
 
 var createHash = function(secret) {
@@ -57,8 +57,8 @@ var createHash = function(secret) {
 // Actually listen
 server.listen( opts.port || null );
 
-var brown = '\033[33m',
-	green = '\033[32m',
-	reset = '\033[0m';
+var brown = '\x1b[33m',
+	green = '\x1b[32m',
+	reset = '\x1b[0m';
 
 console.log( brown + "reveal.js:" + reset + " Multiplex running on port " + green + opts.port + reset );
