@@ -47,7 +47,7 @@ app.get('/', function( req, res ) {
 app.get( '/notes/:socketId', function( req, res ) {
 
 	fs.readFile( opts.baseDir + 'plugin/notes-server/notes.html', function( err, data ) {
-		res.status(200).send( Mustache.to_html( data.toString(), {
+		res.status(200).send( Mustache.render( data.toString(), {
 			socketId : req.params.socketId
 		}));
 	});
