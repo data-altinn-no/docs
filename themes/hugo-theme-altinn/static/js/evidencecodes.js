@@ -229,7 +229,7 @@ var EvidenceCodesDisplay = {
 
         if (belongsToMoreThanOneServiceContext && typeof req["appliesToServiceContext"] == "object" && req["appliesToServiceContext"].length > 0) {
             footnote = " <sup><a href=\"javascript:\" onclick=\"alert(this.title)\" title=\"Dette kravet gjelder tjenesten(e): " + req["appliesToServiceContext"].join(", ") + "\">?</a></sup>";
-            result = result.replace("</li>", footnote + "</li>");
+            result = result.replace(/<\/li>/g, footnote + "</li>");
         }
 
         return '<ul class="authorization-requirement authorization-requirement-' + req["type"].toLowerCase() + ((req["failureAction"] == 1) ? ' soft-requirement' : '') + '">' + result + '</ul>';
@@ -657,7 +657,7 @@ var EvidenceCodesDisplay = {
         var re = /<%([^%>]+)?%>/g, reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g, code = 'var r=[];\n', cursor = 0, match;
         var add = function(line, js) {
             js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
-                (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
+                (code += line != '' ? 'r.push("' + line.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '");\n' : '');
             return add;
         }
         while(match = re.exec(html)) {

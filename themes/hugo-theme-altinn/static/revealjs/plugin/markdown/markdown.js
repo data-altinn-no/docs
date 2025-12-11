@@ -108,7 +108,12 @@
 		var notesMatch = content.split( new RegExp( options.notesSeparator, 'mgi' ) );
 
 		if( notesMatch.length === 2 ) {
-			content = notesMatch[0] + '<aside class="notes">' + marked(notesMatch[1].trim()) + '</aside>';
+			var notesHtml = marked(notesMatch[1].trim());
+			// Sanitize marked output if DOMPurify is available
+			if( typeof DOMPurify !== 'undefined' ) {
+				notesHtml = DOMPurify.sanitize( notesHtml );
+			}
+			content = notesMatch[0] + '<aside class="notes">' + notesHtml + '</aside>';
 		}
 
 		// prevent script end tags in the content from interfering

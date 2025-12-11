@@ -44,14 +44,13 @@ app.get("/", function(req, res) {
 
 app.get("/token", function(req,res) {
 	var ts = new Date().getTime();
-	var rand = Math.floor(Math.random()*9999999);
+	var rand = crypto.randomBytes(4).toString('hex');
 	var secret = ts.toString() + rand.toString();
 	res.status(200).send({secret: secret, socketId: createHash(secret)});
 });
 
 var createHash = function(secret) {
-	var cipher = crypto.createCipher('blowfish', secret);
-	return(cipher.final('hex'));
+	return crypto.createHash('sha256').update(secret).digest('hex');
 };
 
 // Actually listen
