@@ -8,6 +8,30 @@ var app       = express();
 var staticDir = express.static;
 var server    = http.createServer(app);
 
+// Simple in-memory rate limiter
+var rateLimit = (function() {
+	var requests = {};
+	var windowMs = 60000; // 1 minute window
+	var maxRequests = 100; // max 100 requests per window
+
+	return function(req, res, next) {
+		var ip = req.ip || req.connection.remoteAddress;
+		var now = Date.now();
+
+		if (!requests[ip]) {
+			requests[ip] = { count: 1, startTime: now };
+		} else if (now - requests[ip].startTime > windowMs) {
+			requests[ip] = { count: 1, startTime: now };
+		} else {
+			requests[ip].count++;
+			if (requests[ip].count > maxRequests) {
+				return res.status(429).send('Too many requests');
+			}
+		}
+		next();
+	};
+})();
+
 io = io(server);
 
 var opts = {
@@ -37,14 +61,14 @@ io.on( 'connection', function( socket ) {
 	app.use( '/' + dir, staticDir( opts.baseDir + dir ) );
 });
 
-app.get('/', function( req, res ) {
+app.get('/', rateLimit, function( req, res ) {
 
 	res.writeHead( 200, { 'Content-Type': 'text/html' } );
 	fs.createReadStream( opts.baseDir + '/index.html' ).pipe( res );
 
 });
 
-app.get( '/notes/:socketId', function( req, res ) {
+app.get( '/notes/:socketId', rateLimit, function( req, res ) {
 
 	fs.readFile( opts.baseDir + 'plugin/notes-server/notes.html', function( err, data ) {
 		res.status(200).send( Mustache.render( data.toString(), {

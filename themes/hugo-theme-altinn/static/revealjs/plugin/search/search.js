@@ -31,6 +31,8 @@ function Hilitor(id, tag)
   this.setRegex = function(input)
   {
     input = input.replace(/^[^\w]+|[^\w]+$/g, "").replace(/[^\w'-]+/g, "|");
+    // Escape regex metacharacters to prevent injection
+    input = input.replace(/[-[\]{}()*+?.,\\^$|#]/g, "\\$&");
     matchRegex = new RegExp("(" + input + ")","i");
   }
 
