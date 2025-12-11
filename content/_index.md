@@ -1,6 +1,6 @@
 ---
 title: data.altinn.no
-description: data.altinn.no (DAN) er laget for å kunne forenkle deling av data fra virksomheter, med formål om å gjenbruke informasjon direkte fra kilden.
+description: data.altinn.no (DAN) er laget for å kunne forenkle deling av data fra virksomheter, med formål om å gjenbruke informasjon direkte fra kilden (TEST).
 weight: 100
 toc: true
 aliases: 
