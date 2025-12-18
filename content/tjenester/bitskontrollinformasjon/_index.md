@@ -31,7 +31,7 @@ For å hente data må man gjøre en spørring mot test-api.data.altinn.no og det
 Beskrivelsen av selve datasettet finnes nederst på denne siden (hak av for vis testmiljø).
 
 #### Kontrollinformasjon
-```HTTP
+```text
 GET https://test-api.data.altinn.no/v1/directharvest/Kontrollinformasjon/?envelope=false HTTP/1.1
 Authorization: Bearer {maskinporten-token}
 Ocp-apim-subscription-key: {subscription-key}
@@ -59,7 +59,7 @@ Dette vil gi en respons som ser ut som følger (generert, ikke reell):
 ```
 
 #### KontrollinformasjonUtvidet
-```HTTP
+```text
 GET https://test-api.data.altinn.no/v1/directharvest/KontrollinformasjonUtvidet/?envelope=false HTTP/1.1
 Authorization: Bearer {maskinporten-token}
 Ocp-apim-subscription-key: {subscription-key}
@@ -98,7 +98,7 @@ I tillegg må man definere en klient i maskinportens produksjonsmiljø som har t
 
 For å hente data må man gjøre en spørring mot api.data.altinn.no og det datasettet man ønsker å hente.  Beskrivelsene av datasettene finnes nederst på denne siden.
 
-```HTTP
+```text
 GET https://api.data.altinn.no/v1/directharvest/Kontrollinformasjon/?envelope=false HTTP/1.1
 Authorization: Bearer {maskinporten-token}
 Ocp-apim-subscription-key: {subscription-key}
@@ -126,7 +126,7 @@ Dette vil gi en respons som ser ut som følger:
 ```
 #### KontrollinformasjonUtvidet
 
-```HTTP
+```text
 GET https://api.data.altinn.no/v1/directharvest/KontrollinformasjonUtvidet/?envelope=false HTTP/1.1
 Authorization: Bearer {maskinporten-token}
 Ocp-apim-subscription-key: {subscription-key}
