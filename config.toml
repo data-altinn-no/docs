@@ -26,9 +26,6 @@ startLevel = 2
 endLevel = 2
 ordered = false
 
-[blackfriday]
-fractions = false # disable automatic fraction rendering
-
 [params]
 editURL = ""
 noHomeIcon = true # default is false
