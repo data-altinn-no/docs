@@ -1,9 +1,25 @@
 $(function() {
-    $('#evidencecodes-container').length ? EvidenceCodesDisplay.init($('#evidencecodes-container')) : console.warn('Missing container!');
+    if ($('#evidencecodes-container').length) {
+        EvidenceCodesDisplay.init($('#evidencecodes-container'));
+    }
 });
 
 var EvidenceCodesDisplay = {
     metadataUrl: "https://api.data.altinn.no/v1/public/metadata/evidencecodes",
+
+    escapeHtml: function(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function(m) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+        });
+    },
+
+    escapeAttr: function(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"'\\]/g, function(m) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','\\':'&#92;'}[m];
+        });
+    },
     $containerElement: null,
     template: '',
     metadata: {},
@@ -85,7 +101,11 @@ var EvidenceCodesDisplay = {
     },
 
     handleDeepLink: function() {
-        var deeplink = $(".evidenceCode[data-name='" + location.hash.substring(1) + "']");
+        var hash = location.hash.substring(1);
+        if (!hash || !/^[a-zA-Z0-9_-]+$/.test(hash)) return;
+        var deeplink = $(".evidenceCode").filter(function() {
+            return $(this).data('name') === hash;
+        });
         if (deeplink.length != 1) return;
         var header = deeplink.find('.toggle');
         if (!header.parents('.evidenceCode').hasClass('isOpened')) header.click();
@@ -209,9 +229,9 @@ var EvidenceCodesDisplay = {
 
     friendlyValueType: function(evidenceCodeName, value) {
         if (value['valueType'] == "jsonSchema") {
-            return '<a href="javascript:" data-field-name="' + evidenceCodeName + "___" + value['evidenceValueName'] + '" class="toggle-jsonschema-field-example">Vis strukturert felt</a>';
+            return '<a href="javascript:" data-field-name="' + this.escapeAttr(evidenceCodeName) + "___" + this.escapeAttr(value['evidenceValueName']) + '" class="toggle-jsonschema-field-example">Vis strukturert felt</a>';
         }
-        return value['valueType'];
+        return this.escapeHtml(value['valueType']);
     },
 
     friendyAuthorizationRequirement: function(req, belongsToMoreThanOneServiceContext) {
@@ -222,17 +242,18 @@ var EvidenceCodesDisplay = {
             result = this[formatter](req)
         }
         else {
-            result = "<li>" + req["type"] + "</li>"; 
+            result = "<li>" + this.escapeHtml(req["type"]) + "</li>"; 
         }
 
         var footnote = "";
 
         if (belongsToMoreThanOneServiceContext && typeof req["appliesToServiceContext"] == "object" && req["appliesToServiceContext"].length > 0) {
-            footnote = " <sup><a href=\"javascript:\" onclick=\"alert(this.title)\" title=\"Dette kravet gjelder tjenesten(e): " + req["appliesToServiceContext"].join(", ") + "\">?</a></sup>";
+            var escapedContexts = req["appliesToServiceContext"].map(this.escapeAttr.bind(this)).join(", ");
+            footnote = " <sup><a href=\"javascript:\" onclick=\"alert(this.title)\" title=\"Dette kravet gjelder tjenesten(e): " + escapedContexts + "\">?</a></sup>";
             result = result.replace(/<\/li>/g, footnote + "</li>");
         }
 
-        return '<ul class="authorization-requirement authorization-requirement-' + req["type"].toLowerCase() + ((req["failureAction"] == 1) ? ' soft-requirement' : '') + '">' + result + '</ul>';
+        return '<ul class="authorization-requirement authorization-requirement-' + this.escapeAttr(req["type"].toLowerCase()) + ((req["failureAction"] == 1) ? ' soft-requirement' : '') + '">' + result + '</ul>';
     },
 
     friendlyPartyTypeRequirement: function(req) {
@@ -253,7 +274,7 @@ var EvidenceCodesDisplay = {
                 ret += "<li>" + partyTypes[apt["Key"]] + " må være " + partyConstraints[apt["Value"]] + "</li>";
             }
             else {
-                ret += "<li>Aktørtype #" + apt["Key"] + " har begrensning av type " + apt["Value"] + "</li>";
+                ret += "<li>Aktørtype #" + this.escapeHtml(apt["Key"]) + " har begrensning av type " + this.escapeHtml(apt["Value"]) + "</li>";
             }            
         })
 
@@ -270,13 +291,15 @@ var EvidenceCodesDisplay = {
         };
         let ret = "";
         req.partyRequirements.forEach(pr => {
-            ret += "<li>" + accreditationConstraints[pr] + "</li>";
+            var constraint = accreditationConstraints[pr];
+            ret += "<li>" + (constraint ? constraint : this.escapeHtml(pr)) + "</li>";
         });
         return ret;
     },
 
     friendlyMaskinportenScopeRequirement: function(req) {
-        return "<li>Krever at den juridiske konsumenten er blitt tildelt Maskinporten-scope(s): " + req.requiredScopes.join(", ") + "</li>";
+        var escapedScopes = req.requiredScopes.map(this.escapeHtml.bind(this)).join(", ");
+        return "<li>Krever at den juridiske konsumenten er blitt tildelt Maskinporten-scope(s): " + escapedScopes + "</li>";
     },
 
     friendlyLegalBasisRequirement: function(req) {
@@ -284,7 +307,7 @@ var EvidenceCodesDisplay = {
     },
 
     friendlyConsentRequirement: function(req) {
-        return "<li>Krever <a href=\"https://tt02.altinn.no/api/metadata?$filter=ServiceCode%20eq%20%27" + req["serviceCode"] + "%27%20and%20ServiceEditionCode%20eq%20" + req["serviceEdition"] + "\">samtykke</a> fra subjektet</li>";
+        return "<li>Krever <a href=\"https://tt02.altinn.no/api/metadata?$filter=ServiceCode%20eq%20%27" + encodeURIComponent(req["serviceCode"]) + "%27%20and%20ServiceEditionCode%20eq%20" + encodeURIComponent(req["serviceEdition"]) + "\">samtykke</a> fra subjektet</li>";
     },
 
     friendlyLegalBasisTypeList: function(legalBasisBitmask) {
@@ -310,9 +333,9 @@ var EvidenceCodesDisplay = {
         }
         if(this.isValidUrl(license))
         {
-            return "<a href=" + license + ">" + license +"</li>";
+            return "<a href=\"" + this.escapeAttr(license) + "\">" + this.escapeHtml(license) +"</a>";
         }
-        return license;
+        return this.escapeHtml(license);
     },
 
     // https://web.archive.org/web/20110806041156/http://forums.devshed.com/javascript-development-115/regexp-to-match-url-pattern-493764.html
@@ -428,7 +451,7 @@ var EvidenceCodesDisplay = {
             example += this.exampleRequestSdkDirect(evidenceCode);
         }
 
-        return hljs.highlight("csharp", example).value;
+        return hljs.highlight(example, {language: "csharp"}).value;
     },
 
     exampleRequestSdkAsync: function(evidenceCode) {
@@ -557,9 +580,9 @@ var EvidenceCodesDisplay = {
     },
 
     exampleCommonHttpHeaders: function(method, op) {
-        return hljs.highlight("http", method.toUpperCase() + " https://api.data.altinn.no/v1/" + op + " HTTP/1.1\r\n" +
+        return hljs.highlight(method.toUpperCase() + " https://api.data.altinn.no/v1/" + op + " HTTP/1.1\r\n" +
                "Authorization: Bearer {maskinporten-token}\n" + 
-               "Ocp-apim-subscription-key: {subscription-key}\n").value;
+               "Ocp-apim-subscription-key: {subscription-key}\n", {language: "plaintext"}).value;
     },
 
     isJsonSchemaResponseOnly: function(values) {
@@ -615,7 +638,14 @@ var EvidenceCodesDisplay = {
         var $button = $(e.currentTarget);
         var $exampleContainer = $button.parent().find('code');
         var $schemaContainer = $button.parent().parent().find('.schema code');
-        $exampleContainer.html(EvidenceCodesDisplay.exampleJsonResponseGenerated({ "jsonSchemaDefintion": $schemaContainer.get(0).innerText }))
+        var schemaText = $schemaContainer.get(0).textContent;
+        try {
+            JSON.parse(schemaText);
+        } catch (err) {
+            $exampleContainer.text("Ugyldig JSON Schema.");
+            return;
+        }
+        $exampleContainer.html(EvidenceCodesDisplay.exampleJsonResponseGenerated({ "jsonSchemaDefintion": schemaText }))
     },
 
     getRandomValue: function(paramType) {
@@ -649,7 +679,7 @@ var EvidenceCodesDisplay = {
             json = JSON.parse(json);
         }
         json = JSON.stringify(json, undefined, 2);
-        return hljs.highlight("json", json).value;
+        return hljs.highlight(json, {language: "json"}).value;
     },
 
     // http://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line

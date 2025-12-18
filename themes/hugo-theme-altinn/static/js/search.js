@@ -61,8 +61,14 @@ $( document ).ready(function() {
             var numWords = 2;
             var text = suggestion.content.match("(?:\\s?(?:[\\w]+)\\s?){0,"+numWords+"}"+query+"(?:\\s?(?:[\\w]+)\\s?){0,"+numWords+"}");
             suggestion.context = text;
-            var image = '<div>' + '» ' + suggestion.title + '</div><div style="font-size:12px">' + (suggestion.context || '') +'</div>';
-            li.innerHTML = image;
+            
+            var titleDiv = document.createElement('div');
+            titleDiv.textContent = '» ' + (suggestion.title || '');
+            var contextDiv = document.createElement('div');
+            contextDiv.style.fontSize = '12px';
+            contextDiv.textContent = suggestion.context || '';
+            li.appendChild(titleDiv);
+            li.appendChild(contextDiv);
         },
         limit: 10
     });
