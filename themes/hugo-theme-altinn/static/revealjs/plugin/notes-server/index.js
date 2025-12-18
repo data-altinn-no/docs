@@ -58,7 +58,7 @@ io.on( 'connection', function( socket ) {
 });
 
 [ 'css', 'js', 'images', 'plugin', 'lib' ].forEach( function( dir ) {
-	app.use( '/' + dir, staticDir( opts.baseDir + dir ) );
+	app.use( '/' + dir, rateLimit, staticDir( opts.baseDir + dir ) );
 });
 
 app.get('/', rateLimit, function( req, res ) {
