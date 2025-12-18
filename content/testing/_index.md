@@ -11,7 +11,7 @@ data.altinn.no har et preproduksjons-miljø kalt "staging" som kan brukes i forb
 
 Testmiljøet er helt separert fra produksjon, og benytter sin egen utvikler-portal, hvor det kreves egne brukere og API-nøkler (subscription keys) som benyttes mot egne endepunkter.
 
-Miljøet benytter Maskinportens VER2-mijø for autentisering og [Altinn TT02](https://tt02.altinn.no) for autorisasjon og samtykkeforespørsler. 
+Miljøet benytter Maskinportens TEST-mijø for autentisering og [Altinn TT02](https://tt02.altinn.no) for autorisasjon og samtykkeforespørsler. 
 
 * [Gå til data.altinn.no Test API Portal](https://test.data.altinn.no/)
 * [OpenAPI 3.0 (swagger) for v1 Test](https://api-test.data.altinn.no/v1/public/metadata/oas/json)
