@@ -1,6 +1,6 @@
 baseURL = ""
 languageCode = "nb-no"
-defaultContentLanguage = "nb-NO"
+defaultContentLanguage = "nb-no"
 
 contentDir = "content"
 staticDir = "static"
