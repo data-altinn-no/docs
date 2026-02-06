@@ -141,7 +141,7 @@ application/json:
 ```
 
 ### POST endepunkt for å kunne levere varsel om melding
-Dette er endepunktet som Tilda leverer meldinger til fra andre myndigheter.
+Dette er endepunktet som Tilda leverer meldinger til fra andre myndigheter. `source`-feltet inneholder link til Tilda-endepunkt i data.altinn.no som kan følges for å hente hele meldingen.
 
 ```
 {baseurl}/mtam 
