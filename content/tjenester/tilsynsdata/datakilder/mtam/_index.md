@@ -39,6 +39,9 @@ I meldingsinnholdet til annen myndighet er det et felt `meldingsType`. Dette ska
 - "varsel-fritekst"
   
 ### GET endepunkt for å hente liste over meldinger
+Dette er endepunktet som Tilda kaller for å hente utgående meldinger til andre myndigheter.
+Hvis `fromDate` ikke er oppgitt så vil vi hente alle utgående meldinger. 
+
 ```
 {baseurl}/mtam?fromDate={fromDate}
 ```    
@@ -63,9 +66,6 @@ Response:
     }
 ]
 ```
-
-For å kvittere ut varselet som mottatt returnerer man 200 OK med tom body. Alle responser med httpkode som ikke starter med 2 vil føre til retry.
-
 
 OAS:
 ```yaml
@@ -93,6 +93,8 @@ application/json:
 ```
 
 ### GET endepunkt for å hente melding på ID
+Dette er endepunktet som andre myndigheter via Tilda kaller på for å hente en spesifikk melding.
+
 ```
 {baseurl}/mtam/{id}?requestor={requestor_orgnr}
 ```    
@@ -139,6 +141,8 @@ application/json:
 ```
 
 ### POST endepunkt for å kunne levere varsel om melding
+Dette er endepunktet som Tilda leverer meldinger til fra andre myndigheter.
+
 ```
 {baseurl}/mtam 
 ```
@@ -160,6 +164,8 @@ Request body:
     "resource": "urn:altinn:resource:tilda-melding-til-annen-myndighet"
 }
 ```
+
+For å kvittere ut varselet som mottatt returnerer man 200 OK med tom body. Alle responser med httpkode som ikke starter med 2 vil føre til retry.
 
 OAS:
 ```yaml
@@ -186,7 +192,7 @@ application/json:
 ## Spørsmål og svar
 
 ### Trenger vi å implementere både sending og mottak?
-Det må være gyldige endepunkter som Tilda kan kalle, men hvis man bare ønsker å implementere sending kan man f.eks. bare lage et mottaks-endepunkt som returnerer 200 OK.
+Det må være gyldige endepunkter som Tilda kan kalle, men hvis man bare ønsker å implementere sending kan man f.eks. bare lage et mottaks-endepunkt som bare returnerer 200 OK. Hvordan dere håndterer meldingene dere får fra andre er opp til dere.
 
 ### Må vi sende meldingene våre til Tilda?
 Nei, Tilda vil kalle på endepunktene når den skal hente meldinger.
