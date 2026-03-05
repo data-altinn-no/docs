@@ -1,20 +1,8 @@
-/* External links */
+/* External links - hide the external link icon to fix underline extending issue */
 
 a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href*='altinn.studio']):not([href*='altinn.github.io'])::after {
-    display: inline-block;
-    width: 1.3em;
-    background-image: url("https://altinn.no/images/arrowrightup.svg");
-    background-repeat: no-repeat;
-    background-size: 119% auto;
-    vertical-align: middle;
-    margin-top: -4px;
-    margin-left: -3px;
-    content: '(external link)';
-    white-space: nowrap;
-    overflow: hidden;
-    text-indent: 1.3em;
+    display: none !important;
 }
-
 
 /* Fix for tags pushing header to the right */
 
