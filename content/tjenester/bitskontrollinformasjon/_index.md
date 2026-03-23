@@ -13,11 +13,11 @@ BITS kontrollinformasjon og utleggspant er et ledd i DSOP-tjenester basert på D
 BITS datadelingstjenester er tilgjengelig for Altinns tjenesteeiere som også benytter tjenester basert på DSOP FinansData Fellesstandard (tidligere DSOP Kontrollinformasjon). 
 
 ## Overordnet informasjon om datasett
-Kontrollinformasjon - utleverer til enhver tid gjeldende endepunkter som benyttes for tjenester basert på DSOP FinansData Fellesstandard.
+**Kontrollinformasjon** - utleverer til enhver tid gjeldende endepunkter som benyttes for tjenester basert på DSOP FinansData Fellesstandard.
 
-KontrollinformasjonUtvidet - utleverer til enhver tid gjeldende og fremtidige endepunkter som benyttes av tjenester basert på DSOP FinansData Fellesstandard. Det vil si at det kan finnes flere innslag per organisasjonsnummer, men med forskjellige start- og sluttdatoer, slik at man kan forberede endringer i infrastruktur i forkant av at endepunktene aktiveres. 
+**KontrollinformasjonUtvidet** - utleverer til enhver tid gjeldende og fremtidige endepunkter som benyttes av tjenester basert på DSOP FinansData Fellesstandard. Det vil si at det kan finnes flere innslag per organisasjonsnummer, men med forskjellige start- og sluttdatoer, slik at man kan forberede endringer i infrastruktur i forkant av at endepunktene aktiveres. 
 
-Utleggspant - utleverer til enhver tid gjeldende endepunkter som benyttes av tjenester som benytter seg av BlockFund API-et.
+**Utleggspant** - utleverer til enhver tid gjeldende og fremtidige endepunkter som benyttes av tjenester som benytter seg av BlockFund API-et. Det vil si at det kan finnes flere innslag per organisasjonsnummer, men med forskjellige start- og sluttdatoer, slik at man kan forberede endringer i infrastruktur i forkant av at endepunktene aktiveres. 
 
 ## Hvordan ta tjenesten i bruk
 
@@ -25,10 +25,9 @@ Utleggspant - utleverer til enhver tid gjeldende endepunkter som benyttes av tje
 
 Opprett en bruker på test.data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). 
 
-Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i maskinportens test-miljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon - scopet vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i maskinportens test-miljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
 
-For å hente data må man gjøre en spørring mot test-api.data.altinn.no og det aktuelle datasettet «Kontrollinformasjon». Beskrivelsen av selve datasettet finnes nederst på denne siden (hak av for vis testmiljø).
-
+For å hente data må man gjøre en spørring mot test-api.data.altinn.no og det aktuelle datasettet. Beskrivelsen av selve datasettet finnes nederst på denne siden (hak av for vis testmiljø).
 
 #### Kontrollinformasjon
 ```text
@@ -123,7 +122,7 @@ Dette vil gi en respons som ser ut som følger:
 ### Hente prod-endepunkter:
 
 #### Kontrollinformasjon
-Opprett en bruker på data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i maskinportens produksjonsmiljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon - scopet vil være forhåndstildelt til de aktuelle aktørene. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Opprett en bruker på data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene.I tillegg må man definere en klient i maskinportens test-miljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
 
 For å hente data må man gjøre en spørring mot api.data.altinn.no og det datasettet man ønsker å hente. Beskrivelsene av datasettene finnes nederst på denne siden.
 
