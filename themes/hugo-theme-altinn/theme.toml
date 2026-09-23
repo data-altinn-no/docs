@@ -7,9 +7,9 @@ licenselink = "https://github.com/Altinn/hugo-theme-altinn/blob/master/LICENSE.m
 description = "Altinn Documentation theme for Hugo"
 homepage = "https://github.com/Altinn/hugo-theme-altinn"
 repo = "https://github.com/Altinn/hugo-theme-altinn"
-tags = ["documentation", "menu","slide","search"]
-features = ["documentation","menu","nested sections","search","slide", "attachments"]
-min_version = "0.79.1"
+tags = ["documentation", "menu"]
+features = ["documentation","menu","nested sections", "attachments"]
+min_version = "0.166.0"
 
 [author]
   name = "Altinn"

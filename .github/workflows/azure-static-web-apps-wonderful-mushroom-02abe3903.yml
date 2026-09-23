@@ -14,6 +14,12 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  # Hugo is built here on the GitHub runner rather than by Oryx inside the
+  # Static Web Apps action: Oryx's build image ships an old glibc that cannot
+  # run Hugo binaries from 0.150 onwards.
+  HUGO_VERSION: 0.166.0
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master') || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -21,23 +27,36 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          submodules: true
-      - name: Build And Deploy
+
+      - name: Install Hugo
+        run: |
+          set -euo pipefail
+          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+          tarball="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          cd "${RUNNER_TEMP}"
+          curl -sSLf -o "${tarball}" "${base}/${tarball}"
+          curl -sSLf -o checksums.txt "${base}/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " ${tarball}\$" checksums.txt | sha256sum -c -
+          mkdir -p hugo-bin
+          tar -xzf "${tarball}" -C hugo-bin hugo
+          echo "${RUNNER_TEMP}/hugo-bin" >> "${GITHUB_PATH}"
+
+      - name: Build site
+        run: |
+          hugo version
+          hugo --printPathWarnings
+
+      - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1.0.0
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WONDERFUL_MUSHROOM_02ABE3903 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "public" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
-        env: # Add environment variables here
-          HUGO_VERSION: 0.146.7
+          skip_app_build: true
+          app_location: "public" # Already-built site from the step above
+          api_location: ""
+          output_location: ""
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

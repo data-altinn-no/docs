@@ -1,5 +1,5 @@
 baseURL = ""
-languageCode = "nb-no"
+locale = "nb-no"
 defaultContentLanguage = "nb-no"
 
 contentDir = "content"
@@ -33,9 +33,6 @@ noSearch = false # default is false
 disableNavChevron = false
 showVisitedLinks = false # default is false
 # themeVariant = "gray" # choose theme variant "gray" for systemdocumentation, like Altinnpedia. Blue theme is for altinndigitalisering.
-
-[outputs]
-home = ["HTML", "JSON"] # JSON generates index.json file used by search
 
 [related]
 includeNewer = true # Excluding newer content is not relevant for our site.

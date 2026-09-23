@@ -25,13 +25,6 @@ Altinn 3:
 
 ### Samtykke/fullmakt
 
-#### Altinn 2: 
-eBevis: *Restanser hos Skatteetaten* - Digitaliseringsdirektoratet 5616/1
-
-Søknad om drosjeløyve: *Restanser fra Skatteetaten i søknad om drosjeløyve* - Digitaliseringsdirektoratet 5616/6
-
-**Merk: For å kunne gi samtykke på disse tjenestene må man også ha rollen [*Tilgangsstyring*](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/tilgangsstyring/).**
-
 #### Altinn 3: 
 digdir-restanser-skatteetaten (både eBevis og Drosjeløyve)
 
