@@ -14,7 +14,7 @@ Testmiljøet er helt separert fra produksjon, og benytter sin egen utvikler-port
 Miljøet benytter Maskinportens TEST-mijø for autentisering og [Altinn TT02](https://tt02.altinn.no) for autorisasjon og samtykkeforespørsler. 
 
 * [Gå til data.altinn.no Test API Portal](https://test.data.altinn.no/)
-* [OpenAPI 3.0 (swagger) for v1 Test](https://api-test.data.altinn.no/v1/public/metadata/oas/json)
+* [OpenAPI 3.0 (swagger) for v1 Test](https://test-api.data.altinn.no/v1/public/metadata/oas/json)
 
 ### REST-API
 
