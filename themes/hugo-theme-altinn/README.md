@@ -10,11 +10,9 @@ This repository contains a theme for [Hugo](https://gohugo.io/), based on great 
 - Blue and gray theme variations
 - Clickable figures with caption using standard markdown image syntax
 - Attachments files
-- Search using [lunr.js](https://lunrjs.com/)
 - Unlimited menu levels
 - List child pages
 - Table of contents when enabled in front matter (toc: true)
-- [Reveal.js](https://github.com/hakimel/reveal.js) presentation from markdown (embededed or fullscreen page)
 - Include segment of content from one page in another (Excerpt)
 - Icons, Buttons, Alerts, Panels, Tip/Note/Info/Warning boxes
 
