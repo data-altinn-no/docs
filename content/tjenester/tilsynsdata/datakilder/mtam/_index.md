@@ -1,7 +1,7 @@
 ---
 title: Melding til annen myndighet
 description: Standardisering av melding til annen myndighet
-weight: 100
+weight: 10
 ---
 
 - [Hensikt](#hensikt)

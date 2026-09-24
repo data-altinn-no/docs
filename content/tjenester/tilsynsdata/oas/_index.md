@@ -4,4 +4,5 @@ linktitle: OpenAPI Specification
 type: openapi
 spec: "/swagger/tilda-consumer.json"
 tags: [swagger, openapi]
+weight: 30
 ---
