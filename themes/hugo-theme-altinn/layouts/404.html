@@ -11,9 +11,10 @@
   <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
   <style>
-    .notfound-figure { margin: 1.5em 0; }
-    .notfound-figure img { display: block; max-width: 100%; height: auto; margin: 0; border-radius: 4px; }
-    .notfound-figure figcaption { margin-top: .5em; font-size: .85em; text-align: left; }
+    #body-inner.notfound h1 { text-align: center; }
+    .notfound-figure { margin: 1.5em auto; max-width: 480px; text-align: center; }
+    .notfound-figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 4px; }
+    .notfound-figure figcaption { margin-top: .5em; font-size: .85em; text-align: center; }
   </style>
   <style>
     :root #header + #content > #left > #rlblock_left {
@@ -38,7 +39,7 @@
     <section id="body" style="margin-left:0px;">
       <div id="overlay"></div>
       <div id="chapter">
-        <div id="body-inner">
+        <div id="body-inner" class="notfound">
           <h1>{{ T "title-404" }}</h1>
           <figure class="notfound-figure">
             <img src="{{ "images/404-missing-lynx.gif" | relURL }}" alt="{{ T "alt-404" }}" width="480" height="360" loading="lazy">
