@@ -75,7 +75,7 @@ For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inklu
 
 ## Lage ny bruker
 
-Alle brukere av data.altinn.no må registrere en profil i [utviklerportalen](https://data.altinn.no/) eller i [testmiljøet](https://test.data.altinn.no) hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
+Alle brukere av data.altinn.no må registrere en profil i [utviklerportalen i produksjon](https://data.altinn.no/) eller i [testmiljøet](https://test.data.altinn.no) hvor man kan registrere applikasjoner og få utdelt API-nøkler som må oppgis i alle requests til data.altinn.no. Kontaktopplysningene du oppgir vil bli benyttet for å sende informasjon om planlagte endringer og nedetid samt annen driftsrelatert informasjon. På profilsiden vil man også kunne hente ut detaljert bruksstatistikk.
 
 Hvis du vil opprette en ny bruker, gå til [registreringssiden](https://data.altinn.no/signup). Etter å ha fylt inn kontodetaljer, følg instruksjonene i eposten du vil motta. Du vil bli navigert til innloggingssiden når du har verifisert eposten.
 
