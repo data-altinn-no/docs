@@ -2,7 +2,7 @@
 title: Testing mot data.altinn.no
 linktitle: Testing
 toc: true
-weight: 40
+weight: 20
 ---
 
 ## Testmiljø

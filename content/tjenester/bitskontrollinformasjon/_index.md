@@ -1,7 +1,8 @@
 ---
 title: BITS 
 description: Informasjon om api-endepunkter hos norske finansinstitusjoner
-weight: 170
+weight: 50
+toc: true
 ---
 
 Distribusjonsstøttetjeneste for å utlevere finansinstitusjoners api-endepunkter i forbindelse med kontrollinformasjon og utleggspant

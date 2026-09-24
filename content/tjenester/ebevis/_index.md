@@ -1,7 +1,7 @@
 ---
 title: eBevis 
 description: Informasjon om leverandører i offentlige anskaffelser
-weight: 1
+weight: 10
 ---
 
 eBevis er et samarbeid Brønnøysundregistrene, Skatteetaten, Digitaliseringsdirektoratet og DFØ. Løsningen ble produksjonsatt 01.04.19.

@@ -1,11 +1,11 @@
 ---
 title: Altinn Studio-apper
 description: Hvordan bruke data.altinn.no fra Altinn Studio-apper
-weight: 65
+weight: 50
 toc: true
 ---
 
-### Preutfylling ved bruk av data.altinn.no og prefill.json i Altinn Studio
+## Preutfylling ved bruk av data.altinn.no og prefill.json i Altinn Studio
 Du kan forhåndsutfylle skjemaer i Altinn Studio ved å bruke data fra data.altinn.no.
 Alt du trenger er en model.prefill.json-fil og en model.cs-fil. Påse at at prefill og model-filen har matchende navn. Eksempel: `person.prefill.json` og `person.cs`.
 
@@ -76,7 +76,7 @@ Hvis du vil bruke flere datasett, kan du legge til flere objekter i `datasets`-a
 
 For en grundig guide til forhåndsutfylling kan du følge denne linken: https://docs.altinn.studio/nb/altinn-studio/v8/guides/development/prefill/config/.
 
-### Dynamisk henting av datasett fra data.altinn.no i app-kode
+## Dynamisk henting av datasett fra data.altinn.no i app-kode
 
 Den enkleste måten å integrere seg med data.altinn.no fra en Altinn Studio-app er å ta i bruk to nuget-pakker som håndterer kall mot data.altinn.no.
 - [Altinn.ApiClients.Dan](https://www.nuget.org/packages/Altinn.ApiClients.Dan) - for requester mot data.altinn.no

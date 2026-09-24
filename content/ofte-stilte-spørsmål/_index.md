@@ -1,11 +1,9 @@
 ---
 title: Spørsmål og svar om data.altinn.no
 linktitle: Spørsmål og svar
-weight: 250
+weight: 80
 ---
 
-
-## Spørsmål og svar
 
 1. Trenger du å dele data med spesifikke private eller offentlige virksomheter? 
    * data.altinn.no autoriserer selv tilgang før data returneres.
