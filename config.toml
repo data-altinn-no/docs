@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://docs.data.altinn.no/"
 locale = "nb-no"
 defaultContentLanguage = "nb-no"
 
@@ -27,6 +27,7 @@ endLevel = 2
 ordered = false
 
 [params]
+description = "Teknisk dokumentasjon for data.altinn.no (DAN): API, datasett, samtykke og tjenester for deling av data fra virksomheter."
 editURL = ""
 noHomeIcon = true # default is false
 noSearch = false # default is false

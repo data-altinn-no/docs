@@ -19,7 +19,7 @@
                 </li>
                 <li class="nav-ul-item"><a href="https://data.altinn.no/products" class="nav-link" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }">Produkter</a>
                 </li>
-                <li class="nav-ul-item"><a href="https://docs.data.altinn.no/" class="nav-link nav-link-active" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }" target="_self" rel="noopener noreferrer">Docs</a></li>
+                <li class="nav-ul-item"><a href="{{ "/" | relURL }}" class="nav-link nav-link-active" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }" target="_self" rel="noopener noreferrer">Docs</a></li>
             </ul>
         </div>
     </nav>
