@@ -6,17 +6,7 @@
       "statusCode": 301
     },
     {
-      "route": "/beviskoder/",
-      "redirect": "/datasett/",
-      "statusCode": 301
-    },
-    {
       "route": "/bruke-rest-api",
-      "redirect": "/api/",
-      "statusCode": 301
-    },
-    {
-      "route": "/bruke-rest-api/",
       "redirect": "/api/",
       "statusCode": 301
     },
@@ -26,17 +16,7 @@
       "statusCode": 301
     },
     {
-      "route": "/cred/",
-      "redirect": "/credits/",
-      "statusCode": 301
-    },
-    {
       "route": "/guides/nadobe",
-      "redirect": "/",
-      "statusCode": 301
-    },
-    {
-      "route": "/guides/nadobe/",
       "redirect": "/",
       "statusCode": 301
     },
@@ -46,27 +26,12 @@
       "statusCode": 301
     },
     {
-      "route": "/guides/dokumentasjonsbevis/",
-      "redirect": "/",
-      "statusCode": 301
-    },
-    {
       "route": "/guides/ebevis",
       "redirect": "/",
       "statusCode": 301
     },
     {
-      "route": "/guides/ebevis/",
-      "redirect": "/",
-      "statusCode": 301
-    },
-    {
       "route": "/utviklingsguider/data.altinn.no/ebevis",
-      "redirect": "/",
-      "statusCode": 301
-    },
-    {
-      "route": "/utviklingsguider/data.altinn.no/ebevis/",
       "redirect": "/",
       "statusCode": 301
     }
