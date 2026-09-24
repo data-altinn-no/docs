@@ -22,7 +22,7 @@ For å ta bruk data.altinn.no må du:
 1. [Identifisere hvilke datasett du ønsker å bruke](/datasett/), og dermed hvilken tjeneste som er aktuell for deg.
 2. Registrere deg på [utviklerportalen](https://data.altinn.no) (du kan også velge [preproduksjonsmiljøet](https://test.data.altinn.no) hvor du kan bruke [syntetiske data](/testing/)) og få tildelt en API-nøkkel ("subscription key").
 3. [Ta i bruk Maskinporten](/api/#autentisering-og-autorisasjon) slik at du kan autentisere deg for tjenesten. For tilgang i produksjon til eventuelle scopes som kreves for tjenesten du ønsker å benytte må du [kontakte oss](mailto:dan@altinn.no).
-4. Se [listen over datasett](/datasett/) og ta utgangspunkt i eksemplene for å lage din integrasjon. Hvis du benytter .NET anbefaler vi bruk av [DAN SDK](https://github.com/data-altinn-no/altinn-apiclient-dan)
+4. Se [listen over datasett](/datasett/) og ta utgangspunkt i eksemplene for å lage din integrasjon. Hvis du benytter .NET 8 eller nyere anbefaler vi bruk av [DAN SDK](https://github.com/data-altinn-no/altinn-apiclient-dan)
 
 ## Protokoll og formater
 
