@@ -536,7 +536,9 @@
             }
           },
           "operationId" : "get-directharvest-TildaStorulykkevirksomhet",
-          "parameters" : [ ]
+          "parameters" : [ {
+            "$ref" : "#/components/parameters/subjectOrgnr"
+          } ]
         }
       },
       "/directharvest/TildaStorulykkevirksomhetAlle" : {
@@ -1095,6 +1097,15 @@
           "in" : "query",
           "description" : "Virksomheten det spørres om, angitt som organisasjonsnummer eller NPDID.",
           "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "subjectOrgnr" : {
+          "name" : "subject",
+          "in" : "query",
+          "description" : "Organisasjonsnummer for virksomheten det spørres om.",
+          "required" : false,
           "schema" : {
             "type" : "string"
           }
