@@ -421,7 +421,11 @@ a {
 #search .pagefind-ui__results-area { margin-top: .5em; }
 #search .pagefind-ui__message { font-size: 13px; padding: 4px 0; margin: 0; color: #6a6a6a; }
 #search .pagefind-ui__results { display: block; }
-#search .pagefind-ui__result { display: block; padding: 6px 0; border-top: 1px solid #e5e5e5; }
+#search .pagefind-ui__result { display: block; position: relative; padding: 6px 6px; margin: 0 -6px; border-top: 1px solid #e5e5e5; border-radius: 3px; }
+#search .pagefind-ui__result:hover, #search .pagefind-ui__result:focus-within { background: #eef6fc; }
+/* Stretch the title link over the whole result so the entire card is clickable */
+#search .pagefind-ui__result-link::after { content: ""; position: absolute; inset: 0; }
+#search .pagefind-ui__result-link:focus-visible::after { outline: 2px solid #0062ba; outline-offset: -2px; border-radius: 3px; }
 #search .pagefind-ui__result-inner { margin: 0; }
 #search .pagefind-ui__result-title { font-size: 14px; font-weight: 600; line-height: 1.3; margin: 0; }
 #search .pagefind-ui__result-excerpt { font-size: 12.5px; line-height: 1.35; margin: 2px 0 0; color: #333; }
