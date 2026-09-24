@@ -230,4 +230,4 @@ Konsumenter vil varsles via [BITS varslingsrutine](https://dokumentasjon.dsop.no
 - Status
 
 ## Datasett som inngår i tjenesten
-{{% evidencecodes "Bits kontrollinformasjon" %}}
+{{< evidencecodes "Bits kontrollinformasjon" >}}

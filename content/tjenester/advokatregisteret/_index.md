@@ -52,4 +52,4 @@ Tar inn et fødselsnummer og returnerer samme informasjon som oppslaget beskreve
 
 En zip-fil med hele alle advokater, advokatfullmektige og praksiser uten fødselsnumre
 
-{{% evidencecodes Advokatregisteret %}}
+{{< evidencecodes Advokatregisteret >}}

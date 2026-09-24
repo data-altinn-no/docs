@@ -85,4 +85,4 @@ Det anbefales derfor at integrasjoner alltid forespør alle datasettene, og over
 Under er en liste over alle datasett som er tilgjengelige i eBevis.
 
 
-{{% evidencecodes eBevis %}}
+{{< evidencecodes eBevis >}}

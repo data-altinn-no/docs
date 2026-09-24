@@ -30,7 +30,10 @@ var EvidenceCodesDisplay = {
         this.$containerElement = el;
         this.template = $('[type="text/x-evidencecodes-template"]', this.$containerElement).text();
         this.setEnvironment();
-        this.enableSpinner();
+        // Keep the server-rendered list on screen until data arrives; only show a spinner if there is none.
+        if (!this.$containerElement.find('.evidencecodes-static').length) {
+            this.enableSpinner();
+        }
         this.bindEvents();
         this.load();
 
@@ -53,18 +56,66 @@ var EvidenceCodesDisplay = {
     load: function() {
         var self = this;
         var filter = this.$containerElement.data('filter-servicecontext');
-        if (filter != undefined)  {
+        if (filter) {
             this.metadataUrl += "/" + filter;
             this.filter = filter;
         }
-        $.getJSON(this.metadataUrl, function(res, status) { self.onload(res, status) });
+
+        // 1) Same-origin snapshot published at build time: instant, works when the API is down.
+        // 2) Live metadata API: authoritative; re-renders only if it differs from the snapshot.
+        var snapshotUrl = this.$containerElement.data(this.isTest ? 'snapshot-test' : 'snapshot-prod');
+        var shown = null; // canonical form of what is currently rendered
+
+        // Normalise, filter and sort first, then compare: the API-filtered live list and the
+        // client-filtered snapshot end up identical, so we only re-render on real changes.
+        var applyIfChanged = function(res) {
+            var list = self.prepare(res);
+            var key = JSON.stringify(list);
+            if (key !== shown) { self.apply(list); shown = key; }
+        };
+
+        // Report an error only when every source has failed and nothing has been rendered.
+        var pending = snapshotUrl ? 2 : 1;
+        var onFail = function() {
+            pending--;
+            if (pending === 0 && shown === null) { self.onerror(); }
+        };
+
+        var live = $.getJSON(this.metadataUrl).done(applyIfChanged).fail(onFail);
+
+        if (snapshotUrl) {
+            $.getJSON(snapshotUrl).done(function(res) {
+                if (shown === null && live.state() !== 'resolved') { applyIfChanged(res); }
+            }).fail(onFail);
+        }
     },
 
-    onload: function(res, status) {
+    onerror: function() {
+        var hasStatic = this.$containerElement.find('.evidencecodes-static').length > 0;
+        var message = 'Kunne ikke laste datasettbeskrivelsene' + (this.isTest ? ' for testmiljøet' : '') +
+            ' fra metadata-API-et akkurat nå. Prøv igjen litt senere.';
+        if (hasStatic) {
+            message += this.isTest
+                ? ' Listen under viser datasettene i produksjonsmiljøet slik de var da dokumentasjonen ble publisert.'
+                : ' Listen under viser datasettene slik de var da dokumentasjonen ble publisert.';
+        }
+        // The environment toggle normally comes with the rendered template; provide it here too so
+        // the reader can switch back if the failing environment is the test one.
+        var toggler = '<div class="evidenceCodeEnvToggler"><label><input type="checkbox" class="evidence-codes-env-toggler"' +
+            (this.isTest ? ' checked' : '') + '> Vis testmiljø</label></div>';
+        var html = toggler + '<div class="notices warning">' + message + '</div>';
+        var $loader = this.$containerElement.find('.evidencecodes-loader');
+        if ($loader.length) { $loader.replaceWith(html); } else { this.$containerElement.prepend(html); }
+    },
 
+    onload: function(res) {
+        this.apply(this.prepare(res));
+    },
+
+    prepare: function(res) {
         res = this.normalize(res);
 
-        this.metadata = res.sort(function(a, b) { 
+        res = res.sort(function(a, b) { 
             // Sort by service context, then evidenceCodeName
             if (a['serviceContext'] > b['serviceContext']) 
                 return 1;
@@ -82,9 +133,13 @@ var EvidenceCodesDisplay = {
         });
 
         if (this.filter) {
-            this.metadata = this.metadata.filter((el) => el['serviceContext'] == this.filter);
+            res = res.filter((el) => el['serviceContext'] == this.filter);
         }
+        return res;
+    },
 
+    apply: function(list) {
+        this.metadata = list;
         this.render();
         this.lateBindEvents();
         this.handleDeepLink();

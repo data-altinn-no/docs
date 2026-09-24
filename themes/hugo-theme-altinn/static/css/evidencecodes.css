@@ -171,3 +171,18 @@
 	font-size: small;
 	margin-top: 1rem;
 }
+/* Server-rendered dataset list (replaced by the interactive version when JS runs).
+   Styled to match the interactive rows so the swap is not visible. */
+.evidenceCode-static { margin-bottom: .3rem; }
+.evidenceCode-static > summary { list-style: none; position: relative; display: block; background: #0062ba; padding: .4rem .4rem .4rem 2.4rem; cursor: pointer; }
+.evidenceCode-static > summary::-webkit-details-marker { display: none; }
+.evidenceCode-static > summary::before { content: ""; position: absolute; left: 1rem; top: 50%; width: .55rem; height: .55rem; border: solid #fff; border-width: 0 2px 2px 0; transform: translateY(-60%) rotate(-45deg); }
+.evidenceCode-static[open] > summary::before { transform: translateY(-70%) rotate(45deg); }
+.evidenceCode-static > summary h3.name { margin: 0; font-size: 1.5rem; line-height: 1.4; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.evidenceCode-static .static-details { border: 1px solid #ccc; padding: 0 1rem 1rem; }
+.evidenceCode-static .static-details h4 { font-size: 1em; margin: 1.2em 0 .4em; }
+.evidenceCode-static .static-details dl { display: grid; grid-template-columns: max-content 1fr; gap: .2em 1em; margin: 0; }
+.evidenceCode-static .static-details dt { font-weight: 600; }
+.evidenceCode-static .static-details dd { margin: 0; }
+.evidenceCode-static .static-details table { width: 100%; border-collapse: collapse; font-size: .95em; }
+.evidenceCode-static .static-details th, .evidenceCode-static .static-details td { text-align: left; padding: .3em .5em; border-bottom: 1px solid #eee; }
