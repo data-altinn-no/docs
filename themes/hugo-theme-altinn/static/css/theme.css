@@ -176,6 +176,13 @@ figcaption {
 }
 
 #tags .label,
+.footline .lastmod {
+    display: block;
+    margin: 2em 0 1em;
+    font-size: .85em;
+    color: #6a6a6a;
+}
+
 .footline .label {
     border-bottom: none;
     background: #6a6a6a;

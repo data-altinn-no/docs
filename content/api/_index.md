@@ -68,8 +68,8 @@ Det er ulike base-URL-er som skal benyttes avhengig av miljø.
 
 | Miljø | API base-URL                     | Utviklerportal              |
 | ----- | -------------------------------- | --------------------------- |
-| Prod  | https://api.data.altinn.no       | https://data.altinn.no      |
-| Test  | https://test-api.data.altinn.no  | https://test.data.altinn.no |
+| Prod  | `https://api.data.altinn.no`     | https://data.altinn.no      |
+| Test  | `https://test-api.data.altinn.no` | https://test.data.altinn.no |
 
 For å finne endepunkt-URL-ene til de ulike operasjonene som støttes, som inkluderer versjonen av API-et som skal benyttes, se utviklerportalen.
 

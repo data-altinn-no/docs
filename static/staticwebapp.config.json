@@ -1,8 +1,87 @@
 {
+  "routes": [
+    {
+      "route": "/beviskoder",
+      "redirect": "/datasett/",
+      "statusCode": 301
+    },
+    {
+      "route": "/beviskoder/",
+      "redirect": "/datasett/",
+      "statusCode": 301
+    },
+    {
+      "route": "/bruke-rest-api",
+      "redirect": "/api/",
+      "statusCode": 301
+    },
+    {
+      "route": "/bruke-rest-api/",
+      "redirect": "/api/",
+      "statusCode": 301
+    },
+    {
+      "route": "/cred",
+      "redirect": "/credits/",
+      "statusCode": 301
+    },
+    {
+      "route": "/cred/",
+      "redirect": "/credits/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/nadobe",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/nadobe/",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/dokumentasjonsbevis",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/dokumentasjonsbevis/",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/ebevis",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/guides/ebevis/",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/utviklingsguider/data.altinn.no/ebevis",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/utviklingsguider/data.altinn.no/ebevis/",
+      "redirect": "/",
+      "statusCode": 301
+    }
+  ],
   "responseOverrides": {
     "404": {
       "rewrite": "/404.html",
       "statusCode": 404
     }
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
   }
 }
