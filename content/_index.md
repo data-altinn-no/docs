@@ -40,7 +40,5 @@ I de tilfellene hvor datakilder avgir personopplysninger eller andre data som er
 
 Datasettene som krever samtykke vil igangsette en samtykkeprosess i Altinn. I de tilfeller hvor det skal hentes ut informasjon om en juridisk person, må en representant fra virksomheten, med tilstrekkelig tilgangsnivå, logge seg inn i Altinn-portalen og aktivt samtykke til at dataene skal tilgjengeliggjøres. Varsel om samtykkeforespørsel sendes som en melding til den aktuelle innboksen i Altinn, og inneholder en lenke som lar representanten ta stilling til om samtykke skal gis eller ikke.
 
-For å kunne se varsler om samtykkeforespørsler som sendes kreves det at representanten innehar Altinn-rollene "Begrenset signeringsrett" (innehas av bl.a. innehavere, daglig ledere og styreledere), eller er blitt delegert tilgang til tjenesten "Varsel om fullmaktsforespørsel" (tjenestekode 5615/1). Samme rollen gir tilgang til å besvare selve samtykkeforespørselen, men tjenestekodene som benyttes varierer.
-
 * [Mer informasjon om samtykkeprosessen](/samtykkeprosessen)
 * [Rollekrav i Altinn for samtykketjenestene](/rollekrav-i-altinn)
