@@ -160,7 +160,8 @@ figcaption {
     opacity: .85;
     font-size: 1em;
     text-align: center;
-    margin-top: -1.5em;
+    /* image has 36px bottom margin; old markup collapsed 36px with the h4's -1.5em to ~12px */
+    margin-top: 0.75em;
 }
 
 .is_stuck {

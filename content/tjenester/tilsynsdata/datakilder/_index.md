@@ -7,7 +7,7 @@ toc: true
 
 
 {{% notice note %}}
-De tidligere definerte NPDID-oppslagene er tatt inn i tilsynsrapport og tilsynskoordinering som nå støtter npdid som "subject" i tillegg til organisasjonsnummer.
+De tidligere definerte NPDID-oppslagene er tatt inn i tilsynsrapport, tilsynskoordinering og trendrapport, som nå støtter npdid som "subject" i tillegg til organisasjonsnummer.
 {{% /notice %}}
 
 
