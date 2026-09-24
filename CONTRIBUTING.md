@@ -1,7 +1,7 @@
 # Contributing to data.altinn.no docs
 
 The Altinn docs site is generated from [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) 
-using the [Hugo](https://gohugo.io/overview/introduction/) static site generator.
+using the [Hugo](https://gohugo.io/getting-started/) static site generator.
 We use YAML as front matter.
 
 
@@ -29,6 +29,6 @@ and submit a [pull request](https://help.github.com/articles/about-pull-requests
 ## Links
 
  - [Markdown cheat-sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
- - [Hugo configuration](https://gohugo.io/overview/configuration/)
- - [Hugo front matter](https://gohugo.io/content/front-matter/)
+ - [Hugo configuration](https://gohugo.io/configuration/)
+ - [Hugo front matter](https://gohugo.io/content-management/front-matter/)
  
