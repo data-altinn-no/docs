@@ -6,7 +6,7 @@ contentDir = "content"
 staticDir = "static"
 publishDir = "public"
 
-title = "Altinn docs"
+title = "docs.data.altinn.no"
 theme = "hugo-theme-altinn"
 metadataFormat = "yaml"
 pluralizeListTitles = false

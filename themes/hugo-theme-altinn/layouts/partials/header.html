@@ -4,11 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ partial "meta.html" . }}
-    {{if .IsHome}}
-    <title>data.altinn.no :: Altinn digitalisering - Utvikling</title>
-    {{else}}
-    <title>{{ .Title }} :: Altinn digitalisering - Utvikling</title>
-    {{end}}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
