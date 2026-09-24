@@ -30,5 +30,18 @@
         searching: "Søker etter [SEARCH_TERM] ..."
       }
     });
+
+    // Pagefind only searches on `input` events. Two cases need a nudge:
+    //  - the browser restores the previous term when you navigate back, but no results are shown;
+    //  - pressing Enter on an already typed term does nothing.
+    var input = document.querySelector('#search-ui input');
+    if (!input) return;
+    var rerun = function () {
+      if (input.value.trim()) input.dispatchEvent(new Event('input', { bubbles: true }));
+    };
+    window.addEventListener('pageshow', rerun);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); rerun(); }
+    });
   });
 </script>
