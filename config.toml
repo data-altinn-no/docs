@@ -15,6 +15,10 @@ enableEmoji = true
 enableGitInfo = true
 disableKinds = ["RSS", "taxonomy", "term"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
 
+[caches]
+  [caches.getresource]
+    maxAge = "1h" # metadata snapshot for the dataset list; CI is always fresh
+
 [markup.goldmark.renderer]
 unsafe = true
 

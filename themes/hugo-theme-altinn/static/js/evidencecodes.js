@@ -30,7 +30,10 @@ var EvidenceCodesDisplay = {
         this.$containerElement = el;
         this.template = $('[type="text/x-evidencecodes-template"]', this.$containerElement).text();
         this.setEnvironment();
-        this.enableSpinner();
+        // Keep the server-rendered list on screen until data arrives; only show a spinner if there is none.
+        if (!this.$containerElement.find('.evidencecodes-static').length) {
+            this.enableSpinner();
+        }
         this.bindEvents();
         this.load();
 
@@ -53,11 +56,43 @@ var EvidenceCodesDisplay = {
     load: function() {
         var self = this;
         var filter = this.$containerElement.data('filter-servicecontext');
-        if (filter != undefined)  {
+        if (filter) {
             this.metadataUrl += "/" + filter;
             this.filter = filter;
         }
-        $.getJSON(this.metadataUrl, function(res, status) { self.onload(res, status) });
+
+        // 1) Same-origin snapshot published at build time: instant, works when the API is down.
+        // 2) Live metadata API: authoritative; re-renders only if it differs from the snapshot.
+        var snapshotUrl = this.$containerElement.data(this.isTest ? 'snapshot-test' : 'snapshot-prod');
+        var rendered = null;
+
+        var live = $.getJSON(this.metadataUrl).done(function(res) {
+            var raw = JSON.stringify(res);
+            if (rendered !== raw) { self.onload(res); rendered = raw; }
+        });
+
+        if (snapshotUrl) {
+            $.getJSON(snapshotUrl).done(function(res) {
+                if (rendered === null && live.state() !== 'resolved') { self.onload(res); rendered = JSON.stringify(self.filterRaw(res)); }
+            });
+        }
+
+        live.fail(function() {
+            if (rendered === null && !snapshotUrl) { self.onerror(); }
+        });
+    },
+
+    // The live URL is pre-filtered by the API; the snapshot is the full list. Reduce it the same
+    // way so the "same content" comparison between the two is meaningful.
+    filterRaw: function(res) {
+        if (!this.filter) return res;
+        var f = this.filter;
+        return res.filter(function(c) { return (c.belongsToServiceContexts || []).indexOf(f) !== -1; });
+    },
+
+    onerror: function() {
+        this.$containerElement.find('.evidencecodes-loader').replaceWith(
+            '<div class="notices warning">Kunne ikke laste datasettbeskrivelsene fra metadata-API-et akkurat nå. Prøv igjen litt senere.</div>');
     },
 
     onload: function(res, status) {

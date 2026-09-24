@@ -171,3 +171,12 @@
 	font-size: small;
 	margin-top: 1rem;
 }
+/* Server-rendered dataset list (replaced by the interactive version when JS runs) */
+.evidencecodes-static .evidenceCode-static { border: 1px solid #ddd; border-radius: 4px; padding: 0 1em 1em; margin: 0 0 1em; }
+.evidencecodes-static .evidenceCode-static h3 { margin-top: 1em; font-size: 1.2em; }
+.evidencecodes-static .evidenceCode-static h4 { font-size: 1em; margin: 1.2em 0 .4em; }
+.evidencecodes-static .evidenceCode-static dl { display: grid; grid-template-columns: max-content 1fr; gap: .2em 1em; margin: 0; }
+.evidencecodes-static .evidenceCode-static dt { font-weight: 600; }
+.evidencecodes-static .evidenceCode-static dd { margin: 0; }
+.evidencecodes-static .evidenceCode-static table { width: 100%; border-collapse: collapse; font-size: .95em; }
+.evidencecodes-static .evidenceCode-static th, .evidencecodes-static .evidenceCode-static td { text-align: left; padding: .3em .5em; border-bottom: 1px solid #eee; }

@@ -1,5 +1,28 @@
+{{- /*
+  Dataset list. At build time we fetch the public metadata for prod and test, publish it as
+  JSON (used by evidencecodes.js as an instant, same-origin snapshot) and render a static
+  version of the list so the datasets exist in the HTML without JavaScript: readable if the
+  API is down, indexable by search. The client script replaces the static block with the
+  interactive one. If a fetch fails the build still succeeds and the script loads live.
+*/ -}}
+{{- $filter := "" -}}{{- with .Get 0 }}{{ $filter = . }}{{ end -}}
+{{- $urls := dict "prod" "https://api.data.altinn.no/v1/public/metadata/evidencecodes" "test" "https://test-api.data.altinn.no/v1/public/metadata/evidencecodes" -}}
+{{- $snap := dict -}}
+{{- range $env, $url := $urls -}}
+  {{- $t := try (resources.GetRemote $url (dict "timeout" "30s")) -}}
+  {{- if $t.Err -}}
+    {{- warnf "evidencecodes: could not fetch %s: %s (snapshot skipped)" $url $t.Err -}}
+  {{- else if not $t.Value -}}
+    {{- warnf "evidencecodes: no response from %s (snapshot skipped)" $url -}}
+  {{- else -}}
+    {{- $pub := $t.Value | resources.Copy (printf "data/evidencecodes-%s.json" $env) -}}
+    {{- $snap = merge $snap (dict $env (dict "url" $pub.RelPermalink "data" ($pub.Content | transform.Unmarshal))) -}}
+  {{- end -}}
+{{- end -}}
+{{- $prod := index $snap "prod" -}}
+{{- $test := index $snap "test" -}}
 <script src="{{"js/jsonschemafaker.js" | relURL}}"></script>
-<div id="evidencecodes-container" data-filter-servicecontext="{{ .Get 0 }}">
+<div id="evidencecodes-container" data-filter-servicecontext="{{ $filter }}"{{ with $prod }} data-snapshot-prod="{{ .url }}"{{ end }}{{ with $test }} data-snapshot-test="{{ .url }}"{{ end }}>
 <style type="text/x-evidencecodes-template">
 <div class="evidenceCodeEnvToggler">
 	<label><input type="checkbox" class="evidence-codes-env-toggler"> Vis testmiljø</label>
@@ -163,5 +186,94 @@
 </div>
 <%}%>
 </style>
-
+{{- /* ---- static, indexable rendering (prod metadata) ---- */ -}}
+{{- with $prod }}
+{{- $entries := slice -}}
+{{- range $code := .data -}}
+  {{- range $sc := $code.belongsToServiceContexts -}}
+    {{- if or (not $filter) (eq $sc $filter) -}}
+      {{- $entries = $entries | append (merge $code (dict "serviceContext" $sc "sortKey" (printf "%s|%s" $sc $code.evidenceCodeName))) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $entries = sort $entries "sortKey" -}}
+{{- $partyTypes := dict "1" "Subjektet" "2" "Den juridiske konsumenten" "3" "Den som foretar oppslaget" -}}
+{{- $partyConstraints := dict "0" "en privatperson" "1" "en offentlig virksomhet" "2" "en privat virksomhet" "9" "en utenlandsk virksomhet" -}}
+{{- $accReq := dict "RequestorAndOwnerAreEqual" "Juridisk konsument kan ikke oppgi at oppslaget gjøres på vegne av andre" "SubjectAndOwnerAreEqual" "Subjektet må være den som foretar oppslaget" "RequestorAndSubjectAreEqual" "Juridisk konsument må være subjektet" "RequestorAndOwnerAreNotEqual" "Juridisk konsument må oppgi en annen juridisk person som oppslaget gjøres på vegne av" "RequestorAndSubjectAreNotEqual" "Juridisk konsument kan ikke være subjektet" -}}
+<div class="evidencecodes-static">
+{{- $lastSc := "" -}}
+{{- range $e := $entries }}
+{{- if ne $e.serviceContext $lastSc }}{{ $lastSc = $e.serviceContext }}
+<h2>{{ $e.serviceContext }}</h2>
+{{- end }}
+{{- $reqs := slice -}}{{- $async := $e.isAsynchronous -}}
+{{- range $rq := $e.authorizationRequirements -}}
+  {{- if or (not $rq.appliesToServiceContext) (in $rq.appliesToServiceContext $e.serviceContext) -}}
+    {{- $reqs = $reqs | append $rq -}}{{- if eq $rq.type "ConsentRequirement" }}{{ $async = true }}{{ end -}}
+  {{- end -}}
+{{- end }}
+<div class="evidenceCode evidenceCode-static" id="{{ if $filter }}{{ $e.evidenceCodeName }}{{ else }}{{ $e.serviceContext | urlize }}-{{ $e.evidenceCodeName }}{{ end }}">
+<h3>{{ $e.evidenceCodeName }}</h3>
+<p>{{ $e.description }}</p>
+<dl>
+<dt>Kan direktehøstes</dt><dd>{{ if $async }}Nei{{ else }}Ja{{ end }}</dd>
+<dt>Maks tilgjengelighet</dt><dd>{{ with $e.maxValidDays }}{{ int . }} dager{{ else }}Ikke oppgitt{{ end }}</dd>
+<dt>Åpne data</dt><dd>{{ if $e.isPublic }}Ja{{ else }}Nei{{ end }}</dd>
+{{- with $e.license }}
+<dt>Lisens</dt><dd>{{ . }}</dd>
+{{- end }}
+</dl>
+{{- with $reqs }}
+<h4>Tilgangskontroller</h4>
+<ul>
+{{- range . }}
+{{- $soft := eq (int (default 0 .failureAction)) 1 }}
+{{- if eq .type "MaskinportenScopeRequirement" }}
+<li>Krever Maskinporten-scope: {{ delimit .requiredScopes ", " }}{{ if $soft }} (soft){{ end }}</li>
+{{- else if eq .type "ConsentRequirement" }}
+<li>Krever samtykke fra subjektet{{ if $soft }} (soft){{ end }}</li>
+{{- else if eq .type "LegalBasisRequirement" }}
+<li>Krever annet oppgitt behandlingsgrunnlag{{ if $soft }} (soft){{ end }}</li>
+{{- else if eq .type "PartyTypeRequirement" }}
+{{- range .allowedPartyTypes }}
+<li>{{ index $partyTypes (printf "%v" .Key) | default (printf "Aktørtype #%v" .Key) }} må være {{ index $partyConstraints (printf "%v" .Value) | default (printf "type %v" .Value) }}{{ if $soft }} (soft){{ end }}</li>
+{{- end }}
+{{- else if eq .type "AccreditationPartyRequirement" }}
+{{- range .partyRequirements }}
+<li>{{ index $accReq . | default . }}{{ if $soft }} (soft){{ end }}</li>
+{{- end }}
+{{- else }}
+<li>{{ .type }}{{ if $soft }} (soft){{ end }}</li>
+{{- end }}
+{{- end }}
+</ul>
+{{- end }}
+{{- with $e.parameters }}
+<h4>Parametere</h4>
+<table>
+<thead><tr><th>Parameternavn</th><th>Type</th><th>Påkrevd</th></tr></thead>
+<tbody>
+{{- range . }}
+<tr><td>{{ .evidenceParamName }}</td><td>{{ .paramType }}</td><td>{{ if .required }}Ja{{ else }}Nei{{ end }}</td></tr>
+{{- end }}
+</tbody>
+</table>
+{{- end }}
+{{- with $e.values }}
+<h4>Felter i retur</h4>
+<table>
+<thead><tr><th>Feltnavn</th><th>Type</th><th>Kilde</th></tr></thead>
+<tbody>
+{{- range . }}
+<tr><td>{{ .evidenceValueName }}</td><td>{{ .valueType }}</td><td>{{ .source }}</td></tr>
+{{- end }}
+</tbody>
+</table>
+{{- end }}
+</div>
+{{- end }}
+</div>
+{{- else }}
+<noscript><p>Datasettoversikten hentes fra <a href="https://api.data.altinn.no/v1/public/metadata/evidencecodes">metadata-API-et til data.altinn.no</a> og krever JavaScript.</p></noscript>
+{{- end }}
 </div>

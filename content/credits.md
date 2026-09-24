@@ -16,4 +16,4 @@ Vi står på skuldrene til følgende prosjekter:
 * [highlight.js](https://highlightjs.org/) gir syntaksmarkering i kodeeksempler.
 * [jQuery](https://jquery.com/), [clipboard.js](https://clipboardjs.com/), [sticky-sidebar](https://github.com/abouolia/sticky-sidebar) og [Font Awesome](https://fontawesome.com/) brukes til kopiknapper, sidemeny og ikoner.
 
-Datasettoversikten hentes direkte fra det åpne [metadata-API-et til data.altinn.no](https://api.data.altinn.no/v1/public/metadata/evidencecodes), slik at den alltid er oppdatert. Søk i dokumentasjonen gjøres via Google.
+Datasettoversikten hentes direkte fra det åpne [metadata-API-et til data.altinn.no](https://api.data.altinn.no/v1/public/metadata/evidencecodes), slik at den alltid er oppdatert. Søket i dokumentasjonen drives av [Pagefind](https://pagefind.app/), som bygger en statisk søkeindeks av de ferdige sidene når nettstedet publiseres.
