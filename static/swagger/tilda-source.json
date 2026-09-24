@@ -30,10 +30,6 @@
         "description": "melding til annen myndighet"
       },
       {
-        "name": "npdid",
-        "description": "npdidrapport"
-      },
-      {
         "name": "pdf",
         "description": "pdfrapport"
       }
@@ -49,7 +45,7 @@
           "operationId": "TildaTilsynskoordineringAlle",
           "parameters": [
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -125,26 +121,27 @@
           }
         }
       },
-      "/koordinering/{organization_number}": {
+      "/koordinering/{organization_number_or_npdid}": {
         "get": {
           "tags": [
             "koordinering"
           ],
-          "summary": "get audit coordination for org",
+          "summary": "get audit coordination for org or NPDID",
           "operationId": "TildaTilsynskoordinering",
           "parameters": [
             {
-              "name": "organization_number",
+              "name": "organization_number_or_npdid",
               "in": "path",
               "required": true,
               "style": "simple",
               "explode": false,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Organisasjonsnummer eller NPDID for virksomheten det spørres om."
             },
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -196,7 +193,8 @@
               "explode": true,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Filtrere på NPDID, valgfri"
             }
           ],
           "responses": {
@@ -210,7 +208,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "Henter tilsynskoordineringer for én virksomhet. Stiparameteren kan være enten organisasjonsnummer eller NPDID. De tidligere separate NPDID-oppslagene er tatt inn i dette endepunktet."
         }
       },
       "/tilsyn": {
@@ -222,7 +221,7 @@
           "operationId": "TildaTilsynsrapportAlle",
           "parameters": [
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -298,26 +297,27 @@
           }
         }
       },
-      "/tilsyn/{organization_number}": {
+      "/tilsyn/{organization_number_or_npdid}": {
         "get": {
           "tags": [
             "tilsyn"
           ],
-          "summary": "get audit report for org",
+          "summary": "get audit report for org or NPDID",
           "operationId": "TildaTilsynsrapport",
           "parameters": [
             {
-              "name": "organization_number",
+              "name": "organization_number_or_npdid",
               "in": "path",
               "required": true,
               "style": "simple",
               "explode": false,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Organisasjonsnummer eller NPDID for virksomheten det spørres om."
             },
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -359,7 +359,8 @@
               "explode": true,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Filtrere på NPDID, valgfri"
             },
             {
               "name": "id",
@@ -383,7 +384,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "Henter tilsynsrapporter for én virksomhet. Stiparameteren kan være enten organisasjonsnummer eller NPDID. De tidligere separate NPDID-oppslagene er tatt inn i dette endepunktet."
         }
       },
       "/trend": {
@@ -395,7 +397,7 @@
           "operationId": "TildaTrendrapportAlle",
           "parameters": [
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -471,26 +473,27 @@
           }
         }
       },
-      "/trend/{organization_number}": {
+      "/trend/{organization_number_or_npdid}": {
         "get": {
           "tags": [
             "trend"
           ],
-          "summary": "get trend report for org",
+          "summary": "get trend report for org or NPDID",
           "operationId": "TildaTrendrapport",
           "parameters": [
             {
-              "name": "organization_number",
+              "name": "organization_number_or_npdid",
               "in": "path",
               "required": true,
               "style": "simple",
               "explode": false,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Organisasjonsnummer eller NPDID for virksomheten det spørres om."
             },
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -532,7 +535,8 @@
               "explode": true,
               "schema": {
                 "type": "string"
-              }
+              },
+              "description": "Filtrere på NPDID, valgfri"
             },
             {
               "name": "id",
@@ -556,7 +560,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "Henter trendrapporter for én virksomhet. Stiparameteren kan være enten organisasjonsnummer eller NPDID. De tidligere separate NPDID-oppslagene er tatt inn i dette endepunktet."
         }
       },
       "/mtam": {
@@ -605,7 +610,7 @@
           "operationId": "post-mtam",
           "parameters": [
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -645,7 +650,7 @@
               }
             },
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -670,84 +675,6 @@
           }
         }
       },
-      "/npdid/{organization_number}": {
-        "get": {
-          "tags": [
-            "npdid"
-          ],
-          "summary": "get NPDID audit report",
-          "operationId": "NPDIDAuditReport",
-          "parameters": [
-            {
-              "name": "organization_number",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "explode": false,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "requestor ",
-              "in": "query",
-              "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "fromDate",
-              "in": "query",
-              "description": "filtrere med startdato",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            {
-              "name": "toDate",
-              "in": "query",
-              "description": "filtrere med sluttdato",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            {
-              "name": "npdid",
-              "in": "query",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Example response",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/NpdidReportResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "/pdfreport": {
         "get": {
           "tags": [
@@ -757,7 +684,7 @@
           "operationId": "get-pdfreport",
           "parameters": [
             {
-              "name": "requestor ",
+              "name": "requestor",
               "in": "query",
               "description": "parameter med organisasjonsnummer til spørrende tilsynsmyndighet",
               "required": false,
@@ -1357,84 +1284,6 @@
             "ikkeAngitt"
           ]
         },
-        "NPDIDAuditReport": {
-          "type": "object",
-          "properties": {
-            "npdid": {
-              "type": "string"
-            },
-            "tildaenhet": {
-              "type": "string"
-            },
-            "tilsynutfoertav": {
-              "type": "string"
-            },
-            "ansvarligtilsynsmyndighet": {
-              "type": "string"
-            },
-            "tilsynsegenskaper": {
-              "$ref": "#/components/schemas/ControlAttribute"
-            },
-            "kontrolladresser": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/AuditAddress"
-              }
-            },
-            "utfoerteTilsynsaktiviteter": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ControlActivity"
-              }
-            },
-            "kontaktpunkt": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ControlContact"
-              }
-            },
-            "tilsynsnotater": {
-              "type": "string"
-            },
-            "anmerkninger": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Remark"
-              }
-            },
-            "bruddOgReaksjoner": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Reaction"
-              }
-            }
-          },
-          "x-examples": {
-            "Example 1": {
-              "npdid": "string",
-              "tildaenhet": "string",
-              "tilsynutfoertav": "",
-              "ansvarligtilsynsmyndighet": "",
-              "tilsynsegenskaper": {},
-              "kontrolladresser": [
-                {}
-              ],
-              "utfoerteTilsynsaktiviteter": [
-                {}
-              ],
-              "kontaktpunkt": [
-                {}
-              ],
-              "tilsynsnotater": "",
-              "anmerkninger": [
-                {}
-              ],
-              "bruddOgReaksjoner": [
-                {}
-              ]
-            }
-          }
-        },
         "PlannedControlActivity": {
           "type": "object",
           "properties": {
@@ -1630,36 +1479,6 @@
               ]
             }
           }
-        },
-        "NpdidReportResponse": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "$ref": "#/components/schemas/StatusEnum"
-            },
-            "statustekst": {
-              "type": "string"
-            },
-            "tilsynsmyndighet": {
-              "type": "string"
-            },
-            "tilsynsrapporter": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/NPDIDAuditReport"
-              }
-            }
-          },
-          "x-examples": {
-            "Example 1": {
-              "status": "ok",
-              "statustekst": "string",
-              "tilsynsmyndighet": "string",
-              "tilsynsrapporter": [
-                {}
-              ]
-            }
-          }
         }
       },
       "responses": {
@@ -1712,16 +1531,6 @@
                 "items": {
                   "$ref": "#/components/schemas/AlertSourceMessage"
                 }
-              }
-            }
-          }
-        },
-        "npdid-report": {
-          "description": "Example response",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NpdidReportResponse"
               }
             }
           }

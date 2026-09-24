@@ -1,7 +1,7 @@
 ---
 title: Datasett/datakilder
 description: Oversikt over tilgjengelige datasett
-weight: 200
+weight: 70
 aliases:
 - /beviskoder/
 ---

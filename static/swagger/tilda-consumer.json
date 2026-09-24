@@ -25,9 +25,6 @@
       "name" : "mtam",
       "description" : "melding til annen myndighet"
     }, {
-      "name" : "npdid",
-      "description" : "npdidrapport"
-    }, {
       "name" : "pdf",
       "description" : "pdfrapport"
     }, {
@@ -99,12 +96,6 @@
                           "value" : "974761211:Arbeidstilsynet,874761192:Justervesenet,974762994:Statsforvalteren i Agder,974761645:Statsforvalteren i Innlandet,974764067:Statsforvalteren i Møre og Romsdal,974764687:Statsforvalteren i Nordland,974761319:Statsforvalteren i Oslo og Viken,974763230:Statsforvalteren i Rogaland,967311014:Statsforvalteren i Troms og Finnmark,974764350:Statsforvalteren i Trøndelag,974762501:Statsforvalteren i Vestfold og Telemark,974760665:Statsforvalteren i Vestland",
                           "valueType" : "string"
                         }, {
-                          "evidenceValueName" : "TildaNPDIDv1",
-                          "source" : "Tilda",
-                          "timestamp" : "2024-11-11T11:08:29.7947926Z",
-                          "value" : "",
-                          "valueType" : "string"
-                        }, {
                           "evidenceValueName" : "TildaTilsynsrapportpdfv1",
                           "source" : "Tilda",
                           "timestamp" : "2024-11-11T11:08:29.7948944Z",
@@ -137,6 +128,7 @@
       "/directharvest/TildaTilsynsrapportv1" : {
         "get" : {
           "summary" : "TildaTilsynsrapportv1",
+          "description" : "Henter data for én virksomhet. Parameteren subject kan være enten organisasjonsnummer eller NPDID. Det tidligere separate datasettet TildaNPDIDv1 er tatt inn i dette datasettet.",
           "tags" : [ "tilsyn" ],
           "responses" : {
             "2XX" : {
@@ -180,6 +172,8 @@
           },
           "operationId" : "get-directharvest-TildaTilsynsrapportv1",
           "parameters" : [ {
+            "$ref" : "#/components/parameters/subject"
+          }, {
             "$ref" : "#/components/parameters/startdato"
           }, {
             "$ref" : "#/components/parameters/sluttdato"
@@ -275,6 +269,7 @@
       "/directharvest/TildaTrendrapportv1" : {
         "get" : {
           "summary" : "TildaTrendrapportv1",
+          "description" : "Henter data for én virksomhet. Parameteren subject kan være enten organisasjonsnummer eller NPDID. Det tidligere separate datasettet TildaNPDIDv1 er tatt inn i dette datasettet.",
           "tags" : [ "trend" ],
           "responses" : {
             "2XX" : {
@@ -319,6 +314,8 @@
           },
           "operationId" : "get-directharvest-TildaTrendrapportv1",
           "parameters" : [ {
+            "$ref" : "#/components/parameters/subject"
+          }, {
             "$ref" : "#/components/parameters/startdato"
           }, {
             "$ref" : "#/components/parameters/sluttdato"
@@ -387,6 +384,7 @@
       "/directharvest/TildaTilsynskoordineringv1" : {
         "get" : {
           "summary" : "TildaTilsynskoordineringv1",
+          "description" : "Henter data for én virksomhet. Parameteren subject kan være enten organisasjonsnummer eller NPDID. Det tidligere separate datasettet TildaNPDIDv1 er tatt inn i dette datasettet.",
           "tags" : [ "koordinering" ],
           "responses" : {
             "2XX" : {
@@ -431,6 +429,8 @@
           },
           "operationId" : "get-directharvest-TildaTilsynskoordineringv1",
           "parameters" : [ {
+            "$ref" : "#/components/parameters/subject"
+          }, {
             "$ref" : "#/components/parameters/startdato"
           }, {
             "$ref" : "#/components/parameters/sluttdato"
@@ -537,7 +537,7 @@
           },
           "operationId" : "get-directharvest-TildaStorulykkevirksomhet",
           "parameters" : [ {
-            "$ref" : "#/components/parameters/subject"
+            "$ref" : "#/components/parameters/subjectOrgnr"
           } ]
         }
       },
@@ -587,63 +587,6 @@
             }
           },
           "operationId" : "get-directharvest-TildaStorulykkevirksomhetAlle"
-        }
-      },
-      "/directharvest/TildaNPDIDv1" : {
-        "get" : {
-          "summary" : "TildaNPDIDv1",
-          "tags" : [ "npdid" ],
-          "responses" : {
-            "2XX" : {
-              "description" : "Success",
-              "content" : {
-                "application/json" : {
-                  "schema" : {
-                    "type" : "object",
-                    "$ref" : "#/components/schemas/Evidence"
-                  },
-                  "examples" : {
-                    "Example 1" : {
-                      "value" : {
-                        "evidenceStatus" : {
-                          "evidenceCodeName" : "string",
-                          "status" : {
-                            "code" : 0,
-                            "description" : "string",
-                            "retryAt" : "string"
-                          },
-                          "validFrom" : "2019-08-24T14:15:22Z",
-                          "validTo" : "2019-08-24T14:15:22Z"
-                        },
-                        "evidenceValues" : [ {
-                          "mimeType" : "string",
-                          "evidenceValueName" : "string",
-                          "description" : "string",
-                          "source" : "string",
-                          "timestamp" : "2019-08-24T14:15:22Z",
-                          "value" : "{\"status\":\"ok\",\"statustekst\":\"OK. ElapsedMs: 1000\",\"tilsynsmyndighet\":\"123123123\"}",
-                          "valueType" : "boolean",
-                          "jsonSchemaDefintion" : "string"
-                        } ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "operationId" : "get-directharvest-TildaNPDIDv1",
-          "parameters" : [ {
-            "$ref" : "#/components/parameters/startdato"
-          }, {
-            "$ref" : "#/components/parameters/sluttdato"
-          }, {
-            "$ref" : "#/components/parameters/tilsynskilder"
-          }, {
-            "$ref" : "#/components/parameters/npdid"
-          }, {
-            "$ref" : "#/components/parameters/inkluderUnderenheter"
-          } ]
         }
       },
       "/directharvest/TildaMeldingTilAnnenMyndighetv1" : {
@@ -1152,6 +1095,16 @@
         "subject" : {
           "name" : "subject",
           "in" : "query",
+          "description" : "Virksomheten det spørres om, angitt som organisasjonsnummer eller NPDID.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        "subjectOrgnr" : {
+          "name" : "subject",
+          "in" : "query",
+          "description" : "Organisasjonsnummer for virksomheten det spørres om.",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -1159,14 +1112,6 @@
         },
         "identifikator" : {
           "name" : "identifikator",
-          "in" : "query",
-          "required" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        },
-        "npdid" : {
-          "name" : "npdid",
           "in" : "query",
           "required" : false,
           "schema" : {

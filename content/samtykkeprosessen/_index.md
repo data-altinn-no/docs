@@ -1,7 +1,7 @@
 ---
 title: Samtykke og fullmakt
 description: Når oppdragsgiver ber om data som krever samtykke eller fullmakt blir det sendt en melding til mottakerens Altinn innboks, samt varsel på e-post og sms til relevante mottakeradresser.
-weight: 55
+weight: 40
 ---
 
 

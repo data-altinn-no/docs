@@ -1,7 +1,8 @@
 ---
 title: Begrepsforklaringer 
 description: Mer detaljerte beskrivelser av data som returneres i eBevis-tjenesten
-weight: 100
+weight: 10
+toc: true
 ---
 
 ## Grunndata – Enhets-/Foretaksregisteret	
@@ -58,8 +59,8 @@ Oppdateres ca den 10. månedlig. Virksomhetene har frist til å sende inn A-meld
 | REGN – Regnskapsfører	||	Accountant|	Viser virksomhetens registrerte regnskapsfører Fysisk- eller juridisk person med hovedoppgave å føre regnskapet for en eller flere virksomheter|
 {{</table>}}
 
-# Skatteetaten
-## Restanser
+## Skatteetaten
+### Restanser
 {{<table "table table-striped table-bordered">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
@@ -71,7 +72,7 @@ Oppdateres ca den 10. månedlig. Virksomhetene har frist til å sende inn A-meld
 | Gebyr og ansvarskrav|	ForfaltOgUbetalt: beløp |	Angir virksomhetens ubetalte Gebyr og ansvarskrav	| Skyldig gebyr/ansvarskrav ikke betalt innen tidsfrist|
 {{</table>}}
 
-## Arbeidsgiveravgift
+### Arbeidsgiveravgift
 
 {{<table "table">}}
 | Begrep | Verdier | Forklaring | Merknad | 
@@ -84,7 +85,7 @@ Oppdateres ca den 10. månedlig. Virksomhetene har frist til å sende inn A-meld
 | Grunnlag arbeidsgiveravgift termin 3 |	Beløp |	Angir grunnlag (Beløp) for beregning av arbeidsgiveravgift - Termin 3 A-melding |	Sier noe om at det er innberettet lønn |
 {{</table>}}
 
-## MVA-opplysninger
+### MVA-opplysninger
 {{<table "table table-striped table-bordered">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|
@@ -132,7 +133,7 @@ Bør kontrolleres og innhente nye opplysninger SKE har fastsatt helt eller delvi
 | Inngående MVA lav sats termin 3	| Heltall |	Angir inngående MVA Lav sats - termin 3 (10%)	| Viser hva som har blitt rapportert. Kan gi en indikasjon på størrelsen på avgiftspliktige kostnader|
 {{</table>}}
 
-## Oppdrag utenlandske virksomheter
+### Oppdrag utenlandske virksomheter
 {{<table "table table-striped table-bordered">}}
 | Begrep | Verdier | Forklaring | Merknad | 
 | -------|---------|------------|---------|

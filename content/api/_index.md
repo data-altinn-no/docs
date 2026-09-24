@@ -3,7 +3,7 @@ title: Kom i gang med API
 description: Her finnes informasjon om hvordan du kommer i gang med å integrere ditt system med data.altinn.no (DAN).
 linktitle: API
 toc: true
-weight: 3
+weight: 10
 aliases: 
     - /bruke-rest-api/
 ---

@@ -1,7 +1,7 @@
 ---
 title: Advokatregisteret
 description: Innhenting av data fra advokatregisteret
-weight: 80
+weight: 30
 ---
 
 

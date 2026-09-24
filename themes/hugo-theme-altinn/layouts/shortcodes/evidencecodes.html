@@ -6,7 +6,7 @@
 </div>
 <%for(var i=0,lastServiceContext=null; i<this.data.length; i++) { var code = this.data[i]; %>
 <%if(lastServiceContext != code.serviceContext) { lastServiceContext = code.serviceContext; %>
-	<h3><%code.serviceContext%></h3>
+	<h2><%code.serviceContext%></h2>
 <%}%>
 <div class="evidenceCode" data-name="<%code.evidenceCodeName%>">
 	<div class="header">
@@ -100,7 +100,7 @@
 						<%if(EvidenceCodesDisplay.isJsonSchemaField(code.values[j])){%>
 							<div class="hidden json-schema-field-example <%code.evidenceCodeName%>___<%code.values[j]['evidenceValueName']%>">
 								<a href="javascript:" class="hide-json-schema-field-example">Skjul eksempel</a>
-								<h3>Parameter: <%code.values[j]['evidenceValueName']%></h3>
+								<h4>Parameter: <%code.values[j]['evidenceValueName']%></h4>
 								<div class="div-toggle-container">
 									<p class="div-toggle-buttons">
 										<a href="javascript:" data-target="generated">Generert eksempel</a>
