@@ -212,8 +212,9 @@
     {{- $reqs = $reqs | append $rq -}}{{- if eq $rq.type "ConsentRequirement" }}{{ $async = true }}{{ end -}}
   {{- end -}}
 {{- end }}
-<div class="evidenceCode evidenceCode-static" id="{{ if $filter }}{{ $e.evidenceCodeName }}{{ else }}{{ $e.serviceContext | urlize }}-{{ $e.evidenceCodeName }}{{ end }}">
-<h3>{{ $e.evidenceCodeName }}</h3>
+<details class="evidenceCode evidenceCode-static" id="{{ if $filter }}{{ $e.evidenceCodeName }}{{ else }}{{ $e.serviceContext | urlize }}-{{ $e.evidenceCodeName }}{{ end }}">
+<summary><h3 class="name">{{ $e.evidenceCodeName }}</h3></summary>
+<div class="static-details">
 <p>{{ $e.description }}</p>
 <dl>
 <dt>Kan direktehøstes</dt><dd>{{ if $async }}Nei{{ else }}Ja{{ end }}</dd>
@@ -271,6 +272,7 @@
 </table>
 {{- end }}
 </div>
+</details>
 {{- end }}
 </div>
 {{- else }}
