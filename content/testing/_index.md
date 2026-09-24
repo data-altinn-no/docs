@@ -25,7 +25,7 @@ For REST-API-et benyttes et eget endepunkt, og autentisering skjer med token fra
 
 ## Test-organisasjoner for forespørsler
 
-data.altinn.no støtter bruk av [Tenor](https://www.digdir.no/felleslosninger/tenor-testdatasok/1284) testdata for de fleste datasettene. Noen andre tjenester og datasett benytter andre testdata, som er nærmere beskrevet i onboarding-dokumentasjonen til den aktuelle tjenesteeieren. Altinn TT02 og Maskinportens testmiljø støtter også bruk av Tenor.
+data.altinn.no støtter bruk av Tenor-testdata for de fleste datasettene. Noen andre tjenester og datasett benytter andre testdata, som er nærmere beskrevet i onboarding-dokumentasjonen til den aktuelle tjenesteeieren. Altinn TT02 og Maskinportens testmiljø støtter også bruk av Tenor.
 
 * [Les mer om Tenor hos Skatteetaten](https://www.skatteetaten.no/skjema/testdata/)
 * [Tenor testdatasøk (krever innlogging med ID-porten)](https://testdata.skatteetaten.no/web/testnorge/)
