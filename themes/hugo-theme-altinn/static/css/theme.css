@@ -155,8 +155,8 @@ h3 {
     margin-top: 36px;
 }
 
-figcaption h4 {
-    font-weight: 300 !important;
+figcaption {
+    font-weight: 300;
     opacity: .85;
     font-size: 1em;
     text-align: center;
@@ -2000,10 +2000,6 @@ input[type="search"] {
     .adocs-content {
         padding: 36px 60px;
     }
-}
-
-figcaption {
-    margin-top: 36px;
 }
 
 figure img {
