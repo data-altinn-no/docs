@@ -7,7 +7,7 @@ weight: 20
 
 ## Testmiljø
 
-data.altinn.no har et testmiljø (internt omtalt som "staging") som kan brukes i forbindelse med testing av implementasjoner. Alle endringer som skal i produksjon blir først deployet til staging-miljøet før de produksjonssettes. 
+data.altinn.no har et testmiljø som kan brukes i forbindelse med testing av implementasjoner. Alle endringer som skal i produksjon blir først deployet til testmiljøet før de produksjonssettes.
 
 Testmiljøet er helt separert fra produksjon, og benytter sin egen utvikler-portal, hvor det kreves egne brukere og API-nøkler (subscription keys) som benyttes mot egne endepunkter.
 
