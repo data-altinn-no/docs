@@ -29,7 +29,7 @@ other = "Siden finnes ikke"
 other = "Vi finner ikke siden du ba om. Den kan ha blitt flyttet, fått ny adresse eller blitt fjernet."
 
 [message-404-help]
-other = "Tror du at noe har forsvunnet, eller at noe bør endres? Opprett gjerne en <a href=\"https://github.com/data-altinn-no/docs/issues\">sak på GitHub</a>, eller send oss en e-post på <a href=\"mailto:dan@altinn.no\">dan@altinn.no</a>."
+other = "Tror du at noe har forsvunnet, eller at noe bør endres? Opprett gjerne en <a href=\"https://github.com/data-altinn-no/docs/issues\">sak på GitHub</a>, spør oss i kanalen #produkt-data-altinn-no på <a href=\"https://join.slack.com/t/digdir-samarbeid/shared_invite/zt-2yp202pnk-PXnfUDQICM3PFDPXfehGiQ\">Digdirs Slack</a>, eller send en e-post til <a href=\"mailto:dan@altinn.no\">dan@altinn.no</a>."
 
 [Go-to-datasets]
 other = "Se oversikten over datasett"

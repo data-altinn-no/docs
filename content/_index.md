@@ -18,6 +18,8 @@ Gjennom å sikre tilganger til ulike konsumentgrupper gjennom rike autorisasjons
 
 Løsningen er generisk og vil kunne brukes på ulike forretningsområder, med nye tilknyttede registre og nye brukergrupper.
 
+Denne dokumentasjonen dekker den tekniske bruken av data.altinn.no. Informasjon om kostnader, vilkår, bruksstatistikk og utviklingsplan finner du på [data.altinn.no på Samarbeidsportalen](https://samarbeid.digdir.no/altinn/dataaltinnno/1929), Digdirs felles nettsted for fellesløsningene.
+
 ## Tjenester på data.altinn.no
 
 All uthenting av datasett tilgjengeliggjort på data.altinn.no gjøres i kontekst av en _tjeneste_. Tjenestene forteller noe om hvilken sammenheng datauthentingen gjøres i, og regulerer bl.a. autorisasjon. Et eksempel på en slik tjeneste på data.altinn.no er eBevis, som forenkler kvalifisering av leverandører i forbindelse med offentlige anskaffelser. 

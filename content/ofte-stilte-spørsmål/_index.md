@@ -1,24 +1,39 @@
 ---
 title: Spørsmål og svar om data.altinn.no
 linktitle: Spørsmål og svar
+description: Korte svar på det vi oftest blir spurt om, og hvor du finner resten.
 weight: 80
 ---
 
+## Lagrer data.altinn.no dataene?
 
-1. Trenger du å dele data med spesifikke private eller offentlige virksomheter? 
-   * data.altinn.no autoriserer selv tilgang før data returneres.
-2. Har du data om privatpersoner som krever samtykke? 
-   * data.altinn.no oppretter automatisk samtykkeforespørsler til personens meldingsinnboks.
-3. Er API-et ditt asynkront og/eller veldig treigt? 
-   * data.altinn.no støtter oppkøing og at enkelte beviskilder trenger noe tid på å svare. Det vil også bli mulig med bruk av callback-url eller push-events så man slipper å spørre om dataene er klare, men i stedet bli varslet.
-4. Lagres data i data.altinn.no? 
-   * Nei, data.altinn.no lagrer bare metadata om datauthentingen (hvem som spør, hvem sine data det er og hvem som ønsker dem)
-5. Kjører data.altinn.no i en skyløsning? 
-   * data.altinn.no er en skyløsning bygget på Microsoft Azure-plattformen, i likhet med Altinn Studio og Altinn tjenester 3.0.
-6. Videre plan, drift og forvaltning? 
-   * Altinn står for drift og vedlikehold, samt videreutvikling av data.altinn.no. 
-     Det vil bli sett på nye brukergrupper som kan ta i bruk løsningen, og knytte flere informasjonskilder til løsningen. 
-7. Hvor finner man informasjon om APIene? 
-   * Se [utviklerportalen](https://data.altinn.no/).
-8. Ønsker du å komme i kontakt med oss? 
-   * Ta kontakt på [dan@altinn.no](mailto:dan@altinn.no).     
+Nei. data.altinn.no formidler data fra kilden til konsumenten og lagrer bare metadata om selve uthentingen: hvem som spurte, hvem dataene gjelder, hvilke datasett som ble hentet og når.
+
+## Hvor kjører løsningen, og hvem drifter den?
+
+data.altinn.no er en skyløsning på Microsoft Azure, på samme måte som Altinn Studio og Altinn 3. Digitaliseringsdirektoratet drifter, forvalter og videreutvikler løsningen.
+
+## Hvor finner jeg informasjon om kostnader, statistikk og videre utvikling?
+
+På [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/dataaltinnno/1929), Digdirs felles nettsted for fellesløsningene. Der finner du en kort presentasjon av data.altinn.no, kostnader og vilkår, bruksstatistikk, utviklingsplan og driftsmeldinger. Denne dokumentasjonen dekker den tekniske siden.
+
+## Kan min virksomhet tilby data gjennom data.altinn.no?
+
+Ja, det er nettopp det løsningen er laget for. Datakilder trenger ikke selv å bygge autorisasjon, samtykkehåndtering eller distribusjon til mange konsumenter; det håndteres av data.altinn.no. Kilder med trege eller asynkrone API-er støttes også. Se [Ta i bruk på Samarbeidsportalen](https://samarbeid.digdir.no/altinn/dataaltinnno/1929), eller ta kontakt på [dan@altinn.no](mailto:dan@altinn.no) for å diskutere en ny datakilde eller tjeneste.
+
+## Hvordan tar jeg kontakt?
+
+Raskest er Slack: bli med i [Digdirs Slack for samarbeidspartnere](https://join.slack.com/t/digdir-samarbeid/shared_invite/zt-2yp202pnk-PXnfUDQICM3PFDPXfehGiQ) og still spørsmålet i kanalen **#produkt-data-altinn-no**. Der finnes det en kanal for hvert produkt Digdir leverer, og invitasjonslenken utløper ikke. Du kan også sende e-post til [dan@altinn.no](mailto:dan@altinn.no). Gjelder det en feil eller et forslag til denne dokumentasjonen, kan du også [opprette en sak på GitHub](https://github.com/data-altinn-no/docs/issues) eller endre sidene direkte; se [hvordan bidra](https://github.com/data-altinn-no/docs/blob/master/CONTRIBUTING.md).
+
+## Hvor finner jeg …?
+
+* **Oversikt over alle datasett**, med felter, parametere og tilgangskrav: [Datasett/datakilder](/datasett/)
+* **Registrering, API-nøkkel og Maskinporten**: [Kom i gang med API](/api/)
+* **Direktehøsting og autorisasjonsforespørsel**: [Hvordan innhente opplysninger](/api/#hvordan-innhente-opplysninger)
+* **Konvolutt og filtrering med JMESPath**: [Konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering)
+* **Feil- og statuskoder og versjonering**: [Kom i gang med API](/api/#versjonering)
+* **Testmiljø og testdata**: [Testing mot data.altinn.no](/testing/)
+* **Samtykke og rollekrav i Altinn**: [Samtykke og fullmakt](/samtykkeprosessen/) og [Rollekrav i Altinn](/rollekrav-i-altinn/)
+* **SDK for .NET og bruk fra Altinn Studio**: [DAN SDK](https://github.com/data-altinn-no/altinn-apiclient-dan) og [Altinn Studio-apper](/altinnstudio/)
+* **Teknisk API-dokumentasjon**: [utviklerportalen](https://data.altinn.no/) og [OpenAPI-spesifikasjonen](/api/oas/)
+* **Kostnader, statistikk, utviklingsplan og driftsmeldinger**: [data.altinn.no på Samarbeidsportalen](https://samarbeid.digdir.no/altinn/dataaltinnno/1929)

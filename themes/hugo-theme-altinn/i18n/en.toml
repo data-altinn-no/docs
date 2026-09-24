@@ -29,7 +29,7 @@ other = "Page not found"
 other = "We could not find the page you asked for. It may have been moved, renamed or removed."
 
 [message-404-help]
-other = "Think something has gone missing, or should be changed? Please <a href=\"https://github.com/data-altinn-no/docs/issues\">open an issue on GitHub</a> or email us at <a href=\"mailto:dan@altinn.no\">dan@altinn.no</a>."
+other = "Think something has gone missing, or should be changed? Please <a href=\"https://github.com/data-altinn-no/docs/issues\">open an issue on GitHub</a>, ask in #produkt-data-altinn-no on <a href=\"https://join.slack.com/t/digdir-samarbeid/shared_invite/zt-2yp202pnk-PXnfUDQICM3PFDPXfehGiQ\">Digdir's Slack</a>, or email us at <a href=\"mailto:dan@altinn.no\">dan@altinn.no</a>."
 
 [Go-to-datasets]
 other = "See the list of datasets"
