@@ -74,22 +74,38 @@ var EvidenceCodesDisplay = {
             if (key !== shown) { self.apply(list); shown = key; }
         };
 
-        var live = $.getJSON(this.metadataUrl).done(applyIfChanged);
+        // Report an error only when every source has failed and nothing has been rendered.
+        var pending = snapshotUrl ? 2 : 1;
+        var onFail = function() {
+            pending--;
+            if (pending === 0 && shown === null) { self.onerror(); }
+        };
+
+        var live = $.getJSON(this.metadataUrl).done(applyIfChanged).fail(onFail);
 
         if (snapshotUrl) {
             $.getJSON(snapshotUrl).done(function(res) {
                 if (shown === null && live.state() !== 'resolved') { applyIfChanged(res); }
-            });
+            }).fail(onFail);
         }
-
-        live.fail(function() {
-            if (shown === null && !snapshotUrl) { self.onerror(); }
-        });
     },
 
     onerror: function() {
-        this.$containerElement.find('.evidencecodes-loader').replaceWith(
-            '<div class="notices warning">Kunne ikke laste datasettbeskrivelsene fra metadata-API-et akkurat nå. Prøv igjen litt senere.</div>');
+        var hasStatic = this.$containerElement.find('.evidencecodes-static').length > 0;
+        var message = 'Kunne ikke laste datasettbeskrivelsene' + (this.isTest ? ' for testmiljøet' : '') +
+            ' fra metadata-API-et akkurat nå. Prøv igjen litt senere.';
+        if (hasStatic) {
+            message += this.isTest
+                ? ' Listen under viser datasettene i produksjonsmiljøet slik de var da dokumentasjonen ble publisert.'
+                : ' Listen under viser datasettene slik de var da dokumentasjonen ble publisert.';
+        }
+        // The environment toggle normally comes with the rendered template; provide it here too so
+        // the reader can switch back if the failing environment is the test one.
+        var toggler = '<div class="evidenceCodeEnvToggler"><label><input type="checkbox" class="evidence-codes-env-toggler"' +
+            (this.isTest ? ' checked' : '') + '> Vis testmiljø</label></div>';
+        var html = toggler + '<div class="notices warning">' + message + '</div>';
+        var $loader = this.$containerElement.find('.evidencecodes-loader');
+        if ($loader.length) { $loader.replaceWith(html); } else { this.$containerElement.prepend(html); }
     },
 
     onload: function(res) {
