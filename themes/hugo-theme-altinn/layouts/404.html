@@ -28,20 +28,19 @@
   {{ partial "custom-head.html" . }}
 </head>
 
-<body>
-
-  <body class="" data-url="/">
+<body class="" data-url="/">
 
     <section id="body" style="margin-left:0px;">
       <div id="overlay"></div>
       <div id="chapter">
         <div id="body-inner">
-          <h1>{{T "title-404"}}</h1>
-          <p>
-          </p>
-          <p>{{T "message-404"}}</p>
-          <p></p>
-          <p><a href="{{ "/" | relURL }}">{{T "Go-to-homepage"}}</a></p>
+          <h1>{{ T "title-404" }}</h1>
+          <p>{{ T "message-404" }}</p>
+          <p>{{ T "message-404-help" | safeHTML }}</p>
+          <ul>
+            <li><a href="{{ "/" | relURL }}">{{ T "Go-to-homepage" }}</a></li>
+            <li><a href="{{ "/datasett/" | relURL }}">{{ T "Go-to-datasets" }}</a></li>
+          </ul>
         </div>
       </div>
 
