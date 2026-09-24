@@ -26,7 +26,7 @@ BITS datadelingstjenester er tilgjengelig for Altinns tjenesteeiere som også be
 
 Opprett en bruker på test.data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). 
 
-Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i maskinportens test-miljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i Maskinportens testmiljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre at bruken og konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
 
 For å hente data må man gjøre en spørring mot test-api.data.altinn.no og det aktuelle datasettet. Beskrivelsen av selve datasettet finnes nederst på denne siden (hak av for vis testmiljø).
 
@@ -43,7 +43,7 @@ Dette vil gi en respons som ser ut som følger (generert, ikke reell):
     {
         "orgNo": "123456789",
         "name": "NAVN PÅ BANK",
-        "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942,
+        "url": "https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942",
         "version": "v2",
         "env" : "test"
     },
@@ -51,7 +51,7 @@ Dette vil gi en respons som ser ut som følger (generert, ikke reell):
 
         "orgNo": "987654321",
         "name": "NAVN PÅ ANNEN BANK",
-        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530,
+        "url": "https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530",
         "version": "v1",
         "env" : "test"
     }    
@@ -81,7 +81,7 @@ Dette vil gi en respons som ser ut som følger:
 
         "orgNo": "12345678",
         "name": "NAVN PÅ BANK",
-        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/920426530,
+        "url": "https://api.annenbank.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/920426530",
         "version": "v1",
         "env" : "test",
         "fromDate" :"2022-09-15T09:00:01.000Z"        
@@ -123,7 +123,7 @@ Dette vil gi en respons som ser ut som følger:
 ### Hente prod-endepunkter:
 
 #### Kontrollinformasjon
-Opprett en bruker på data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene.I tillegg må man definere en klient i maskinportens test-miljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre bruken at konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Opprett en bruker på data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i Maskinportens produksjonsmiljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre at bruken og konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
 
 For å hente data må man gjøre en spørring mot api.data.altinn.no og det datasettet man ønsker å hente. Beskrivelsene av datasettene finnes nederst på denne siden.
 
@@ -139,7 +139,7 @@ Dette vil gi en respons som ser ut som følger:
     {
         "orgNo": "123456789",
         "name": "NAVN PÅ BANK",
-        "url": https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942,
+        "url": "https://api.navn.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/837884942",
         "version": "v2",
         "env" : "prod"
     },
@@ -147,7 +147,7 @@ Dette vil gi en respons som ser ut som følger:
 
         "orgNo": "987654321",
         "name": "NAVN PÅ ANNEN BANK",
-        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530,
+        "url": "https://api.annenbank.no/dsopaccountcontrolinfo/v1/AccountControlInfoService/v2/920426530",
         "version": "v1",
         "env" : "prod"
     }    
@@ -177,7 +177,7 @@ Dette vil gi en respons som ser ut som følger:
 
         "orgNo": "12345678",
         "name": "NAVN PÅ BANK",
-        "url": https://api.annenbank.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/920426530,
+        "url": "https://api.annenbank.no/dsopaccountcontrolinfo/v2/AccountControlInfoService/v2/920426530",
         "version": "v1",
         "env" : "prod",
         "fromDate" :"2022-09-15T09:00:01.000Z"        
@@ -200,7 +200,7 @@ Dette vil gi en respons som ser ut som følger:
         "name": "NAVN PÅ BANK",
         "url": "https://api.enbank.no/blockfundapi/920426530",
         "version": "v2",
-        "env" : "test",
+        "env" : "prod",
         "fromDate" :"2022-09-05T09:24:28.148Z",
         "toDate" : "2022-09-15T09:00:00.000Z" 
     },
@@ -210,7 +210,7 @@ Dette vil gi en respons som ser ut som følger:
         "name": "NAVN PÅ BANK",
         "url": "https://api.annenbank.no/blockfundapitilannenbabnk/920426530",
         "version": "v1",
-        "env" : "test",
+        "env" : "prod",
         "fromDate" :"2022-09-15T09:00:01.000Z"        
     }    
 ]

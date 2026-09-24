@@ -4,12 +4,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
+            "label": "Hugo server",
             "type": "shell",
-            "command": "hugo.exe server --navigateToChanged",
+            "command": "hugo server --navigateToChanged",
             "problemMatcher": [],
             "group": {
-                "kind": "test",
+                "kind": "build",
                 "isDefault": true
             }
         }

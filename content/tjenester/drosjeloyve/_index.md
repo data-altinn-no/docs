@@ -1,6 +1,6 @@
 ---
 title: Drosjeløyve
-description: Innehenting av data i søknadsprosess for drosjeløyver
+description: Innhenting av data i søknadsprosess for drosjeløyver
 weight: 20
 ---
 
