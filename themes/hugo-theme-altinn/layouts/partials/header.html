@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "meta.html" }}
+    {{ partial "meta.html" . }}
     {{if .IsHome}}
     <title>data.altinn.no :: Altinn digitalisering - Utvikling</title>
     {{else}}
@@ -76,7 +76,7 @@
         {{if .Params.tags }}
           <div id="tags">
             {{ range $index, $tag := .Params.tags }}
-              <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
+              <a class="label label-default" href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ $tag }}</a>
             {{ end }}
           </div>
         {{end}}
@@ -112,7 +112,7 @@
 
 {{define "breadcrumb"}}
 {{ if .page.Parent}}
-{{$value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.Permalink .page.Parent.LinkTitle .value)}}
+{{$value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.RelPermalink .page.Parent.LinkTitle .value)}}
 {{ template "breadcrumb" dict "page" .page.Parent "value" $value }} 
 {{else}}
  {{.value|safeHTML}}

@@ -8605,7 +8605,7 @@ textarea {
   .form-group .input-group.disabled .form-control {
     color: #6A6A6A;
     background-color: #FFFFFF;
-    background-image: url("../images/disabled-background.svg"); }
+    }
   .a-form-group .input-group.disabled .input-group-prepend,
   .form-group .input-group.disabled .input-group-prepend {
     border: 2px solid #BCC7CC;
@@ -8658,7 +8658,6 @@ textarea {
   .form-group .disabled.a-input-approved .form-control {
     color: #000000 !important;
     background-color: #9ff4c7;
-    background-image: url("../images/approved-background.svg");
     border: none !important; }
   .a-form-group .disabled.a-input-approved i,
   .form-group .disabled.a-input-approved i {
@@ -8892,7 +8891,6 @@ textarea {
     .a-switch .form-group input[type='radio']:not(:checked) + .disabled.a-form-label-inline, .form-group .a-switch input[type='radio']:not(:checked) + .disabled.a-form-label-inline {
       padding: 8px 18px;
       background-color: #FFFFFF;
-      background-image: url("../images/disabled-background.svg");
       border: none; }
     .a-switch input[type='checkbox']:not(:checked) + label.a-toggle-icon i, .a-switch .a-form-group input[type='checkbox']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .a-form-group .a-switch input[type='checkbox']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .a-switch .form-group input[type='checkbox']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .form-group .a-switch input[type='checkbox']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .a-switch input[type='radio']:not(:checked) + label.a-toggle-icon i, .a-switch .a-form-group input[type='radio']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .a-form-group .a-switch input[type='radio']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .a-switch .form-group input[type='radio']:not(:checked) + .a-toggle-icon.a-form-label-inline i, .form-group .a-switch input[type='radio']:not(:checked) + .a-toggle-icon.a-form-label-inline i {
       color: #1EAEF7; }
@@ -9112,7 +9110,6 @@ object {
   color: #000000;
   cursor: not-allowed;
   background-color: #FFFFFF;
-  background-image: url("../images/disabled-background.svg");
   background-repeat: repeat;
   background-size: auto;
   -webkit-box-shadow: 0 0 0 1px #FFFFFF inset;
@@ -9143,7 +9140,6 @@ object {
     background-color: #CFF0FF; }
 
 .a-placeholderBackground {
-  background-image: url("../images//brick_pattern.svg");
   background-repeat: repeat;
   background-size: 13%;
   background-blend-mode: multiply; }
@@ -9259,8 +9255,8 @@ hr {
     color: #000000;
     cursor: not-allowed;
     background-color: #FFFFFF;
-    background-image: url("../images/disabled-background.svg"), -webkit-gradient(linear, left top, right top, color-stop(50%, #1EAEF7), color-stop(0%, #FFFFFF));
-    background-image: url("../images/disabled-background.svg"), linear-gradient(to right, #1EAEF7 50%, #FFFFFF 0%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #1EAEF7), color-stop(0%, #FFFFFF));
+    background-image: linear-gradient(to right, #1EAEF7 50%, #FFFFFF 0%);
     background-repeat: repeat;
     background-size: auto;
     -webkit-box-shadow: none;
@@ -10042,7 +10038,7 @@ h1 .a-label {
   padding: 6px 12px;
   color: #FFFFFF;
   background-color: transparent;
-  background-image: url("../images/disabled-background_blue.svg"); }
+  }
 
 .a-dot {
   font-family: "Inter";
@@ -13134,7 +13130,7 @@ ol {
         background-position: center 0; } }
 
 .a-jumbotron-light {
-  background-image: url("../images/header-bg1.svg"); }
+  }
   .a-jumbotron-light a:hover, .a-jumbotron-light a:focus {
     color: #022F51;
     border-bottom: 2px solid #022F51; }
@@ -13717,22 +13713,6 @@ blockquote::before, blockquote::after {
 
 .a-blueDarkerText {
   color: #022F51; }
-
-@font-face {
-  font-family: 'DIN-light';
-  src: url("../fonts/DINWeb-Light.woff"); }
-
-@font-face {
-  font-family: 'DIN-reg';
-  src: url("../fonts/DINWeb.woff"); }
-
-@font-face {
-  font-family: 'DIN-medium';
-  src: url("../fonts/DINWeb-Medium.woff"); }
-
-@font-face {
-  font-family: 'DIN-bold';
-  src: url("../fonts/DINWeb-Bold.woff"); }
 
 a[href^=http]:not([href*='altinndigital.no']):not([href*='altinn.no']):not([href*='altinn.studio']):not([href*='altinn.github.io'])::after {
   display: inline-block;
