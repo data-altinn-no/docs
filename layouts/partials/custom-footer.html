@@ -1,2 +1,5 @@
 <!-- Partial intended to be overwritten to add javacript -->
 <script src="/js/custom.js"></script>
+{{- if not .Site.Params.noSearch }}
+<pagefind-modal></pagefind-modal>
+{{- end }}
