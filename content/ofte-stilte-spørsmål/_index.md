@@ -19,6 +19,6 @@ weight: 80
    * Altinn står for drift og vedlikehold, samt videreutvikling av data.altinn.no. 
      Det vil bli sett på nye brukergrupper som kan ta i bruk løsningen, og knytte flere informasjonskilder til løsningen. 
 7. Hvor finner man informasjon om APIene? 
-   * Se link: https://data.altinn.no/
+   * Se [utviklerportalen](https://data.altinn.no/).
 8. Ønsker du å komme i kontakt med oss? 
-   * Ta kontakt på dan@altinn.no.     
+   * Ta kontakt på [dan@altinn.no](mailto:dan@altinn.no).     

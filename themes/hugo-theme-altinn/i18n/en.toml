@@ -23,10 +23,22 @@ other = "on"
 other = "Attachments"
 
 [title-404]
-other = "Error"
+other = "Page not found"
 
 [message-404]
-other = "Woops. Looks like this page doesn't exist."
+other = "We could not find the page you asked for. It may have been moved, renamed or removed."
+
+[message-404-help]
+other = "Think something has gone missing, or should be changed? Please <a href=\"https://github.com/data-altinn-no/docs/issues\">open an issue on GitHub</a> or email us at <a href=\"mailto:dan@altinn.no\">dan@altinn.no</a>."
+
+[Go-to-datasets]
+other = "See the list of datasets"
+
+[alt-404]
+other = "Cartoon lynx hiding behind a birch tree and peeking out"
+
+[credit-404]
+other = "From «Confusions of a Nutzy Spy» (Leon Schlesinger Productions, 1943). Public domain, via <a href=\"https://commons.wikimedia.org/wiki/File:Norman_McCabe_-_Looney_Tunes_-_Confusions_of_a_Nutzy_Spy_(1943)_-_Missing_Lynx,_The_-_Hide-and-Seek_(looped).gif\">Wikimedia Commons</a>."
 
 [Go-to-homepage]
 other = "Go to homepage"

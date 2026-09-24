@@ -33,7 +33,7 @@ Det er da totalt fire datasett fra Skatteetaten.
 
 Logikken som bestemmer om en gitt anskaffelse kvalifiserer for tilgang til utvidet skatteattest for leverandørene, bestemmes av hvilke [CPV-koder](https://www.regjeringen.no/no/tema/naringsliv/konkurransepolitikk/offentlige-anskaffelser-/forste-kolonne/regelverk-og-skjemaer-listeside/offentlige-anskaffelser-cpv-og-cpc/id2518876/) anskaffelsen er knyttet til. 
 
-Gjennom funksjonalitet i data.altinn.no løses dette gjennom at systemet som foretar forspørselen oppgir at man ønsker alle disse datasettene, samtidig som man oppgir en "legal basis", som er en referanse til en annen datastruktur som inneholder en liste av en eller flere CPV-koder knyttet til den aktuelle anskaffelsen.
+Gjennom funksjonalitet i data.altinn.no løses dette gjennom at systemet som foretar forespørselen oppgir at man ønsker alle disse datasettene, samtidig som man oppgir en "legal basis", som er en referanse til en annen datastruktur som inneholder en liste av en eller flere CPV-koder knyttet til den aktuelle anskaffelsen.
 
 Et eksempel
 

@@ -17,7 +17,7 @@ git clone https://github.com/data-altinn-no/docs
 ## Build / Edit / Test
 
 1. Open the docs repo-folder in visual studio code (or another editor)
-2. Run `hugo server --navigateToChanged` or click "Altinn docs" (Ctrl-Shift-D) in vs code. This generates the site and opens Chrome at http://localhost:1313/docs/
+2. Run `hugo server --navigateToChanged` (or the "Hugo server" build task in VS Code, Ctrl-Shift-B). This generates the site, which you can open at http://localhost:1313/
 3. Edit and save a file in the `content`-folder to get a new local build of the site refreshed in your browser.
 
 ## Deploy

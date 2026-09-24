@@ -9,7 +9,7 @@ toc: true
 Du kan forhåndsutfylle skjemaer i Altinn Studio ved å bruke data fra data.altinn.no.
 Alt du trenger er en model.prefill.json-fil og en model.cs-fil. Påse at at prefill og model-filen har matchende navn. Eksempel: `person.prefill.json` og `person.cs`.
 
-Du kan bruke hvilket som helst dataset fra data.altinn.no. For en oversikt over alle datasetene kan du gå hit: https://docs.data.altinn.no/datasett/. 
+Du kan bruke hvilket som helst dataset fra data.altinn.no. En oversikt over alle datasettene finner du i [datasettoversikten](/datasett/). 
 
 I `person.prefill.json` fyller du ut hvilket dataset du skal bruke og hvilke felt du skal fylle. I eksempelet under bruker vi datasettet `UnitBasicInformation` og mapper feltene `BusinessAddressStreet` og `OrganizationNumber` som kommer fra endepunktet til `Email` og `OrganizationNumber` i skjemaet.
 ```
@@ -74,7 +74,7 @@ Hvis du vil bruke flere datasett, kan du legge til flere objekter i `datasets`-a
 ```
 
 
-For en grundig guide til forhåndsutfylling kan du følge denne linken: https://docs.altinn.studio/nb/altinn-studio/v8/guides/development/prefill/config/.
+For en grundig guide til forhåndsutfylling, se [dokumentasjonen for Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/v8/guides/development/prefill/config/).
 
 ## Dynamisk henting av datasett fra data.altinn.no i app-kode
 

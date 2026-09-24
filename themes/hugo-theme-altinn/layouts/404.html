@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="js csstransforms3d">
+<html lang="{{ .Site.Language.Lang }}" class="js csstransforms3d">
 
 <head>
   <meta charset="utf-8"> {{ partial "meta.html" . }} 
@@ -10,6 +10,12 @@
   <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
+  <style>
+    #body-inner.notfound h1 { text-align: center; }
+    .notfound-figure { margin: 1.5em auto; max-width: 480px; text-align: center; }
+    .notfound-figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 4px; }
+    .notfound-figure figcaption { margin-top: .5em; font-size: .85em; text-align: center; }
+  </style>
   <style>
     :root #header + #content > #left > #rlblock_left {
       display: none !important;
@@ -28,20 +34,23 @@
   {{ partial "custom-head.html" . }}
 </head>
 
-<body>
-
-  <body class="" data-url="/">
+<body class="" data-url="/">
 
     <section id="body" style="margin-left:0px;">
       <div id="overlay"></div>
       <div id="chapter">
-        <div id="body-inner">
-          <h1>{{T "title-404"}}</h1>
-          <p>
-          </p>
-          <p>{{T "message-404"}}</p>
-          <p></p>
-          <p><a href="{{ "/" | relURL }}">{{T "Go-to-homepage"}}</a></p>
+        <div id="body-inner" class="notfound">
+          <h1>{{ T "title-404" }}</h1>
+          <figure class="notfound-figure">
+            <img src="{{ "images/404-missing-lynx.gif" | relURL }}" alt="{{ T "alt-404" }}" width="480" height="360" loading="lazy">
+            <figcaption>{{ T "credit-404" | safeHTML }}</figcaption>
+          </figure>
+          <p>{{ T "message-404" }}</p>
+          <p>{{ T "message-404-help" | safeHTML }}</p>
+          <ul>
+            <li><a href="{{ "/" | relURL }}">{{ T "Go-to-homepage" }}</a></li>
+            <li><a href="{{ "/datasett/" | relURL }}">{{ T "Go-to-datasets" }}</a></li>
+          </ul>
         </div>
       </div>
 
