@@ -1,15 +1,33 @@
-<div class="form-group a-form-group ">
-    <label class="a-form-label sr-only" for="searchdocumentation">Søk i dokumentasjonen</label>
-    
-    <div class="a-form-group-items input-group">
-    
-        <input id="searchdocumentation" class="form-control a-hasButton search-input" type="search" placeholder="Søk i dokumentasjonen" name="input-field" data-val="true">
-    
-        <div class="input-group-append">
-            <button class="btn btn-secondary search-btn" type="button" id="searchdocumentation-submit">
-                <i class="ai ai-search"></i>
-                <span class="sr-only">Søk</span>
-            </button>
-        </div>
-    </div>
+{{- /* Site search powered by Pagefind. The index (/pagefind/) is built from the finished HTML in the
+      deploy workflow, so it is absent in local `hugo server` builds; the box then explains that. */ -}}
+<div id="search" class="site-search" data-pagefind-ignore>
+  <link rel="stylesheet" href="{{ "pagefind/pagefind-ui.css" | relURL }}">
+  <div id="search-ui"></div>
+  <p id="search-unavailable" class="site-search__unavailable" hidden>Søk er bare tilgjengelig på den publiserte nettsiden.</p>
 </div>
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}" onerror="document.getElementById('search-unavailable').hidden=false"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (!window.PagefindUI) return;
+    new PagefindUI({
+      element: "#search-ui",
+      bundlePath: {{ "pagefind/" | relURL }},
+      showImages: false,
+      showSubResults: true,
+      excerptLength: 20,
+      translations: {
+        placeholder: "Søk i dokumentasjonen",
+        clear_search: "Tøm",
+        load_more: "Vis flere treff",
+        search_label: "Søk i dokumentasjonen",
+        filters_label: "Filtre",
+        zero_results: "Ingen treff for [SEARCH_TERM]",
+        many_results: "[COUNT] treff for [SEARCH_TERM]",
+        one_result: "[COUNT] treff for [SEARCH_TERM]",
+        alt_search: "Ingen treff for [SEARCH_TERM]. Viser treff for [DIFFERENT_TERM] i stedet",
+        search_suggestion: "Ingen treff for [SEARCH_TERM]. Prøv ett av følgende søk:",
+        searching: "Søker etter [SEARCH_TERM] ..."
+      }
+    });
+  });
+</script>

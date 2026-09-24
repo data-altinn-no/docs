@@ -48,6 +48,13 @@ jobs:
           hugo version
           hugo --printPathWarnings
 
+      - name: Build search index (Pagefind)
+        # Indexes the finished HTML into public/pagefind/. Only elements inside [data-pagefind-body]
+        # are indexed (the page content), minus the selectors below.
+        run: >-
+          npx --yes pagefind@1.5.2 --site public --force-language nb
+          --exclude-selectors "#TableOfContents, .footline, #breadcrumbs, .evidenceCodeEnvToggler"
+
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1

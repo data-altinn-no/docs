@@ -73,12 +73,12 @@
             {{ end }}
           </div>
         {{end}}
-        <div id="body-inner">
+        <div id="body-inner" data-pagefind-body>
           {{if not .IsHome}}
             {{if eq .Kind "taxonomy"}}
               <h1 class="a-fontBold">Tag: {{.Title}}</h1>
             {{else}}
-              <h1 class="a-fontBold">
+              <h1 class="a-fontBold" data-pagefind-meta="title">
                 {{.Title}}
                 {{if .Params.titleSup }}
                   <sup>{{.Params.titleSup}}</sup>
@@ -89,7 +89,7 @@
           {{end}}
 
           {{ if .IsHome}}
-          <h1 class="a-fontBold">
+          <h1 class="a-fontBold" data-pagefind-meta="title">
             {{.Title}}
             {{if .Params.titleSup }}
             <sup>{{.Params.titleSup}}</sup>
@@ -99,8 +99,10 @@
           {{ end }}
 
           {{ if and (gt .WordCount 100 ) (.Params.toc) }}
+            <div class="page-toc" data-pagefind-ignore>
             <h2>På denne siden:</h2>
               {{ .TableOfContents }}
+            </div>
           {{ end }}
 
 {{define "breadcrumb"}}
