@@ -110,7 +110,7 @@ Datasett som hentes gjennom data.altinn.no blir plassert inn i en standard konvo
 
 Ved bruk av `envelope=false`, kan man også oppgi et [JMESPath](https://jmespath.org/)-uttrykk, som lar en ytterligere filtrere og transformere dataene som returneres fra data.altinn.no. Dette gjøres med å oppgi query-parameteret `query=<jmespath>` hvor `<jmespath>` er et gyldig uttrykk.
 
-JMESPath-filtrering kan også brukes andre oppslagsendepunkter som ikke returnerer datasett, f.eks. liste over pågående forespørsler (accreditations). Se teknisk beskrivelse av API for mer informasjon om hvilke endepunkter som støtter bruk av `query`.
+JMESPath-filtrering kan også brukes på andre oppslagsendepunkter som ikke returnerer datasett, f.eks. liste over pågående forespørsler (accreditations). Se teknisk beskrivelse av API for mer informasjon om hvilke endepunkter som støtter bruk av `query`.
 
 
 ## Teknisk beskrivelse av API
