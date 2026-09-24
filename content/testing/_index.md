@@ -32,7 +32,7 @@ data.altinn.no støtter bruk av [Tenor](https://www.digdir.no/felleslosninger/te
 
 ## Tilgjengelige datasett i testmiljøet
 
-Listen over tilgjengelige datasett i testmiljøet er tilgjengelig i det åpne metadata-API-et. Dette API-et benyttes også av den [autogenererte dokumentasjonen](/datasett/). Husk og sett kryss i boksen "Vis testmiljø".
+Listen over tilgjengelige datasett i testmiljøet er tilgjengelig i det åpne metadata-API-et. Dette API-et benyttes også av den [autogenererte dokumentasjonen](/datasett/). Husk å sette kryss i boksen "Vis testmiljø".
 
 * [Vis liste over alle datasett](/datasett/)
 * [Vis liste over datasett i testmiljøet (JSON)](https://test-api.data.altinn.no/v1/public/metadata/evidencecodes)
