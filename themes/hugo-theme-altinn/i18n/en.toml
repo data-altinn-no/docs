@@ -34,6 +34,12 @@ other = "Think something has gone missing, or should be changed? Please <a href=
 [Go-to-datasets]
 other = "See the list of datasets"
 
+[alt-404]
+other = "Cartoon lynx hiding behind a birch tree and peeking out"
+
+[credit-404]
+other = "From «Confusions of a Nutzy Spy» (Leon Schlesinger Productions, 1943). Public domain, via <a href=\"https://commons.wikimedia.org/wiki/File:Norman_McCabe_-_Looney_Tunes_-_Confusions_of_a_Nutzy_Spy_(1943)_-_Missing_Lynx,_The_-_Hide-and-Seek_(looped).gif\">Wikimedia Commons</a>."
+
 [Go-to-homepage]
 other = "Go to homepage"
 

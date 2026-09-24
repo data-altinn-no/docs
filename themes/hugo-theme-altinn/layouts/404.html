@@ -11,6 +11,11 @@
   <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
   <style>
+    .notfound-figure { margin: 1.5em 0; }
+    .notfound-figure img { display: block; max-width: 100%; height: auto; margin: 0; border-radius: 4px; }
+    .notfound-figure figcaption { margin-top: .5em; font-size: .85em; text-align: left; }
+  </style>
+  <style>
     :root #header + #content > #left > #rlblock_left {
       display: none !important;
     }
@@ -35,6 +40,10 @@
       <div id="chapter">
         <div id="body-inner">
           <h1>{{ T "title-404" }}</h1>
+          <figure class="notfound-figure">
+            <img src="{{ "images/404-missing-lynx.gif" | relURL }}" alt="{{ T "alt-404" }}" width="480" height="360" loading="lazy">
+            <figcaption>{{ T "credit-404" | safeHTML }}</figcaption>
+          </figure>
           <p>{{ T "message-404" }}</p>
           <p>{{ T "message-404-help" | safeHTML }}</p>
           <ul>
