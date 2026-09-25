@@ -232,7 +232,7 @@ footer .container {
 .d-logo { display: inline-block; margin: 10px 20px 24px 20px; border-bottom: none !important; } /* logo top at 25px, same as on data.altinn.no */
 .d-logo img { display: block; height: 27px; width: auto; }
 .d-logo .d-logo__compact { display: none; height: 24px; }
-@media (max-width: 680px) {
+@media (max-width: 700px) {
     .d-logo .d-logo__full { display: none; }
     .d-logo .d-logo__compact { display: block; }
 }
@@ -307,6 +307,7 @@ footer .container {
 
 .nav-link {
     color: #000;
+    font-size: 16px; /* fixed: the landing page's body text is 18px (Designsystemet), the doc pages' 16px */
     margin-left: 1px;
     padding-top: 8px;
     margin-right: 1px;
