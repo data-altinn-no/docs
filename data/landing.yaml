@@ -1,0 +1,36 @@
+# Landing page (layouts/index.html): the three link groups under the hero.
+# `page` is a content path resolved with .Site.GetPage, so titles follow the
+# front matter (linktitle, then title) unless `title` overrides it here.
+groups:
+  - title: Kom i gang
+    icon: fa-plug
+    text: Integrer systemet ditt med API-et, følg flyten steg for steg og prøv det ut i testmiljøet.
+    links:
+      - page: /api
+        title: Kom i gang med API
+      - page: /api/steg-for-steg
+        title: Fra forespørsel til data, steg for steg
+      - page: /api/oas
+        title: OpenAPI-spesifikasjon
+      - page: /testing
+        title: Testing mot data.altinn.no
+  - title: Tilgang og samtykke
+    icon: fa-lock
+    text: Hjemmel, samtykke og fullmakt gir tilgang til data. Her står hva som kreves i Altinn, og hvordan apper kan bruke løsningen.
+    links:
+      - page: /samtykkeprosessen
+      - page: /rollekrav-i-altinn
+        title: Rollekrav i Altinn
+      - page: /altinnstudio
+  - title: Tjenester og datasett
+    icon: fa-database
+    text: Tjenestene som henter data gjennom data.altinn.no, og datasettene som er tilgjengelige i prod og test.
+    links:
+      - page: /tjenester
+        title: Alle tjenester
+      - page: /tjenester/ebevis
+        title: eBevis
+      - page: /tjenester/tilsynsdata
+        title: Tilda
+      - page: /datasett
+      - page: /ofte-stilte-spørsmål

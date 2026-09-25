@@ -1,38 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Page.Language | default "en" }}" class="js csstransforms3d">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "meta.html" . }}
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
-    <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
-    <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
-    <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/fortawesome.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/designsystem.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/evidencecodes.css" | relURL}}" rel="stylesheet">
-    {{with .Site.Params.themeStyle}}
-    <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
-    {{else}}
-    <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
-    {{end}}
-    {{with .Site.Params.themeVariant}}
-      <link href="{{(printf "css/theme-%s.css" .) | relURL}}" rel="stylesheet">
-    {{end}}
-    
-    <script src="{{"js/jquery-3.7.1.min.js" | relURL}}"></script>
-
-    {{ partial "custom-head.html" }}
-
-    <style>
-      :root #header + #content > #left > #rlblock_left {
-        display:none !important;
-      }
-    </style>
-
-
+    {{ partial "head.html" . }}
   </head>
   <body class="a-page" data-url="{{ .RelPermalink }}">
     {{ partial "topbar.html" . }}

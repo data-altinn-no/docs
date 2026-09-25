@@ -1,0 +1,183 @@
+/* Landing page (home) only: loaded from custom-head.html after designsystemet.css.
+   Colours: the band is the same navy as the data.altinn.no portal (#022F51), text is
+   Designsystemet's neutral text (blåsvart), accents come from the Digdir theme tokens. */
+
+:root,
+[data-size] {
+  /* designsystem.css sets html to 62.5% (10px). Designsystemet sizes everything in rem from
+     --ds-size-base (18), and re-declares it on every [data-size] element; 18 × 0.625 keeps its
+     type and spacing at the intended px values. */
+  --ds-size-base: 11.25;
+  --ds-border-radius-base: .4rem;
+  --ds-border-radius-scale: .4rem;
+  --dan-band: #022f51;
+  --dan-band-hover: rgba(255, 255, 255, .16);
+}
+
+body.landing-page {
+  margin: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.landing-page .footer { margin-top: 0; }
+
+.landing {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ds-color-neutral-text-default);
+  flex: 1 0 auto;
+}
+
+.landing-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 36px;
+  box-sizing: border-box;
+}
+
+/* Top bar on the band: white logo, white links (profile: all-white logo on dark surfaces). */
+.main-header--dark { background: var(--dan-band); }
+.main-header--dark .nav-link { color: #fff; }
+.main-header--dark .nav-link-active,
+.main-header--dark .nav-link:hover:not(.nav-link-active) { background: var(--dan-band-hover); color: #fff; }
+
+/* Hero band */
+.landing-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dan-band);
+  color: #fff;
+  padding: 4.8rem 0 6.4rem;
+}
+
+.landing-hero .landing-wrap { position: relative; z-index: 1; }
+
+.landing-hero__kicker {
+  margin: 0 0 .8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .72);
+}
+
+.landing-hero__title { color: #fff; max-width: 16em; }
+
+.landing-hero__lead {
+  margin-top: 1.6rem;
+  font-size: 2.1rem;
+  max-width: 38em;
+  color: rgba(255, 255, 255, .88);
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+}
+
+.landing-hero .ds-button {
+  --dsc-button-background: #fff;
+  --dsc-button-background--hover: #e3ecf4;
+  --dsc-button-background--active: #cfdde9;
+  --dsc-button-color: var(--dan-band);
+}
+
+.landing-hero .ds-button[data-variant="secondary"] {
+  --dsc-button-background: transparent;
+  --dsc-button-background--hover: var(--dan-band-hover);
+  --dsc-button-background--active: rgba(255, 255, 255, .26);
+  --dsc-button-border-color: #fff;
+  --dsc-button-color: #fff;
+}
+
+.landing-hero__search { margin-top: 3.2rem; max-width: 56rem; }
+.landing-hero__search .site-search { margin: 0; --pf-input-height: 52px; --pf-border: rgba(255, 255, 255, .55); --pf-border-focus: #fff; --pf-outline-focus: #fff; }
+.landing-hero__search .site-search__unavailable { color: rgba(255, 255, 255, .72); }
+
+.landing-hero__art {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2.5rem;
+  width: 40%;
+  max-width: 480px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Sections */
+.landing-section { padding: 5.6rem 0; }
+.landing-section__title { margin: 0 0 1.2rem; }
+.landing-section__intro { max-width: 64ch; color: var(--ds-color-neutral-text-subtle); }
+
+.landing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2.4rem;
+  margin-top: 2.4rem;
+}
+
+/* The intro block and the link block line up across cards (subgrid); flex is the fallback. */
+.landing-cards > .ds-card.landing-card { display: flex; flex-direction: column; }
+.landing-card > .ds-card__block:last-child { flex: 1 1 auto; }
+@supports (grid-template-rows: subgrid) {
+  .landing-cards > .ds-card.landing-card { display: grid; grid-template-rows: subgrid; grid-row: span 2; }
+}
+
+/* The old design-system stylesheet underlines every link with a border; Designsystemet links
+   use text-decoration, so drop the border here. */
+.landing a { border-bottom: 0; }
+
+.landing-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  background: var(--ds-color-accent-surface-tinted);
+  color: var(--ds-color-accent-text-default);
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.landing-card__links li + li { margin-top: 1rem; }
+.landing-card__links .ds-link { --dsc-link-color: var(--ds-color-accent-text-subtle); --dsc-link-color--hover: var(--ds-color-accent-text-default); font-weight: 500; }
+
+/* About */
+.landing-about { background: var(--ds-color-neutral-background-tinted); }
+.landing-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 4.8rem;
+}
+.landing-about__aside { padding-top: .6rem; }
+.landing-about__aside .ds-heading { margin-bottom: 1.2rem; }
+
+.landing-prose p { margin: 0 0 1.4rem; font-size: var(--ds-body-md-font-size); line-height: var(--ds-body-md-line-height); }
+.landing-prose p:last-child { margin-bottom: 0; }
+.landing-prose a { color: var(--ds-color-accent-text-subtle); text-decoration: underline; text-underline-offset: .2em; }
+
+/* Contact */
+.landing-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+.landing-contact .ds-button .fa { font-size: 1.1em; }
+
+@media (max-width: 900px) {
+  .landing-hero__art { width: 60%; right: -18%; opacity: .55; }
+  .landing-about__grid { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
+}
+
+@media (max-width: 680px) {
+  .landing-wrap { padding: 0 20px; }
+  .landing-hero { padding: 3.2rem 0 4.8rem; }
+  .landing-section { padding: 4rem 0; }
+  .landing-hero__art { opacity: .35; }
+}
