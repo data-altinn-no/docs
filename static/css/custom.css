@@ -58,11 +58,12 @@ footer .container {
     max-width: 1240px;
 }
 
+/* The three footer columns share one grid: the logo's ink sits level with the column headings,
+   and every column's first text row starts 48px below the top of the footer content. */
 .footer-brand__logo,
 .footer .footer-brand__logo {
     height: 38px;
-    margin-bottom: 13px;
-    margin-left: -8px;
+    margin: 6px 0 4px -8px;
 }
 
 .footer-brand__text,
@@ -70,7 +71,7 @@ footer .container {
     color: #d7d7d7;
     font-weight: 400;
     font-size: 15px;
-    line-height: 2em;
+    line-height: 24px;
 }
 
 .footer__heading {
@@ -131,7 +132,8 @@ footer .container {
     color: #d7d7d7;
     font-weight: 400;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+    line-height: 24px;
 }
 
 .footer-contact__item a,
