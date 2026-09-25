@@ -13,7 +13,7 @@
 }
 
 .evidenceCode .header {
-	background-color:#0062ba
+	background-color:#1e2b3c
 }
 .evidenceCode .header i {
 	float:left;
@@ -174,7 +174,7 @@
 /* Server-rendered dataset list (replaced by the interactive version when JS runs).
    Styled to match the interactive rows so the swap is not visible. */
 .evidenceCode-static { margin-bottom: .3rem; }
-.evidenceCode-static > summary { list-style: none; position: relative; display: block; background: #0062ba; padding: .4rem .4rem .4rem 2.4rem; cursor: pointer; }
+.evidenceCode-static > summary { list-style: none; position: relative; display: block; background: #1e2b3c; padding: .4rem .4rem .4rem 2.4rem; cursor: pointer; }
 .evidenceCode-static > summary::-webkit-details-marker { display: none; }
 .evidenceCode-static > summary::before { content: ""; position: absolute; left: 1rem; top: 50%; width: .55rem; height: .55rem; border: solid #fff; border-width: 0 2px 2px 0; transform: translateY(-60%) rotate(-45deg); }
 .evidenceCode-static[open] > summary::before { transform: translateY(-70%) rotate(45deg); }
