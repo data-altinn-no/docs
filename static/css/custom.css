@@ -225,10 +225,16 @@ footer .container {
     color: white;
 }
 
-.d-logo {
-    max-width: 100%;
-    margin: 10px 20px 20px 20px;
-    object-fit: cover;
+/* Header logo, Digdir profile "logoversjon B" for fellesløsninger: the mørkblå emblem followed by
+   the product name set in NB International Pro (outlined), proportioned like the ID-porten lockup.
+   Narrow screens show the bare emblem, as idporten.no does. The breakpoint is where the full lockup
+   plus the four navigation items stop fitting on one row (about 675px), so the last item never wraps. */
+.d-logo { display: inline-block; margin: 14px 20px 20px 20px; border-bottom: none !important; }
+.d-logo img { display: block; height: 27px; width: auto; }
+.d-logo .d-logo__compact { display: none; height: 24px; }
+@media (max-width: 680px) {
+    .d-logo .d-logo__full { display: none; }
+    .d-logo .d-logo__compact { display: block; }
 }
 
 .search-btn {
@@ -296,7 +302,7 @@ footer .container {
 
 .nav-link-active {
     color: #fff !important;
-    background-color: #0078d4;
+    background-color: #1e2b3c;
 }
 
 .nav-link {
@@ -316,7 +322,7 @@ footer .container {
 
 .nav-link:hover:not(.nav-link-active) {
     color: #fff;
-    background-color: #0078d4;
+    background-color: #1e2b3c;
     transition-delay: 0s;
     transition-duration: 0.2s;
     transition-property: all;
@@ -404,10 +410,10 @@ body {
   --pf-text-secondary: #4a4a4a;
   --pf-text-muted: #6a6a6a;
   --pf-border: #bcc7d1;
-  --pf-border-focus: #0062ba;
-  --pf-outline-focus: #0062ba;
+  --pf-border-focus: #1e2b3c;
+  --pf-outline-focus: #1e2b3c;
   --pf-hover: #eef6fc;
-  --pf-mark: #0062ba;
+  --pf-mark: #1e2b3c;
   --pf-border-radius: 4px;
   --pf-input-height: 44px;
   --pf-result-title-font-size: 15px;

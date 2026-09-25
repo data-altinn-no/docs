@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="utf-8"> {{ partial "meta.html" . }} 
-  <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
   <title>{{ T "title-404" }} - {{ .Site.Title }}</title>
   <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
   <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">

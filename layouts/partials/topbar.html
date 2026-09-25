@@ -7,9 +7,9 @@
 
 <header class="main-header">
     <nav class="main-nav" id="primary-nav">
-        <a href="https://data.altinn.no" class="logo-link">
-            <img src="/images/dan-blue.svg" alt="Altinn digitalisering logo" class="d-logo">
-            <span class="sr-only">Til forsiden</span>
+        <a href="{{ "/" | relURL }}" class="logo-link d-logo">
+            <img src="{{ "images/dan-logo.svg" | relURL }}" alt="data.altinn.no" class="d-logo__full">
+            <img src="{{ "images/digdir-emblem.svg" | relURL }}" alt="data.altinn.no" class="d-logo__compact">
         </a>
         <div class="nav-menu menu-horizontal">
             <ul class="nav-ul">

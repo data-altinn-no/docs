@@ -2,31 +2,6 @@
 
 /* Font */
 @font-face {
-    font-family: 'DIN-bold';
-    font-display: auto;
-    src: url('../fonts/d-din-bold-webfont.woff2') format('woff2'),
-        url('../fonts/d-din-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'DIN-reg';
-    font-display: auto;
-    src: url('../fonts/d-din-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'DIN-medium';
-    font-display: auto;
-    src: url('../fonts/d-din-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Inter';
     font-display: auto;
     src: url('../fonts/Inter-Regular.ttf') format('truetype');
@@ -51,7 +26,6 @@
     font-style: normal;
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * * /
  * Customized CSS from docdock-theme
  * * * * * * * * * * * * * * * * * * * * * /
@@ -69,7 +43,6 @@
 #TableOfContents>ol {
     margin-bottom: 24px;
 }
-
 
 .progress {
     position: absolute;
@@ -100,7 +73,6 @@
 #top-bar {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-
 
 /* anchors */
 .anchor {
@@ -142,7 +114,7 @@ strong {
 }
 
 h1 {
-    font-family: 'DIN-bold';
+    font-family: 'Inter-bold';
 }
 
 h1 sup {
@@ -202,17 +174,6 @@ figcaption {
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-}
-
-.button,
-.button-secondary {
-    display: inline-block;
-    padding: 7px 12px;
-}
-
-.button:active,
-.button-secondary:active {
-    margin: 2px 0 -2px 0;
 }
 
 pre {
@@ -585,7 +546,7 @@ select[multiple=multiple]:focus {
 #sidebar ul li.active>a {
     text-decoration: none;
     background: transparent;
-    font-family: 'DIN-bold';
+    font-family: 'Inter-bold';
     color: #000 !important;
     margin-left: 0;
     margin-right: 0;
@@ -650,7 +611,7 @@ select[multiple=multiple]:focus {
 }
 
 #sidebar ul li.parent>a {
-    font-family: 'DIN-bold';
+    font-family: 'Inter-bold';
 }
 
 /*For links in sidebar*/
@@ -867,23 +828,6 @@ hr {
     border-bottom: 4px solid #F0F2F4;
 }
 
-.page-title {
-    margin-top: -25px;
-    padding: 25px;
-    float: left;
-    clear: both;
-    background: #183f81;
-    color: #fff;
-}
-
-#body a.anchor-link {
-    color: #ccc;
-}
-
-#body a.anchor-link:hover {
-    color: #183f81;
-}
-
 #body-inner .tabs-wrapper.ui-theme-badges {
     background: #1d1f21;
 }
@@ -937,45 +881,6 @@ td {
     border: 1px solid #eaeaea;
 }
 
-.button {
-    background: #183f81;
-    color: #fff;
-    box-shadow: 0 3px 0 #00a5d4;
-}
-
-.button:hover {
-    background: #00a5d4;
-    box-shadow: 0 3px 0 #008db6;
-    color: #fff;
-}
-
-.button:active {
-    box-shadow: 0 1px 0 #008db6;
-}
-
-.button-secondary {
-    background: #F8B450;
-    color: #fff;
-    box-shadow: 0 3px 0 #f7a733;
-}
-
-.button-secondary:hover {
-    background: #f7a733;
-    box-shadow: 0 3px 0 #f69b15;
-    color: #fff;
-}
-
-.button-secondary:active {
-    box-shadow: 0 1px 0 #f69b15;
-}
-
-.bullets {
-    margin: 1.7rem 0;
-    margin-left: -0.85rem;
-    margin-right: -0.85rem;
-    overflow: auto;
-}
-
 .bullet {
     float: left;
     padding: 0 0.85rem;
@@ -1009,34 +914,6 @@ td {
     .four-column-bullet {
         width: 100%;
     }
-}
-
-.bullet-icon {
-    float: left;
-    background: #183f81;
-    padding: 0.875rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 1.75rem;
-    text-align: center;
-}
-
-.bullet-icon-1 {
-    background: #183f81;
-}
-
-.bullet-icon-2 {
-    background: #00f3d8;
-}
-
-.bullet-icon-3 {
-    background: #e6f300;
-}
-
-.bullet-content {
-    margin-left: 4.55rem;
 }
 
 .tooltipped:after {
@@ -1189,89 +1066,6 @@ td {
 
 #github-contrib i {
     vertical-align: middle;
-}
-
-.lifecycle #body-inner ul {
-    list-style: none;
-    margin: 0;
-    padding: 2rem 0 0;
-    position: relative;
-}
-
-.lifecycle #body-inner ol {
-    margin: 1rem 0 1rem 0;
-    padding: 2rem;
-    position: relative;
-}
-
-.lifecycle #body-inner ol li {
-    margin-left: 1rem;
-}
-
-.lifecycle #body-inner ol strong,
-.lifecycle #body-inner ol label,
-.lifecycle #body-inner ol th {
-    text-decoration: underline;
-}
-
-.lifecycle #body-inner ol ol {
-    margin-left: -1rem;
-}
-
-.lifecycle #body-inner h3[class*='level'] {
-    font-size: 20px;
-    position: absolute;
-    margin: 0;
-    padding: 4px 10px;
-    right: 0;
-    z-index: 1000;
-    color: #fff;
-    background: #1ABC9C;
-}
-
-.lifecycle #body-inner ol h3 {
-    margin-top: 1rem !important;
-    right: 2rem !important;
-}
-
-.lifecycle #body-inner .level-1+ol {
-    background: #f6fefc;
-    border: 4px solid #1ABC9C;
-    color: #16A085;
-}
-
-.lifecycle #body-inner .level-1+ol h3 {
-    background: #2ECC71;
-}
-
-.lifecycle #body-inner .level-2+ol {
-    background: #f7fdf9;
-    border: 4px solid #2ECC71;
-    color: #27AE60;
-}
-
-.lifecycle #body-inner .level-2+ol h3 {
-    background: #3498DB;
-}
-
-.lifecycle #body-inner .level-3+ol {
-    background: #f3f9fd;
-    border: 4px solid #3498DB;
-    color: #2980B9;
-}
-
-.lifecycle #body-inner .level-3+ol h3 {
-    background: #34495E;
-}
-
-.lifecycle #body-inner .level-4+ol {
-    background: #e4eaf0;
-    border: 4px solid #34495E;
-    color: #2C3E50;
-}
-
-.lifecycle #body-inner .level-4+ol h3 {
-    background: #34495E;
 }
 
 #top-bar {
@@ -1442,7 +1236,6 @@ pre .copy-to-clipboard:hover {
     margin-top: 5px;
 }
 
-
 .children.children-li li {
     list-style: none;
     padding: 24px 48px;
@@ -1463,7 +1256,7 @@ pre .copy-to-clipboard:hover {
 }
 
 .children.children-li li a {
-    font-family: 'DIN-bold';
+    font-family: 'Inter-bold';
     font-size: 18px;
 }
 
@@ -1502,11 +1295,9 @@ pre .copy-to-clipboard:hover {
     }
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * * /
  * Overriding css from altinn infoportal.
  * * * * * * * * * * * * * * * * * * * * * /
-
 
 /* Dont show external-link-symbol for images */
 figure a[href^=http]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {
@@ -1539,7 +1330,6 @@ ul.a-bullet-list,
 ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
     margin-left: 0;
 }
-
 
 /* Header */
 .a-header {
@@ -1611,7 +1401,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     }
 }
 
-
 @media (min-width: 992px) {
     .a-header .a-logo {
         max-width: 284px;
@@ -1664,7 +1453,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
 .a-collapseContent .a-collapseContent-inside {
     padding-bottom: 0;
 }
-
 
 /* Jumbotron */
 
@@ -1760,7 +1548,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     }
 }
 
-
 /* Panel from Bootstrap */
 
 .panel,
@@ -1781,9 +1568,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     background: #fbf6bd;
 }
 
-
-
-
 /* Fix circle-list */
 .a-text ol,
 .a-text .a-circle-list {
@@ -1798,7 +1582,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     display: inline-block;
     height: 32px;
 }
-
 
 /* cardImage */
 #body .a-cardImage img {
@@ -1825,7 +1608,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
         text-align: left;
     }
 }
-
 
 /* Large ingress even if its placed inside a-text */
 .a-text .a-leadText {
@@ -1856,7 +1638,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     color: #fff;
     border-bottom: 1px solid #fff;
 }
-
 
 /* * * * * * * * * * * * * * * * * * * * * /
  * New CSS for hugo-theme-altinn
