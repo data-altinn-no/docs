@@ -182,7 +182,7 @@ GET https://api.data.altinn.no/v1/evidence/3fa85f64-5717-4562-b3fc-2c963f66afa6/
 
 Dataene ligger i `evidenceValues`, ett element per felt i datasettet, med feltnavn og type slik de er beskrevet i datasettoversikten. `valueType` beskriver hva verdien betyr, ikke nødvendigvis JSON-typen: RestanserV2 leverer beløpene som tekst med valuta, for eksempel `"12500 NOK"`. Konvolutten rundt kan fjernes med `?envelope=false`, og svaret kan filtreres med et JMESPath-uttrykk i `query`; se [konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering).
 
-Du kan høste samme datasett flere ganger så lenge akkrediteringen er gyldig og samtykket ikke er trukket. Trekkes samtykket, viser statuskallet kode 3; utløper det, kode 4. I begge tilfeller, og så lenge samtykket fortsatt venter, svarer høsting med `403` og feilkode `1010`.
+Du kan høste samme datasett flere ganger så lenge akkrediteringen er gyldig og samtykket ikke er trukket. Merk forskjellen mellom de to kallene: statuskallet i steg 3 bygger på det data.altinn.no har registrert om samtykket, mens høstingskallet kontrollerer samtykket live mot Altinn hver gang. Et samtykke som trekkes tilbake i Altinn kan derfor fortsatt vises som status 1 helt til du prøver å høste; da svarer høsting med `403` og feilkode `1010`. Det samme svaret får du så lenge samtykket venter (status 2) eller er utløpt (status 4). Bruk statuskallet til å finne ut hva som er verdt å hente, og høstingskallet som den endelige kontrollen.
 
 ## Livssyklus og opprydding
 
