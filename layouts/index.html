@@ -17,8 +17,10 @@
           <p class="landing-hero__kicker">Teknisk dokumentasjon</p>
           <h1 id="landing-title" class="ds-heading landing-hero__title" data-size="xl">Bygg på data.altinn.no</h1>
           <p class="ds-paragraph landing-hero__lead" data-size="md">{{ .Site.Params.description }}</p>
+          <div class="landing-hero__cta">
           <div class="landing-hero__actions">
             <a class="ds-button" href="{{ "/api/" | relURL }}">Kom i gang med API</a>
+            <a class="ds-button" data-variant="secondary" href="{{ "/api/steg-for-steg/" | relURL }}">Steg for steg</a>
             <a class="ds-button" data-variant="secondary" href="{{ "/datasett/" | relURL }}">Se datasettene</a>
           </div>
           {{- if not .Site.Params.noSearch }}
@@ -26,6 +28,7 @@
             {{ partial "search.html" . }}
           </div>
           {{- end }}
+          </div>
           </div>
         {{- /* Band art: the data.altinn.no market icon (white, as the profile requires on dark
               surfaces) with the design element beside it: the emblem's circle-and-square shape in
