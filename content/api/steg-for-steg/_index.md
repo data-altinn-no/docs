@@ -54,7 +54,7 @@ Content-Type: application/json
   ],
   "consentReference": "Anskaffelse 2026/1234",
   "externalReference": "sak-2026-1234",
-  "validTo": "2026-12-31T00:00:00Z",
+  "validTo": "2026-12-15T00:00:00Z",
   "languageCode": "no-nb"
 }
 ```
@@ -63,42 +63,43 @@ Feltene:
 
 | Felt | Betydning |
 |------|-----------|
-| `evidenceRequests[].requestConsent` | `true` for datasett som krever samtykke. Utelates for datasett med hjemmel. |
+| `evidenceRequests[].requestConsent` | Må være `true` for hvert datasett som har samtykkekrav, også når du i tillegg oppgir behandlingsgrunnlag (som for utvidet skatteattest). For datasett uten samtykkekrav har feltet ingen virkning. |
 | `evidenceRequests[].parameters` | Parametere til datasettet, hvis det har noen (se datasettoversikten). Format: `[{ "evidenceParamName": "...", "value": ... }]`. |
 | `evidenceRequests[].legalBasisId` og `legalBasisList` | Bare for datasett som krever oppgitt behandlingsgrunnlag, for eksempel utvidet skatteattest i eBevis. Se [eBevis](/tjenester/ebevis/#bruk-av-utvidet-skatteattest). |
-| `consentReference` | Fritekst som vises for den som skal samtykke, typisk saks- eller anskaffelsesreferanse. |
+| `consentReference` | Påkrevd når noen av datasettene krever samtykke. Fritekst som vises for den som skal samtykke, typisk saks- eller anskaffelsesreferanse. |
 | `externalReference` | Din egen referanse; kommer tilbake i akkrediteringen. |
-| `validTo` | Hvor lenge akkrediteringen skal kunne brukes. Kan ikke overstige datasettets maksimale gyldighet. |
+| `validTo` | Hvor lenge akkrediteringen skal kunne brukes. Kan ikke overstige den korteste maksimale gyldigheten blant datasettene du ber om (90 dager for RestanserV2); en lengre dato avvises med feilkode 1018. Utelates feltet, settes den maksimale gyldigheten automatisk. |
 | `languageCode` | Språk på samtykkeforespørselen i Altinn. |
 
-Svaret er `201 Created`. `Location`-headeren peker på den nye akkrediteringen, og akkrediteringen ligger også i svarkroppen. Ta vare på `accreditationId`, eller på URL-en fra `Location`; alle senere kall bruker den.
+Svaret er `200 OK` med akkrediteringen i svarkroppen. `Location`-headeren peker på statusressursen for akkrediteringen, den samme som du spør i steg 3. Ta vare på `id`; alle senere kall bruker den.
 
 ```text
-HTTP/1.1 201 Created
-Location: https://api.data.altinn.no/v1/accreditations/3fa85f64-5717-4562-b3fc-2c963f66afa6
+HTTP/1.1 200 OK
+Location: https://api.data.altinn.no/v1/evidence/3fa85f64-5717-4562-b3fc-2c963f66afa6
 Content-Type: application/json
 ```
 
 ```json
 {
-  "accreditationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "requestor": "991825827",
   "subject": "998997801",
   "evidenceCodes": [
     {
       "evidenceCodeName": "RestanserV2",
-      "accessMethod": "Consent",
-      "isAsynchronous": true
+      "isAsynchronous": false
     }
   ],
   "issued": "2026-09-24T10:15:00+00:00",
-  "validTo": "2026-12-31T00:00:00+00:00",
+  "validTo": "2026-12-15T00:00:00+00:00",
   "consentReference": "Anskaffelse 2026/1234",
   "externalReference": "sak-2026-1234"
 }
 ```
 
-Får du `400`, inneholder svaret en feilkode som forteller hva som var galt, for eksempel `1007` (datasettet finnes ikke) eller `1017` (feil i parametere). `403` betyr at autentiseringen eller autorisasjonen ikke gikk gjennom, for eksempel manglende scope (`1024`) eller feil `requestor` (`1001`). Se [feilhåndtering](#feilhåndtering).
+Merk at `isAsynchronous` er `false` for RestanserV2: det er samtykkekravet, ikke asynkron levering fra kilden, som gjør at datasettet må gå gjennom en akkreditering.
+
+Går det galt, forteller feilkoden i svaret hva som var feil: `400` for feil i selve forespørselen, for eksempel ugyldig `requestor` (`1001`), ukjent datasett (`1007`) eller feil i parametere (`1017`); `401` for manglende eller ugyldig token (`1023`, `1024`); `403` når et tilgangskrav ikke er oppfylt (`1019`), for eksempel manglende Maskinporten-scope, eller når `requestConsent` mangler på et datasett som krever samtykke (`1010`). Se [feilhåndtering](#feilhåndtering).
 
 ## Steg 2: Samtykke i Altinn
 
@@ -110,7 +111,7 @@ Du trenger ikke gjøre noe i dette steget, men du kan **sende en purring** hvis 
 POST https://api.data.altinn.no/v1/accreditations/3fa85f64-5717-4562-b3fc-2c963f66afa6/reminders HTTP/1.1
 ```
 
-`GET` på samme URL viser hvilke purringer som er sendt tidligere.
+`GET` på samme URL viser hvilke purringer som er sendt tidligere. Purringer er begrenset: det går ikke å purre igjen før det er gått sju dager siden forrige vellykkede purring, eller ett døgn etter et mislykket forsøk. Forsøk innenfor sperretiden avvises med `403` og feilkode `1019`.
 
 ## Steg 3: Sjekk status
 
@@ -129,8 +130,7 @@ GET https://api.data.altinn.no/v1/evidence/3fa85f64-5717-4562-b3fc-2c963f66afa6 
       "description": "Awaiting consent from subject entity representative"
     },
     "validFrom": "2026-09-24T10:15:00+00:00",
-    "validTo": "2026-12-31T00:00:00+00:00",
-    "didSupplyLegalBasis": false
+    "validTo": "2026-12-15T00:00:00+00:00"
   }
 ]
 ```
@@ -141,7 +141,7 @@ Statuskodene er faste innenfor API-versjonen:
 |------|-----------|-------------|
 | 1 | Dataene er klare til høsting | Gå til steg 4 |
 | 2 | Venter på samtykke fra subjektet | Vent, eventuelt purr (steg 2) |
-| 3 | Samtykke avslått | Avslutt; dataene kan ikke hentes på denne akkrediteringen |
+| 3 | Samtykke avslått, eller et gitt samtykke er trukket tilbake | Avslutt; dataene kan ikke hentes på denne akkrediteringen |
 | 4 | Samtykket er utløpt | Send ny autorisasjonsforespørsel |
 | 5 | Venter på data fra kilden | Vent og spør igjen |
 
@@ -167,20 +167,20 @@ GET https://api.data.altinn.no/v1/evidence/3fa85f64-5717-4562-b3fc-2c963f66afa6/
     "evidenceCodeName": "RestanserV2",
     "status": { "code": 1, "description": "The information is available for harvest" },
     "validFrom": "2026-09-24T10:15:00+00:00",
-    "validTo": "2026-12-31T00:00:00+00:00"
+    "validTo": "2026-12-15T00:00:00+00:00"
   },
   "evidenceValues": [
     { "evidenceValueName": "levert", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": "2026-09-24T11:02:09Z", "valueType": "dateTime" },
     { "evidenceValueName": "forespurteOrganisasjon", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": "998997801", "valueType": "string" },
-    { "evidenceValueName": "arbeidsgiveravgiftForfaltOgUbetalt", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": 0, "valueType": "amount" },
-    { "evidenceValueName": "merverdiavgiftForfaltOgUbetalt", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": 12500, "valueType": "amount" }
+    { "evidenceValueName": "arbeidsgiveravgiftForfaltOgUbetalt", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": "0 NOK", "valueType": "amount" },
+    { "evidenceValueName": "merverdiavgiftForfaltOgUbetalt", "source": "Skatteetaten", "timestamp": "2026-09-24T11:02:10Z", "value": "12500 NOK", "valueType": "amount" }
   ]
 }
 ```
 
-Dataene ligger i `evidenceValues`, ett element per felt i datasettet, med feltnavn og type slik de er beskrevet i datasettoversikten. Konvolutten rundt kan fjernes med `?envelope=false`, og svaret kan filtreres med et JMESPath-uttrykk i `query`; se [konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering).
+Dataene ligger i `evidenceValues`, ett element per felt i datasettet, med feltnavn og type slik de er beskrevet i datasettoversikten. `valueType` beskriver hva verdien betyr, ikke nødvendigvis JSON-typen: RestanserV2 leverer beløpene som tekst med valuta, for eksempel `"12500 NOK"`. Konvolutten rundt kan fjernes med `?envelope=false`, og svaret kan filtreres med et JMESPath-uttrykk i `query`; se [konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering).
 
-Du kan høste samme datasett flere ganger så lenge akkrediteringen er gyldig og samtykket ikke er trukket. Trekkes samtykket, får du feilkode `1012`; utløper det, `1011`.
+Du kan høste samme datasett flere ganger så lenge akkrediteringen er gyldig og samtykket ikke er trukket. Trekkes samtykket, viser statuskallet kode 3 og høsting gir feilkode `1012`; utløper det, statuskode 4 og feilkode `1011`.
 
 ## Livssyklus og opprydding
 
@@ -196,18 +196,19 @@ DELETE https://api.data.altinn.no/v1/accreditations/3fa85f64-5717-4562-b3fc-2c96
 
 Feil returneres med en feilkode og en beskrivelse i svaret. Kodene endres ikke innenfor en API-versjon, så du kan trygt reagere på dem i kode. De du oftest møter i denne flyten:
 
-| Kode | Betydning | Typisk årsak |
-|------|-----------|--------------|
-| 1001 / 1004 | Feil med requestor / subject | Ugyldig organisasjonsnummer, eller requestor er ikke den tokenet er utstedt til |
-| 1002 | Akkrediteringen finnes ikke | Feil ID, eller den tilhører en annen konsument |
-| 1003 | Akkrediteringen er utløpt | `validTo` er passert |
-| 1007 | Datasettet finnes ikke | Skrivefeil i `evidenceCodeName` |
-| 1010 | Feil knyttet til samtykke | For eksempel `requestConsent` mangler på et datasett som krever samtykke |
-| 1011 / 1012 | Samtykket er utløpt / trukket | Send ny autorisasjonsforespørsel |
-| 1016 | Dataene er ikke klare | Du høstet før status var 1 |
-| 1017 | Feil i parametere | Manglende påkrevd parameter eller feil type |
-| 1019 | Forespørselen ble ikke autorisert | Et tilgangskrav for datasettet er ikke oppfylt, se datasettoversikten |
-| 1023 / 1024 | Feil med autentisering / token | Utløpt token, feil scope eller feil miljø |
+| Kode | HTTP-status | Betydning | Typisk årsak |
+|------|-------------|-----------|--------------|
+| 1001 / 1004 | 400 | Feil med requestor / subject | Ugyldig organisasjonsnummer, eller requestor er ikke den tokenet er utstedt til |
+| 1002 | 404 | Akkrediteringen finnes ikke | Feil ID, eller den tilhører en annen konsument |
+| 1003 | 400 | Akkrediteringen er utløpt | `validTo` er passert |
+| 1007 | 400 | Datasettet finnes ikke | Skrivefeil i `evidenceCodeName` |
+| 1010 | 403 | Datasettet krever samtykke | `requestConsent: true` eller `consentReference` mangler |
+| 1011 / 1012 | 400 / 404 | Samtykket er utløpt / trukket | Send ny autorisasjonsforespørsel |
+| 1016 | 503 | Dataene er ikke klare | Du høstet før status var 1 |
+| 1017 | 400 | Feil i parametere | Manglende påkrevd parameter eller feil type |
+| 1018 | 400 | Ugyldig `validTo` | Utenfor datasettets eller tjenestens tillatte gyldighet |
+| 1019 | 403 | Forespørselen ble ikke autorisert | Et tilgangskrav er ikke oppfylt, for eksempel manglende Maskinporten-scope, eller purring innenfor sperretiden |
+| 1023 / 1024 | 401 | Feil med autentisering / token | Manglende eller utløpt token, feil miljø |
 
 Den fullstendige listen finnes i det åpne metadata-API-et: [feilkoder](https://api.data.altinn.no/v1/public/metadata/errorcodes) og [statuskoder](https://api.data.altinn.no/v1/public/metadata/statuscodes). Ved `503` er en bakenforliggende kilde utilgjengelig; prøv igjen litt senere.
 
