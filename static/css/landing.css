@@ -53,6 +53,10 @@ body.landing-page .footer { margin-top: 0; }
 }
 
 .landing-hero .landing-wrap { position: relative; z-index: 1; }
+/* Keep the text clear of the art on the right (the art is 40% wide, anchored to the edge). */
+@media (min-width: 901px) {
+  .landing-hero .landing-wrap { padding-right: 44%; }
+}
 
 .landing-hero__kicker {
   margin: 0 0 .8rem;
@@ -171,7 +175,9 @@ body.landing-page .footer { margin-top: 0; }
 .landing-contact .ds-button .fa { font-size: 1.1em; }
 
 @media (max-width: 900px) {
-  .landing-hero__art { width: 60%; right: -18%; opacity: .55; }
+  /* Narrow: the text spans the band, so only the faint tiles stay, low right, behind it. */
+  .landing-hero__art { width: 60%; right: -22%; bottom: -14%; opacity: .35; }
+  .landing-hero__icon { display: none; }
   .landing-about__grid { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
 }
 
@@ -179,5 +185,5 @@ body.landing-page .footer { margin-top: 0; }
   .landing-wrap { padding: 0 20px; }
   .landing-hero { padding: 3.2rem 0 4.8rem; }
   .landing-section { padding: 4rem 0; }
-  .landing-hero__art { opacity: .35; }
+  .landing-hero__art { opacity: .25; }
 }
