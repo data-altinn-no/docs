@@ -42,6 +42,9 @@ body.landing-page .footer { margin-top: 0; }
 .main-header--dark .nav-link { color: #fff; }
 .main-header--dark .nav-link-active,
 .main-header--dark .nav-link:hover:not(.nav-link-active) { background: var(--dan-band-hover); color: #fff; }
+/* custom.css turns the active item white-on-hover with black text (fine on the white header);
+   on the band it must stay white text on translucent navy. */
+.main-header--dark .nav-link-active:hover { background: var(--dan-band-hover); color: #fff !important; }
 
 /* Hero band */
 .landing-hero {

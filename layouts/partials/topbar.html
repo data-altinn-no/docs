@@ -1,7 +1,10 @@
 <nav class="a-jumpnav">
     <ul class="no-decoration d-flex">
         <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+        {{- /* The landing page has no sidebar menu, so no jump link to it. */ -}}
+        {{- if not .IsHome }}
         <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
+        {{- end }}
     </ul>
 </nav>
 
