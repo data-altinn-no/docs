@@ -52,10 +52,12 @@ body.landing-page .footer { margin-top: 0; }
   padding: 4.8rem 0 6.4rem;
 }
 
-.landing-hero .landing-wrap { position: relative; z-index: 1; }
-/* Keep the text clear of the art on the right (the art is 40% wide, anchored to the edge). */
+.landing-hero .landing-wrap { position: relative; }
+.landing-hero__text { position: relative; z-index: 1; }
+/* Text and art share the 1240px container: the art takes the right 40 % of it, the text keeps
+   clear of that, so the composition is the same on a 1000px laptop and a 4K monitor. */
 @media (min-width: 901px) {
-  .landing-hero .landing-wrap { padding-right: 44%; }
+  .landing-hero__text { max-width: 56%; }
 }
 
 .landing-hero__kicker {
@@ -105,7 +107,7 @@ body.landing-page .footer { margin-top: 0; }
 .landing-hero__art {
   position: absolute;
   right: -1.5rem;
-  bottom: -2.5rem;
+  bottom: -8.8rem; /* hangs off the band's bottom edge (the band's padding is 6.4rem) */
   width: 40%;
   max-width: 480px;
   height: auto;
@@ -176,7 +178,7 @@ body.landing-page .footer { margin-top: 0; }
 
 @media (max-width: 900px) {
   /* Narrow: the text spans the band, so only the faint tiles stay, low right, behind it. */
-  .landing-hero__art { width: 60%; right: -22%; bottom: -14%; opacity: .35; }
+  .landing-hero__art { width: 60%; right: -22%; bottom: -10rem; opacity: .35; }
   .landing-hero__icon { display: none; }
   .landing-about__grid { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
 }

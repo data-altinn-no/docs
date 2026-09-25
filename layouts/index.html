@@ -13,6 +13,7 @@
 
       <section class="landing-hero" aria-labelledby="landing-title">
         <div class="landing-wrap">
+          <div class="landing-hero__text">
           <p class="landing-hero__kicker">Teknisk dokumentasjon</p>
           <h1 id="landing-title" class="ds-heading landing-hero__title" data-size="xl">Bygg på data.altinn.no</h1>
           <p class="ds-paragraph landing-hero__lead" data-size="md">{{ .Site.Params.description }}</p>
@@ -25,7 +26,7 @@
             {{ partial "search.html" . }}
           </div>
           {{- end }}
-        </div>
+          </div>
         {{- /* Band art: the data.altinn.no market icon (white, as the profile requires on dark
               surfaces) with the design element beside it: the emblem's circle-and-square shape in
               the profile's graphic colours, at the right edge and low on the surface. */ -}}
@@ -47,6 +48,7 @@
           <use href="#de" x="240" y="240" width="120" height="120" fill="#ffffff" fill-opacity=".12" transform="rotate(90 300 300)"/>
           <use href="#de" x="360" y="240" width="120" height="120" fill="#ffffff" fill-opacity=".12"/>
         </svg>
+        </div>
       </section>
 
       <section class="landing-section" aria-labelledby="landing-groups-title">
