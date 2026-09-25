@@ -45,6 +45,8 @@ body.landing-page .footer { margin-top: 0; }
 /* custom.css turns the active item white-on-hover with black text (fine on the white header);
    on the band it must stay white text on translucent navy. */
 .main-header--dark .nav-link-active:hover { background: var(--dan-band-hover); color: #fff !important; }
+/* Keyboard focus on the band: Chrome's default dark outline is invisible on navy. */
+.main-header--dark .nav-link:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 
 /* Hero band */
 .landing-hero {
@@ -87,6 +89,19 @@ body.landing-page .footer { margin-top: 0; }
   gap: 1.2rem;
   margin-top: 3.2rem;
 }
+
+/* Focus ring on the band: Designsystemet's ring is white inside and blåsvart outside, which
+   vanishes against navy and white borders. Swap it: navy inside, white outside. The legacy
+   stylesheet also turns any focused link black, so pin the text colour. */
+.landing-hero,
+.main-header--dark {
+  --dsc-focus-boxShadow: 0 0 0 3px var(--dan-band);
+  --dsc-focus-outline: #fff solid 3px;
+}
+.landing .ds-button:focus,
+.landing .ds-button:focus-visible { color: var(--dsc-button-color); }
+.landing .ds-link:focus,
+.landing .ds-link:focus-visible { color: var(--dsc-link-color); }
 
 .landing-hero .ds-button {
   --dsc-button-background: #fff;
@@ -163,6 +178,8 @@ body.landing-page .footer { margin-top: 0; }
 }
 
 .landing-card__links li + li { margin-top: 1rem; }
+/* Target size (WCAG 2.5.8): at least 24px tall. */
+.landing-card__links .ds-link { display: inline-block; padding-block: .2rem; }
 .landing-card__links .ds-link { --dsc-link-color: var(--ds-color-accent-text-subtle); --dsc-link-color--hover: var(--ds-color-accent-text-default); font-weight: 500; }
 
 /* About */

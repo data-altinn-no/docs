@@ -1,4 +1,4 @@
-<nav class="a-jumpnav">
+<nav class="a-jumpnav" aria-label="Snarveier">
     <ul class="no-decoration d-flex">
         <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
         {{- /* The landing page has no sidebar menu, so no jump link to it. */ -}}
@@ -9,7 +9,7 @@
 </nav>
 
 <header class="main-header{{ if .IsHome }} main-header--dark{{ end }}">
-    <nav class="main-nav" id="primary-nav">
+    <nav class="main-nav" id="primary-nav" aria-label="Hovedmeny">
         <a href="{{ "/" | relURL }}" class="logo-link d-logo">
             {{- /* Profile: the all-white logo on dark surfaces (the landing page band). */ -}}
             {{- $variant := cond .IsHome "-white" "" }}
@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-ul-item"><a href="https://data.altinn.no/products" class="nav-link" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }">Produkter</a>
                 </li>
-                <li class="nav-ul-item"><a href="{{ "/" | relURL }}" class="nav-link nav-link-active" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }" target="_self" rel="noopener noreferrer">Docs</a></li>
+                <li class="nav-ul-item"><a href="{{ "/" | relURL }}" class="nav-link nav-link-active" aria-current="page" data-bind="text: item.label, hyperlink: item.hyperlink, css: { 'nav-link-active': item.isActive }" target="_self" rel="noopener noreferrer">Docs</a></li>
             </ul>
         </div>
     </nav>
