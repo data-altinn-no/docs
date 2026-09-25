@@ -227,11 +227,12 @@ footer .container {
 
 /* Header logo, Digdir profile "logoversjon B" for fellesløsninger: the mørkblå emblem followed by
    the product name set in NB International Pro (outlined), proportioned like the ID-porten lockup.
-   Narrow screens show the bare emblem, as idporten.no does. */
+   Narrow screens show the bare emblem, as idporten.no does. The breakpoint is where the full lockup
+   plus the four navigation items stop fitting on one row (about 675px), so the last item never wraps. */
 .d-logo { display: inline-block; margin: 14px 20px 20px 20px; border-bottom: none !important; }
 .d-logo img { display: block; height: 27px; width: auto; }
 .d-logo .d-logo__compact { display: none; height: 24px; }
-@media (max-width: 600px) {
+@media (max-width: 680px) {
     .d-logo .d-logo__full { display: none; }
     .d-logo .d-logo__compact { display: block; }
 }
