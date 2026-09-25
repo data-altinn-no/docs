@@ -407,15 +407,15 @@ a {
    :root, and the modal inherits from body first. */
 body {
   --pf-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --pf-text: #000;
-  --pf-text-secondary: #4a4a4a;
-  --pf-text-muted: #6a6a6a;
-  --pf-border: #bcc7d1;
-  --pf-border-focus: #1e2b3c;
-  --pf-outline-focus: #1e2b3c;
-  --pf-hover: #eef6fc;
-  --pf-mark: #1e2b3c;
-  --pf-border-radius: 4px;
+  --pf-text: #1f2c3d;             /* Designsystemet neutral text (blåsvart) */
+  --pf-text-secondary: #545e6b;   /* text subtle, same grey as the landing cards */
+  --pf-text-muted: #545e6b;
+  --pf-border: #b8bcc1;           /* border subtle, same as the landing cards */
+  --pf-border-focus: #1f2c3d;     /* focus outer */
+  --pf-outline-focus: #1f2c3d;
+  --pf-hover: #ddeaf6;            /* accent surface tinted, the card icon circle */
+  --pf-mark: #005db1;             /* accent text, the card link colour */
+  --pf-border-radius: 8px;        /* Designsystemet large radius, as on the cards */
   --pf-input-height: 44px;
   --pf-result-title-font-size: 15px;
   --pf-result-excerpt-font-size: 13.5px;
