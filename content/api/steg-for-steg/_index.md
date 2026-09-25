@@ -84,20 +84,96 @@ Content-Type: application/json
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "requestor": "991825827",
   "subject": "998997801",
+  "subjectParty": {
+    "scheme": "iso6523-actorid-upis",
+    "id": "0192:998997801",
+    "norwegianOrganizationNumber": "998997801"
+  },
+  "requestorParty": {
+    "scheme": "iso6523-actorid-upis",
+    "id": "0192:991825827",
+    "norwegianOrganizationNumber": "991825827"
+  },
+  "aggregateStatus": {
+    "code": 0,
+    "description": ""
+  },
+  "isDirectHarvest": false,
   "evidenceCodes": [
-    {
-      "evidenceCodeName": "RestanserV2",
-      "isAsynchronous": false
-    }
+  {
+    "evidenceCodeName": "RestanserV2",
+    "description": "Return the arrears for the subject company - new format",
+    "isAsynchronous": false,
+    "maxValidDays": 90,
+    "values": [
+      {
+        "evidenceValueName": "levert",
+        "source": "Skatteetaten",
+        "valueType": "dateTime"
+      },
+      {
+        "evidenceValueName": "forespurteOrganisasjon",
+        "source": "Skatteetaten",
+        "valueType": "string"
+      },
+      {
+        "evidenceValueName": "arbeidsgiveravgiftForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      },
+      {
+        "evidenceValueName": "forskuddstrekkForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      },
+      {
+        "evidenceValueName": "forskuddsskattForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      },
+      {
+        "evidenceValueName": "restskattForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      },
+      {
+        "evidenceValueName": "gebyrForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      },
+      {
+        "evidenceValueName": "merverdiavgiftForfaltOgUbetalt",
+        "source": "Skatteetaten",
+        "valueType": "amount"
+      }
+    ],
+    "authorizationRequirements": [],
+    "belongsToServiceContexts": [
+      "eBevis",
+      "Drosjeloyve"
+    ],
+    "isPublic": false
+  }
   ],
-  "issued": "2026-09-24T10:15:00+00:00",
+  "skippedEvidenceCodes": {},
+  "issued": "2026-09-24T10:15:00.4988224+00:00",
+  "lastChanged": "2026-09-24T10:15:00.4988224+00:00",
   "validTo": "2026-12-15T00:00:00+00:00",
   "consentReference": "Anskaffelse 2026/1234",
-  "externalReference": "sak-2026-1234"
+  "externalReference": "sak-2026-1234",
+  "languageCode": "no-nb",
+  "serviceContext": "eBevis",
+  "altinnConsentUrl": "https://am.ui.altinn.no/consent/request?id=b1c2d3e4-…",
+  "altinn3ConsentId": "b1c2d3e4-5f60-4718-9a2b-3c4d5e6f7a8b"
 }
 ```
 
-Merk at `isAsynchronous` er `false` for RestanserV2: det er samtykkekravet, ikke asynkron levering fra kilden, som gjør at datasettet må gå gjennom en akkreditering.
+Noen ting å merke seg i svaret:
+
+* `evidenceCodes` inneholder hele definisjonen av hvert datasett du ba om, inkludert feltene som kommer i retur (`values`), slik de også vises i datasettoversikten. `authorizationRequirements` er alltid tom i svaret; kravene er allerede kontrollert.
+* `isAsynchronous` er `false` for RestanserV2: det er samtykkekravet, ikke asynkron levering fra kilden, som gjør at datasettet må gå gjennom en akkreditering.
+* `altinnConsentUrl` er lenken til selve samtykkeforespørselen i Altinn. Den samme lenken sendes til subjektet, men du kan også gi den videre selv, for eksempel i din egen dialog med leverandøren.
+* `aggregateStatus` er `0` (ukjent) rett etter opprettelsen. Den beregnes når du lister akkrediteringer (steg 3); bruk statuskallet for status på enkeltdatasett.
 
 Går det galt, forteller feilkoden i svaret hva som var feil: `400` for feil i selve forespørselen, for eksempel ugyldig `requestor` (`1001`), ukjent datasett (`1007`) eller feil i parametere (`1017`); `401` for manglende eller ugyldig token (`1023`, `1024`); `403` med feilkode `1019` når et tilgangskrav for et datasett ikke er oppfylt. Alle slike brudd samles under den ene koden, enten det er manglende Maskinporten-scope, at `requestor` ikke er organisasjonen tokenet er utstedt til, eller at `requestConsent` eller `consentReference` mangler for et datasett med samtykkekrav; meldingen i svaret sier hvilket krav som feilet. Se [feilhåndtering](#feilhåndtering).
 
@@ -180,7 +256,7 @@ GET https://api.data.altinn.no/v1/evidence/3fa85f64-5717-4562-b3fc-2c963f66afa6/
 }
 ```
 
-Dataene ligger i `evidenceValues`, ett element per felt i datasettet, med feltnavn og type slik de er beskrevet i datasettoversikten. `valueType` beskriver hva verdien betyr, ikke nødvendigvis JSON-typen: RestanserV2 leverer beløpene som tekst med valuta, for eksempel `"12500 NOK"`. Konvolutten rundt kan fjernes med `?envelope=false`, og svaret kan filtreres med et JMESPath-uttrykk i `query`; se [konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering).
+Dataene ligger i `evidenceValues`, ett element per felt i datasettet, med feltnavn og type slik de er beskrevet i datasettoversikten. `valueType` beskriver hva verdien betyr, ikke nødvendigvis JSON-typen: verdier av typen `amount` (og `string`, `uri`) serialiseres alltid som tekst, og RestanserV2 legger dessuten på valuta, for eksempel `"12500 NOK"`. Felt som ikke har fått noen verdi kommer uten `value`. Konvolutten rundt kan fjernes med `?envelope=false`, og svaret kan filtreres med et JMESPath-uttrykk i `query`; se [konvolutt og filtrering](/api/#konvolutt-og-filtreringtransformering).
 
 Du kan høste samme datasett flere ganger så lenge akkrediteringen er gyldig og samtykket ikke er trukket. Merk forskjellen mellom de to kallene: statuskallet i steg 3 bygger på det data.altinn.no har registrert om samtykket, mens høstingskallet kontrollerer samtykket live mot Altinn hver gang. Et samtykke som trekkes tilbake i Altinn kan derfor fortsatt vises som status 1 helt til du prøver å høste; da svarer høsting med `403` og feilkode `1010`. Det samme svaret får du så lenge samtykket venter (status 2) eller er utløpt (status 4). Bruk statuskallet til å finne ut hva som er verdt å hente, og høstingskallet som den endelige kontrollen.
 
