@@ -58,11 +58,12 @@ footer .container {
     max-width: 1240px;
 }
 
+/* The three footer columns share one grid: the logo's ink sits level with the column headings,
+   and every column's first text row starts 48px below the top of the footer content. */
 .footer-brand__logo,
 .footer .footer-brand__logo {
     height: 38px;
-    margin-bottom: 13px;
-    margin-left: -8px;
+    margin: 6px 0 4px -8px;
 }
 
 .footer-brand__text,
@@ -70,7 +71,7 @@ footer .container {
     color: #d7d7d7;
     font-weight: 400;
     font-size: 15px;
-    line-height: 2em;
+    line-height: 24px;
 }
 
 .footer__heading {
@@ -131,7 +132,8 @@ footer .container {
     color: #d7d7d7;
     font-weight: 400;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+    line-height: 24px;
 }
 
 .footer-contact__item a,
@@ -229,10 +231,10 @@ footer .container {
    the product name set in NB International Pro (outlined), proportioned like the ID-porten lockup.
    Narrow screens show the bare emblem, as idporten.no does. The breakpoint is where the full lockup
    plus the four navigation items stop fitting on one row (about 675px), so the last item never wraps. */
-.d-logo { display: inline-block; margin: 14px 20px 20px 20px; border-bottom: none !important; }
+.d-logo { display: inline-block; margin: 10px 20px 24px 20px; border-bottom: none !important; } /* logo top at 25px, same as on data.altinn.no */
 .d-logo img { display: block; height: 27px; width: auto; }
 .d-logo .d-logo__compact { display: none; height: 24px; }
-@media (max-width: 680px) {
+@media (max-width: 700px) {
     .d-logo .d-logo__full { display: none; }
     .d-logo .d-logo__compact { display: block; }
 }
@@ -307,6 +309,7 @@ footer .container {
 
 .nav-link {
     color: #000;
+    font-size: 16px; /* fixed: the landing page's body text is 18px (Designsystemet), the doc pages' 16px */
     margin-left: 1px;
     padding-top: 8px;
     margin-right: 1px;
@@ -406,20 +409,21 @@ a {
    :root, and the modal inherits from body first. */
 body {
   --pf-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --pf-text: #000;
-  --pf-text-secondary: #4a4a4a;
-  --pf-text-muted: #6a6a6a;
-  --pf-border: #bcc7d1;
-  --pf-border-focus: #1e2b3c;
-  --pf-outline-focus: #1e2b3c;
-  --pf-hover: #eef6fc;
-  --pf-mark: #1e2b3c;
-  --pf-border-radius: 4px;
+  --pf-text: #1f2c3d;             /* Designsystemet neutral text (blåsvart) */
+  --pf-text-secondary: #545e6b;   /* text subtle, same grey as the landing cards */
+  --pf-text-muted: #545e6b;
+  --pf-border: #b8bcc1;           /* border subtle, same as the landing cards */
+  --pf-border-focus: #1f2c3d;     /* focus outer */
+  --pf-outline-focus: #1f2c3d;
+  --pf-hover: #ddeaf6;            /* accent surface tinted, the card icon circle */
+  --pf-mark: #005db1;             /* accent text, the card link colour */
+  --pf-border-radius: 8px;        /* Designsystemet large radius, as on the cards */
   --pf-input-height: 44px;
   --pf-result-title-font-size: 15px;
   --pf-result-excerpt-font-size: 13.5px;
   --pf-modal-max-width: 720px;
-  --pf-modal-top: 8dvh;
+  --pf-modal-top: 16dvh; /* opens near the sidebar search box rather than at the top edge */
+  --pf-modal-max-height: min(72dvh, 720px);
 }
 .site-search { margin: 0 0 1em; }
 .site-search pagefind-modal-trigger { display: block; width: 100%; }

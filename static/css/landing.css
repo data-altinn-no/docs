@@ -1,0 +1,225 @@
+/* Landing page (home) only: loaded from custom-head.html after designsystemet.css.
+   Colours: the band is the same navy as the data.altinn.no portal (#022F51), text is
+   Designsystemet's neutral text (blåsvart), accents come from the Digdir theme tokens. */
+
+:root,
+[data-size] {
+  /* designsystem.css sets html to 62.5% (10px). Designsystemet sizes everything in rem from
+     --ds-size-base (18), and re-declares it on every [data-size] element; 18 × 0.625 keeps its
+     type and spacing at the intended px values. */
+  --ds-size-base: 11.25;
+  --ds-border-radius-base: .4rem;
+  --ds-border-radius-scale: .4rem;
+  --dan-band: #022f51;
+  --dan-band-hover: rgba(255, 255, 255, .16);
+}
+
+body.landing-page {
+  margin: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.landing-page .footer { margin-top: 0; }
+
+.landing {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ds-color-neutral-text-default);
+  flex: 1 0 auto;
+}
+
+.landing-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 36px;
+  box-sizing: border-box;
+}
+
+/* Top bar on the band: white logo, white links (profile: all-white logo on dark surfaces). */
+.main-header--dark { background: var(--dan-band); }
+.main-header--dark .nav-link { color: #fff; }
+.main-header--dark .nav-link-active,
+.main-header--dark .nav-link:hover:not(.nav-link-active) { background: var(--dan-band-hover); color: #fff; }
+/* custom.css turns the active item white-on-hover with black text (fine on the white header);
+   on the band it must stay white text on translucent navy. */
+.main-header--dark .nav-link-active:hover { background: var(--dan-band-hover); color: #fff !important; }
+/* Keyboard focus on the band: Chrome's default dark outline is invisible on navy. */
+.main-header--dark .nav-link:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* Hero band */
+.landing-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dan-band);
+  color: #fff;
+  padding: 4.8rem 0 6.4rem;
+}
+
+.landing-hero .landing-wrap { position: relative; }
+.landing-hero__text { position: relative; z-index: 1; }
+/* Text and art share the 1240px container: the art takes the right 40 % of it, the text keeps
+   clear of that, so the composition is the same on a 1000px laptop and a 4K monitor. */
+@media (min-width: 901px) {
+  .landing-hero__text { max-width: 56%; }
+}
+
+.landing-hero__kicker {
+  margin: 0 0 .8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .72);
+}
+
+.landing-hero__title { color: #fff; max-width: 16em; }
+
+.landing-hero__lead {
+  margin-top: 1.6rem;
+  font-size: 2.1rem;
+  max-width: 38em;
+  color: rgba(255, 255, 255, .88);
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+}
+
+/* Focus ring on the band: Designsystemet's ring is white inside and blåsvart outside, which
+   vanishes against navy and white borders. Swap it: navy inside, white outside. The legacy
+   stylesheet also turns any focused link black, so pin the text colour. */
+.landing-hero,
+.main-header--dark {
+  --dsc-focus-boxShadow: 0 0 0 3px var(--dan-band);
+  --dsc-focus-outline: #fff solid 3px;
+}
+.landing .ds-button:focus,
+.landing .ds-button:focus-visible { color: var(--dsc-button-color); }
+.landing .ds-link:focus,
+.landing .ds-link:focus-visible { color: var(--dsc-link-color); }
+
+.landing-hero .ds-button {
+  --dsc-button-background: #fff;
+  --dsc-button-background--hover: #e3ecf4;
+  --dsc-button-background--active: #cfdde9;
+  --dsc-button-color: var(--dan-band);
+}
+
+.landing-hero .ds-button[data-variant="secondary"] {
+  --dsc-button-background: transparent;
+  --dsc-button-background--hover: var(--dan-band-hover);
+  --dsc-button-background--active: rgba(255, 255, 255, .26);
+  --dsc-button-border-color: #fff;
+  --dsc-button-color: #fff;
+}
+
+/* Buttons and search bar share one column, so the search bar is exactly as wide as the button row. */
+.landing-hero__cta { display: inline-flex; flex-direction: column; max-width: 100%; }
+.landing-hero__search { margin-top: 3.2rem; width: 100%; }
+.landing-hero__search .site-search { margin: 0; --pf-input-height: 52px; --pf-border: rgba(255, 255, 255, .55); --pf-border-focus: #fff; --pf-outline-focus: #fff; }
+.landing-hero__search .site-search__unavailable { color: rgba(255, 255, 255, .72); }
+
+.landing-hero__art {
+  position: absolute;
+  right: 3.6rem; /* = the container's side padding: the art's right edge lines up with the content below */
+  bottom: -8.8rem; /* hangs off the band's bottom edge (the band's padding is 6.4rem) */
+  width: 40%;
+  max-width: 480px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Laptop widths: a little more room so the three buttons stay on one row, and a smaller art
+   block so the icon clears the buttons. Placed after the base rules above so it wins. */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .landing-hero__text { max-width: 64%; }
+  .landing-hero__art { width: 34%; }
+}
+
+/* Sections */
+.landing-section { padding: 5.6rem 0; }
+.landing-section__title { margin: 0 0 1.2rem; }
+.landing-section__intro { max-width: 64ch; color: var(--ds-color-neutral-text-subtle); }
+
+.landing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2.4rem;
+  margin-top: 2.4rem;
+}
+
+/* The intro block and the link block line up across cards (subgrid); flex is the fallback. */
+.landing-cards > .ds-card.landing-card { display: flex; flex-direction: column; }
+.landing-card > .ds-card__block:last-child { flex: 1 1 auto; }
+@supports (grid-template-rows: subgrid) {
+  .landing-cards > .ds-card.landing-card { display: grid; grid-template-rows: subgrid; grid-row: span 2; }
+}
+
+/* The old design-system stylesheet underlines every link with a border; Designsystemet links
+   use text-decoration, so drop the border here. */
+.landing a { border-bottom: 0; }
+
+.landing-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  background: var(--ds-color-accent-surface-tinted);
+  color: var(--ds-color-accent-text-default);
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.landing-card__links li + li { margin-top: 1rem; }
+/* Target size (WCAG 2.5.8): at least 24px tall. */
+.landing-card__links .ds-link { display: inline-block; padding-block: .2rem; }
+.landing-card__links .ds-link { --dsc-link-color: var(--ds-color-accent-text-subtle); --dsc-link-color--hover: var(--ds-color-accent-text-default); font-weight: 500; }
+
+/* About */
+.landing-about { background: var(--ds-color-neutral-background-tinted); }
+.landing-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 4.8rem;
+}
+.landing-about__aside { padding-top: .6rem; }
+.landing-about__aside .ds-heading { margin-bottom: 1.2rem; }
+
+.landing-prose p { margin: 0 0 1.4rem; font-size: var(--ds-body-md-font-size); line-height: var(--ds-body-md-line-height); }
+.landing-prose p:last-child { margin-bottom: 0; }
+.landing-prose a { color: var(--ds-color-accent-text-subtle); text-decoration: underline; text-underline-offset: .2em; }
+
+/* Contact */
+/* Equal-width buttons that fill the content width: four across, two by two on laptops, one
+   column on phones. */
+.landing-contact__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+.landing-contact__actions .ds-button { justify-content: center; white-space: nowrap; }
+@media (min-width: 1100px) { .landing-contact__actions { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 640px) { .landing-contact__actions { grid-template-columns: 1fr; } }
+.landing-contact .ds-button .fa { font-size: 1.1em; }
+
+@media (max-width: 900px) {
+  /* Narrow: the text spans the band, so only the faint tiles stay, low right, behind it. */
+  .landing-hero__art { width: 60%; right: -22%; bottom: -10rem; opacity: .35; }
+  .landing-hero__icon { display: none; }
+  .landing-about__grid { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
+}
+
+@media (max-width: 680px) {
+  .landing-wrap { padding: 0 20px; }
+  .landing-hero { padding: 3.2rem 0 4.8rem; }
+  .landing-section { padding: 4rem 0; }
+  .landing-hero__art { opacity: .25; }
+}

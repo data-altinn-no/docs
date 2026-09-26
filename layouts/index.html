@@ -1,0 +1,123 @@
+{{- /* Landing page for docs.data.altinn.no. Standalone skeleton (no sidebar): shares <head> and the
+      top bar with the doc pages, uses Designsystemet (static/css/designsystemet.css) for cards,
+      buttons and type, and static/css/landing.css for layout. Link groups come from data/landing.yaml. */ -}}
+<!DOCTYPE html>
+<html lang="{{ .Page.Language | default "nb" }}" class="js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="landing-page" data-url="{{ .RelPermalink }}">
+    {{ partial "topbar.html" . }}
+
+    <main id="content" class="landing">
+
+      <section class="landing-hero" aria-labelledby="landing-title">
+        <div class="landing-wrap">
+          <div class="landing-hero__text">
+          <p class="landing-hero__kicker">Teknisk dokumentasjon</p>
+          <h1 id="landing-title" class="ds-heading landing-hero__title" data-size="xl">Bygg på data.altinn.no</h1>
+          <p class="ds-paragraph landing-hero__lead" data-size="md">{{ .Site.Params.description }}</p>
+          <div class="landing-hero__cta">
+          <div class="landing-hero__actions">
+            <a class="ds-button" data-variant="secondary" href="{{ "/api/" | relURL }}">Kom i gang med API</a>
+            <a class="ds-button" data-variant="secondary" href="{{ "/api/steg-for-steg/" | relURL }}">Steg for steg</a>
+            <a class="ds-button" data-variant="secondary" href="{{ "/datasett/" | relURL }}">Se datasettene</a>
+          </div>
+          {{- if not .Site.Params.noSearch }}
+          <div class="landing-hero__search">
+            {{ partial "search.html" . }}
+          </div>
+          {{- end }}
+          </div>
+          </div>
+        {{- /* Band art: the data.altinn.no market icon (white, as the profile requires on dark
+              surfaces) with the design element beside it: the emblem's circle-and-square shape in
+              the profile's graphic colours, at the right edge and low on the surface. */ -}}
+        <svg class="landing-hero__art" viewBox="0 0 480 360" aria-hidden="true" focusable="false">
+          <defs>
+            <symbol id="de" viewBox="0 0 24.69 24.74">
+              <path d="M19.73,7.06H7.56a.5.5,0,0,0-.5.5V31.3a.5.5,0,0,0,.5.5H19.73a12.37,12.37,0,0,0,0-24.73m1.19,21a8.8,8.8,0,1,1,7.18-7.18,8.8,8.8,0,0,1-7.18,7.18" transform="translate(-7.06 -7.06)"/>
+            </symbol>
+          </defs>
+          <g class="landing-hero__icon" fill="#ffffff" fill-rule="evenodd" transform="translate(14 14) scale(4.4)">
+            <path d="M36.71,18.29l-1.42,1.42,3.3,3.29h-6.65c-.45-3.62-3.32-6.49-6.94-6.94v-4.19c1.73-.44,3-2.01,3-3.87,0-2.21-1.79-4-4-4s-4,1.79-4,4c0,1.86,1.27,3.43,3,3.87v4.19c-1.46.18-2.8.76-3.91,1.62l-3.65-3.65c.36-.59.56-1.29.56-2.03,0-2.21-1.79-4-4-4s-4,1.79-4,4,1.79,4,4,4c.74,0,1.43-.2,2.03-.55l3.65,3.64c-.86,1.11-1.44,2.45-1.62,3.91h-4.19c-.44-1.73-2.01-3-3.87-3-2.21,0-4,1.79-4,4s1.79,4,4,4c1.86,0,3.43-1.28,3.88-3h4.18c.18,1.46.76,2.79,1.62,3.9l-3.68,3.63c-1.54-.91-3.55-.7-4.87.62-1.56,1.56-1.56,4.09,0,5.65s4.09,1.56,5.66,0c1.31-1.31,1.52-3.32.62-4.85l3.68-3.63c1.11.86,2.45,1.44,3.91,1.62v4.21c-1.73.44-3,2.01-3,3.87,0,2.21,1.79,4,4,4s4-1.79,4-4c0-1.86-1.27-3.43-3-3.87v-6.15h-1c-3.31,0-6-2.69-6-6s2.69-6,6-6,5.99,2.68,6,5.99v1.01h8.59l-3.3,3.29,1.42,1.42,5.7-5.71-5.7-5.71ZM12,14c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.89,2-2,2ZM8,26c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2.01-.9,1.99-2,1.99ZM13.37,37.39c-.78.78-2.04.78-2.83,0-.78-.78-.78-2.05,0-2.83.79-.78,2.05-.78,2.83,0s.78,2.05,0,2.83ZM26,40.02c0,1.1-.9,2-2,2s-2-.9-2-2,.9-2,2-2,2,.9,2,2ZM22,8c0-1.1.9-2,2-2s2,.9,2,2-.9,2-2,2-2-.9-2-2Z"/>
+            <path d="M27.43,31.23c1.04-.5,1.96-1.21,2.7-2.09l-1.53-1.29c-.55.66-1.24,1.19-2.03,1.57l.86,1.81Z"/>
+          </g>
+          <use href="#de" x="240" y="0"   width="120" height="120" fill="#1e98f5"/>
+          <use href="#de" x="360" y="0"   width="120" height="120" fill="#e5aa20" transform="rotate(270 420 60)"/>
+          <use href="#de" x="240" y="120" width="120" height="120" fill="#ffffff" fill-opacity=".12" transform="rotate(180 300 180)"/>
+          <use href="#de" x="360" y="120" width="120" height="120" fill="#f45f63" transform="rotate(90 420 180)"/>
+          <use href="#de" x="120" y="240" width="120" height="120" fill="#1e98f5" transform="rotate(180 180 300)"/>
+          <use href="#de" x="240" y="240" width="120" height="120" fill="#ffffff" fill-opacity=".12" transform="rotate(90 300 300)"/>
+          <use href="#de" x="360" y="240" width="120" height="120" fill="#ffffff" fill-opacity=".12"/>
+        </svg>
+        </div>
+      </section>
+
+      <section class="landing-section" aria-labelledby="landing-groups-title">
+        <div class="landing-wrap">
+          <h2 id="landing-groups-title" class="ds-heading landing-section__title" data-size="md">Finn fram i dokumentasjonen</h2>
+          <div class="landing-cards">
+            {{- range .Site.Data.landing.groups }}
+            <article class="ds-card landing-card">
+              <div class="ds-card__block">
+                <span class="landing-card__icon" aria-hidden="true"><i class="fa {{ .icon }}"></i></span>
+                <h3 class="ds-heading" data-size="xs">{{ .title }}</h3>
+                <p class="ds-paragraph" data-size="sm">{{ .text }}</p>
+              </div>
+              <div class="ds-card__block">
+                <ul class="ds-list--unstyled landing-card__links">
+                  {{- range .links }}
+                    {{- $title := .title }}
+                    {{- with $.Site.GetPage .page }}
+                  <li><a class="ds-link" href="{{ .RelPermalink }}">{{ $title | default .LinkTitle }}</a></li>
+                    {{- else }}
+                      {{- warnf "landing.yaml: page %q not found" .page }}
+                    {{- end }}
+                  {{- end }}
+                </ul>
+              </div>
+            </article>
+            {{- end }}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section landing-about" aria-labelledby="landing-about-title">
+        <div class="landing-wrap landing-about__grid">
+          <div>
+            <h2 id="landing-about-title" class="ds-heading landing-section__title" data-size="md">Hva er data.altinn.no?</h2>
+            <div class="landing-prose">{{ .Content }}</div>
+          </div>
+          <div class="landing-about__aside">
+            <h3 class="ds-heading" data-size="2xs">Les mer</h3>
+            <ul class="ds-list--unstyled landing-card__links">
+              {{- with .Site.GetPage "/om" }}
+              <li><a class="ds-link" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{- end }}
+              <li><a class="ds-link" href="https://samarbeid.digdir.no/altinn/dataaltinnno/1929">data.altinn.no på Samarbeidsportalen</a></li>
+              <li><a class="ds-link" href="https://data.altinn.no">Portalen data.altinn.no</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section landing-contact" aria-labelledby="landing-contact-title">
+        <div class="landing-wrap">
+          <h2 id="landing-contact-title" class="ds-heading landing-section__title" data-size="md">Spør oss, eller bidra</h2>
+          <p class="ds-paragraph landing-section__intro" data-size="md">Dokumentasjonen er åpen kildekode. Fant du en feil, eller savner du noe? Opprett en sak, still spørsmål i Slack-kanalen vår, send en e-post, eller rett det selv.</p>
+          <div class="landing-contact__actions">
+            <a class="ds-button" data-variant="secondary" data-fullwidth href="https://github.com/data-altinn-no/docs/issues"><i class="fa fa-github" aria-hidden="true"></i> Opprett en sak på GitHub</a>
+            <a class="ds-button" data-variant="secondary" data-fullwidth href="https://join.slack.com/t/digdir-samarbeid/shared_invite/zt-2yp202pnk-PXnfUDQICM3PFDPXfehGiQ"><i class="fa fa-slack" aria-hidden="true"></i> #produkt-data-altinn-no</a>
+            <a class="ds-button" data-variant="secondary" data-fullwidth href="mailto:dan@altinn.no"><i class="fa fa-envelope-o" aria-hidden="true"></i> dan@altinn.no</a>
+            <a class="ds-button" data-variant="secondary" data-fullwidth href="https://github.com/data-altinn-no/docs/blob/master/CONTRIBUTING.md"><i class="fa fa-pencil" aria-hidden="true"></i> Bidra med endringer</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    {{- partial "footer-content.html" . }}
+    {{- partial "custom-footer.html" . }}
+  </body>
+</html>

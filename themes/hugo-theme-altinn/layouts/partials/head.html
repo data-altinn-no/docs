@@ -1,0 +1,33 @@
+{{- /* Everything inside <head>. Shared by header.html (doc pages) and the landing page (layouts/index.html). */ -}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial "meta.html" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
+    <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+    <link href="{{ printf "%s?v=%d" ("css/font-awesome.min.css" | relURL) now.Unix }}" rel="stylesheet">
+    <link href="{{ printf "%s?v=%d" ("css/hybrid.css" | relURL) now.Unix }}" rel="stylesheet">
+    <link href="{{ printf "%s?v=%d" ("css/fortawesome.css" | relURL) now.Unix }}" rel="stylesheet">
+    <link href="{{ printf "%s?v=%d" ("css/designsystem.css" | relURL) now.Unix }}" rel="stylesheet">
+    <link href="{{ printf "%s?v=%d" ("css/evidencecodes.css" | relURL) now.Unix }}" rel="stylesheet">
+    {{with .Site.Params.themeStyle}}
+    <link href="{{ printf "%s?v=%d" ((printf "css/%s.css" .) | relURL) now.Unix }}" rel="stylesheet">
+    {{else}}
+    <link href="{{ printf "%s?v=%d" ("css/theme.css" | relURL) now.Unix }}" rel="stylesheet">
+    {{end}}
+    {{with .Site.Params.themeVariant}}
+      <link href="{{ printf "%s?v=%d" ((printf "css/theme-%s.css" .) | relURL) now.Unix }}" rel="stylesheet">
+    {{end}}
+    
+    <script src="{{"js/jquery-3.7.1.min.js" | relURL}}"></script>
+
+    {{ partial "custom-head.html" . }}
+
+    <style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+

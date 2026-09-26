@@ -1,3 +1,7 @@
 <!-- Partial intended to be overwritten to add CSS -->
-<link href="{{"css/altinndigital.css" | relURL}}" rel="stylesheet"> 
-<link href="{{"css/custom.css" | relURL}}" rel="stylesheet">
+<link href="{{ printf "%s?v=%d" ("css/altinndigital.css" | relURL) now.Unix }}" rel="stylesheet"> 
+<link href="{{ printf "%s?v=%d" ("css/custom.css" | relURL) now.Unix }}" rel="stylesheet">
+{{- if .IsHome }}
+<link href="{{ printf "%s?v=%d" ("css/designsystemet.css" | relURL) now.Unix }}" rel="stylesheet">
+<link href="{{ printf "%s?v=%d" ("css/landing.css" | relURL) now.Unix }}" rel="stylesheet">
+{{- end }}
