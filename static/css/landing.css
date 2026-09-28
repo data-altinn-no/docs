@@ -223,3 +223,11 @@ body.landing-page .footer { margin-top: 0; }
   .landing-section { padding: 4rem 0; }
   .landing-hero__art { opacity: .25; }
 }
+
+/* High-contrast mode (Windows "forced colors"): Designsystemet 1.23.0 opts its button out of forced
+   colours (forced-color-adjust: none) but ships no system-colour mapping, so the band buttons would
+   keep white text on a canvas the browser has already forced to the system background. Hand the
+   buttons back to the browser: links get LinkText, borders CanvasText. */
+@media (forced-colors: active) {
+  .landing .ds-button { forced-color-adjust: auto; }
+}
