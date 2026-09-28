@@ -127,7 +127,7 @@ body.landing-page .footer { margin-top: 0; }
 .landing-hero__art {
   position: absolute;
   right: 3.6rem; /* = the container's side padding: the art's right edge lines up with the content below */
-  bottom: -8.8rem; /* hangs off the band's bottom edge (the band's padding is 6.4rem) */
+  bottom: -6.4rem; /* the art's bottom edge is the band's bottom edge (the band's padding is 6.4rem), so the blocks stand on it */
   width: 40%;
   max-width: 480px;
   height: auto;
