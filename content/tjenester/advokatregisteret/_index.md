@@ -6,8 +6,13 @@ weight: 30
 
 
 
-Digdir er distributør av Advokatregisteret på vegne av Advokattilsynet, hvor Data.altinn.no benyttes som teknisk løsning.  
-Tilgang til advokatregisteret må godkjennes av Advokattilsynet (post@tilsynet.no) før vi kan tildele scope i maskinporten. 
+Digdir er distributør av Advokatregisteret på vegne av Advokattilsynet, hvor data.altinn.no benyttes som teknisk løsning.
+
+## Tilgang
+
+Tilgang til Advokatregisteret må godkjennes av Advokattilsynet ([post@tilsynet.no](mailto:post@tilsynet.no)) før vi kan tildele scope i Maskinporten. Hvert oppslag har sitt eget scope, `altinn:dataaltinnno/advreg…`; det står på datasettet i oversikten nederst på siden.
+
+{{< maskinporten-tilgang scope="altinn:dataaltinnno/advreg…" produkt="Advokatregisteret" tildeling="Når Advokattilsynet har godkjent tilgangen, send organisasjonsnummer, miljø og hvilke oppslag dere skal bruke til [dan@altinn.no](mailto:dan@altinn.no). Vi tildeler scopene til virksomheten i Maskinporten; deretter legger du dem på integrasjonen din." >}}
 
 ## Informasjon om personvern ved tilkobling til API for Advokattilsynets register
 

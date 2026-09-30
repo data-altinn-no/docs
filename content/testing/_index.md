@@ -18,7 +18,9 @@ Miljøet benytter Maskinportens testmiljø for autentisering og [Altinn TT02](ht
 
 ### REST-API
 
-For REST-API-et benyttes et eget endepunkt, og autentisering skjer med token fra Maskinportens testmiljø.
+For REST-API-et benyttes et eget endepunkt, og autentisering skjer med token fra Maskinportens testmiljø (test.maskinporten.no).
+
+En testintegrasjon er raskere å skaffe enn en i produksjon: rettigheten «Selvbetjening for testing» i Altinn er nok, og et eget nøkkelpar erstatter virksomhetssertifikat. Scopet må tildeles i testmiljøet for seg; be om test og produksjon samtidig, så slipper du å vente to ganger. Stegene står i [Slik får du Maskinporten-tilgang](/api/#slik-får-du-maskinporten-tilgang).
 
 * [Teknisk beskrivelse av test-API-et](https://test.data.altinn.no/apis)
 * [Les mer om bruk av REST-API-et](/api/)

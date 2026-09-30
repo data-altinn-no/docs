@@ -12,12 +12,11 @@ Under arbeid!
 
 Tilda er tilgjengelig i to miljøer - test.data.altinn.no og data.altinn.no. Man må be om API-nøkkel for produktet "Tilsynsdata" begge steder.
 
-For å kunne bruke data.altinn.no med maskinporten må man få tildelt scope (test.maskinporten.no for test) - altinn:dataaltinnno/tilda
-Dette vil bli tildelt alle konsumenter, som selv må inn og provisjonere klienter med tilgang til scopet.
+Kallene autentiseres med et token fra Maskinporten med scopet `altinn:dataaltinnno/tilda` (i testmiljøet fra test.maskinporten.no).
 
- [Se her for mer informasjon om maskinporten](https://docs.digdir.no/maskinporten_guide_apikonsument.html)
+{{< maskinporten-tilgang scope="altinn:dataaltinnno/tilda" produkt="Tilsynsdata" tildeling="Scopet tildeles alle Tilda-konsumenter i både test og produksjon. Du legger det på integrasjonen din selv; mangler det for din virksomhet, ta kontakt på [dan@altinn.no](mailto:dan@altinn.no)." >}}
 
- For mer informasjon om API-ene i data.altinn.no, se [her.](/api/)
+For mer informasjon om API-ene i data.altinn.no, se [Kom i gang med API](/api/).
 
 Alle kall til data.altinn.no må ha følgende headere:
 

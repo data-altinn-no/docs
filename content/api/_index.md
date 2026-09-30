@@ -21,7 +21,7 @@ For å ta bruk data.altinn.no må du:
 
 1. [Identifisere hvilke datasett du ønsker å bruke](/datasett/), og dermed hvilken tjeneste som er aktuell for deg.
 2. Registrere deg på [utviklerportalen](https://data.altinn.no) (du kan også velge [preproduksjonsmiljøet](https://test.data.altinn.no) hvor du kan bruke [syntetiske data](/testing/)) og få tildelt en API-nøkkel ("subscription key").
-3. [Ta i bruk Maskinporten](/api/#autentisering-og-autorisasjon) slik at du kan autentisere deg for tjenesten. For tilgang i produksjon til eventuelle scopes som kreves for tjenesten du ønsker å benytte må du [kontakte oss](mailto:dan@altinn.no).
+3. [Skaffe Maskinporten-tilgang](/api/#autentisering-og-autorisasjon): en integrasjon i Maskinporten og scopet for tjenesten du skal bruke. Scopet tildeler vi; be om det for test og produksjon hver for seg.
 4. Se [listen over datasett](/datasett/) og ta utgangspunkt i eksemplene for å lage din integrasjon. Hvis du benytter .NET 8 eller nyere anbefaler vi bruk av [DAN SDK](https://github.com/data-altinn-no/altinn-apiclient-dan)
 
 ## Protokoll og formater
@@ -56,11 +56,17 @@ Feil- og statuskoder som beskrevet i metadata-API-et vil ikke kunne endres eller
 
 ## Autentisering og autorisasjon
 
-For å autentisere seg mot api-et kreves bruk av maskinporten. Data.altinn.no-scopes er prefikset med altinn:dataaltinnno/ eller bare dan:.
+API-et autentiserer deg med et token fra [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96). Hver tjeneste har sitt eget scope; scopene til data.altinn.no starter med `altinn:dataaltinnno/` (noen med `dan:`), og hvilket scope et datasett krever står på datasettet i [datasettoversikten](/datasett/). Tokenet må være utstedt til den virksomheten som spør (`requestor`).
 
-Autorisasjon foregår gjennom registrering av en konto og bruk av API-nøkler (subscription key) for den eller de tjenestene som skal benyttes. Dette gjøres i [utviklerportalen](https://data.altinn.no/).
+Autorisasjon til selve API-et skjer med en API-nøkkel (subscription key) for den eller de tjenestene du skal bruke. Den ber du om i [utviklerportalen](https://data.altinn.no/) etter å ha registrert deg.
 
-* [Ta i bruk Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97)
+### Slik får du Maskinporten-tilgang
+
+Du trenger ikke virksomhetssertifikat, og for testmiljøet holder det med den enkleste rettigheten i Altinn. Stegene er de samme for alle tjenestene på data.altinn.no; bare scopet varierer.
+
+{{< maskinporten-tilgang scope="altinn:dataaltinnno/<tjeneste>" >}}
+
+Flere måter å integrere mot Maskinporten på, inkludert delegering til en leverandør, er beskrevet på [Ta i bruk Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97).
 
 ## Miljøer og base-URL-er
 
