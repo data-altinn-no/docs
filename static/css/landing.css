@@ -127,7 +127,7 @@ body.landing-page .footer { margin-top: 0; }
 .landing-hero__art {
   position: absolute;
   right: 3.6rem; /* = the container's side padding: the art's right edge lines up with the content below */
-  bottom: -6.4rem; /* the art's bottom edge is the band's bottom edge (the band's padding is 6.4rem), so the blocks stand on it */
+  bottom: -3.2rem; /* 32px above the band's bottom edge (the band's padding is 6.4rem) */
   width: 40%;
   max-width: 480px;
   height: auto;
@@ -138,7 +138,7 @@ body.landing-page .footer { margin-top: 0; }
    block so the icon clears the buttons. Placed after the base rules above so it wins. */
 @media (min-width: 901px) and (max-width: 1150px) {
   .landing-hero__text { max-width: 64%; }
-  .landing-hero__art { width: 34%; }
+  .landing-hero__art { width: 32%; }
 }
 
 /* Sections */
@@ -211,9 +211,8 @@ body.landing-page .footer { margin-top: 0; }
 .landing-contact .ds-button .fa { font-size: 1.1em; }
 
 @media (max-width: 900px) {
-  /* Narrow: the text spans the band, so only the faint tiles stay, low right, behind it. */
-  .landing-hero__art { width: 60%; right: -22%; bottom: -10rem; opacity: .35; }
-  .landing-hero__icon { display: none; }
+  /* Narrow: the text spans the band, so the art goes. */
+  .landing-hero__art { display: none; }
   .landing-about__grid { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
 }
 
@@ -221,7 +220,6 @@ body.landing-page .footer { margin-top: 0; }
   .landing-wrap { padding: 0 20px; }
   .landing-hero { padding: 3.2rem 0 4.8rem; }
   .landing-section { padding: 4rem 0; }
-  .landing-hero__art { opacity: .25; }
 }
 
 /* High-contrast mode (Windows "forced colors"): Designsystemet 1.23.0 opts its button out of forced
