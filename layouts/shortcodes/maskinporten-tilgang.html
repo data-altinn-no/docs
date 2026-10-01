@@ -1,0 +1,19 @@
+{{- /* Slik får du Maskinporten-tilgang til data.altinn.no: one maintained explanation of the
+      consumer path, used by Kom i gang, Testing and the service pages. Call with {{< >}}.
+      Params (named): scope (required; one or more scopes, comma-separated), produkt (the API
+      product in the developer portal, optional), tildeling (optional text that replaces the
+      default "ask us for the scope" step, for services where scopes are pre-assigned or need an
+      external approval first).
+      Digdir piloted a shortcut, "Forenklet onboarding" (onboarding.maskinporten.no), that created
+      the integration and generated the key pair in one go, but never handled scope access. It has
+      been offline (503) since at least 2026-09-30 and its repository is gone. If it comes back,
+      mention it in step 3 as an alternative to Samarbeidsportalen. */ -}}
+{{- $scopes := split (.Get "scope") "," -}}
+{{- $produkt := .Get "produkt" -}}
+<ol class="mp-steps">
+  <li><strong>Bruker i Samarbeidsportalen.</strong> Registrer deg på <a href="https://samarbeid.digdir.no/">samarbeid.digdir.no</a> med jobb-e-posten din; du knyttes til virksomheten gjennom e-postdomenet. Virksomheten må ha signert Digdirs bruksvilkår (gjøres én gang, av en som kan forplikte virksomheten).</li>
+  <li><strong>Rettighet i Altinn.</strong> For å opprette og administrere integrasjoner trenger du rettigheten «Selvbetjening av klienter i ID-porten/Maskinporten» (test og produksjon) eller «Selvbetjening for testing» (kun test). Den delegeres av virksomhetens hovedadministrator i Altinn.</li>
+  <li><strong>Opprett integrasjonen.</strong> I Samarbeidsportalen: Virksomhetens tjenester → Administrasjon av tjenester → Integrasjoner → Ny integrasjon, av typen Maskinporten. Test og produksjon er adskilte miljøer; start i test. Du trenger ikke virksomhetssertifikat: et eget asymmetrisk nøkkelpar er nok (den offentlige nøkkelen legges inn som JWK). Har dere allerede virksomhetssertifikat, kan det brukes i stedet. Se <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html">Selvbetjening via Samarbeidsportalen</a>.</li>
+  <li><strong>Få tildelt scope.</strong> {{ with .Get "tildeling" }}{{ . | markdownify | safeHTML }}{{ else }}Send organisasjonsnummer, miljø (test eller produksjon) og scopet {{ range $i, $s := $scopes }}{{ if $i }} eller {{ end }}<code>{{ trim $s " " }}</code>{{ end }} til <a href="mailto:dan@altinn.no">dan@altinn.no</a>. Vi tildeler scopet til virksomheten i Maskinporten; deretter legger du det på integrasjonen din.{{ end }}</li>
+  <li><strong>Hent token og kall API-et.</strong> Signer et JWT-grant med nøkkelen og send det til Maskinportens token-endepunkt (<a href="https://test.maskinporten.no/.well-known/oauth-authorization-server">test</a>, <a href="https://maskinporten.no/.well-known/oauth-authorization-server">produksjon</a>). Bruk <code>access_token</code> som <code>Authorization: Bearer</code> sammen med API-nøkkelen{{ with $produkt }} for produktet {{ . }}{{ end }} (<code>Ocp-apim-subscription-key</code>) fra utviklerportalen i samme miljø: <a href="https://test.data.altinn.no/">test.data.altinn.no</a> for test, <a href="https://data.altinn.no/">data.altinn.no</a> for produksjon. Nøklene er ikke de samme i de to miljøene. Framgangsmåten steg for steg står i <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">Digdirs veiledning for API-konsumenter</a>.</li>
+</ol>

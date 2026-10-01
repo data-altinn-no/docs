@@ -22,11 +22,13 @@ BITS datadelingstjenester er tilgjengelig for Altinns tjenesteeiere som også be
 
 ## Hvordan ta tjenesten i bruk
 
+Du trenger en API-nøkkel for produktet «BITS kontrollinformasjon» (gjelder for samtlige datasett) fra utviklerportalen i det aktuelle miljøet, og en Maskinporten-integrasjon med scopet `altinn:dataaltinnno/kontrollinformasjon` for Kontrollinformasjon og KontrollinformasjonUtvidet, eller `altinn:dataaltinnno/utleggspant` for Utleggspant.
+
+{{< maskinporten-tilgang scope="altinn:dataaltinnno/kontrollinformasjon,altinn:dataaltinnno/utleggspant" produkt="BITS kontrollinformasjon" tildeling="Scopene er forhåndstildelt de aktuelle aktørene i både test og produksjon, for å sikre at bruken og konsumentgruppen er i henhold til gjeldende juridiske føringer for bruk av Altinn-løsninger. Du legger scopet på integrasjonen din; mangler det for din virksomhet, ta kontakt på [dan@altinn.no](mailto:dan@altinn.no)." >}}
+
 ### Hente test-endepunkter: 
 
-Opprett en bruker på test.data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). 
-
-Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i Maskinportens testmiljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre at bruken og konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Opprett en bruker på [test.data.altinn.no](https://test.data.altinn.no/) og be om tilgang til produktet «BITS kontrollinformasjon». Etter godkjenning får du API-nøkkelen som legges ved når du etterspør endepunktene.
 
 For å hente data må man gjøre en spørring mot test-api.data.altinn.no og det aktuelle datasettet. Beskrivelsen av selve datasettet finnes nederst på denne siden (hak av for vis testmiljø).
 
@@ -123,7 +125,7 @@ Dette vil gi en respons som ser ut som følger:
 ### Hente prod-endepunkter:
 
 #### Kontrollinformasjon
-Opprett en bruker på data.altinn.no og be om tilgang til produktet «BITS kontrollinformasjon» (gjelder for tilgang til samtlige datasett). Etter godkjenning vil man få en api-nøkkel som må legges ved når man etterspør endepunktene. I tillegg må man definere en klient i Maskinportens produksjonsmiljø som har tilgang på scopet altinn:dataaltinnno/kontrollinformasjon for Kontrollinformasjon og KontrollinformasjonUtvidet - altinn:dataaltinnno/utleggspant for Utleggspant. Scopene vil være forhåndstildelt til de aktuelle aktørene både i test og produksjon. Dette er for å sikre at bruken og konsumentgruppen er i henhold til nåværende juridiske føringer på bruk av Altinn-løsninger.
+Opprett en bruker på [data.altinn.no](https://data.altinn.no/) og be om tilgang til produktet «BITS kontrollinformasjon». Etter godkjenning får du API-nøkkelen som legges ved når du etterspør endepunktene. Maskinporten-integrasjonen må være opprettet i produksjonsmiljøet med samme scope som i test; se [Hvordan ta tjenesten i bruk](#hvordan-ta-tjenesten-i-bruk).
 
 For å hente data må man gjøre en spørring mot api.data.altinn.no og det datasettet man ønsker å hente. Beskrivelsene av datasettene finnes nederst på denne siden.
 

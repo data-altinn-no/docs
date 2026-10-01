@@ -21,7 +21,7 @@ Alle URL-er under er relative til `https://api.data.altinn.no/v1`. I testmiljøe
 
 ## Før du begynner
 
-* En API-nøkkel (subscription key) for produktet eBevis fra [utviklerportalen](https://data.altinn.no/), og en Maskinporten-klient med scopet `altinn:dataaltinnno/ebevis`. Se [Kom i gang med API](/api/).
+* En API-nøkkel (subscription key) for produktet eBevis fra [utviklerportalen](https://data.altinn.no/), og en Maskinporten-integrasjon med scopet `altinn:dataaltinnno/ebevis`. Har du ikke det, tar det fem steg; se [Slik får du Maskinporten-tilgang](/api/#slik-får-du-maskinporten-tilgang).
 * Alle kall har de samme to headerne:
 
 ```text
