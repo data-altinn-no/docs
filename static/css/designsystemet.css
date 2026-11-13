@@ -1,11 +1,21 @@
 /* Designsystemet (designsystemet.no), vendored for the landing page.
-   Theme: @digdir/designsystemet-theme@1.11.0 brand/digdir.css
+   Theme: "digdir" in designsystemet.config.json, built with @digdir/designsystemet@1.24.0
    Components: @digdir/designsystemet-css@1.24.0 dist/src/{base,heading,paragraph,link,list,button,card,divider,skip-link}.css
-   Do not edit by hand; change the version in package.json and run `npm run vendor`. */
+   Do not edit by hand; change the config or the versions in package.json and run `npm run vendor`. */
 @charset "UTF-8";
+@layer ds.theme.color-scheme, ds.theme.color, ds.theme.forced-colors;
 /*
-build: v1.8.0
-design-tokens: v1.8.0
+build: v1.24.0
+
+All designsystemet.no styles are in the "ds" layer. The @layer line is optional.
+Use it to put a CSS reset before "ds" and your own customizations after it.
+It must come before the first import.
+
+Import this file after @digdir/designsystemet-css, for example:
+
+@layer my-reset, ds, my-customizations;
+@import '@digdir/designsystemet-css';
+@import '<your-designsystemet-theme>.css';
 */
 
 @layer ds.theme.size-mode {
@@ -111,22 +121,6 @@ design-tokens: v1.8.0
   --ds-color-accent-base-active: #003d75;
   --ds-color-accent-base-contrast-subtle: #dbe9f5;
   --ds-color-accent-base-contrast-default: #ffffff;
-  --ds-color-neutral-background-default: #ffffff;
-  --ds-color-neutral-background-tinted: #f3f4f4;
-  --ds-color-neutral-surface-default: #ffffff;
-  --ds-color-neutral-surface-tinted: #e7e9ea;
-  --ds-color-neutral-surface-hover: #d8dadd;
-  --ds-color-neutral-surface-active: #c7cacf;
-  --ds-color-neutral-border-subtle: #b8bcc1;
-  --ds-color-neutral-border-default: #717a84;
-  --ds-color-neutral-border-strong: #545e6b;
-  --ds-color-neutral-text-subtle: #545e6b;
-  --ds-color-neutral-text-default: #1f2c3d;
-  --ds-color-neutral-base-default: #1E2B3C;
-  --ds-color-neutral-base-hover: #313d4d;
-  --ds-color-neutral-base-active: #444f5d;
-  --ds-color-neutral-base-contrast-subtle: #babec4;
-  --ds-color-neutral-base-contrast-default: #ffffff;
   --ds-color-brand1-background-default: #ffffff;
   --ds-color-brand1-background-tinted: #fef0f1;
   --ds-color-brand1-surface-default: #ffffff;
@@ -175,6 +169,22 @@ design-tokens: v1.8.0
   --ds-color-brand3-base-active: #81c5f9;
   --ds-color-brand3-base-contrast-subtle: #010507;
   --ds-color-brand3-base-contrast-default: #000000;
+  --ds-color-neutral-background-default: #ffffff;
+  --ds-color-neutral-background-tinted: #f3f4f4;
+  --ds-color-neutral-surface-default: #ffffff;
+  --ds-color-neutral-surface-tinted: #e7e9ea;
+  --ds-color-neutral-surface-hover: #d8dadd;
+  --ds-color-neutral-surface-active: #c7cacf;
+  --ds-color-neutral-border-subtle: #b8bcc1;
+  --ds-color-neutral-border-default: #717a84;
+  --ds-color-neutral-border-strong: #545e6b;
+  --ds-color-neutral-text-subtle: #545e6b;
+  --ds-color-neutral-text-default: #1f2c3d;
+  --ds-color-neutral-base-default: #1E2B3C;
+  --ds-color-neutral-base-hover: #313d4d;
+  --ds-color-neutral-base-active: #444f5d;
+  --ds-color-neutral-base-contrast-subtle: #babec4;
+  --ds-color-neutral-base-contrast-default: #ffffff;
   --ds-color-info-background-default: #ffffff;
   --ds-color-info-background-tinted: #edf5fa;
   --ds-color-info-surface-default: #ffffff;
@@ -241,7 +251,7 @@ design-tokens: v1.8.0
   --ds-color-danger-base-contrast-default: #ffffff;
   --ds-color-focus-inner: #ffffff;
   --ds-color-focus-outer: #1f2c3d;
-  --ds-link-color-visited: #663299;
+  --ds-link-color-visited: #663299; /** Deprecated: style .ds-link:visited instead. */
 
   color-scheme: light;
 }
@@ -264,22 +274,6 @@ design-tokens: v1.8.0
   --ds-color-accent-base-active: #003d75;
   --ds-color-accent-base-contrast-subtle: #dbe9f5;
   --ds-color-accent-base-contrast-default: #ffffff;
-  --ds-color-neutral-background-default: #ffffff;
-  --ds-color-neutral-background-tinted: #f3f4f4;
-  --ds-color-neutral-surface-default: #ffffff;
-  --ds-color-neutral-surface-tinted: #e7e9ea;
-  --ds-color-neutral-surface-hover: #d8dadd;
-  --ds-color-neutral-surface-active: #c7cacf;
-  --ds-color-neutral-border-subtle: #b8bcc1;
-  --ds-color-neutral-border-default: #717a84;
-  --ds-color-neutral-border-strong: #545e6b;
-  --ds-color-neutral-text-subtle: #545e6b;
-  --ds-color-neutral-text-default: #1f2c3d;
-  --ds-color-neutral-base-default: #1E2B3C;
-  --ds-color-neutral-base-hover: #313d4d;
-  --ds-color-neutral-base-active: #444f5d;
-  --ds-color-neutral-base-contrast-subtle: #babec4;
-  --ds-color-neutral-base-contrast-default: #ffffff;
   --ds-color-brand1-background-default: #ffffff;
   --ds-color-brand1-background-tinted: #fef0f1;
   --ds-color-brand1-surface-default: #ffffff;
@@ -328,6 +322,22 @@ design-tokens: v1.8.0
   --ds-color-brand3-base-active: #81c5f9;
   --ds-color-brand3-base-contrast-subtle: #010507;
   --ds-color-brand3-base-contrast-default: #000000;
+  --ds-color-neutral-background-default: #ffffff;
+  --ds-color-neutral-background-tinted: #f3f4f4;
+  --ds-color-neutral-surface-default: #ffffff;
+  --ds-color-neutral-surface-tinted: #e7e9ea;
+  --ds-color-neutral-surface-hover: #d8dadd;
+  --ds-color-neutral-surface-active: #c7cacf;
+  --ds-color-neutral-border-subtle: #b8bcc1;
+  --ds-color-neutral-border-default: #717a84;
+  --ds-color-neutral-border-strong: #545e6b;
+  --ds-color-neutral-text-subtle: #545e6b;
+  --ds-color-neutral-text-default: #1f2c3d;
+  --ds-color-neutral-base-default: #1E2B3C;
+  --ds-color-neutral-base-hover: #313d4d;
+  --ds-color-neutral-base-active: #444f5d;
+  --ds-color-neutral-base-contrast-subtle: #babec4;
+  --ds-color-neutral-base-contrast-default: #ffffff;
   --ds-color-info-background-default: #ffffff;
   --ds-color-info-background-tinted: #edf5fa;
   --ds-color-info-surface-default: #ffffff;
@@ -394,7 +404,7 @@ design-tokens: v1.8.0
   --ds-color-danger-base-contrast-default: #ffffff;
   --ds-color-focus-inner: #ffffff;
   --ds-color-focus-outer: #1f2c3d;
-  --ds-link-color-visited: #663299;
+  --ds-link-color-visited: #663299; /** Deprecated: style .ds-link:visited instead. */
 
   color-scheme: light;
 }
@@ -417,7 +427,7 @@ design-tokens: v1.8.0
   --ds-letter-spacing-7: 0.0025em;
   --ds-letter-spacing-8: 0.005em;
   --ds-letter-spacing-9: 0.015em;
-  --ds-font-family: IBM Plex Mono;
+  --ds-font-family: Inter;
   --ds-font-weight-medium: 500;
   --ds-font-weight-semibold: 600;
   --ds-font-weight-regular: 400;
@@ -582,22 +592,6 @@ design-tokens: v1.8.0
   --ds-color-accent-base-active: #92bce1;
   --ds-color-accent-base-contrast-subtle: #0d1924;
   --ds-color-accent-base-contrast-default: #000000;
-  --ds-color-neutral-background-default: #13181f;
-  --ds-color-neutral-background-tinted: #192029;
-  --ds-color-neutral-surface-default: #202834;
-  --ds-color-neutral-surface-tinted: #262e3a;
-  --ds-color-neutral-surface-hover: #2e3641;
-  --ds-color-neutral-surface-active: #3c444e;
-  --ds-color-neutral-border-subtle: #49515a;
-  --ds-color-neutral-border-default: #7c8289;
-  --ds-color-neutral-border-strong: #a4a8ad;
-  --ds-color-neutral-text-subtle: #a4a8ad;
-  --ds-color-neutral-text-default: #ebeced;
-  --ds-color-neutral-base-default: #a6acb2;
-  --ds-color-neutral-base-hover: #90979f;
-  --ds-color-neutral-base-active: #7a828c;
-  --ds-color-neutral-base-contrast-subtle: #1b1c1d;
-  --ds-color-neutral-base-contrast-default: #000000;
   --ds-color-brand1-background-default: #241313;
   --ds-color-brand1-background-tinted: #301919;
   --ds-color-brand1-surface-default: #3c2020;
@@ -646,6 +640,22 @@ design-tokens: v1.8.0
   --ds-color-brand3-base-active: #0b395d;
   --ds-color-brand3-base-contrast-subtle: #fbfcfd;
   --ds-color-brand3-base-contrast-default: #ffffff;
+  --ds-color-neutral-background-default: #13181f;
+  --ds-color-neutral-background-tinted: #192029;
+  --ds-color-neutral-surface-default: #202834;
+  --ds-color-neutral-surface-tinted: #262e3a;
+  --ds-color-neutral-surface-hover: #2e3641;
+  --ds-color-neutral-surface-active: #3c444e;
+  --ds-color-neutral-border-subtle: #49515a;
+  --ds-color-neutral-border-default: #7c8289;
+  --ds-color-neutral-border-strong: #a4a8ad;
+  --ds-color-neutral-text-subtle: #a4a8ad;
+  --ds-color-neutral-text-default: #ebeced;
+  --ds-color-neutral-base-default: #a6acb2;
+  --ds-color-neutral-base-hover: #90979f;
+  --ds-color-neutral-base-active: #7a828c;
+  --ds-color-neutral-base-contrast-subtle: #1b1c1d;
+  --ds-color-neutral-base-contrast-default: #000000;
   --ds-color-info-background-default: #0d1925;
   --ds-color-info-background-tinted: #112130;
   --ds-color-info-surface-default: #15293d;
@@ -712,7 +722,7 @@ design-tokens: v1.8.0
   --ds-color-danger-base-contrast-default: #000000;
   --ds-color-focus-inner: #13181f;
   --ds-color-focus-outer: #ebeced;
-  --ds-link-color-visited: #b49acd;
+  --ds-link-color-visited: #b49acd; /** Deprecated: style .ds-link:visited instead. */
 
   color-scheme: dark;
 }
@@ -735,22 +745,6 @@ design-tokens: v1.8.0
   --ds-color-accent-base-active: #92bce1;
   --ds-color-accent-base-contrast-subtle: #0d1924;
   --ds-color-accent-base-contrast-default: #000000;
-  --ds-color-neutral-background-default: #13181f;
-  --ds-color-neutral-background-tinted: #192029;
-  --ds-color-neutral-surface-default: #202834;
-  --ds-color-neutral-surface-tinted: #262e3a;
-  --ds-color-neutral-surface-hover: #2e3641;
-  --ds-color-neutral-surface-active: #3c444e;
-  --ds-color-neutral-border-subtle: #49515a;
-  --ds-color-neutral-border-default: #7c8289;
-  --ds-color-neutral-border-strong: #a4a8ad;
-  --ds-color-neutral-text-subtle: #a4a8ad;
-  --ds-color-neutral-text-default: #ebeced;
-  --ds-color-neutral-base-default: #a6acb2;
-  --ds-color-neutral-base-hover: #90979f;
-  --ds-color-neutral-base-active: #7a828c;
-  --ds-color-neutral-base-contrast-subtle: #1b1c1d;
-  --ds-color-neutral-base-contrast-default: #000000;
   --ds-color-brand1-background-default: #241313;
   --ds-color-brand1-background-tinted: #301919;
   --ds-color-brand1-surface-default: #3c2020;
@@ -799,6 +793,22 @@ design-tokens: v1.8.0
   --ds-color-brand3-base-active: #0b395d;
   --ds-color-brand3-base-contrast-subtle: #fbfcfd;
   --ds-color-brand3-base-contrast-default: #ffffff;
+  --ds-color-neutral-background-default: #13181f;
+  --ds-color-neutral-background-tinted: #192029;
+  --ds-color-neutral-surface-default: #202834;
+  --ds-color-neutral-surface-tinted: #262e3a;
+  --ds-color-neutral-surface-hover: #2e3641;
+  --ds-color-neutral-surface-active: #3c444e;
+  --ds-color-neutral-border-subtle: #49515a;
+  --ds-color-neutral-border-default: #7c8289;
+  --ds-color-neutral-border-strong: #a4a8ad;
+  --ds-color-neutral-text-subtle: #a4a8ad;
+  --ds-color-neutral-text-default: #ebeced;
+  --ds-color-neutral-base-default: #a6acb2;
+  --ds-color-neutral-base-hover: #90979f;
+  --ds-color-neutral-base-active: #7a828c;
+  --ds-color-neutral-base-contrast-subtle: #1b1c1d;
+  --ds-color-neutral-base-contrast-default: #000000;
   --ds-color-info-background-default: #0d1925;
   --ds-color-info-background-tinted: #112130;
   --ds-color-info-surface-default: #15293d;
@@ -865,7 +875,7 @@ design-tokens: v1.8.0
   --ds-color-danger-base-contrast-default: #000000;
   --ds-color-focus-inner: #13181f;
   --ds-color-focus-outer: #ebeced;
-  --ds-link-color-visited: #b49acd;
+  --ds-link-color-visited: #b49acd; /** Deprecated: style .ds-link:visited instead. */
 
   color-scheme: dark;
 }
@@ -1156,6 +1166,33 @@ design-tokens: v1.8.0
   --ds-color-base-contrast-default: var(--ds-color-warning-base-contrast-default);
 }
 
+}
+
+@layer ds.theme.forced-colors {
+  @media (forced-colors: active) {
+    :root,
+    [data-color],
+    [data-color-scheme] {
+      --ds-color-background-default: Canvas;
+    --ds-color-background-tinted: Canvas;
+    --ds-color-surface-default: Canvas;
+    --ds-color-surface-tinted: ButtonFace;
+    --ds-color-surface-hover: ButtonFace;
+    --ds-color-surface-active: ButtonFace;
+    --ds-color-border-subtle: ButtonBorder;
+    --ds-color-border-default: ButtonBorder;
+    --ds-color-border-strong: ButtonBorder;
+    --ds-color-text-subtle: CanvasText;
+    --ds-color-text-default: CanvasText;
+    --ds-color-base-default: Highlight;
+    --ds-color-base-hover: Highlight;
+    --ds-color-base-active: Highlight;
+    --ds-color-base-contrast-subtle: HighlightText;
+    --ds-color-base-contrast-default: HighlightText;
+    --ds-color-focus-inner: Canvas;
+    --ds-color-focus-outer: CanvasText;
+    }
+  }
 }
 
 /* --- base.css --- */

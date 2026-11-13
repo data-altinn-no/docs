@@ -4,11 +4,15 @@
 // package.json; after changing one, run `npm install` and `npm run vendor`, then commit the result.
 // `npm run vendor:check` exits with an error when the committed files do not match package.json.
 
+import { execFile } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { minify } from "terser";
+import { promisify } from "node:util";
+
+const run = promisify(execFile);
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const modules = path.join(root, "node_modules");
@@ -33,6 +37,17 @@ const copies = [
   ]),
 ];
 
+// Builds the theme CSS from designsystemet.config.json with the Designsystemet CLI.
+const themeName = "digdir";
+const themeDir = path.join(modules, ".cache", "designsystemet"); // the css output dir in the config
+
+async function buildTheme() {
+  const cliPkg = "@digdir/designsystemet";
+  const cli = path.join(modules, cliPkg, require(path.join(modules, cliPkg, "package.json")).bin.designsystemet);
+  await run(process.execPath, [cli, "--config", path.join(root, "designsystemet.config.json"), "--yes"], { cwd: root });
+  return readFile(path.join(themeDir, `${themeName}.css`));
+}
+
 // Designsystemet for the landing page: the Digdir theme plus only the components the page uses.
 const designsystemetComponents = [
   "base",
@@ -47,14 +62,14 @@ const designsystemetComponents = [
 ];
 
 async function designsystemet() {
-  const themePkg = "@digdir/designsystemet-theme";
+  const cliPkg = "@digdir/designsystemet";
   const cssPkg = "@digdir/designsystemet-css";
   const header =
     `/* Designsystemet (designsystemet.no), vendored for the landing page.\n` +
-    `   Theme: ${themePkg}@${version(themePkg)} brand/digdir.css\n` +
+    `   Theme: "${themeName}" in designsystemet.config.json, built with ${cliPkg}@${version(cliPkg)}\n` +
     `   Components: ${cssPkg}@${version(cssPkg)} dist/src/{${designsystemetComponents.join(",")}}.css\n` +
-    `   Do not edit by hand; change the version in package.json and run \`npm run vendor\`. */\n`;
-  const themeCss = await read(`${themePkg}/brand/digdir.css`);
+    `   Do not edit by hand; change the config or the versions in package.json and run \`npm run vendor\`. */\n`;
+  const themeCss = await buildTheme();
   const components = await Promise.all(
     designsystemetComponents.map(
       async (name) => `/* --- ${name}.css --- */\n${await read(`${cssPkg}/dist/src/${name}.css`)}`,

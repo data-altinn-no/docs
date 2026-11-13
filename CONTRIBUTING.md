@@ -30,6 +30,10 @@ need [Node.js](https://nodejs.org) when you change one of them; building the sit
 2. Run `npm install`, then `npm run vendor`.
 3. Check the site locally and commit `package.json`, `package-lock.json` and the changed files.
 
+The Designsystemet theme (colours, font, border radius) is defined in `designsystemet.config.json`, which can be
+made or changed in the [theme builder](https://theme.designsystemet.no/). `npm run vendor` builds the theme CSS
+from it and writes it to `static/css/designsystemet.css` together with the components the landing page uses.
+
 The deploy workflow runs `npm run vendor:check` and fails if the copies do not match `package.json`.
 
 ## Deploy
