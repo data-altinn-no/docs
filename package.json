@@ -16,7 +16,7 @@
     "clipboard": "2.0.11",
     "font-awesome": "4.7.0",
     "jquery": "3.7.1",
-    "json-schema-faker": "0.5.9",
+    "json-schema-faker": "0.6.4",
     "swagger-ui-dist": "5.34.1",
     "terser": "5.51.2"
   },
