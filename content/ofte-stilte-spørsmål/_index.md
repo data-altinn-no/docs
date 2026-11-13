@@ -27,7 +27,7 @@ Nei. En Maskinporten-integrasjon kan bruke et eget asymmetrisk nøkkelpar som du
 
 ## Hvordan tar jeg kontakt?
 
-Raskest er Slack: bli med i [Digdirs Slack for samarbeidspartnere](https://join.slack.com/t/digdir-samarbeid/shared_invite/zt-2yp202pnk-PXnfUDQICM3PFDPXfehGiQ) og still spørsmålet i kanalen **#produkt-data-altinn-no**. Der finnes det en kanal for hvert produkt Digdir leverer, og invitasjonslenken utløper ikke. Du kan også sende e-post til [dan@altinn.no](mailto:dan@altinn.no). Gjelder det en feil eller et forslag til denne dokumentasjonen, kan du også [opprette en sak på GitHub](https://github.com/data-altinn-no/docs/issues) eller endre sidene direkte; se [hvordan bidra](https://github.com/data-altinn-no/docs/blob/master/CONTRIBUTING.md).
+Send e-post til [dan@altinn.no](mailto:dan@altinn.no). Vi har også kanalen **#produkt-data-altinn-no** i Digdirs Slack for samarbeidspartnere; ta kontakt på e-post om du har lyst til å bli med der. Gjelder det en feil eller et forslag til denne dokumentasjonen, kan du også [opprette en sak på GitHub](https://github.com/data-altinn-no/docs/issues) eller endre sidene direkte; se [hvordan bidra](https://github.com/data-altinn-no/docs/blob/master/CONTRIBUTING.md).
 
 ## Hvor finner jeg …?
 
