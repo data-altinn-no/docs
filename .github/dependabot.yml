@@ -9,3 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+  # Front-end libraries copied into static/ by `npm run vendor`. A version bump also needs the
+  # copied files regenerated; the "Check vendored libraries" step in the deploy workflow fails until then.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"

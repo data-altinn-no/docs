@@ -161,8 +161,8 @@ body.landing-page .footer { margin-top: 0; }
 }
 
 /* The old design-system stylesheet underlines every link with a border; Designsystemet links
-   use text-decoration, so drop the border here. */
-.landing a { border-bottom: 0; }
+   use text-decoration, so drop the border here. Buttons keep theirs: it is their outline. */
+.landing a:not(.ds-button) { border-bottom: 0; }
 
 .landing-card__icon {
   display: inline-flex;

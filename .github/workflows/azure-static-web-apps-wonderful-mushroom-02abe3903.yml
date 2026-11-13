@@ -18,7 +18,7 @@ env:
   # Hugo is built here on the GitHub runner rather than by Oryx inside the
   # Static Web Apps action: Oryx's build image ships an old glibc that cannot
   # run Hugo binaries from 0.150 onwards.
-  HUGO_VERSION: 0.166.0
+  HUGO_VERSION: 0.169.0
 
 jobs:
   build_and_deploy_job:
@@ -42,6 +42,13 @@ jobs:
           mkdir -p hugo-bin
           tar -xzf "${tarball}" -C hugo-bin hugo
           echo "${RUNNER_TEMP}/hugo-bin" >> "${GITHUB_PATH}"
+
+      - name: Check vendored libraries
+        # The libraries in static/ are copied from npm by scripts/vendor.mjs and committed.
+        # Fails when package.json was changed without running `npm run vendor`.
+        run: |
+          npm ci --no-audit --no-fund
+          npm run vendor:check
 
       - name: Build site
         run: |

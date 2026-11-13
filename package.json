@@ -1,0 +1,20 @@
+{
+  "name": "data-altinn-no-docs",
+  "private": true,
+  "description": "Front-end libraries that are copied into static/ for the Hugo site. Run `npm run vendor` after changing a version.",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "vendor:check": "node scripts/vendor.mjs --check"
+  },
+  "devDependencies": {
+    "@digdir/designsystemet": "1.24.0",
+    "@digdir/designsystemet-css": "1.24.0",
+    "@highlightjs/cdn-assets": "11.12.0",
+    "clipboard": "2.0.11",
+    "font-awesome": "4.7.0",
+    "jquery": "3.7.1",
+    "json-schema-faker": "0.5.9",
+    "swagger-ui-dist": "5.34.1",
+    "terser": "5.51.2"
+  }
+}
