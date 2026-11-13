@@ -24,7 +24,7 @@ git clone https://github.com/data-altinn-no/docs
 
 Swagger UI, highlight.js, clipboard.js, jQuery, Font Awesome, json-schema-faker and the Designsystemet CSS are
 copied from npm into `static/` and `themes/hugo-theme-altinn/static/`, and the copies are committed. You only
-need [Node.js](https://nodejs.org) when you change one of them; building the site needs Hugo alone.
+need [Node.js](https://nodejs.org) 22.13 or newer (the current LTS, 24, is a good choice) when you change one of them; building the site needs Hugo alone.
 
 1. Change the version in `package.json` (or check out a Dependabot pull request).
 2. Run `npm install`, then `npm run vendor`.

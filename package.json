@@ -2,6 +2,9 @@
   "name": "data-altinn-no-docs",
   "private": true,
   "description": "Front-end libraries that are copied into static/ for the Hugo site. Run `npm run vendor` after changing a version.",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "vendor": "node scripts/vendor.mjs",
     "vendor:check": "node scripts/vendor.mjs --check"
@@ -16,5 +19,8 @@
     "json-schema-faker": "0.5.9",
     "swagger-ui-dist": "5.34.1",
     "terser": "5.51.2"
+  },
+  "overrides": {
+    "glob": "14.0.6"
   }
 }
