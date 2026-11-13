@@ -12,13 +12,25 @@ We use YAML as front matter.
 git clone https://github.com/data-altinn-no/docs
 ```
 2. We recommend downloading and using [visual studio code](https://code.visualstudio.com) with [this extension](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) for editing markdown.
-3. [Download Hugo](https://github.com/gohugoio/hugo/releases) (version **[v0.166.0](https://github.com/gohugoio/hugo/releases/tag/v0.166.0)**, the same version as in the CI workflow) for your platform, and place it in the docs-folder.
+3. [Download Hugo](https://github.com/gohugoio/hugo/releases) (version **[v0.169.0](https://github.com/gohugoio/hugo/releases/tag/v0.169.0)**, the same version as in the CI workflow) for your platform, and place it in the docs-folder.
 
 ## Build / Edit / Test
 
 1. Open the docs repo-folder in visual studio code (or another editor)
 2. Run `hugo server --navigateToChanged` (or the "Hugo server" build task in VS Code, Ctrl-Shift-B). This generates the site, which you can open at http://localhost:1313/
 3. Edit and save a file in the `content`-folder to get a new local build of the site refreshed in your browser.
+
+## Updating front-end libraries
+
+Swagger UI, highlight.js, clipboard.js, jQuery, Font Awesome, json-schema-faker and the Designsystemet CSS are
+copied from npm into `static/` and `themes/hugo-theme-altinn/static/`, and the copies are committed. You only
+need [Node.js](https://nodejs.org) when you change one of them; building the site needs Hugo alone.
+
+1. Change the version in `package.json` (or check out a Dependabot pull request).
+2. Run `npm install`, then `npm run vendor`.
+3. Check the site locally and commit `package.json`, `package-lock.json` and the changed files.
+
+The deploy workflow runs `npm run vendor:check` and fails if the copies do not match `package.json`.
 
 ## Deploy
 Whenever changes are pushed to the docs-repository, an automatic deploy is updating https://docs.data.altinn.no
