@@ -12,7 +12,7 @@
     "@highlightjs/cdn-assets": "11.12.0",
     "clipboard": "2.0.11",
     "font-awesome": "4.7.0",
-    "jquery": "3.7.1",
+    "jquery": "4.0.0",
     "json-schema-faker": "0.5.9",
     "swagger-ui-dist": "5.34.1",
     "terser": "5.51.2"
