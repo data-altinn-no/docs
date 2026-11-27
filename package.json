@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@digdir/designsystemet": "1.24.0",
-    "@digdir/designsystemet-css": "1.24.0",
+    "@digdir/designsystemet-css": "1.24.1",
     "@highlightjs/cdn-assets": "11.12.0",
     "clipboard": "2.0.11",
     "font-awesome": "4.7.0",
