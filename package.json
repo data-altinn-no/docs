@@ -18,7 +18,7 @@
     "jquery": "3.7.1",
     "json-schema-faker": "0.5.9",
     "swagger-ui-dist": "5.34.1",
-    "terser": "5.51.2"
+    "terser": "5.51.4"
   },
   "overrides": {
     "glob": "14.0.6"
